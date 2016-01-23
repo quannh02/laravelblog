@@ -6,11 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
-use Hash;
-use App\User;
-use App\Http\Requests\EditUserRequest;
-class UserController extends Controller
+
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,10 +16,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = User::select('id', 'fullname', 'email')->get()->toArray();
-        return view('admin.user.list', compact('data'));
+        return view('user.pages.home');
     }
 
+    public function loaisanpham(){
+        return view('user.pages.cate');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -30,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.add');
+        //
     }
 
     /**
@@ -39,14 +38,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
-        $user = new User;
-        $user->fullname = $request->txtUser;
-        $user->email= $request->txtEmail;
-        $user->password = Hash::make($request->txtPass);
-        $user->save();      
-        return redirect()->route('user.index');
+        //
     }
 
     /**
@@ -68,8 +62,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $data = User::findOrFail($id);
-        return view('admin.user.edit', compact('data'));
+        //
     }
 
     /**
@@ -79,13 +72,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EditUserRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
-        $user->fullname = $request->txtUser;
-        $user->password = $request->txtPass;
-        $user->save();
-        return redirect()->route('user.index');
+        //
     }
 
     /**
@@ -96,8 +85,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
-        $user->delete();
-        return redirect()->route('user.index');
+        //
     }
 }

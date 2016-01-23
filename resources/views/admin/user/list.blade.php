@@ -65,7 +65,7 @@
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="id" value="{{ $item['id'] }}" >
-                                                        <button type="submit" class="btn btn-danger add-tooltip"  onclick="return xacnhanxoa('Bạn có muốn xóa không?');"data-toggle="tooltip" href="#" data-original-title="Delete" data-container="body"><i class="fa fa-times"></i></button>
+                                                        <button type="submit" class="btn btn-danger add-tooltip"  onclick="return xacnhanxoa('Bạn có muốn xóa không?');" data-toggle="tooltip" href="#" data-original-title="Delete" data-container="body"><i class="fa fa-times"></i></button>
                                                         </form>
                                                         </div>
                                                     </td>

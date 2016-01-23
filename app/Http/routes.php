@@ -40,3 +40,5 @@ Route::group(['middleware' => 'admin'], function()
 	Route::resource('user', 'UserController');
 });
 Route::get('tai-khoan/quen-mat-khau','Auth\PasswordController@lostPass');
+Route::get('test', ['as' => 'homeview', 'uses' => 'HomeController@index']);
+Route::get('loai-san-pham/{id}/{tenloai}', ['as' => 'loaisanpham', 'uses' => 'HomeController@loaisanpham']);

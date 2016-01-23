@@ -37,15 +37,7 @@
                                 <label>Email</label>
                                 <input type="email" class="form-control" name="txtEmail" placeholder="Please Enter Email" />
                             </div>
-                            <div class="form-group">
-                                <label>User Level</label>
-                                <label class="radio-inline">
-                                    <input name="rdoLevel" value="1" checked="" type="radio">Admin
-                                </label>
-                                <label class="radio-inline">
-                                    <input name="rdoLevel" value="2" type="radio">Member
-                                </label>
-                            </div>
+
                             <button type="submit" class="btn btn-default">User Add</button>
                             <button type="reset" class="btn btn-default">Reset</button>
                         <form>
