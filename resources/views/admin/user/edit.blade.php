@@ -8,9 +8,14 @@
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
                         <form action="{{ route('user.update') }}" method="POST">
+                            {!! csrf_field() !!}
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="txtEmail" placeholder="Please Enter Email" value="{{ $data->email }}" disabled/>
+                            </div>
                             <div class="form-group">
                                 <label>Username</label>
-                                <input class="form-control" name="txtUser" value="{{ $data->name }}" disabled />
+                                <input class="form-control" name="txtUser" value="{{ $data->fullname }}"/>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
@@ -19,10 +24,6 @@
                             <div class="form-group">
                                 <label>RePassword</label>
                                 <input type="password" class="form-control" name="txtRePass" placeholder="Please Enter RePassword" />
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" name="txtEmail" placeholder="Please Enter Email" />
                             </div>
                             <div class="form-group">
                                 <label>User Level</label>

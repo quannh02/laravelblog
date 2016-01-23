@@ -26,6 +26,7 @@ class UserRequest extends Request
         return [
             'txtUser' => 'required',
             'txtPass' => 'required',
+            'txtRePass' => 'required|same:txtPass',
             'txtEmail' => 'required|unique:users,email'
         ];
     }
@@ -34,6 +35,7 @@ class UserRequest extends Request
             'txtUser.required' => 'Vui lòng nhập tên.',
             'txtPass.required' => 'Vui lòng nhập password.',
             'txtEmail.required'=> 'Vui lòng nhập email',
+            'txtRePass.same' => 'Password chưa trùng nhau',
             'txtEmail.unique'  => 'Email đã được đăng ký.'
         ];
     }

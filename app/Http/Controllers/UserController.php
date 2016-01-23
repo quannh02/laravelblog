@@ -41,7 +41,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $user = new User;
-        $user->name = $request->txtUser;
+        $user->fullname = $request->txtUser;
         $user->email= $request->txtEmail;
         $user->password = Hash::make($request->txtPass);
         $user->save();      
