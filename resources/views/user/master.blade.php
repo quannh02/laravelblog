@@ -18,8 +18,35 @@
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
     <![endif]-->
     <!-- fav -->
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+        var url = "{!! url('test') !!}";
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                myFunction(xmlhttp.responseText);
+            }
+        }
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+        function myFunction(response){
+            var arr = JSON.parse(response);
+            var i;
+            var out = '<ul class="thumbnails">';
+            for(i = 0; i < arr.length; i++){
+                out += '<li class="span3"><a class="prdocutname" href="product.html">'
+                        + arr[i].name
+                + '</a><div class="thumbnail"> <span class="sale tooltip-test">Sale</span>'
+                + '<a href="#"><img alt="" src="{{ url('public/user/img/product1.jpg') }}"></a> <div class="pricetag"><span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a><div class="price"><div class="pricenew">'
+                + arr[i].price
+                +   '</div><div class="priceold">$5000.00</div></div></div></div></li>';
+            }
+            out += '</ul>';
+            document.getElementById("id01").innerHTML = out;
+        }
+    </script>
     <link rel="shortcut icon" href="{{ url('public/user/assets/ico/favicon.html') }}">
 </head>
 <body>
