@@ -5,6 +5,10 @@
 <section id="featured" class="row mt40">
     <div class="container">
         <h1 class="heading1"><span class="maintext">Featured Products</span><span class="subtext"> See Our Most featured Products</span></h1>
+        <div id="searcharea">
+            <label for="search">Live search</label>
+            <input type="search" name="search" id="search" placeholder ="name or info"/>
+        </div>
         <div id="id01"></div>
     </div>
 </section>

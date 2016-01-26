@@ -47,6 +47,7 @@
             document.getElementById("id01").innerHTML = out;
         }
     </script>
+
     <link rel="shortcut icon" href="{{ url('public/user/assets/ico/favicon.html') }}">
 </head>
 <body>
@@ -138,6 +139,9 @@
         ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{ url('public/user/js/jquery.js') }}"></script>
+    <script>
+
+    </script>
     <script src="{{ url('public/user/js/bootstrap.js') }}"></script>
     <script src="{{ url('public/user/js/respond.min.js') }}"></script>
     <script src="{{ url('public/user/js/application.js') }}"></script>
