@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use Hash;
 use App\User;
+//use App\Order;
+//use Carbon\Carbon;
 use App\Http\Requests\EditUserRequest;
 class UserController extends Controller
 {
@@ -20,6 +22,7 @@ class UserController extends Controller
     public function index()
     {
         $data = User::select('id', 'fullname', 'email')->get()->toArray();
+       // $orderCount = Order::count();
         return view('admin.user.list', compact('data'));
     }
 

@@ -72,7 +72,9 @@
                                                 </tr>
                                                 @endforeach
                                             </tbody>
+
                                         </table>
+                                        {{--<p>{{ $orderCount }}</p>--}}
                                     </div>
                                 </div>
                             </div>

@@ -14,39 +14,22 @@
     <link href="{{ url('public/user/css/flexslider.css') }}" type="text/css" media="screen" rel="stylesheet"  />
     <link href="{{ url('public/user/css/jquery.fancybox.css') }}" rel="stylesheet">
     <link href="{{ url('public/user/css/cloud-zoom.css') }}" rel="stylesheet">
-
+    <link href="{{ url('public/user/css/responsive.css') }}" rel="stylesheet">
+    {{--<link href="{{ url('public/user/css/price-range.css') }}" rel="stylesheet">--}}
+    {{--<link href="{{ url('public/user/css/main.css') }}" rel="stylesheet">--}}
+    <link href="{{ url('public/user/css/bootstrap-slider.css') }}" rel="stylesheet">
+    <style type="text/css">
+        #ex1Slider .slider-selection {
+            background: #BABABA;
+        }
+    </style>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 
     <![endif]-->
     <!-- fav -->
-    <script>
-        var xmlhttp = new XMLHttpRequest();
-        var url = "{!! url('test') !!}";
-        xmlhttp.onreadystatechange = function(){
-            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                myFunction(xmlhttp.responseText);
-            }
-        }
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
-        function myFunction(response){
-            var arr = JSON.parse(response);
-            var i;
-            var out = '<ul class="thumbnails">';
-            for(i = 0; i < arr.length; i++){
-                out += '<li class="span3"><a class="prdocutname" href="product.html">'
-                        + arr[i].name
-                + '</a><div class="thumbnail"> <span class="sale tooltip-test">Sale</span>'
-                + '<a href="#"><img alt="" src="{{ url('public/user/img/product1.jpg') }}"></a> <div class="pricetag"><span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a><div class="price"><div class="pricenew">'
-                + arr[i].price
-                +   '</div><div class="priceold">$5000.00</div></div></div></div></li>';
-            }
-            out += '</ul>';
-            document.getElementById("id01").innerHTML = out;
-        }
-    </script>
+
 
     <link rel="shortcut icon" href="{{ url('public/user/assets/ico/favicon.html') }}">
 </head>
@@ -55,20 +38,11 @@
 <header>
     @include('user.blocks.header')
     <div class="container">
-    @include('user.blocks.nav')
+        @include('user.blocks.nav')
     </div>
 </header>
+    @yield('nav')
 <!-- Header End -->
-
-<div id="maincontainer">
-    <!-- Slider Start-->
-    @include('user.blocks.slider')
-    <!-- Slider End-->
-
-    <!-- Section Start-->
-    @include('user.blocks.otherdetail')
-    <!-- Section End-->
-
     <!-- Featured Product-->
     @yield('content')
 
@@ -133,14 +107,41 @@
                 </div>
             </div>
         </section>
-        <a id="gotop" href="http://www.mafiashare.net">Back to top</a>
+        <div id="dvBackToTop" class="backtotop" style="display: block;">
+            <a><img src="{!! url('public/user/image/backtotop.png') !!}" alt="T_ON_TOP"></a>
+        </div>
     </footer>
     <!-- javascript
         ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{ url('public/user/js/jquery.js') }}"></script>
     <script>
-
+        function formatNumber(number){
+            number = number.toFixed(2) + '';
+            x = number.split('.');
+            x1 = x[0];
+            x2 = x.length > 1 ? '.' + x[1] : '';
+            var rgx = /(\d+)(\d{3})/;
+            while(rgx.test(x1)){
+                x1 = x1.replace(rgx, '$1' + ',' +  '$2');
+            }
+            return x1 + x2;
+        }
+    </script>
+    @yield("javascript")
+    <script type="text/javascript">
+        jQuery(document).ready(function()
+        {
+            jQuery('#dvBackToTop').hide();
+            jQuery(window).scroll(function(){
+                currentScrollTop = jQuery(window).scrollTop();
+                if(currentScrollTop>0)jQuery('#dvBackToTop').show();
+                else jQuery('#dvBackToTop').hide();
+            });
+            jQuery('#dvBackToTop').click(function () {
+                jQuery('html, body').animate({scrollTop:0}, 'slow');
+            });
+        });
     </script>
     <script src="{{ url('public/user/js/bootstrap.js') }}"></script>
     <script src="{{ url('public/user/js/respond.min.js') }}"></script>
@@ -156,6 +157,17 @@
     <script type="text/javascript"  src="{{ url('public/user/js/jquery.touchSwipe.min.js') }}"></script>
     <script type="text/javascript"  src="{{ url('public/user/js/jquery.ba-throttle-debounce.min.js') }}"></script>
     <script defer src="{{ url('public/user/js/custom.js') }}"></script>
+    <script src="{{ url('public/user/js/bootstrap-slider.js') }}"></script>
+    <script>
+        $('#ex1').slider({
+            formatter: function(value) {
+                return 'Current value: ' + value;
+            }
+        });
+    </script>
+    {{--<script src="{{ url('public/user/js/price-range.js') }}"></script>--}}
+    {{--<script src="{{ url('public/user/js/main.js') }}"></script>--}}
+
     </div>
 </body>
 </html>

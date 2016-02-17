@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
 
 class HomeController extends Controller
 {
@@ -16,7 +18,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.data');
+        $product_lastest = DB::table('product')->select('id', 'name', 'price')->orderBy('id', 'DESC')->skip(0)->take(4)->get();
+        return view('user.data', compact('product_lastest'));
     }
 
     public function loaisanpham(){
@@ -86,5 +89,14 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function muahang($id){
+        $product_buy = DB::table('product')->where('id', $id)->first();
+        Cart::add(array('id'=> $id, 'name' => $product_buy->name, 'qty'=> 1, 'price' => $product_buy->price));
+    }
+    public function giohang(){
+        $content = Cart::content();
+        $total = Cart::total();
+        return view('user.pages.shopping', compact('content', 'total'));
     }
 }
