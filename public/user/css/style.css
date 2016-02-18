@@ -701,4 +701,13 @@ left:70px
 .headerstrip #topnav {
 margin-bottom:0px
 }
+
  }
+.backtotop {
+ bottom: 10px;
+ cursor: pointer;
+ position: fixed;
+ right: 10px;
+ z-index: 10;
+}
+

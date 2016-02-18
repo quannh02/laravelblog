@@ -45,3 +45,9 @@ Route::get('loai-san-pham/{id}/{tenloai}', ['as' => 'loaisanpham', 'uses' => 'Ho
 Route::get('viewtest', function(){
 	return view('user.pages.home');
 });
+Route::get('user/{user}', function(App\User $user){
+	return view('admin.user.show')->with('user', $user);
+});
+
+Route::get('mua-hang/{id}/{tensanpham}', ['as' => 'muahang', 'uses' => 'HomeController@muahang']);
+Route::get('gio-hang', ['as' =>  'giohang', 'uses' => 'HomeController@giohang']);
