@@ -99,4 +99,16 @@ class HomeController extends Controller
         $total = Cart::total();
         return view('user.pages.shopping', compact('content', 'total'));
     }
+    public function xoahang($id){
+        Cart::remove($id);
+        return redirect()->route('giohang');
+    }
+    public function capnhat(){
+        if(Request::ajax()){
+            $id = Request::get('id');
+            $qty = Request::get('qty');
+            Cart::update($id, $qty);
+            echo "oke";
+        }
+    }
 }

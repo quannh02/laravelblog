@@ -51,3 +51,5 @@ Route::get('user/{user}', function(App\User $user){
 
 Route::get('mua-hang/{id}/{tensanpham}', ['as' => 'muahang', 'uses' => 'HomeController@muahang']);
 Route::get('gio-hang', ['as' =>  'giohang', 'uses' => 'HomeController@giohang']);
+Route::get('xoa-san-pham/{id}',  ['as' => 'xoasanpham', 'uses' => 'HomeController@xoahang']);
+Route::get('cap-nhat/{id}/{qty}', ['as'=> 'capnhat', 'uses' => 'HomeController@capnhat']);

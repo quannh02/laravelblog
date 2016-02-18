@@ -157,6 +157,7 @@
     <script type="text/javascript"  src="{{ url('public/user/js/jquery.touchSwipe.min.js') }}"></script>
     <script type="text/javascript"  src="{{ url('public/user/js/jquery.ba-throttle-debounce.min.js') }}"></script>
     <script defer src="{{ url('public/user/js/custom.js') }}"></script>
+    <script src="{{ url('public/user/js/myscript.js') }}"></script>
     <script src="{{ url('public/user/js/bootstrap-slider.js') }}"></script>
     <script>
         $('#ex1').slider({
