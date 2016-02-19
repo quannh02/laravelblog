@@ -4,8 +4,13 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
+    "hash": "dc904458760e69bd0678dfd413303842",
+    "content-hash": "9febf0575bdf5fbad1c042618f340aac",
+=======
     "hash": "b33eadb7f7c6eb90c7ae5ffbacd2efa5",
     "content-hash": "47fe5c9dd905c2d94b40d0f8dea2f988",
+>>>>>>> 1ff4a0a4353eb953afa4b5559ee5618f6c395c0c
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2109,7 +2114,7 @@
             ],
             "authors": [
                 {
-                    "name": "Pádraic Brady",
+                    "name": "Padraic Brady",
                     "email": "padraic.brady@gmail.com",
                     "homepage": "http://blog.astrumfutura.com"
                 },
