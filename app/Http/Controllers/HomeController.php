@@ -103,10 +103,10 @@ class HomeController extends Controller
         Cart::remove($id);
         return redirect()->route('giohang');
     }
-    public function capnhat(){
-        if(Request::ajax()){
-            $id = Request::get('id');
-            $qty = Request::get('qty');
+    public function capnhat(Request $request){
+        if($request->ajax()){
+            $id = $request->get('id');
+            $qty = $request->get('qty');
             Cart::update($id, $qty);
             echo "oke";
         }

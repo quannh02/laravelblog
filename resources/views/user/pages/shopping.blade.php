@@ -27,7 +27,7 @@
             <th class="total">Total</th>
            
           </tr>
-            <form>
+            <form method="POST" action="">
                 <input type="hidden" name="_token" value="{!! csrf_token() !!}"/>
           @foreach($content as $item)
           <tr>
