@@ -1,4 +1,4 @@
-@extends('auth.master')
+@extends('backend.auth.master')
 @section('content')
                     <form method="POST" action="{{ url('/auth/login') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>

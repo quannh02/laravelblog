@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('backend.master')
 @section('content')
     <h1 class="page-header">User
         <small>Profile</small>

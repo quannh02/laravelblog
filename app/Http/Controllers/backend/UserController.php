@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
 
 use Illuminate\Http\Request;
 
@@ -23,7 +23,7 @@ class UserController extends Controller
     {
         $data = User::select('id', 'fullname', 'email')->get()->toArray();
        // $orderCount = Order::count();
-        return view('admin.user.list', compact('data'));
+        return view('backend.user.list', compact('data'));
     }
 
     /**
@@ -33,7 +33,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.add');
+        return view('backend.user.add');
     }
 
     /**
@@ -72,7 +72,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $data = User::findOrFail($id);
-        return view('admin.user.edit', compact('data'));
+        return view('backend.user.edit', compact('data'));
     }
 
     /**

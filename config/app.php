@@ -136,6 +136,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Illuminate\Html\HtmlServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -144,6 +145,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+
     ],
 
     /*
@@ -192,6 +194,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
+        'Form'      => Illuminate\Html\FormFacade::class,
+        'View'      => Illuminate\Html\HtmlFacade::class,
     ],
 
 ];

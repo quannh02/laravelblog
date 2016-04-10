@@ -24,15 +24,18 @@ class LoginRequest extends Request
     public function rules()
     {
         return [
-            'email' => 'required',
-            'password' => 'required'
-        ];
+            'email' => 'required|unique:users',
+            'password' => 'required',
+            'fullname' =>'required'
+        ]; 
     }
 
     public function messages(){
         return [
             'email.required' => 'Vui lòng nhập email.',
-            'password.required' => 'Vui lòng nhập password.'
+            'email.unique'   => 'Email đã được đăng ký!',
+            'password.required' => 'Vui lòng nhập password.',
+            'fullname.required' => 'Vui lòng nhập username'
         ];
     }
 }

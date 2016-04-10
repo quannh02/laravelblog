@@ -20,13 +20,6 @@
 		vertical-align: baseline;
 	}
 
-	body {
-		font: 12px/2 "Helvetica Neue", Helvetica, Arial, sans-serif;
-	}
-
-	ul, ol {
-		list-style: none;
-	}
 
 	article, aside, figure, footer, header, hgroup, menu, nav, section {
 		display: block;

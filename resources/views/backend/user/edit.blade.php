@@ -1,8 +1,7 @@
-@extends('admin.master')
+@extends('backend.master')
 @section('content')
-
                         <h1 class="page-header">User
-                            <small>Add</small>
+                            <small>Edit</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -19,11 +18,17 @@
                         @if(Session::has('flash_message'))
                             <div class="alert alert-{{ Session::get('flash_level')}}">{{ Session::get('flash_message') }}</div>
                         @endif
-                        <form action="{{ route('user.store') }}" method="POST">
-                            {!! csrf_field() !!}
+                        <form action="{{ route('user.update', $data->id ) }}" method="POST">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                            <input type="hidden" name="_method" value="PUT">
+                            <input type="hidden" name="id" value="{{ $data->id }}" >
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="txtEmail" value="{{ $data->email }}" disabled/>
+                            </div>
                             <div class="form-group">
                                 <label>Username</label>
-                                <input class="form-control" name="txtUser" placeholder="Please Enter Username" />
+                                <input class="form-control" name="txtUser" value="{{ $data->fullname }}"/>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
@@ -33,14 +38,10 @@
                                 <label>RePassword</label>
                                 <input type="password" class="form-control" name="txtRePass" placeholder="Please Enter RePassword" />
                             </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" name="txtEmail" placeholder="Please Enter Email" />
-                            </div>
 
-                            <button type="submit" class="btn btn-default">User Add</button>
+                            <button type="submit" class="btn btn-default">User Edit</button>
                             <button type="reset" class="btn btn-default">Reset</button>
-                        <form>
+                        </form>
                     </div>
                 </div>
                 <!-- /.row -->
