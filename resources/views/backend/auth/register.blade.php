@@ -1,4 +1,5 @@
 @extends('backend.auth.master')
+@section('title', 'Trang đăng ký')
 @section('content')
     {!! Form::open(array('url' => 'auth/register')) !!}
         <fieldset>

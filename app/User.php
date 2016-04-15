@@ -35,12 +35,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public static $rules = array(
             'email' => 'required|unique:users',
             'password' => 'required',
-            'fullname' =>'required'
+            'name' =>'required'
         );
     public static $messages = array(
             'email.required' => 'Vui lòng nhập email.',
             'email.unique'   => 'Email đã được đăng ký!',
             'password.required' => 'Vui lòng nhập password.',
-            'fullname.required' => 'Vui lòng nhập username'
+            'name.required' => 'Vui lòng nhập name'
         );
 }

@@ -40,22 +40,12 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::post('user/{id}/destroy' , ['as' => 'user.destroy' , 'uses' => 'UserController@destroy']);
 		Route::post('user/update', ['as' => 'user.update',  'uses' => 'UserController@update']);
 		Route::post('user/create', ['as' => 'user.store', 'uses' => 'UserController@store']);
+		Route::get('upload', ['as' => 'upload.get', 'uses' => 'UserController@upload']);
+		Route::post('upload', ['as' => 'upload.post', 'uses' => 'UserController@postupload']);
 		// Route::resource('user', 'UserController');
 	});
 });
 //Route::resource('user', 'UserController');
-
-Route::get('tai-khoan/quen-mat-khau','Auth\PasswordController@lostPass');
-Route::get('test', ['as' => 'homeview', 'uses' => 'HomeController@index']);
-Route::get('loai-san-pham/{id}/{tenloai}', ['as' => 'loaisanpham', 'uses' => 'HomeController@loaisanpham']);
-Route::get('viewtest', function(){
-	return view('user.pages.home');
-});
 // Route::get('user/{user}', function(App\User $user){
 // 	return view('admin.user.show')->with('user', $user);
 // });
-
-Route::get('mua-hang/{id}/{tensanpham}', ['as' => 'muahang', 'uses' => 'HomeController@muahang']);
-Route::get('gio-hang', ['as' =>  'giohang', 'uses' => 'HomeController@giohang']);
-Route::get('xoa-san-pham/{id}',  ['as' => 'xoasanpham', 'uses' => 'HomeController@xoahang']);
-Route::get('cap-nhat/{id}/{qty}', ['as'=> 'capnhat', 'uses' => 'HomeController@capnhat']);

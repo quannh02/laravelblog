@@ -1,0 +1,13 @@
+[
+	{
+		"id" : "1",
+		"customer_id" : "1",
+		"user_id"     : "",
+		"car_id"	: "1",
+		"diemdon"   : "Hà Nội",
+		"diemden"   : "Thái Bình",
+		"yeucau"	: "Có nước uống",
+		"bookingDate" : "4/3/2014",
+		"returnDate"  : "8/3/2014"
+	}
+]

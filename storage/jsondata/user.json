@@ -1,0 +1,21 @@
+[
+  {
+    "id": "1",
+    "email": "admin@hotmail.com",
+    "password": "$2y$10$5dIuEeS1C4oKij41rYFBU.SXtaztO2XqHHvT/U3Mi9wB86znOcqY2",
+    "terms" : "1"
+  },
+  {
+    "id": "2",
+    "email": "admin@WinonaRyder.com",
+    "password": "$2y$10$5dIuEeS1C4oKij41rYFBU.SXtaztO2XqHHvT/U3Mi9wB86znOcqY2",
+    "terms" : "1"
+  },
+  {
+    "id": "3",
+    "email": "admin@emmawatson.com",
+    "password": "$2y$10$5dIuEeS1C4oKij41rYFBU.SXtaztO2XqHHvT/U3Mi9wB86znOcqY2",
+    "terms" : "1"
+  }
+]
+ 

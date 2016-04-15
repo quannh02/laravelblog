@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\User;
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -18,5 +18,16 @@ class UsersTableSeeder extends Seeder
     		'terms'   => 1,
     		]);
         //
+        // $json = File::get(storage_path().'/jsondata/users.json');
+        // $data = json_decode($json);
+        // foreach ($data as $obj) {
+        //   User::create(array(
+        //     'id' => $obj->id,
+        //     'fullname' => $obj->fullname,
+        //     'email' => $obj->email,
+        //     'terms' => $obj->terms,
+        //     'password' => $obj->password,
+        //   ));
+        // }
     }
 }

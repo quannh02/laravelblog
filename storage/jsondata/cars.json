@@ -1,0 +1,20 @@
+[
+	{
+		"id" : "1",
+		"car_type_id": "1",
+		"price_id" : "1",
+		"image" : "images/hinhanh1.jpg",
+		"registration_number" : "30A-23435",
+		"color" : "Trắng",
+		"NgaySX" : "3/3/2014"
+	},
+	{
+		"id" : "2",
+		"car_type_id": "2",
+		"price_id" : "2",
+		"image" : "images/hinhanh2.jpg",
+		"registration_number" : "30A-23279",
+		"color" : "Xanh Trắng",
+		"NgaySX" : "3/5/2014"
+	}
+]

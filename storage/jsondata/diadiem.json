@@ -1,0 +1,12 @@
+[
+	{
+		"id" : "1",
+		"name": "Hà Nội",
+		"parent_id" : "0"
+	},
+	{
+		"id" : "2",
+		"name": "Hà Đông",
+		"parent_id" : "0"
+	}
+]

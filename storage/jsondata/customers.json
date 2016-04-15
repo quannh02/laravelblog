@@ -1,0 +1,11 @@
+[
+	{
+		"id" :  "1",
+		"fullname" : "Nguyễn Hồng Quân",
+		"customer_type" : "1",
+		"address_id" : "1",
+		"soDienThoai" : "01677665526",
+		"tenCongTy" : "QuanBus",
+		"maSoThue"  : "143247943"
+	}
+]
