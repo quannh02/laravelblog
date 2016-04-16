@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Agency;
-class AgencyTableSeeder extends Seeder
+use App\Vote;
+class VoteTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,12 +11,14 @@ class AgencyTableSeeder extends Seeder
      */
     public function run()
     {
-        $json = File::get(storage_path().'/jsondata/agency.json');
+        $json = File::get(storage_path().'/jsondata/votes.json');
         $data = json_decode($json);
         foreach ($data as $obj) {
-          Agency::create(array(
+          Vote::create(array(
             'id' => $obj->id,
-            'name' => $obj->name,
+            'carId' => $obj->carId,
+            'votes' => $obj->votes,
+            'points' => $obj->points,
           ));
         }
     }

@@ -15,7 +15,7 @@
                                                 <tr>
                                                     <th style="width:4ex">ID</th>
                                                     <th>Name</th>
-                                                    <th>Balance</th>
+                                                    <th>Email</th>
                                                     <th class="text-right">Actions</th>
                                                 </tr>
                                             </thead>

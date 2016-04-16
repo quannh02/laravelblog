@@ -9,6 +9,9 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Http\Requests\LoginRequest;
 use Auth;
 use Input;
+use Hash;
+use Session;
+use App\CustomerAddress;
 class AuthController extends Controller
 {
     /*
@@ -48,6 +51,9 @@ class AuthController extends Controller
             $newUser->password = Hash::make(Input::get('password'));
             $newUser->remember_token = Input::get('_token');
             $newUser->save();
+            Session::flash('message', 'Đăng ký thành công!'); 
+            Session::flash('alert-class', 'alert-success'); 
+            return redirect()->route('backend.getLogin');
         }
     }
     public function getLogin(){
@@ -82,6 +88,26 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+    public function getProfile($id){
+        $data = User::findOrFail($id);
+        return view('backend.user.profile', compact('data'));
+    }
+    public function postProfile($id){
+        $data = User::findOrFail($id);
+        $data->fullname = Input::get('txtName');
+        $data->soDienThoai = Input::get('txtSoDienThoai');
+        $data->tenCongTy = Input::get('txtTenCongTy');
+        $data->maSoThue = Input::get('txtMaSoThue');
+        $data->customer_type = Input::get('customertype');
+        $address = new CustomerAddress([
+                'address' => Input::get('txtAddress')
+            ]);
+        // dd($data); die();
+        $data->save();
+        $data->customeraddress()->save($address);
+        return redirect()->route('backend.getProfile', $id);
+    }
     protected function validator(array $data)
     {
         return Validator::make($data, [

@@ -3,7 +3,7 @@
 @section('content')
     {!! Form::open(array('url' => 'auth/register')) !!}
         <fieldset>
-        <div class="form-group">Name
+        <div class="form-group">Tên đầy đủ
             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
         </div>
         <div class="form-group">Email

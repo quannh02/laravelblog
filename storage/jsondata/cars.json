@@ -1,6 +1,6 @@
 [
 	{
-		"id" : "1",
+		"id" : "5",
 		"car_type_id": "1",
 		"price_id" : "1",
 		"image" : "images/hinhanh1.jpg",
@@ -9,7 +9,7 @@
 		"NgaySX" : "3/3/2014"
 	},
 	{
-		"id" : "2",
+		"id" : "6",
 		"car_type_id": "2",
 		"price_id" : "2",
 		"image" : "images/hinhanh2.jpg",

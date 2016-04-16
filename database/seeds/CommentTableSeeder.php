@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Agency;
-class AgencyTableSeeder extends Seeder
+use App\Comment;
+class CommentTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,12 +11,13 @@ class AgencyTableSeeder extends Seeder
      */
     public function run()
     {
-        $json = File::get(storage_path().'/jsondata/agency.json');
+        $json = File::get(storage_path().'/jsondata/comments.json');
         $data = json_decode($json);
         foreach ($data as $obj) {
-          Agency::create(array(
+          Comment::create(array(
             'id' => $obj->id,
-            'name' => $obj->name,
+            'car_id' => $obj->car_id,
+            'body' => $obj->body,
           ));
         }
     }

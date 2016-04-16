@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Agency;
-class AgencyTableSeeder extends Seeder
+use App\TinTuc;
+class TinTucTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,12 +11,14 @@ class AgencyTableSeeder extends Seeder
      */
     public function run()
     {
-        $json = File::get(storage_path().'/jsondata/agency.json');
+        $json = File::get(storage_path().'/jsondata/tintuc.json');
         $data = json_decode($json);
         foreach ($data as $obj) {
-          Agency::create(array(
+          TinTuc::create(array(
             'id' => $obj->id,
-            'name' => $obj->name,
+            'title' => $obj->title,
+            'author' => $obj->author,
+            'body' => $obj->body,
           ));
         }
     }

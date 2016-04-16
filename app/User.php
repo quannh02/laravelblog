@@ -24,13 +24,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['fullname', 'email', 'password'];
-
+    protected $fillable = ['fullname', 'email','soDienThoai', 'tenCongTy', 'maSoThue', 'customer_type'];
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
+    public function customeraddress(){
+        return $this->hasOne('App\CustomerAddress');
+    }
     protected $hidden = ['password', 'remember_token'];
     public static $rules = array(
             'email' => 'required|unique:users',

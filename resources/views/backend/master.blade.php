@@ -11,127 +11,79 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('public/admin/css/bootstrap.min.css') }}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ url('public/admin/css/mystyle.css')}}">
-    <!-- MetisMenu CSS -->
-   <!--  <link href="{{ url('public/admin/css/metisMenu.min.css') }}" rel="stylesheet"/> -->
-
-    <!-- Custom CSS -->
-   <!--  <link href="{{ url('public/admin/css/sb-admin-2.css') }}" rel="stylesheet"/> -->
-
-    <!-- Custom Fonts -->
     <link href="{{ url('public/admin/css/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
-
-    <!-- DataTables CSS -->
-   <!--  <link href="{{ url('public/admin/css/dataTables.bootstrap.css') }}" rel="stylesheet"/> -->
-
-    <!-- DataTables Responsive CSS -->
-<!--     <link href="{{ url('public/admin/css/dataTables.responsive.css') }}" rel="stylesheet"/>
-    <link href="{{ url('public/admin/css/responsive.bootstrap.min.css') }}" rel="stylesheet"/>
-    <link href="{{ url('public/admin/css/nifty.min.css') }}" rel="stylesheet"/>
-    <link href="{{ url('public/admin/css/mystyle.css') }}" rel="stylesheet"/> -->
 </head>
 <body>
 <div class="container">
 <div id="wrapper">
     <div class="row">
-    <div class="col-xs-3">
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <a class="navbar-brand">Admin Area - Thuê xe</a>
-        </div>
-        <!-- /.navbar-header -->
-
-        
-        <!-- /.navbar-top-links -->
-
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                        </div>
-                        <!-- /input-group -->
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Category<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#"><i class="fa fa-angle-double-right"></i>List Category</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-angle-double-right"></i>Add Category</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#"><i class="fa fa-angle-double-right"></i>List Product</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-angle-double-right"></i>Add Product</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{ route('user.index') }}"><i class="fa fa-angle-double-right"></i>List User</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('user.create') }}"><i class="fa fa-angle-double-right"></i>Add User</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                </ul>
-            </div>
-            <!-- /.sidebar-collapse -->
-        </div>
-        <!-- /.navbar-static-side -->
-
-    </nav>
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Dashboard</a>
     </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o fa-fw"></i>Car Types<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">List CarType</a></li>
+            <li><a href="#">Add CarType</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cube fa-fw"></i>Cars<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">List Cars</a></li>
+            <li><a href="#">Add Car</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cube fa-fw"></i>Bookings<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">List Bookings</a></li>
+            <li><a href="#">Add Bookings</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-fw"></i>Member<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ route('user.index') }}">List User</a></li>
+            <li><a href="{{ route('user.create') }}">Add User</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="{{ url('user', Auth::user()->id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>{{ Auth::user()->fullname }}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+
+            <li><a href="{{ url('profile', Auth::user()->id) }}"><i class="fa fa-gear fa-fw"></i>Profile</a></li>
+            <li><a href="{!! route('logout')!!}"><i class="fa fa-sign-out fa-fw">Logout</i></a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
     
     <!-- Page Content -->
-    <div class="col-xs-9">
-    <div class="settingBt">
-
-    <ul class="nav navbar-top-links navbar-right">
-            <!-- /.dropdown -->
-            <h2>Tài khoản</h2>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="{{ url('user', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i>{{ Auth::user()->fullname }}</a>
-
-                    </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Profiles</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="{!! route('logout')!!}"><i class="fa fa-sign-out fa-fw">Logout</i></a>
-                    </li>
-                </ul>
-                <!-- /.dropdown-user -->
-            </li>
-            <!-- /.dropdown -->
-        </ul>
-        </div>
+    <div class="col-xs-12">
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">

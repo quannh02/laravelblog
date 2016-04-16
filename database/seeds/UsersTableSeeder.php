@@ -12,10 +12,10 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
     	DB::table('users')->insert([
-    		'fullname' => 'quan',
-    		'email' => 'quan123456@gmail.com',
+    		'fullname' => 'guest',
+    		'email' => 'guest@gmail.com',
     		'password' => bcrypt('123456'),
-    		'terms'   => 1,
+    		'terms'   => 0,
     		]);
         //
         // $json = File::get(storage_path().'/jsondata/users.json');

@@ -26,13 +26,18 @@ Route::get('/', function () {
 
 Route::group(['namespace' => 'backend'], function(){
 	Route::group(['prefix' => 'auth'], function () {
-		Route::get('login', ['as' => 'login', 'uses' => 'AuthController@getLogin']);
+		Route::get('login', ['as' => 'backend.getLogin', 'uses' => 'AuthController@getLogin']);
 		Route::post('login', 'AuthController@postLogin');
 		Route::get('register', ['as' => 'backend.getRegister', 'uses' => 'AuthController@getRegister']);
 		Route::post('register', 'AuthController@postRegister');
 		Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@getLogout']);
 		});
-	Route::get('dashboard', ['middleware' => 'auth','uses'	=> 'AuthController@dashboard']);
+	Route::group(['middleware'=> 'auth'],function(){
+		Route::get('dashboard', 'AuthController@dashboard');
+		Route::get('profile/{id}',['as' => 'backend.getProfile', 'uses' =>  'AuthController@getProfile']);
+		Route::post('profile/{id}', ['as' => 'backend.postProfile', 'uses' => 'AuthController@postProfile']);
+	});
+	
 	Route::group(['middleware' => ['admin', 'auth']], function(){
 		Route::get('user/list', ['as' => 'user.index', 'uses' => 'UserController@index']);
 		Route::get('user/{id}/edit', ['as' => 'user.edit', 'uses' => 'UserController@edit']);

@@ -2,7 +2,7 @@
 	{
 		"id" : "1",
 		"customer_id" : "1",
-		"user_id"     : "",
+		"user_id" 	: "2",
 		"car_id"	: "1",
 		"diemdon"   : "Hà Nội",
 		"diemden"   : "Thái Bình",

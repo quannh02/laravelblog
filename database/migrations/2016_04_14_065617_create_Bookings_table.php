@@ -23,8 +23,8 @@ class CreateBookingsTable extends Migration
             $table->string('diemdon');
             $table->string('diemden');
             $table->text('yeucau');
-            $table->time('bookingDate');
-            $table->time('returnDate');
+            $table->timestamp('bookingDate');
+            $table->timestamp('returnDate');
             $table->timestamps();
         });
     }
