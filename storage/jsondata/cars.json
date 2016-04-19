@@ -1,6 +1,6 @@
 [
 	{
-		"id" : "5",
+		"id" : "1",
 		"car_type_id": "1",
 		"price_id" : "1",
 		"image" : "images/hinhanh1.jpg",
@@ -9,12 +9,48 @@
 		"NgaySX" : "3/3/2014"
 	},
 	{
-		"id" : "6",
+		"id" : "2",
 		"car_type_id": "2",
 		"price_id" : "2",
 		"image" : "images/hinhanh2.jpg",
 		"registration_number" : "30A-23279",
 		"color" : "Xanh Trắng",
 		"NgaySX" : "3/5/2014"
+	},
+	{
+		"id" : "3",
+		"car_type_id": "1",
+		"price_id" : "3",
+		"image" : "images/hinhanh3.jpg",
+		"registration_number" : "30A-23223",
+		"color" : "Đen Trắng",
+		"NgaySX" : "7/6/2014"
+	},
+	{
+		"id" : "4",
+		"car_type_id": "1",
+		"price_id" : "4",
+		"image" : "images/hinhanh4.jpg",
+		"registration_number" : "30A-75664",
+		"color" : "Xanh Trắng",
+		"NgaySX" : "3/1/2013"
+	},
+	{
+		"id" : "5",
+		"car_type_id": "2",
+		"price_id" : "5",
+		"image" : "images/hinhanh5.jpg",
+		"registration_number" : "30A-53445",
+		"color" : "Xám Trắng",
+		"NgaySX" : "3/1/2016"
+	},
+	{
+		"id" : "6",
+		"car_type_id": "1",
+		"price_id" : "6",
+		"image" : "images/hinhanh6.jpg",
+		"registration_number" : "30A-23279",
+		"color" : "Xanh Trắng",
+		"NgaySX" : "3/5/2015"
 	}
 ]

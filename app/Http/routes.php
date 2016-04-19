@@ -33,9 +33,12 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@getLogout']);
 		});
 	Route::group(['middleware'=> 'auth'],function(){
-		Route::get('dashboard', 'AuthController@dashboard');
+		Route::get('dashboard', ['as' => 'admin.dashboard', 'uses' => 'AuthController@dashboard']);
 		Route::get('profile/{id}',['as' => 'backend.getProfile', 'uses' =>  'AuthController@getProfile']);
 		Route::post('profile/{id}', ['as' => 'backend.postProfile', 'uses' => 'AuthController@postProfile']);
+		Route::get('list/car', ['as' => 'listCarforRent', 'uses' => 'BookingController@getListCar']);
+		Route::post('list/car', 'BookingController@postListCar');
+		Route::get('datxe', 'BookingController@getDatXe');
 	});
 	
 	Route::group(['middleware' => ['admin', 'auth']], function(){

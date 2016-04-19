@@ -21,24 +21,26 @@
                         <form action="{{ url('profile', $data->id) }}" method="POST">
                             {!! csrf_field() !!}
                             <div class="form-group">
-                                <label>Tên đầy đủ</label>
-                                <input type="text" class="form-control" name="txtName" value="{{ $data->fullname }}" placeholder="Nhập họ tên" />
+                                <div class="col-xs-6">
+                                    <label>Tên đầy đủ</label>
+                                    <input type="text" class="form-control" name="txtName" value="{{ $data->fullname }}" placeholder="Nhập họ tên" />
+                                </div>
+                                <div class="col-xs-3">
+                                    <label>Số điện thoại</label>
+                                    <input type="text" class="form-control" name="txtSoDienThoai" value="{{ $data->soDienThoai }}" placeholder="Nhập số điện thoại" />
+                                </div>
+                                <div class="col-xs-3">
+                                    <label>Mã số thuế công ty</label>
+                                    <input type="text" class="form-control" name="txtMaSoThue" value="{{ $data->maSoThue }}" placeholder="Nhập mã số thuế" />
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Address</label>
                                 <input type="text" class="form-control" name="txtAddress" value="{{ $data->address_id }}" placeholder="Nhập địa chỉ" />
                             </div>
                             <div class="form-group">
-                                <label>Số điện thoại</label>
-                                <input type="text" class="form-control" name="txtSoDienThoai" value="{{ $data->soDienThoai }}" placeholder="Nhập số điện thoại" />
-                            </div>
-                            <div class="form-group">
                                 <label>Tên công ty:</label>
                                 <input type="text" class="form-control" name="txtTenCongTy" value="{{ $data->tenCongTy }}" placeholder="Nhập tên công ty" />
-                            </div>
-                            <div class="form-group">
-                                <label>Mã số thuế</label>
-                                <input type="text" class="form-control" name="txtMaSoThue" value="{{ $data->maSoThue }}" placeholder="Nhập mã số thuế" />
                             </div>
                             <div class="radio">
 		 						<label><input type="radio" value="0" name="customertype">Khách cá nhân</label>

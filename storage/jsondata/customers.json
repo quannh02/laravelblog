@@ -7,5 +7,41 @@
 		"soDienThoai" : "01677665526",
 		"tenCongTy" : "QuanBus",
 		"maSoThue"  : "143247943"
+	}, 
+	{
+		"id" : "2",
+		"fullname" : "Phạm Văn Đức",
+		"customer_type" : "1",
+		"address_id" : "2",
+		"soDienThoai" : "098999999",
+		"tenCongTy" : "Duc Noni",
+		"maSoThue" : "13432513"
+	},
+	{
+		"id" : "3",
+		"fullname" : "Bùi Nguyên Ba",
+		"customer_type" : "1",
+		"address_id" : "3",
+		"soDienThoai" : "098998888",
+		"tenCongTy" : "Ba Dep Trai",
+		"maSoThue" : "34235211"
+	},
+	{
+		"id" : "4",
+		"fullname" : "Lại Thị Nhạn",
+		"customer_type" : "1",
+		"address_id" : "4",
+		"soDienThoai" : "098997777",
+		"tenCongTy" : "Ba Dep Trai",
+		"maSoThue" : "342425211"
+	},
+	{
+		"id" : "5",
+		"fullname" : "Trần Thị Thanh",
+		"customer_type" : "1",
+		"address_id" : "5",
+		"soDienThoai" : "098966666",
+		"tenCongTy" : "Thanh Xinh Gai",
+		"maSoThue" : "347978789"
 	}
 ]

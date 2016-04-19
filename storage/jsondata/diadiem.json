@@ -8,5 +8,15 @@
 		"id" : "2",
 		"name": "Hà Đông",
 		"parent_id" : "0"
+	},
+	{
+		"id" : "3",
+		"name" : "Phú Thọ",
+		"parent_id" : "0"
+	},
+	{
+		"id" : "4",
+		"name" : "Thái Bình",
+		"parent_id" : "0"
 	}
 ]

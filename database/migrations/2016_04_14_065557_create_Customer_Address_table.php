@@ -14,8 +14,10 @@ class CreateCustomerAddressTable extends Migration
     {
         Schema::create('customer_address', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->string('address');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('customer_address');
         });
     }
 

@@ -60,17 +60,17 @@ class AuthController extends Controller
        return view('backend.auth.login');
     }
 
-    // public function postLogin(LoginRequest $request){
-    //     $auth = array(
-    //           'email' => $request->email,
-    //           'password' => $request->password
-    //        );
-    //     if(Auth::attempt($auth)){
-    //        return redirect()->route('admin.dashboard');
-    //     } else {
-    //        return redirect()->back()->with(['flash_level'=> 'danger', 'flash_message' => 'Email hoặc password chưa đúng, vui lòng nhập lại!']);;
-    //     }
-    // }
+    public function postLogin(LoginRequest $request){
+        $auth = array(
+              'email' => $request->email,
+              'password' => $request->password
+           );
+        if(Auth::attempt($auth)){
+           return redirect()->route('admin.dashboard');
+        } else {
+           return redirect()->back()->with(['flash_level'=> 'danger', 'flash_message' => 'Email hoặc password chưa đúng, vui lòng nhập lại!']);;
+        }
+    }
     protected $redirectPath = '/dashboard';
     public function dashboard(){
         return view('backend.master');

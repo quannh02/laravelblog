@@ -2,5 +2,21 @@
 	{
 		"id" : "1",
 		"address": "58 Ngõ 10 Tôn Thất Tùng, Đống Đa, Hà Nội"
+	},
+	{
+		"id" : "2",
+		"address": "175 Tây Sơn, Đống Đa, Hà Nội"
+	},
+	{
+		"id" : "3",
+		"address": "125 Nguyễn Lương Bằng, Đống Đa, Hà Nội"
+	},
+	{
+		"id" : "4",
+		"address": "762 Đường Láng, Đống Đa, Hà Nội"
+	},
+	{
+		"id" : "5",
+		"address": "234 Nguyễn Trãi, Đống Đa, Hà Nội"
 	}
 ]

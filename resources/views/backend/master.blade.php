@@ -4,14 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Khóa Học Lập Trình Laravel Framework 5.x Tại Khoa Phạm">
-    <meta name="author" content="Vu Quoc Tuan">
-    <title>Admin - Khoa Phạm</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admin</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('public/admin/css/bootstrap.min.css') }}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ url('public/admin/css/mystyle.css')}}">
     <link href="{{ url('public/admin/css/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{{ url('public/admin/css/datepicker.css')}}">
+    <link rel="stylesheet" href="{{ url('public/admin/css/bootstrap-responsive.css') }}">
 </head>
 <body>
 <div class="container">
@@ -54,8 +56,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cube fa-fw"></i>Bookings<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">List Bookings</a></li>
-            <li><a href="#">Add Bookings</a></li>
+            <li><a href="{{ url('list/car') }}">List Bookings</a></li>
+            <li><a href="{{ url('datxe') }}">Add Bookings</a></li>
           </ul>
         </li>
       </ul>
@@ -70,10 +72,10 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="{{ url('user', Auth::user()->id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>{{ Auth::user()->fullname }}<span class="caret"></span></a>
+          <a href="{{ url('user', $user_id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>{{ Auth::user()->fullname }}<span class="caret"></span></a>
           <ul class="dropdown-menu">
 
-            <li><a href="{{ url('profile', Auth::user()->id) }}"><i class="fa fa-gear fa-fw"></i>Profile</a></li>
+            <li><a href="{{ url('profile', $user_id) }}"><i class="fa fa-gear fa-fw"></i>Profile</a></li>
             <li><a href="{!! route('logout')!!}"><i class="fa fa-sign-out fa-fw">Logout</i></a></li>
           </ul>
         </li>
@@ -130,5 +132,6 @@
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <!-- myscript -->
 <script src="{{ url('public/admin/js/myscript.js') }}"></script>
+<script src="{{ url('public/admin/js/bootstrap-datepicker.js') }}"></script>
 </body>
 </html>

@@ -24,4 +24,9 @@
 	article, aside, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
 	}
+	.borderHinh {
+		padding: 10px;
+		border-radius: 10px;
+		border: 1px solid #3d3d29;
+	}
 }

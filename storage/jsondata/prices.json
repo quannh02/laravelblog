@@ -6,5 +6,45 @@
 		"priceWeekend" :  "7000000",
 		"diemdon_id" : "1",
 		"diemden_id" : "2"
+	},
+	{
+		"id" :  "2",
+		"car_id" :  "2",
+		"priceInWeek" : "4550000",
+		"priceWeekend" :  "9500000",
+		"diemdon_id" : "1",
+		"diemden_id" : "3"
+	},
+	{
+		"id" :  "3",
+		"car_id" :  "3",
+		"priceInWeek" : "1550000",
+		"priceWeekend" :  "3500000",
+		"diemdon_id" : "1",
+		"diemden_id" : "4"
+	},
+	{
+		"id" :  "4",
+		"car_id" :  "4",
+		"priceInWeek" : "5550000",
+		"priceWeekend" :  "6500000",
+		"diemdon_id" : "1",
+		"diemden_id" : "4"
+	},
+	{
+		"id" :  "5",
+		"car_id" :  "5",
+		"priceInWeek" : "3500000",
+		"priceWeekend" :  "5000000",
+		"diemdon_id" : "1",
+		"diemden_id" : "4"
+	},
+	{
+		"id" :  "6",
+		"car_id" :  "6",
+		"priceInWeek" : "3300000",
+		"priceWeekend" :  "5400000",
+		"diemdon_id" : "1",
+		"diemden_id" : "4"
 	}
 ]
