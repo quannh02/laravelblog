@@ -1,5 +1,5 @@
 
-BODY {
+body {
     color: #000000;
     font-family: Arial,tahoma,verdana;
     font-size: 12px;
@@ -71,14 +71,12 @@ a.title_b_car, .title_b_car {
     font-size: 18px;
     font-weight: bold;
 }
-.box_car_hot:nth-of-type(2n+1) {
-    clear: both;
-}
+
 .box_car_hot {
     padding-bottom: 14px;
 }
 .div_name_car_hot {
-    background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #020202, #67686d) repeat scroll 0 0;
+    background: #083860;
     border-radius: 5px;
     margin-bottom: 8px;
     padding: 3px 10px;
@@ -88,12 +86,9 @@ a.a_name_car_hot {
     color: #ffffff;
     font-weight: bold;
 }
-A {
+a {
     color: #244487;
     text-decoration: none;
-}
-A IMG {
-    border: medium none;
 }
 img {
     max-width: 100% !important;
@@ -120,7 +115,7 @@ img {
     font-weight: bold;
 }
 .div_book_car {
-    background: rgba(0, 0, 0, 0) url("bg_input_book_car_83x21.gif") no-repeat scroll 0 0;
+    background:  #083860 url("bg_input_book_car_83x21.gif");
     font-size: 11px;
     font-weight: bold;
     height: 21px;
@@ -133,12 +128,13 @@ img {
     font-size: 11px;
     font-weight: bold;
     line-height: 20px;
+    border-radius: 5px;
 }
 a.a_book_car {
     color: #ffffff;
 }
 .box_search_2_all {
-    background: #fff none repeat scroll 0 0;
+    background: #fff;
     border: 1px solid #bdbcbc;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -217,4 +213,120 @@ a.a_book_car {
 .breadcrumbs div a, .tblue_span {
     color: #254589;
     font-weight: normal;
+}
+.canvas {
+    background: #fff;
+    left: 0;
+    min-height: 100%;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+}
+.fixed-container {
+    background-color: #ffffff;
+    left: 0 !important;
+    padding: 10px 10px 10px 0;
+    right: 0 !important;
+}
+.top {
+    padding: 10px 0;
+}
+.margin-fixed-top {
+    padding: 10px 0;
+}
+.no-padding {
+    padding: 0;
+}
+.pos-res {
+    position: relative;
+}
+.logo {
+    display: block;
+    float: left;
+    margin-left: 15px;
+}
+.callUs {
+    background:  #083860 url("../images/call-us.jpg") no-repeat scroll 10px 0;
+    display: block;
+    float: right;
+    height: 78px;
+    position: relative;
+    text-align: right;
+    width: 230px;
+}
+.callUs p {
+    color: #39b54a;
+    font-size: 23px;
+    letter-spacing: 0;
+    line-height: 16px;
+    margin-right: 0;
+    margin-top: 30px;
+    padding: 0;
+    text-align: right;
+}
+.callUs span {
+    color: #333333;
+    font-size: 18px;
+}
+.click-to-call > a {
+    background: #43b64f;
+    border-radius: 5px;
+    color: #fff;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 7px;
+    margin-top: 7px;
+    padding: 2px 5px;
+    text-decoration: none;
+}
+.navbar-inverse {
+    background: #083860;
+}
+.navbar {
+    border: 0 none;
+    border-radius: 0;
+    margin: 0;
+    min-height: 0;
+    padding: 0;
+}
+.topLinks {
+    width: 100%;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+.topLinks a {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 53px;
+    margin-left: 7px;
+    margin-right: 7px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #38af4b;
+    color: #ffffff;
+}
+.dropdown-menu li a {
+    line-height: 2.5em;
+}
+@media (max-width: 768px) { 
+    .box_search_all {
+    background: url("../images/background_box_search.png") no-repeat scroll left top, #2d519d url("../images/background_box_search2.png") repeat-x scroll right top;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    padding-bottom: 10px;
+    width: 100%;
+    }
+    .col-xs-2-5 {
+        width: 100%;
+    }
+    .col-xs-2 {
+        width: 100%;
+    }
+    .col-xs-7 {
+        width: 100%;
+    }
 }

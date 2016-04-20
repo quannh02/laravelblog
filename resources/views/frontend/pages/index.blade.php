@@ -1,4 +1,5 @@
 @extends('frontend.master')
+@section('description', 'Đây là trang chủ')
 @section('content')
 			<div class="col-xs-7">
 				<div class="row_car_hot_group">
@@ -7,7 +8,7 @@
 						<div class="box_car_hot col-md-6 col-sm-6 col-xs-12">
 							<div class="div_name_car_hot"><a href="" class="a_name_car_hot">Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)</a></div>
 			                <div class="clearfix">
-			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="images/Huyndai Universe.jpg"></a><div class="b_car_information">
+			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="{{ url('public/user/images/Huyndai Universe.jpg') }}"></a><div class="b_car_information">
 			                        <div class="tbold">Hiệu: Hyundai</div>
 			                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
 			                        <div>Giá xe: <span class="span_price">5.500.000</span></div>
@@ -20,7 +21,7 @@
 						<div class="box_car_hot col-md-6 col-sm-6 col-xs-12">
 							<div class="div_name_car_hot"><a href="" class="a_name_car_hot">Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)</a></div>
 			                <div class="clearfix">
-			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="images/Huyndai Universe.jpg"></a><div class="b_car_information">
+			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="{{ url('public/user/images/Huyndai Universe.jpg') }}"></a><div class="b_car_information">
 			                        <div class="tbold">Hiệu: Hyundai</div>
 			                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
 			                        <div>Giá xe: <span class="span_price">5.500.000</span></div>
@@ -33,7 +34,7 @@
 						<div class="box_car_hot col-md-6 col-sm-6 col-xs-12">
 							<div class="div_name_car_hot"><a href="" class="a_name_car_hot">Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)</a></div>
 			                <div class="clearfix">
-			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="images/Huyndai Universe.jpg"></a><div class="b_car_information">
+			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="{{ url('public/user/images/Huyndai Universe.jpg') }}"></a><div class="b_car_information">
 			                        <div class="tbold">Hiệu: Hyundai</div>
 			                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
 			                        <div>Giá xe: <span class="span_price">5.500.000</span></div>
@@ -46,7 +47,7 @@
 						<div class="box_car_hot col-md-6 col-sm-6 col-xs-12">
 							<div class="div_name_car_hot"><a href="" class="a_name_car_hot">Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)</a></div>
 			                <div class="clearfix">
-			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="images/Huyndai Universe.jpg"></a><div class="b_car_information">
+			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="{{ url('public/user/images/Huyndai Universe.jpg') }}"></a><div class="b_car_information">
 			                        <div class="tbold">Hiệu: Hyundai</div>
 			                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
 			                        <div>Giá xe: <span class="span_price">5.500.000</span></div>
@@ -65,7 +66,7 @@
 						<div class="box_car_hot col-md-6 col-sm-6 col-xs-12">
 							<div class="div_name_car_hot"><a href="" class="a_name_car_hot">Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)</a></div>
 			                <div class="clearfix">
-			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="images/Huyndai Universe.jpg"></a><div class="b_car_information">
+			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="{{ url('public/user/images/Huyndai Universe.jpg') }}"></a><div class="b_car_information">
 			                        <div class="tbold">Hiệu: Hyundai</div>
 			                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
 			                        <div>Giá xe: <span class="span_price">5.500.000</span></div>
@@ -78,7 +79,7 @@
 						<div class="box_car_hot col-md-6 col-sm-6 col-xs-12">
 							<div class="div_name_car_hot"><a href="" class="a_name_car_hot">Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)</a></div>
 			                <div class="clearfix">
-			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="images/Huyndai Universe.jpg"></a><div class="b_car_information">
+			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="{{ url('public/user/images/Huyndai Universe.jpg') }}"></a><div class="b_car_information">
 			                        <div class="tbold">Hiệu: Hyundai</div>
 			                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
 			                        <div>Giá xe: <span class="span_price">5.500.000</span></div>
@@ -91,7 +92,7 @@
 						<div class="box_car_hot col-md-6 col-sm-6 col-xs-12">
 							<div class="div_name_car_hot"><a href="" class="a_name_car_hot">Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)</a></div>
 			                <div class="clearfix">
-			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="images/Huyndai Universe.jpg"></a><div class="b_car_information">
+			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="{{ url('public/user/images/Huyndai Universe.jpg') }}"></a><div class="b_car_information">
 			                        <div class="tbold">Hiệu: Hyundai</div>
 			                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
 			                        <div>Giá xe: <span class="span_price">5.500.000</span></div>
@@ -104,7 +105,7 @@
 						<div class="box_car_hot col-md-6 col-sm-6 col-xs-12">
 							<div class="div_name_car_hot"><a href="" class="a_name_car_hot">Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)</a></div>
 			                <div class="clearfix">
-			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="images/Huyndai Universe.jpg"></a><div class="b_car_information">
+			                   <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list" src="{{ url('public/user/images/Huyndai Universe.jpg') }}"></a><div class="b_car_information">
 			                        <div class="tbold">Hiệu: Hyundai</div>
 			                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
 			                        <div>Giá xe: <span class="span_price">5.500.000</span></div>
