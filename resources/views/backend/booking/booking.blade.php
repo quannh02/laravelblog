@@ -27,10 +27,18 @@
                                 Ngày thuê phương tiện:
                               <input name="datepickerDi" class="form-control" data-provide="datepicker">
                             </div>
-                           <div class="form-group">
-              								<label for="sel1">Hour:</label>
-              								<input name="datepickerDi" class="form-control" data-provide="datepicker">
-            							</div>
+                            <div class="form-group">
+                              <label for="sel1">Hour:</label>
+                              <select name="hourDi" class="form-control" id="sel1">
+                              <?php for($i=0; $i < 10; $i++){ ?>
+                              <option><?php echo '0'. $i; ?></option>
+                              <?php }
+                                  for($i=10; $i< 24; $i++){ 
+                              ?>
+                              <option><?php echo $i; ?></option>
+                              <?php } ?>
+                              </select>
+                         </div>
             							<div class="form-group">
               								<label for="sel1">Minute:</label>
               								<select name="minuteDi" class="form-control" id="sel1">
@@ -102,6 +110,7 @@
                           <td>{{ $item->producer }}</td>
                           <td>{{ $item->image }}</td>
                           <td>{{ $item->registration_number }}</td>
+                          <td>
                         </tr>
                         @endforeach
                         @endif

@@ -4,7 +4,7 @@
     {!! Form::open(array('url' => 'auth/register')) !!}
         <fieldset>
         <div class="form-group">Tên đầy đủ
-            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+            <input type="text" class="form-control" name="name" value="{{ old('name') }}"> 
         </div>
         <div class="form-group">Email
             <input type="email"  class="form-control" name="email" value="{{ old('email') }}">

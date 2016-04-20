@@ -17,12 +17,12 @@ class DatabaseSeeder extends Seeder
         // $this->call(AgencyAddressTableSeeder::class);
         // $this->call(CartypesTableSeeder::class);
         // $this->call(CustomerAddressTableSeeder::class);
-        // $this->call(DiaDiemTableSeeder::class);
+        $this->call(DiaDiemTableSeeder::class);
         // $this->call(TinTucTableSeeder::class);
         // $this->call(CarsTableSeeder::class);
         // $this->call(CustomersTableSeeder::class);
         // $this->call(AgencyTableSeeder::class);
-        $this->call(BookingTableSeeder::class);
+        //$this->call(BookingTableSeeder::class);
         // $this->call(CommentTableSeeder::class);
         //$this->call(UsersTableSeeder::class);
         //$this->call(VoteTableSeeder::class);

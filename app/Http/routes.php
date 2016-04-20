@@ -53,6 +53,11 @@ Route::group(['namespace' => 'backend'], function(){
 		// Route::resource('user', 'UserController');
 	});
 });
+Route::group(['namespace' => 'frontend'], function(){
+	Route::get('trangchu', 'HomeController@index');
+	Route::post('tinh/{id}', 'HomeController@returnDiaDanh');
+});
+
 //Route::resource('user', 'UserController');
 // Route::get('user/{user}', function(App\User $user){
 // 	return view('admin.user.show')->with('user', $user);

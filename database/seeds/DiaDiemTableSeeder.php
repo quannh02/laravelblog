@@ -12,8 +12,9 @@ class DiaDiemTableSeeder extends Seeder
     public function run()
     {
         $json = File::get(storage_path().'/jsondata/diadiem.json');
+        //dd($json); die();
         $data = json_decode($json);
-        // dd($data); die();
+        //dd($data); die();
         foreach ($data as $obj) {
           DiaDiem::create(array(
             'id' => $obj->id,

@@ -1,22 +1,12 @@
 [
 	{
-		"id" : "1",
-		"name": "Hà Nội",
-		"parent_id" : "0"
+		"id" : "5",
+		"name": "Chùa Cỏ",
+		"parent_id" : "1"
 	},
 	{
-		"id" : "2",
-		"name": "Hà Đông",
-		"parent_id" : "0"
-	},
-	{
-		"id" : "3",
-		"name" : "Phú Thọ",
-		"parent_id" : "0"
-	},
-	{
-		"id" : "4",
-		"name" : "Thái Bình",
-		"parent_id" : "0"
+		"id" : "6",
+		"name": "Chùa A",
+		"parent_id" : "1"
 	}
 ]

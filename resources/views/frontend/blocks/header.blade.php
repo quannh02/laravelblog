@@ -1,27 +1,17 @@
-<div class="headerstrip">
+<body>
     <div class="container">
         <div class="row">
-            <div class="span12">
-                <a href="index-2.html" class="logo pull-left"><img src="{{ url('public/user/img/logo.png') }}" alt="SimpleOne" title="SimpleOne"></a>
-                <!-- Top Nav Start -->
-                <div class="pull-left">
-                    <div class="navbar" id="topnav">
-                        <div class="navbar-inner">
-                            <ul class="nav" >
-                                <li><a class="home active" href="#">Home</a>
-                                </li>
-                                <li><a class="myaccount" href="#">My Account</a>
-                                </li>
-                                <li><a class="shoppingcart" href="#">Shopping Cart</a>
-                                </li>
-                                <li><a class="checkout" href="#">CheckOut</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="longtimenosee"></div>
+            <div class="page-header col-xs-12">
+                <div class="col-xs-4">
+                    <a href="">
+                        <img src="images/logocty.png" alt="">
+                    </a>
                 </div>
-                <!-- Top Nav End -->
+                <div class="col-xs-4">
+                    <p>Cho thuê xe du lịch tại Hà Nội</p>
+                </div>
+                <div class="col-xs-4">
+                    
+                </div>
             </div>
-        </div>
-    </div>
-</div>

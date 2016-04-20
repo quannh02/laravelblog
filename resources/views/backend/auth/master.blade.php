@@ -12,9 +12,6 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('public/admin/css/bootstrap.min.css') }}" rel="stylesheet">
 
-    <!-- MetisMenu CSS -->
-    <link href="{{ url('public/admin/css/metisMenu.min.css') }}" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="{{ url('public/admin/css/sb-admin-2.css') }}" rel="stylesheet">
 
@@ -66,9 +63,6 @@
 
         <!-- Bootstrap Core JavaScript -->
         <script src="{{ url('public/admin/js/bootstrap.min.js') }}"></script>
-
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="{{ url('public/admin/js/metisMenu.min.js') }}"></script>
 
         <!-- Custom Theme JavaScript -->
          <script src="{{ url('public/admin/js/sb-admin-2.js') }}"></script>
