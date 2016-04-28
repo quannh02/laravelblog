@@ -33,14 +33,21 @@ class BookingController extends Controller
         $hourVe = Input::get('hourVe');
         $minuteVe = Input::get('minuteVe');
         $thoigianVe = $myFunction->DoiDinhDangThoiGian($datepickerVe, $hourVe, $minuteVe);
-        $cars_not_in = Booking::select('bookings.car_id')->where('bookings.bookingDate', '<=', $thoigianDi)
-        ->where(
-            'bookings.returnDate' , '>=', $thoigianVe
-            )->get()->toArray();
+        $cars_not_in_inner = Booking::select('bookings.car_id')->where('bookings.bookingDate', '<=', $thoigianDi)
+        ->where('bookings.returnDate' , '>=', $thoigianVe)->get()->toArray();
+        $cars_not_in_lower = Booking::select('bookings.car_id')->where('bookings.bookingDate', '>=', $thoigianDi)
+        ->where('bookings.bookingDate', '<=', $thoigianVe)->where('bookings.returnDate', '>=', $thoigianVe)->get()->toArray();
+        $cars_not_in_higher = Booking::select('bookings.car_id')->where('bookings.bookingDate', '<=', $thoigianDi)
+        ->where('bookings.returnDate', '<=', $thoigianVe)->where('bookings.returnDate', '>=', $thoigianDi)->get()->toArray();
+        $cars_not_in_outer = Booking::select('bookings.car_id')->where('bookings.bookingDate' , '>=', $thoigianDi)
+        ->where('bookings.returnDate', '<=', $thoigianVe)->get()->toArray();
+        $cars_not_in= array_merge($cars_not_in_inner, $cars_not_in_outer, $cars_not_in_higher, $cars_not_in_lower);
+        // dd($cars_not_in); die();
+        // $cars_not_final = array_unique($cars_not_in);
         $data = DB::table('cars')
                 ->join('car_types', 'car_types.id', '=', 'cars.car_type_id')
                 ->select('car_types.name', 'car_types.type','car_types.producer', 'cars.id', 'cars.image', 'cars.registration_number')
-                ->whereNotIn('cars.id', $cars_not_in)
+                ->whereNotIn('cars.id', $cars_not_in)->orderBy('id', 'asc')
                 ->get();
         return view('backend.booking.booking', compact('data'));
         // dd($thoigianVe); die();

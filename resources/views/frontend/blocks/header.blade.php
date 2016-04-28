@@ -5,15 +5,16 @@
         headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
         });
     </script>
+    <script type="text/javascript" src="{{ url('public/user/js/votes.js') }}"></script>
     <div class="canvas">
     <div class="top margin-fixed-top">
         <div class="container no-padding pos-res margin-site">
             <a href="#"><img border="0" src="{{ url('public/user/images/logo.png') }}" class="logo img-responsive"></a>
             <div class="callUs">
-                <p class="callUsNumber">
+                <p class="callUsNumber click-to-call">
                     <a href="" class="phone">0-1677-665-526</a>
-                <br><span class="">
-                    <a href="">My Account</a>
+                <br><span class="myAccountlink">
+                    <a href="{{ url('auth/login') }}">My Account</a>
                     </span>
                 </p>
             </div>

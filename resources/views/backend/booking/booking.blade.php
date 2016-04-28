@@ -87,6 +87,7 @@
                     </div>
                     </div>
                     <div class="col-xs-8">
+                    <div class="table-responsive">
                     <table class="table table-bordered">
                       <thead>
                       <!-- select('car_types.name', 'car_types.type','car_types.producer', 'cars.id', 'cars.image', 'cars.registration_number') -->
@@ -116,6 +117,7 @@
                         @endif
                       </tbody>
                     </table>
+                    </div>
                     </div>
                 </div>
                 

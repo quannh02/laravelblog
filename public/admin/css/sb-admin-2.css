@@ -352,3 +352,7 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+.btnTaoTaiKhoan{
+        margin: 20px 0 0 0;
+        border-top: 1px solid #000;
+}

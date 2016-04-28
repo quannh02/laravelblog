@@ -6,7 +6,7 @@
                                 <td class="td_title_support" colspan="2">Thuê xe du lịch - 01</td>
                             </tr>
                             <tr>
-                                <td width="15%"><a href=""><img src="/thuexetructuyen-images/gallery/skype.jpg" alt=""></a></td>
+                                <td width="15%"><a href=""><img src="" alt=""></a></td>
                                 <td><a href=""><img border="0" src="" alt=""></a></td>
                             </tr>
                             <tr>
@@ -16,7 +16,7 @@
                                 <td class="td_title_support" colspan="2">Thuê xe du lịch - 02</td>
                             </tr>
                             <tr>
-                                <td><a href=""><img src="/thuexetructuyen-images/gallery/skype.jpg" alt=""></a></td>
+                                <td><a href=""><img src="" alt=""></a></td>
                                 <td><a href=""><img border="0" src="" alt=""></a></td>
                             </tr>
                             <tr>

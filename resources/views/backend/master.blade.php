@@ -36,28 +36,28 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o fa-fw"></i>Car Types<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o fa-fw"></i>Loại Xe<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">List CarType</a></li>
-            <li><a href="#">Add CarType</a></li>
+            <li><a href="#">Loại xe</a></li>
+            <li><a href="#">Thêm loại xe</a></li>
           </ul>
         </li>
       </ul>
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cube fa-fw"></i>Cars<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cube fa-fw"></i>XE<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">List Cars</a></li>
-            <li><a href="#">Add Car</a></li>
+            <li><a href="{{ url('danhsachxe') }}">Danh sách xe</a></li>
+            <li><a href="#">Thêm xe</a></li>
           </ul>
         </li>
       </ul>
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cube fa-fw"></i>Bookings<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cube fa-fw"></i>Đặt xe<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ url('list/car') }}">List Bookings</a></li>
-            <li><a href="{{ url('datxe') }}">Add Bookings</a></li>
+            <li><a href="{{ url('list/car') }}">Tìm kiếm xe</a></li>
+            <li><a href="{{ url('datxe') }}">Đặt xe</a></li>
           </ul>
         </li>
       </ul>
@@ -74,7 +74,7 @@
         <li class="dropdown">
           <a href="{{ url('user',  Auth::user()->id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>{{ Auth::user()->fullname }}<span class="caret"></span></a>
           <ul class="dropdown-menu">
-
+            <li><a href="{{ url('trangchu') }}">Trang chủ</a></li>
             <li><a href="{{ url('profile', Auth::user()->id) }}"><i class="fa fa-gear fa-fw"></i>Profile</a></li>
             <li><a href="{!! route('logout')!!}"><i class="fa fa-sign-out fa-fw">Logout</i></a></li>
           </ul>

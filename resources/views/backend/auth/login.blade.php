@@ -13,17 +13,22 @@
                             </div>
 
                             <div class="form-group">
-                                Password
+                                Mật khẩu
                                 <input type="password" class="form-control" name="password" id="password">
                             </div>
 
                             <div>
-                                <input type="checkbox" name="remember"> Remember Me
+                                <input type="checkbox" name="remember">Nhớ tài khoản
                             </div>
 
                             <div>
-                                <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Đăng nhập</button>
                             </div>
                         </fieldset>
                     </form>
+
+                            <div>
+                                <a class="btn btn-lg btn-default btn-block btnTaoTaiKhoan" href="{{ url('auth/register') }}">Tạo tài khoản mới</a>
+                            </div>
+                            
  @endsection

@@ -39,6 +39,7 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::get('list/car', ['as' => 'listCarforRent', 'uses' => 'BookingController@getListCar']);
 		Route::post('list/car', 'BookingController@postListCar');
 		Route::get('datxe', 'BookingController@getDatXe');
+		Route::get('danhsachxe', 'CarsController@getAllCars');
 	});
 	
 	Route::group(['middleware' => ['admin', 'auth']], function(){
@@ -56,6 +57,8 @@ Route::group(['namespace' => 'backend'], function(){
 Route::group(['namespace' => 'frontend'], function(){
 	Route::get('trangchu', 'HomeController@index');
 	Route::post('tinh/{id}', 'HomeController@returnDiaDanh');
+	Route::get('chitiet', 'HomeController@getChiTiet');
+	Route::post('votes/{id}', 'HomeController@postVote');
 });
 
 //Route::resource('user', 'UserController');

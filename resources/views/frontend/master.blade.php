@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="{{ url('public/user/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('public/user/css/style.css') }}">
     <link rel="stylesheet" href="{{ url('public/user/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ url('public/user/css/bootstrap-responsive.css') }}">
+   <!-- <link rel="stylesheet" href="{{ url('public/user/css/bootstrap-responsive.css') }}"> -->
+    <link rel="stylesheet" href="{{ url('public/user/css/votes.css') }}">
     <title>Document</title>
 </head>
 <body>

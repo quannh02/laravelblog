@@ -115,7 +115,7 @@ img {
     font-weight: bold;
 }
 .div_book_car {
-    background:  #083860 url("bg_input_book_car_83x21.gif");
+    background:  #083860;
     font-size: 11px;
     font-weight: bold;
     height: 21px;
@@ -155,7 +155,7 @@ a.a_book_car {
     padding: 8px;
 }
 .title_promotion {
-    background: rgba(0, 0, 0, 0) url("left_b_promotions_28x23.gif") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0);
     color: #254589;
     font-size: 15px;
     font-weight: bold;
@@ -246,13 +246,14 @@ a.a_book_car {
     margin-left: 15px;
 }
 .callUs {
-    background:  #083860 url("../images/call-us.jpg") no-repeat scroll 10px 0;
+    border-radius: 10px;
+    background:  #083860;
     display: block;
     float: right;
     height: 78px;
     position: relative;
     text-align: right;
-    width: 230px;
+    width: 150px;
 }
 .callUs p {
     color: #39b54a;
@@ -275,7 +276,13 @@ a.a_book_car {
     display: inline-block;
     font-size: 16px;
     margin-right: 7px;
-    margin-top: 7px;
+    /*margin-top: 7px;*/
+    padding: 2px 5px;
+    text-decoration: none;
+}
+.myAccountlink a{
+    color: #fff;
+    display: inline-block;
     padding: 2px 5px;
     text-decoration: none;
 }

@@ -72,6 +72,8 @@ class AuthController extends Controller
         }
     }
     protected $redirectPath = '/dashboard';
+    protected $redirectTo = '/dashboard';
+
     public function dashboard(){
         return view('backend.master');
     }
@@ -100,12 +102,13 @@ class AuthController extends Controller
         $data->tenCongTy = Input::get('txtTenCongTy');
         $data->maSoThue = Input::get('txtMaSoThue');
         $data->customer_type = Input::get('customertype');
-        $address = new CustomerAddress([
-                'address' => Input::get('txtAddress')
-            ]);
+        $data->address = Input::get('txtAddress');
+        // $address = new CustomerAddress([
+        //         'address' => Input::get('txtAddress')
+        //     ]);
         // dd($data); die();
         $data->save();
-        $data->customeraddress()->save($address);
+        // $data->customeraddress()->save($address);
         return redirect()->route('backend.getProfile', $id);
     }
     protected function validator(array $data)

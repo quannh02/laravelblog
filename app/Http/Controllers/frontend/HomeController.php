@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\DiaDiem;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Input;
+use App\Vote;
 
 class HomeController extends Controller
 {
@@ -25,6 +27,33 @@ class HomeController extends Controller
         //dd($a); die();
         return json_encode($tinhs);
         //dd($a); die();
+    }
+    public function getChiTiet(){
+        $tinhs = DiaDiem::select('id', 'name')->where('parent_id', 0)->get();
+        $id = 1;
+        $vote_id = Vote::select('id')->where('carId', $id)->get()->first();
+        return view('frontend.pages.chitiet', compact('vote_id', 'tinhs'));
+    }
+    public function postVote($id){
+        $point = Input::get('point');
+        //dd($point); die();
+        $currentVote = Vote::findOrFail($id);
+        //dd($currentVote); die();
+        $currentVote->votes = $currentVote->votes + 1;
+        $currentVote->points = $currentVote->points +  $point;
+        $currentVote->save();
+        $updateVote = Vote::select('votes', 'points')->where('carId', $id)->get()->first();
+        $roundVote = round(($updateVote->points/$updateVote->votes), 1);
+
+        $arrayForVoting = array(
+            'votes' => $updateVote->votes,
+            'points' => $updateVote->points,
+            'roundVote'=> $roundVote
+            );
+
+        //dd($roundVote); die();
+        //dd($updateVote); die();
+        return json_encode($arrayForVoting);
     }
     /**
      * Show the form for creating a new resource.
