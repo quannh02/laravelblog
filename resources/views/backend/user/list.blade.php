@@ -23,12 +23,12 @@
                                                 @foreach($data as $item)
                                                 <tr class="odd gradeX">
                                                     <td><a href="#" class="btn-link">NY531</a></td>
-                                                    <td>{{ $item['fullname'] }}</td>
+                                                    <td>{{ $item['tendaydu'] }}</td>
                                                     <td>{{ $item['email'] }}</td>
                                                     <td>
-                                                        <a class="btn btn-default  text-right" data-toggle="tooltip" href="{{ route('user.edit', $item['id'])}}" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
+                                                        <a class="btn btn-default  text-right" data-toggle="tooltip" href="{{ route('user.edit', $item['nguoidung_id'])}}" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
                                                         <div class="pull-right">
-                                                        {!! Form::open(array('route' => array('user.destroy', $item['id']))) !!}
+                                                        {!! Form::open(array('route' => array('user.destroy', $item['nguoidung_id']))) !!}
                                                         <button type="submit" class="btn btn-danger add-tooltip"  onclick="return xacnhanxoa('Bạn có muốn xóa không?');" data-toggle="tooltip" href="#" data-original-title="Delete" data-container="body"><i class="fa fa-times"></i></button>
                                                         {!! Form::close() !!}
                                                         </div>

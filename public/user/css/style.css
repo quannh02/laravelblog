@@ -14,7 +14,7 @@ body {
     clear: both;
 }
 .content {
-    background: #fff none repeat scroll 0 0;
+    background: #fff;
     border-radius: 5px;
     margin-bottom: 5px;
     padding: 10px;
@@ -245,29 +245,8 @@ a.a_book_car {
     float: left;
     margin-left: 15px;
 }
-.callUs {
-    border-radius: 10px;
-    background:  #083860;
-    display: block;
-    float: right;
-    height: 78px;
-    position: relative;
-    text-align: right;
-    width: 150px;
-}
-.callUs p {
-    color: #39b54a;
-    font-size: 23px;
-    letter-spacing: 0;
-    line-height: 16px;
-    margin-right: 0;
-    margin-top: 30px;
-    padding: 0;
-    text-align: right;
-}
-.callUs span {
-    color: #333333;
-    font-size: 18px;
+.search-width {
+    width: 250px;
 }
 .click-to-call > a {
     background: #43b64f;
@@ -336,4 +315,98 @@ a.a_book_car {
     .col-xs-7 {
         width: 100%;
     }
+}
+.navbar-form {
+    margin-top: 30px;
+}
+.footer {
+    background: #083860;
+    color: #BBB;
+    float: left;
+    line-height: 17px;
+    margin-top: 5px;
+    width: 100%;
+    border-radius: 10px;
+}
+.full {
+    width: 100%;
+}
+.lft {
+    float: left;
+}
+.footer .tglv {
+    width: 200px;
+    float: left;
+    margin-left: 20px;
+}
+.footer .title {
+    border-bottom: solid 1px #BBB;
+    float: left;
+    font-size: 14px;
+    line-height: 30px;
+    margin: 10px 0;
+    width: 100%;
+}
+.footer .title {
+    border-bottom: solid 1px #BBB;
+    float: left;
+    font-size: 14px;
+    line-height: 30px;
+    margin: 10px 0;
+    width: 100%;
+}
+.footer .gd {
+    width: 200px;
+    float: left;
+    margin: 0px 20px;
+}
+.footer .dvcq {
+    width: 350px;
+    float: left;
+    margin: 0px 20px;
+}
+.footer-social {
+    margin: 20px;
+    padding: 10px 0;
+    text-align: center;
+}
+.footer .dm {
+    width: 150px;
+    float: left;
+    margin: 0px 30px;
+}
+.nd_foot a{
+    color: white;
+}
+.nd_foot li{
+    list-style-type: none;
+}
+.nd_foot ul{
+    padding-left: 0px;
+}
+.navbar-fixed-left {
+  width: 100%;
+  /*position: fixed;*/
+  border-radius: 0;
+  height: 100%;
+}
+
+.navbar-nav {
+  width: 100%;
+}
+.navbar-fixed-left .navbar-nav > li {
+  float: none;  /* Cancel default li float: left */
+  width: 100%;
+}
+
+.navbar-fixed-left + .container {
+  padding-left: 160px;
+}
+
+/* On using dropdown menu (To right shift popuped) */
+.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+  /*margin-top: -50px;
+  margin-left: 228px;*/
+  width: 100%;
+  position: relative;
 }

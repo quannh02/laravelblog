@@ -1,4 +1,5 @@
- <nav class="navbar  navbar-inverse navbar-default">
+
+         <nav class="navbar  navbar-inverse navbar-default">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -61,19 +62,10 @@
             <li><a href="#">Something else here</a></li>
           </ul>
         </li>
-        <form class="navbar-form pull-right" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+       
       </ul>
      
       
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-      </div> <!-- end canvas -->
-
-    <div class="container">
-        <div class="row">

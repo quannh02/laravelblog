@@ -72,10 +72,10 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="{{ url('user',  Auth::user()->id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>{{ Auth::user()->fullname }}<span class="caret"></span></a>
+          <a href="{{ url('user',  Auth::user()->nguoidung_id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>{{ Auth::user()->tendaydu }}<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{ url('trangchu') }}">Trang chủ</a></li>
-            <li><a href="{{ url('profile', Auth::user()->id) }}"><i class="fa fa-gear fa-fw"></i>Profile</a></li>
+            <li><a href="{{ url('profile', Auth::user()->nguoidung_id) }}"><i class="fa fa-gear fa-fw"></i>Profile</a></li>
             <li><a href="{!! route('logout')!!}"><i class="fa fa-sign-out fa-fw">Logout</i></a></li>
           </ul>
         </li>

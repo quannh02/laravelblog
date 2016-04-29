@@ -75,7 +75,7 @@ class UserController extends Controller
     }
     public function index()
     {
-        $data = User::select('id', 'fullname', 'email')->get()->toArray();
+        $data = User::select('nguoidung_id', 'tendaydu', 'email')->get()->toArray();
        // $orderCount = Order::count();
         return view('backend.user.list', compact('data'));
     }

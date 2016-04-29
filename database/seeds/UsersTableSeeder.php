@@ -11,11 +11,14 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-    	DB::table('users')->insert([
-    		'fullname' => 'guest',
-    		'email' => 'guest@gmail.com',
-    		'password' => bcrypt('123456'),
-    		'terms'   => 0,
+    	DB::table('tbl_nguoidung')->insert([
+    		'tendaydu' => 'admin',
+    		'email' => 'quannh02@wru.vn',
+    		'password' => bcrypt('520914km'),
+    		'terms'   => 1,
+            'sodienthoai' => '01677665526',
+            'gioitinh' => 'nam',
+            'diachi'  => 'ngõ 10, Tôn Thất Tùng, Đống Đa, Hà Nội'
     		]);
         //
         // $json = File::get(storage_path().'/jsondata/users.json');
