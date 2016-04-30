@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Input;
 use App\Vote;
+use App\Cars;
 
 class HomeController extends Controller
 {
@@ -54,6 +55,13 @@ class HomeController extends Controller
         //dd($roundVote); die();
         //dd($updateVote); die();
         return json_encode($arrayForVoting);
+    }
+    public function search(){
+        $q = Input::get ( 'q' );
+        $car = Cars::where('hang_xe','LIKE','%'.$q.'%')->orWhere('socho_xe','LIKE','%'.$q.'%')->get();
+        if(count($car) > 0)
+        return view('frontend.pages.searchresult')->withDetails($car)->withQuery($q);
+        else return view ('frontend.pages.searchresult')->withMessage('No Details found. Try to search again !');
     }
     /**
      * Show the form for creating a new resource.

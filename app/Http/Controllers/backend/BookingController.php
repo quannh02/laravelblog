@@ -10,6 +10,7 @@ use Input;
 use App\MyFunction;
 use DB;
 use App\DonDat;
+use App\DonDatCT;
 class BookingController extends Controller
 {
     /**
@@ -33,21 +34,50 @@ class BookingController extends Controller
         $hourVe = Input::get('hourVe');
         $minuteVe = Input::get('minuteVe');
         $thoigianVe = $myFunction->DoiDinhDangThoiGian($datepickerVe, $hourVe, $minuteVe);
-        $cars_not_in_inner = DonDat::select('bookings.car_id')->where('bookings.bookingDate', '<=', $thoigianDi)
-        ->where('bookings.returnDate' , '>=', $thoigianVe)->get()->toArray();
-        $cars_not_in_lower = DonDat::select('bookings.car_id')->where('bookings.bookingDate', '>=', $thoigianDi)
-        ->where('bookings.bookingDate', '<=', $thoigianVe)->where('bookings.returnDate', '>=', $thoigianVe)->get()->toArray();
-        $cars_not_in_higher = DonDat::select('bookings.car_id')->where('bookings.bookingDate', '<=', $thoigianDi)
-        ->where('bookings.returnDate', '<=', $thoigianVe)->where('bookings.returnDate', '>=', $thoigianDi)->get()->toArray();
-        $cars_not_in_outer = DonDat::select('bookings.car_id')->where('bookings.bookingDate' , '>=', $thoigianDi)
-        ->where('bookings.returnDate', '<=', $thoigianVe)->get()->toArray();
-        $cars_not_in= array_merge($cars_not_in_inner, $cars_not_in_outer, $cars_not_in_higher, $cars_not_in_lower);
-        // dd($cars_not_in); die();
+        $cars_not_in_inner = DB::table('tbl_dondat')
+                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id', '=', 'tbl_dondatchitiet.dondat_id')
+                ->select('tbl_dondatchitiet.xe_id')
+                ->where('tbl_dondat.ngaydi', '<=', $thoigianDi)
+                ->where('tbl_dondat.ngayve' , '>=', $thoigianVe)
+                ->get();
+
+        $cars_not_in_lower = DB::table('tbl_dondat')
+                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id' , '=', 'tbl_dondatchitiet.dondat_id')
+                ->select('tbl_dondatchitiet.xe_id')
+                ->where('tbl_dondat.ngaydi', '>=', $thoigianDi)
+                ->where('tbl_dondat.ngaydi' , '<=', $thoigianVe)
+                ->where('tbl_dondat.ngayve', '>=' , $thoigianVe)
+                ->get();
+
+        $cars_not_in_higher = DB::table('tbl_dondat')
+                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id' , '=', 'tbl_dondatchitiet.dondat_id')
+                ->select('tbl_dondatchitiet.xe_id')
+                ->where('tbl_dondat.ngaydi', '<=', $thoigianDi)
+                ->where('tbl_dondat.ngayve' , '<=', $thoigianVe)
+                ->where('tbl_dondat.ngayve', '>=' , $thoigianDi)
+                ->get();      
+
+        $cars_not_in_outer = DB::table('tbl_dondat')
+                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id' , '=', 'tbl_dondatchitiet.dondat_id')
+                ->select('tbl_dondatchitiet.xe_id')
+                ->where('tbl_dondat.ngaydi', '>=', $thoigianDi)
+                ->where('tbl_dondat.ngayve' , '<=', $thoigianVe)
+                ->get();
+        
+        $cars_not_in = array_merge($cars_not_in_inner, $cars_not_in_outer, $cars_not_in_higher, $cars_not_in_lower);
+        // đổi array object cars thành array cars
+        $cars_length = count($cars_not_in);
+        $array_car_not_in = array();
+        for($i = 0; $i< $cars_length; $i++){
+            $array_car_not_in[$i] = $cars_not_in[$i]->xe_id;
+        }
+        // đổi xong
+        //dd($cars_not_in); die();
+        //dd($cars_not_in[0]); die();
         // $cars_not_final = array_unique($cars_not_in);
-        $data = DB::table('cars')
-                ->join('car_types', 'car_types.id', '=', 'cars.car_type_id')
-                ->select('car_types.name', 'car_types.type','car_types.producer', 'cars.id', 'cars.image', 'cars.registration_number')
-                ->whereNotIn('cars.id', $cars_not_in)->orderBy('id', 'asc')
+        $data = DB::table('tbl_xe')
+                ->select('tbl_xe.hang_xe', 'tbl_xe.sodangky_xe')
+                ->whereNotIn('tbl_xe.xe_id', $array_car_not_in)->orderBy('xe_id', 'asc')
                 ->get();
         return view('backend.booking.booking', compact('data'));
         // dd($thoigianVe); die();

@@ -105,12 +105,8 @@
                         @if(isset($data))
                         @foreach($data as $item)
                         <tr>
-                          <td>{{ $item->id }}</td>
-                          <td>{{ $item->name }}</td>
-                          <td>{{ $item->type }}</td>
-                          <td>{{ $item->producer }}</td>
-                          <td>{{ $item->image }}</td>
-                          <td>{{ $item->registration_number }}</td>
+                          <td>{{ $item->hang_xe}}</td>
+                          <td>{{ $item->sodangky_xe }}</td>
                           <td>
                         </tr>
                         @endforeach

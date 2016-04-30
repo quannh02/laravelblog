@@ -59,7 +59,10 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::post('tinh/{id}', 'HomeController@returnDiaDanh');
 	Route::get('chitiet', 'HomeController@getChiTiet');
 	Route::post('votes/{id}', 'HomeController@postVote');
+	Route::any('/search', 'HomeController@search');
 });
+
+
 
 //Route::resource('user', 'UserController');
 // Route::get('user/{user}', function(App\User $user){

@@ -13,9 +13,10 @@
             </div><!--end container-->
         </div>
         <div class="col-xs-4">
-            <form class="navbar-form" action="">
+            <form class="navbar-form" role="search" action="{{ url('/search') }}" method="post">
+            {{ csrf_field() }}
               <div class="form-group">
-                <input type="text" class="form-control search-width" placeholder="Tìm kiếm">
+                <input type="text" class="form-control search-width" name="q" placeholder="Tìm kiếm">
               </div>
               <button type="submit" class="btn btn-default">Tìm kiếm</button>
             </form>
