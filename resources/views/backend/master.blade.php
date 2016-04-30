@@ -36,7 +36,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav nav-tabs nav-pills">
               <li class=""><a href=""><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý danh mục<span class="caret"></span></a></li>
-              <li class="active"><a href=""><i class="fa fa-cube fa-fw"></i></span>Quản lý xe<span class="caret"></span></a></li>
+              <li class=""><a href=""><i class="fa fa-cube fa-fw"></i>Quản lý xe<span class="caret"></span></a></li>
               <li class=""><a href=""><i class="fa fa-cube fa-fw"></i>Quản lý đơn đặt<span class="caret"></span></a></li>
               <li class=""><a href=""><i class="fa fa-users fa-fw"></i>Quản lý thành viên<span class="caret"></span></a></li>
               <li class="dropdown pull-right">
