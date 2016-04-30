@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use Input;
 use App\MyFunction;
 use DB;
-use App\Booking;
+use App\DonDat;
 class BookingController extends Controller
 {
     /**
@@ -33,13 +33,13 @@ class BookingController extends Controller
         $hourVe = Input::get('hourVe');
         $minuteVe = Input::get('minuteVe');
         $thoigianVe = $myFunction->DoiDinhDangThoiGian($datepickerVe, $hourVe, $minuteVe);
-        $cars_not_in_inner = Booking::select('bookings.car_id')->where('bookings.bookingDate', '<=', $thoigianDi)
+        $cars_not_in_inner = DonDat::select('bookings.car_id')->where('bookings.bookingDate', '<=', $thoigianDi)
         ->where('bookings.returnDate' , '>=', $thoigianVe)->get()->toArray();
-        $cars_not_in_lower = Booking::select('bookings.car_id')->where('bookings.bookingDate', '>=', $thoigianDi)
+        $cars_not_in_lower = DonDat::select('bookings.car_id')->where('bookings.bookingDate', '>=', $thoigianDi)
         ->where('bookings.bookingDate', '<=', $thoigianVe)->where('bookings.returnDate', '>=', $thoigianVe)->get()->toArray();
-        $cars_not_in_higher = Booking::select('bookings.car_id')->where('bookings.bookingDate', '<=', $thoigianDi)
+        $cars_not_in_higher = DonDat::select('bookings.car_id')->where('bookings.bookingDate', '<=', $thoigianDi)
         ->where('bookings.returnDate', '<=', $thoigianVe)->where('bookings.returnDate', '>=', $thoigianDi)->get()->toArray();
-        $cars_not_in_outer = Booking::select('bookings.car_id')->where('bookings.bookingDate' , '>=', $thoigianDi)
+        $cars_not_in_outer = DonDat::select('bookings.car_id')->where('bookings.bookingDate' , '>=', $thoigianDi)
         ->where('bookings.returnDate', '<=', $thoigianVe)->get()->toArray();
         $cars_not_in= array_merge($cars_not_in_inner, $cars_not_in_outer, $cars_not_in_higher, $cars_not_in_lower);
         // dd($cars_not_in); die();

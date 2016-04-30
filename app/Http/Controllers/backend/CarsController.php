@@ -16,8 +16,7 @@ class CarsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getAllCars(){
-        $allCars = DB::table('cars')->join('car_types', 'car_types.id', '=', 'cars.car_type_id')
-        ->select('cars.id', 'car_types.name', 'car_types.type', 'car_types.producer', 'cars.image', 'cars.registration_number')->orderBy('id', 'asc')->paginate(5);
+        $allCars = DB::table('tbl_xe')->select('xe_id','hang_xe', 'sodangky_xe')->orderBy('xe_id', 'asc')->paginate(5);
         return view('backend.cars.danhsachxe', compact('allCars'));
     }
     public function index()

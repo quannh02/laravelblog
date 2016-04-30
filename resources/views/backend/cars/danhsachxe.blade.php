@@ -18,12 +18,9 @@
       	@if(isset($allCars))
             @foreach($allCars as $car)
                 <tr>
-                    <td  scope="row">{{ $car->id }}</td>
-                    <td>{{ $car->name }}</td>
-                    <td>{{ $car->type }}</td>
-                    <td>{{ $car->producer }}</td>
-                    <td><img class="imgAllCars" src="{{ url('public/user/images', $car->image) }}"></td>
-                    <td>{{ $car->registration_number }}</td>
+                    <td  scope="row">{{ $car->xe_id }}</td>
+                    <td>{{ $car->hang_xe }}</td>
+                    <td>{{ $car->sodangky_xe }}</td>
                     <td></td>
                 </tr>
             @endforeach

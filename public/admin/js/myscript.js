@@ -5,9 +5,9 @@ $(document).ready(function(){
 	// } else {
 	// 	document.getElementById("khachCN").checked = true;
 	// }
-	$(".nav-pills li a").click(function(){
-		$('.nav-pills li').addClass('active');
-	});
+	// $(".nav-pills li a").click(function(){
+	// 	$('.nav-pills li').addClass('active');
+	// });
 });
 $("div.alert").delay(3000).slideUp();
 

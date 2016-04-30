@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cars extends Model
 {
-    protected $table = 'cars';
-    protected $fillable = ['car_type_id', 'price_id', 'image', 'registration_number', 'color','NgaySX'];
+    protected $table = 'tbl_xe';
+    protected $fillable = ['hang_xe', 'giamuaxe', 'url_hinhxe', 'sodangky_xe', 'color','ngaysanxuat', 'socho_xe', 'taixe_xe'];
 }
