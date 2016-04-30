@@ -18,7 +18,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tinhs = DiaDiem::select('id', 'name')->where('parent_id', 0)->get();
+        //$tinhs = DiaDiem::select('id', 'name')->where('parent_id', 0)->get();
         return view('frontend.pages.index', compact('tinhs'));
     }
 

@@ -1,5 +1,4 @@
-
-                    <div class="navbar navbar-inverse navbar-fixed-left">
+<div class="navbar navbar-inverse navbar-fixed-left">
                       <a class="navbar-brand" href="#">Danh mục xe</a>
                       <ul class="nav navbar-nav">
                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Thuê xe theo cỡ<span class="caret"></span></a>

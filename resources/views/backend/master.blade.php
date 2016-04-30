@@ -34,9 +34,23 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav nav-tabs nav-pills">
+              <li class=""><a href=""><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý danh mục<span class="caret"></span></a></li>
+              <li class="active"><a href=""><i class="fa fa-cube fa-fw"></i></span>Quản lý xe<span class="caret"></span></a></li>
+              <li class=""><a href=""><i class="fa fa-cube fa-fw"></i>Quản lý đơn đặt<span class="caret"></span></a></li>
+              <li class=""><a href=""><i class="fa fa-users fa-fw"></i>Quản lý thành viên<span class="caret"></span></a></li>
+              <li class="dropdown pull-right">
+              <a href="{{ url('user',  Auth::user()->nguoidung_id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>{{ Auth::user()->tendaydu }}<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+              <li><a href="{{ url('trangchu') }}">Trang chủ</a></li>
+              <li><a href="{{ url('profile', Auth::user()->nguoidung_id) }}"><i class="fa fa-gear fa-fw"></i>Profile</a></li>
+              <li><a href="{!! route('logout')!!}"><i class="fa fa-sign-out fa-fw">Logout</i></a></li>
+              </ul>
+              </li>        
+      </ul>
+      <!-- <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o fa-fw"></i>Loại Xe<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o fa-fw"></i>Quản lý loại xe<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Loại xe</a></li>
             <li><a href="#">Thêm loại xe</a></li>
@@ -45,7 +59,7 @@
       </ul>
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cube fa-fw"></i>XE<span class="caret"></span></a>
+          <a href="{{ url('danhsachxe') }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cube fa-fw"></i>Quản lý xe<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{ url('danhsachxe') }}">Danh sách xe</a></li>
             <li><a href="#">Thêm xe</a></li>
@@ -54,7 +68,7 @@
       </ul>
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cube fa-fw"></i>Đặt xe<span class="caret"></span></a>
+          <a href="{{ url('list/car') }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cube fa-fw">/<i>Quản lý đơn đặt<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{ url('list/car') }}">Tìm kiếm xe</a></li>
             <li><a href="{{ url('datxe') }}">Đặt xe</a></li>
@@ -63,23 +77,14 @@
       </ul>
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-fw"></i>Member<span class="caret"></span></a>
+          <a href="{{ route('user.index') }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-fw"></i>Quản lý thành viên<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{ route('user.index') }}">List User</a></li>
             <li><a href="{{ route('user.create') }}">Add User</a></li>
           </ul>
         </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="{{ url('user',  Auth::user()->nguoidung_id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>{{ Auth::user()->tendaydu }}<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{{ url('trangchu') }}">Trang chủ</a></li>
-            <li><a href="{{ url('profile', Auth::user()->nguoidung_id) }}"><i class="fa fa-gear fa-fw"></i>Profile</a></li>
-            <li><a href="{!! route('logout')!!}"><i class="fa fa-sign-out fa-fw">Logout</i></a></li>
-          </ul>
-        </li>
-      </ul>
+      </ul> -->
+      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
