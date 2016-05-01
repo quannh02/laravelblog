@@ -1628,6 +1628,7 @@ pre code {
 .col-md-11,
 .col-md-12,
 .col-md-2,
+.col-md-2-5,
 .col-md-3,
 .col-md-4,
 .col-md-5,
@@ -1635,6 +1636,7 @@ pre code {
 .col-md-7,
 .col-md-8,
 .col-md-9,
+.col-md-9-5,
 .col-sm-1,
 .col-sm-10,
 .col-sm-11,
@@ -1647,6 +1649,7 @@ pre code {
 .col-sm-7,
 .col-sm-8,
 .col-sm-9,
+.col-xs-9-5,
 .col-xs-1,
 .col-xs-10,
 .col-xs-11,
@@ -1677,7 +1680,8 @@ pre code {
 .col-xs-6,
 .col-xs-7,
 .col-xs-8,
-.col-xs-9 {
+.col-xs-9,
+.col-xs-9-5 {
     float: left
 }
 .col-xs-12 {
@@ -1688,6 +1692,9 @@ pre code {
 }
 .col-xs-10 {
     width: 83.33333333%
+}
+.col-xs-9-5{
+    width: 77%;
 }
 .col-xs-9 {
     width: 75%
@@ -2010,6 +2017,8 @@ pre code {
     .col-md-10,
     .col-md-11,
     .col-md-12,
+    .col-md-9-5,
+    .col-md-2-5,
     .col-md-2,
     .col-md-3,
     .col-md-4,
@@ -2028,6 +2037,9 @@ pre code {
     }
     .col-md-10 {
         width: 83.33333333%
+    }
+    .col-md-9-5{
+        width: 79%
     }
     .col-md-9 {
         width: 75%
@@ -2049,6 +2061,9 @@ pre code {
     }
     .col-md-3 {
         width: 25%
+    }
+    .col-md-2-5{
+        width: 21%
     }
     .col-md-2 {
         width: 16.66666667%

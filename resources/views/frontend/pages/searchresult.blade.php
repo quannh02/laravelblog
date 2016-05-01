@@ -1,7 +1,7 @@
 @extends('frontend.master')
 @section('description', 'Trang tìm kiếm')
 @section('content')
-<div class="col-xs-7">
+<div class="col-xs-9-5">
 	<div class="container">
 	    @if(isset($details))
 	        <p> Kết quả tìm kiếm cho <b> {{ $query }} </b> là :</p>

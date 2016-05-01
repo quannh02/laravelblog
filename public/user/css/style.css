@@ -74,17 +74,24 @@ a.title_b_car, .title_b_car {
 
 .box_car_hot {
     padding-bottom: 14px;
+    margin: 5px 0px 5px 0px;
+   
 }
 .div_name_car_hot {
-    background: #083860;
-    border-radius: 5px;
+    /*background: #083860;*/
     margin-bottom: 8px;
-    padding: 3px 10px;
+    padding: 3px;
     text-align: center;
+    width: 98%;
+    border: #083860 solid 1px;
+    border-radius: 5px;
 }
-a.a_name_car_hot {
-    color: #ffffff;
-    font-weight: bold;
+.a_name_car_hot{
+    background: #083860;
+}
+.a_name_car_hot a{
+    color: #fff;
+    /*font-weight: bold;*/
 }
 a {
     color: #244487;
@@ -95,14 +102,15 @@ img {
 }
 .img_car_list {
     border-radius: 5px;
-    float: left;
-    width: 115px;
+    height: 140px;
+    width: 230px;
+    padding-left: 25px;
 }
 
 .b_car_information {
-    float: right;
+    /*float: right;*/
     padding-left: 15px;
-    width: calc(100% - 115px);
+    /*width: calc(100% - 115px);*/
 }
 .b_car_information {
     font-size: 11px;
@@ -121,7 +129,7 @@ img {
     height: 21px;
     line-height: 20px;
     margin-top: 7px;
-    padding-left: 27px;
+    /*padding-left: 27px;*/
     width: 83px;
 }
 .div_book_car {

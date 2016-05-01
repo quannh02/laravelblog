@@ -24,7 +24,7 @@
     <div class="col-xs-12">
         <div class="content clearfix">
             <div class="row">
-                <div class="col-xs-2-5">
+                <div class="col-xs-12 col-md-2-5">
                 @include('frontend.blocks.search')
                 </div> 
                 @yield('content')
