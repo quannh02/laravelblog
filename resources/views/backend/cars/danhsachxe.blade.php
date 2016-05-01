@@ -1,5 +1,11 @@
 @extends('backend.master')
 @section('content')
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+        <a href="{{ url('/cars/new') }}" class="btn btn-primary btn-sm pull-right" style="margin-top: 25px">
+          <i class="fa fa-plus-circle" style="margin-right: 5px"></i>
+          Thêm xe
+        </a>
+</div>
 <div class="col-xs-12">
 <div class="table-responsive">
     <table class="table">
