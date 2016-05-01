@@ -410,3 +410,19 @@ a.a_book_car {
   width: 100%;
   position: relative;
 }
+.linkthanhvien ul{
+    list-style: none;
+}
+.linkthanhvien ul li{
+    float:left;
+    padding: 10px 20px;
+}
+.linkthanhvien {
+    margin-top: 20px;
+}
+.navbar-inverse .navbar-brand {
+    color:  #38af4b;
+}
+.lft .title{
+     color:  #38af4b;
+}
