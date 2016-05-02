@@ -51,7 +51,8 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::post('user/create', ['as' => 'user.store', 'uses' => 'UserController@store']);
 		Route::get('upload', ['as' => 'upload.get', 'uses' => 'UserController@upload']);
 		Route::post('upload', ['as' => 'upload.post', 'uses' => 'UserController@postupload']);
-		Route::get('cars/new', 'CarsController@create');
+		Route::get('cars/new', ['as' => 'themxe' , 'uses' => 'CarsController@create']);
+		Route::post('cars/new', 'CarsController@store');
 		// Route::resource('user', 'UserController');
 	});
 });

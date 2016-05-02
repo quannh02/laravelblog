@@ -28,12 +28,12 @@ class BookingController extends Controller
         $hourDi = Input::get('hourDi');
         $minuteDi = Input::get('minuteDi');
         $myFunction = new MyFunction;
-        $thoigianDi = $myFunction->DoiDinhDangThoiGian($datepickerDi, $hourDi, $minuteDi);
+        $thoigianDi = $myFunction->changeDatePicker($datepickerDi, $hourDi, $minuteDi);
         //dd($thoigianDi); die();
         $datepickerVe = Input::get('datepickerVe');
         $hourVe = Input::get('hourVe');
         $minuteVe = Input::get('minuteVe');
-        $thoigianVe = $myFunction->DoiDinhDangThoiGian($datepickerVe, $hourVe, $minuteVe);
+        $thoigianVe = $myFunction->changeDatePicker($datepickerVe, $hourVe, $minuteVe);
         $cars_not_in_inner = DB::table('tbl_dondat')
                 ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id', '=', 'tbl_dondatchitiet.dondat_id')
                 ->select('tbl_dondatchitiet.xe_id')

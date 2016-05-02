@@ -8,6 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Cars;
 use DB;
+use App\Http\Requests\ThemXeRequest;
+use App\MyFunction;
+
 class CarsController extends Controller
 {
     /**
@@ -40,9 +43,31 @@ class CarsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ThemXeRequest $request)
     {
-        //
+        $cars = new Cars;
+        $cars->hang_xe      = $request->hang_xe;
+        $cars->giamuaxe     = $request->giamuaxe;
+        $cars->sodangky_xe  = $request->sodangky_xe;
+        $cars->color        = $request->color;
+        $cars->socho_xe     = $request->socho_xe;
+        $cars->taixe_xe     = $request->taixe_xe;
+        $file = $request->file('url_hinhxe');
+        $destinationPath = base_path(). "/public/uploads/";
+
+        $function = new MyFunction;
+        $url_hinhxe = $function->stripUnicode(basename($file->getClientOriginalName()));
+        $cars->ngaysanxuat  = $function->changeDatePicker($request->ngaysanxuat, '00', '00');
+        $cars->url_hinhxe = $url_hinhxe;
+        $fileName = $destinationPath . $url_hinhxe;
+        //dd($file); die();
+        if ($request->hasFile('url_hinhxe')) {
+            if ($file->isValid()) {
+                $file->move($destinationPath, $fileName);
+            }   
+        }
+        $cars->save();
+        return redirect()->route('themxe')->with(['flash_level'=> 'success', 'flash_message' => 'Đã thêm dữ liệu thành công']);
     }
 
     /**
