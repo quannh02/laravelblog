@@ -69,7 +69,7 @@
                            		</div>
                            	</div>
                             <button type="submit" class="btn btn-default">Thêm</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
+                            <button type="reset" class="btn btn-reset btn-default">Reset</button>
                         <form>
                     </div>
                 </div>

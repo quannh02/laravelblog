@@ -137,6 +137,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -196,6 +197,7 @@ return [
         'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Form'      => Illuminate\Html\FormFacade::class,
         'View'      => Illuminate\Html\HtmlFacade::class,
+        'Socialize' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

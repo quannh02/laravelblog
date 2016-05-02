@@ -25,11 +25,11 @@
                             <div class="borderHinh">
 							             <div class="form-group">
                                 Ngày thuê phương tiện:
-                              <input name="datepickerDi" class="form-control" data-provide="datepicker">
+                              <input name="datepickerDi" class="form-control" value="{{ old('datepickerDi') }}" data-provide="datepicker">
                             </div>
                             <div class="form-group">
                               <label for="sel1">Hour:</label>
-                              <select name="hourDi" class="form-control" id="sel1">
+                              <select name="hourDi" class="form-control" value="{{ old('hourDi') }}" id="sel1">
                               <?php for($i=0; $i < 10; $i++){ ?>
                               <option><?php echo '0'. $i; ?></option>
                               <?php }
@@ -41,7 +41,7 @@
                          </div>
             							<div class="form-group">
               								<label for="sel1">Minute:</label>
-              								<select name="minuteDi" class="form-control" id="sel1">
+              								<select name="minuteDi" class="form-control" value="{{ old('minuteDi') }}" id="sel1">
               								<?php $minutes = array('00', '15', '30', '45'); 
               									foreach($minutes as $minute){
               								?>
@@ -56,11 +56,11 @@
                            <div class="borderHinh">
 							           <div class="form-group">
                                 Ngày trả phương tiện:
-                                <input name="datepickerVe" class="form-control" data-provide="datepicker">
+                                <input name="datepickerVe" class="form-control" value="{{ old('datepickerVe') }}" data-provide="datepicker">
                           </div>
                           <div class="form-group">
               								<label for="sel1">Hour:</label>
-              								<select name="hourVe" class="form-control" id="sel1">
+              								<select name="hourVe" class="form-control" value="{{ old('hourVe') }}" id="sel1">
               								<?php for($i=0; $i < 10; $i++){ ?>
                               <option><?php echo '0'. $i; ?></option>
                               <?php }
@@ -72,7 +72,7 @@
 							           </div>
             							<div class="form-group">
               								<label for="sel1">Minute:</label>
-              								<select name="minuteVe" class="form-control" id="sel1">
+              								<select name="minuteVe" class="form-control" value="{{ old('minuteVe') }}" id="sel1">
               								<?php $minutes = array('00', '15', '30', '45'); 
               									foreach($minutes as $minute){
               								?>

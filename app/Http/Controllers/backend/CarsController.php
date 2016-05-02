@@ -19,7 +19,7 @@ class CarsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getAllCars(){
-        $allCars = DB::table('tbl_xe')->select('xe_id','hang_xe', 'sodangky_xe')->orderBy('xe_id', 'asc')->paginate(5);
+        $allCars = DB::table('tbl_xe')->select('xe_id','hang_xe', 'sodangky_xe', 'url_hinhxe')->orderBy('xe_id', 'asc')->paginate(5);
         return view('backend.cars.danhsachxe', compact('allCars'));
     }
     public function index()
@@ -53,7 +53,7 @@ class CarsController extends Controller
         $cars->socho_xe     = $request->socho_xe;
         $cars->taixe_xe     = $request->taixe_xe;
         $file = $request->file('url_hinhxe');
-        $destinationPath = base_path(). "/public/uploads/";
+        $destinationPath = base_path(). "/public/user/images/";
 
         $function = new MyFunction;
         $url_hinhxe = $function->stripUnicode(basename($file->getClientOriginalName()));

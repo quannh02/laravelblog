@@ -27,7 +27,7 @@
                     <td  scope="row">{{ $car->xe_id }}</td>
                     <td>{{ $car->hang_xe }}</td>
                     <td>{{ $car->sodangky_xe }}</td>
-                    <td></td>
+                    <td><img class="img img-responsive url_hinhxe" src="{{ url('public/user/images', $car->url_hinhxe) }}" alt="{{ $car->url_hinhxe }}"></td>
                 </tr>
             @endforeach
         @endif
