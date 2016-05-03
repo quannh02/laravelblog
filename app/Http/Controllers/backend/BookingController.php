@@ -25,15 +25,18 @@ class BookingController extends Controller
     public function postListCar(){
         $datepickerDi = Input::get('datepickerDi');
         // đổi sang dạng YYYY:mm:dd H:i:s
+        $thoigianDi = date('Y:m:d', strtotime($datepickerDi));
         $hourDi = Input::get('hourDi');
         $minuteDi = Input::get('minuteDi');
         $myFunction = new MyFunction;
-        $thoigianDi = $myFunction->changeDatePicker($datepickerDi, $hourDi, $minuteDi);
-        //dd($thoigianDi); die();
+        $thoigianDi = $myFunction->changeDatePicker($thoigianDi, $hourDi, $minuteDi);
+        //dd($thoigianDi);
         $datepickerVe = Input::get('datepickerVe');
+        $thoigianVe = date('Y:m:d', strtotime($datepickerVe));
         $hourVe = Input::get('hourVe');
         $minuteVe = Input::get('minuteVe');
-        $thoigianVe = $myFunction->changeDatePicker($datepickerVe, $hourVe, $minuteVe);
+        $thoigianVe = $myFunction->changeDatePicker($thoigianVe, $hourVe, $minuteVe);
+        //dd($thoigianVe); die();
         $cars_not_in_inner = DB::table('tbl_dondat')
                 ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id', '=', 'tbl_dondatchitiet.dondat_id')
                 ->select('tbl_dondatchitiet.xe_id')

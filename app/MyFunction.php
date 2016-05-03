@@ -12,23 +12,13 @@ class MyFunction extends Model
      *
      *
      */
-    public function changeDatePicker($datepicker, $hour, $minute){
-        $a = explode('/', $datepicker);
-        // đổi chỗ ngày tháng năm
-        $b = $a[0];
-        $a[0] = $a[2];
-        $a[2] = $b;
-        $b = $a[1];
-        $a[1] = $a[2];
-        $a[2] = $b;
-        //dd($a); die();
-        $datepicker = implode(':', $a);
-        //dd($datepickerDi); die();
+    public function changeDatePicker($date, $hour, $minute){
         $second = '00';
         $hourAndMinute = array($hour, $minute, $second);
         $hourAndMinuteStr = implode(':', $hourAndMinute);
         //dd($hourAndMinuteDiStr); die();
-        $thoigian = $datepicker . ' ' . $hourAndMinuteStr;
+        $thoigianPre = array($date, $hourAndMinuteStr);
+        $thoigian = implode(' ', $thoigianPre);
         return $thoigian;
     }
     function stripUnicode($str){
