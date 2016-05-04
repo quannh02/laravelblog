@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use Illuminate\Http\Request;
-
+use App\TinTuc;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +14,14 @@ class TinTucController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+    public function getTinTuc(){
+        $tintucs  = TinTuc::all();
+        return view('frontend.pages.tintuc', compact('tintucs'));
+    }
+    public function chitiettintuc($id){
+        $tintuc = TinTuc::where('id', $id)->get()->first();
+        return view('frontend.pages.chitiettintuc', compact('tintuc'));
+    }
     public function index()
     {
         //
