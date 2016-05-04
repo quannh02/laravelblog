@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class TinTuc extends Model
 {
-    protected $table = 'news';
-    protected $fillable = ['title', 'author', 'body'];
+    protected $table = 'tbl_tintuc';
+    protected $fillable = ['tieude', 'tacgia', 'noidung'];
 }

@@ -53,6 +53,9 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::post('upload', ['as' => 'upload.post', 'uses' => 'UserController@postupload']);
 		Route::get('cars/new', ['as' => 'themxe' , 'uses' => 'CarsController@create']);
 		Route::post('cars/new', 'CarsController@store');
+		Route::get('themtintuc', ['as' => 'themtintuc', 'uses' => 'TinTucController@themTinTuc']);
+		Route::post('themtintuc/{id}', 'TinTucController@postTinTuc');
+		Route::get('quanlytintuc', 'TinTucController@getAllTinTuc');
 		// Route::resource('user', 'UserController');
 	});
 });
