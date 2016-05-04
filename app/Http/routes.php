@@ -62,6 +62,8 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::get('chitiet', 'HomeController@getChiTiet');
 	Route::post('votes/{id}', 'HomeController@postVote');
 	Route::any('/search', 'HomeController@search');
+	Route::get('tintuc', 'HomeController@getTinTuc');
+	Route::get('tintucchitiet', 'HomeController@tintucchitiet');
 });
 
 

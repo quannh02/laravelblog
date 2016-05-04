@@ -12,15 +12,6 @@ class MyFunction extends Model
      *
      *
      */
-    public function changeDatePicker($date, $hour, $minute){
-        $second = '00';
-        $hourAndMinute = array($hour, $minute, $second);
-        $hourAndMinuteStr = implode(':', $hourAndMinute);
-        //dd($hourAndMinuteDiStr); die();
-        $thoigianPre = array($date, $hourAndMinuteStr);
-        $thoigian = implode(' ', $thoigianPre);
-        return $thoigian;
-    }
     function stripUnicode($str){
         if(!$str) return false;
         $unicode = array(

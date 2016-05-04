@@ -30,25 +30,24 @@ class HomeController extends Controller
         //dd($a); die();
     }
     public function getChiTiet(){
-        $tinhs = DiaDiem::select('id', 'name')->where('parent_id', 0)->get();
         $id = 1;
-        $vote_id = Vote::select('id')->where('carId', $id)->get()->first();
-        return view('frontend.pages.chitiet', compact('vote_id', 'tinhs'));
+        $vote_id = Vote::select('id')->where('xe_id', $id)->get()->first();
+        return view('frontend.pages.chitiet', compact('vote_id'));
     }
     public function postVote($id){
         $point = Input::get('point');
         //dd($point); die();
         $currentVote = Vote::findOrFail($id);
         //dd($currentVote); die();
-        $currentVote->votes = $currentVote->votes + 1;
-        $currentVote->points = $currentVote->points +  $point;
+        $currentVote->sovotes = $currentVote->sovotes + 1;
+        $currentVote->tongdiem = $currentVote->tongdiem +  $point;
         $currentVote->save();
-        $updateVote = Vote::select('votes', 'points')->where('carId', $id)->get()->first();
-        $roundVote = round(($updateVote->points/$updateVote->votes), 1);
+        $updateVote = Vote::select('sovotes', 'tongdiem')->where('xe_id', $id)->get()->first();
+        $roundVote = round(($updateVote->tongdiem/$updateVote->sovotes), 1);
 
         $arrayForVoting = array(
-            'votes' => $updateVote->votes,
-            'points' => $updateVote->points,
+            'votes' => $updateVote->sovotes,
+            'points' => $updateVote->tongdiem,
             'roundVote'=> $roundVote
             );
 
@@ -62,6 +61,12 @@ class HomeController extends Controller
         if(count($car) > 0)
         return view('frontend.pages.searchresult')->withDetails($car)->withQuery($q);
         else return view ('frontend.pages.searchresult')->withMessage('No Details found. Try to search again !');
+    }
+    public function getTinTuc(){
+        return view('frontend.pages.tintuc');
+    }
+    public function tintucchitiet(){
+        return view('frontend.pages.chitiettintuc');
     }
     /**
      * Show the form for creating a new resource.

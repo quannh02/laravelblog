@@ -57,7 +57,8 @@ class CarsController extends Controller
 
         $function = new MyFunction;
         $url_hinhxe = $function->stripUnicode(basename($file->getClientOriginalName()));
-        $cars->ngaysanxuat  = $function->changeDatePicker($request->ngaysanxuat, '00', '00');
+        $ngaysanxuat = date('Y:m:d', strtotime($request->ngaysanxuat));
+        $cars->ngaysanxuat  = '' . $ngaysanxuat . ' 00:00:00';
         $cars->url_hinhxe = $url_hinhxe;
         $fileName = $destinationPath . $url_hinhxe;
         //dd($file); die();

@@ -434,3 +434,27 @@ a.a_book_car {
 .lft .title{
      color:  #38af4b;
 }
+.img_news {
+    float: left;
+    margin-right: 15px;
+    width: 150px;
+}
+.b_visa_title {
+    padding-bottom: 6px;
+}
+.b_visa_title a {
+    color: #7f011e;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.b_visa_more_detail {
+    background: #fff url("arrow_visa_service.gif");
+    margin-top: 7px;
+    padding-left: 10px;
+}
+.b_visa_more_detail a {
+    color: #ff0000;
+    font-size: 11px;
+    text-decoration: underline;
+}
