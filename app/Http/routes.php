@@ -67,7 +67,10 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::any('/search', 'HomeController@search');
 	Route::get('tintuc', 'TinTucController@getTinTuc');
 	Route::get('chitiettintuc/{id}', 'TinTucController@chitiettintuc');
+	Route::get('/facebook', 'FacebookController@facebook');
+	Route::get('/callback', 'FacebookController@callback');
 });
+
 
 
 
