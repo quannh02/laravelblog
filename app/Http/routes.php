@@ -53,13 +53,16 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::post('upload', ['as' => 'upload.post', 'uses' => 'UserController@postupload']);
 		Route::get('cars/new', ['as' => 'themxe' , 'uses' => 'CarsController@create']);
 		Route::post('cars/new', 'CarsController@store');
-		Route::get('cars/destroy/{id}', ['as' => 'xoaxe', 'uses' => 'CarsController@delete']);
+		Route::post('cars/destroy/{id}', ['as' => 'xoaxe', 'uses' => 'CarsController@delete']);
 		Route::get('cars/edit/{id}' , ['as' => 'suaxe', 'uses' => 'CarsController@edit']);
 		Route::post('cars/update/{id}', 'CarsController@update');
 		
 		Route::get('themtintuc', ['as' => 'themtintuc', 'uses' => 'TinTucController@themTinTuc']);
 		Route::post('themtintuc/{id}', 'TinTucController@postTinTuc');
-		Route::get('quanlytintuc', 'TinTucController@getAllTinTuc');
+		Route::get('tintuc/edit/{id}', ['as' => 'suatintuc', 'uses' => 'TinTucController@edit']);
+		Route::post('tintuc/update/{id}', 'TinTucController@update');
+		Route::get('quanlytintuc', ['as' => 'quanlytintuc' ,'uses' => 'TinTucController@getAllTinTuc']);
+		Route::post('tintuc/destroy/{id}', 'TinTucController@destroy');
 		// Route::resource('user', 'UserController');
 	});
 });

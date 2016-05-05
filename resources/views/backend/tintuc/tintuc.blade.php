@@ -15,6 +15,7 @@
           <th>Tieu de</th>
           <th>Noi dung</th>
           <th>Tac gia</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -25,7 +26,14 @@
                     <td>{{ $value->tieude }}</td>
                     <td>{{ $value->noidung }}</td>
                     <td>{{ $value->tacgia }}</td>
-               
+                    <td>
+                       <a class="btn btn-default  text-right" data-toggle="tooltip" href="{{ url('tintuc/edit', $value->id ) }}" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
+                       <div class="pull-right">
+                       {!! Form::open(array('url' => array('tintuc/destroy', $value->id))) !!}
+                       <button type="submit" class="btn btn-danger add-tooltip"  onclick="return xacnhanxoa('Bạn có muốn xóa không?');" data-toggle="tooltip" href="#" data-original-title="Delete" data-container="body"><i class="fa fa-times"></i></button>
+                       {!! Form::close() !!}
+                       </div>
+                    </td>
                 </tr>
        @endforeach
       </tbody>

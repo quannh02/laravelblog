@@ -29,8 +29,8 @@ class TinTucController extends Controller
         $tintuc = new TinTuc;
         $tacgia = User::findOrFail($id);
         $tintuc->tacgia = $tacgia->tendaydu;
-        $tintuc->tieude = $tieude = Input::get('tieude');
-        $tintuc->noidung =$noidung = Input::get('noidung');
+        $tintuc->tieude  = Input::get('tieude');
+        $tintuc->noidung = Input::get('noidung');
         $tintuc->save();
         return redirect()->route('themtintuc')->with(['flash_level'=> 'success', 'flash_message' => 'Đã thêm dữ liệu thành công']);
 
@@ -80,7 +80,9 @@ class TinTucController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = TinTuc::where('id', $id)->get()->first();
+        //dd($data); die();
+        return view('backend.tintuc.edit', compact('data'));
     }
 
     /**
@@ -92,7 +94,11 @@ class TinTucController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tintuc = TinTuc::findOrFail($id);
+        $tintuc->tieude  = Input::get('tieude');
+        $tintuc->noidung = Input::get('noidung');
+        $tintuc->save();
+        return redirect()->route('quanlytintuc');
     }
 
     /**
@@ -103,6 +109,8 @@ class TinTucController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tintuc = TinTuc::findOrFail($id);
+        $tintuc->delete();
+        return redirect()->route('quanlytintuc');
     }
 }

@@ -97,12 +97,12 @@ class AuthController extends Controller
     }
     public function postProfile($id){
         $data = User::findOrFail($id);
-        $data->fullname = Input::get('txtName');
-        $data->soDienThoai = Input::get('txtSoDienThoai');
-        $data->tenCongTy = Input::get('txtTenCongTy');
-        $data->maSoThue = Input::get('txtMaSoThue');
-        $data->customer_type = Input::get('customertype');
-        $data->address = Input::get('txtAddress');
+        $data->tendaydu = Input::get('txtName');
+        $data->sodienthoai = Input::get('txtSoDienThoai');
+        $data->tencongty = Input::get('txtTenCongTy');
+        $data->masothue = Input::get('txtMaSoThue');
+        //$data->customer_type = Input::get('customertype');
+        $data->diachi = Input::get('txtAddress');
         // $address = new CustomerAddress([
         //         'address' => Input::get('txtAddress')
         //     ]);

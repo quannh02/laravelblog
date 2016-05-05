@@ -141,7 +141,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->tendaydu = $request->txtUser;
-        $user->password = $request->txtPass;
+        $user->password = Hash::make($request->txtPass);
         $user->save();
         return redirect()->route('user.index');
     }
