@@ -39,7 +39,7 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::get('list/car', ['as' => 'listCarforRent', 'uses' => 'BookingController@getListCar']);
 		Route::post('list/car', 'BookingController@postListCar');
 		Route::get('datxe', 'BookingController@getDatXe');
-		Route::get('danhsachxe', 'CarsController@getAllCars');
+		Route::get('danhsachxe', ['as' => 'danhsachxe', 'uses' => 'CarsController@getAllCars']);
 	});
 	
 	Route::group(['middleware' => ['admin', 'auth']], function(){
@@ -53,6 +53,10 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::post('upload', ['as' => 'upload.post', 'uses' => 'UserController@postupload']);
 		Route::get('cars/new', ['as' => 'themxe' , 'uses' => 'CarsController@create']);
 		Route::post('cars/new', 'CarsController@store');
+		Route::get('cars/destroy/{id}', ['as' => 'xoaxe', 'uses' => 'CarsController@delete']);
+		Route::get('cars/edit/{id}' , ['as' => 'suaxe', 'uses' => 'CarsController@edit']);
+		Route::post('cars/update/{id}', 'CarsController@update');
+		
 		Route::get('themtintuc', ['as' => 'themtintuc', 'uses' => 'TinTucController@themTinTuc']);
 		Route::post('themtintuc/{id}', 'TinTucController@postTinTuc');
 		Route::get('quanlytintuc', 'TinTucController@getAllTinTuc');

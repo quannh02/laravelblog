@@ -88,9 +88,10 @@ class CarsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($xe_id)
     {
-        //
+        $data = Cars::where('xe_id', $xe_id)->get()->first();
+        return view('backend.cars.suaxe', compact('data'));
     }
 
     /**
@@ -100,9 +101,33 @@ class CarsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ThemXeRequest $request, $xe_id)
     {
-        //
+        $cars = Cars::findOrFail($xe_id);
+        //$cars->xe_id = $id;
+        $cars->hang_xe      = $request->hang_xe;
+        $cars->giamuaxe     = $request->giamuaxe;
+        $cars->sodangky_xe  = $request->sodangky_xe;
+        $cars->color        = $request->color;
+        $cars->socho_xe     = $request->socho_xe;
+        $cars->taixe_xe     = $request->taixe_xe;
+        $file = $request->file('url_hinhxe');
+        $destinationPath = base_path(). "/public/user/images/";
+
+        $function = new MyFunction;
+        $url_hinhxe = $function->stripUnicode(basename($file->getClientOriginalName()));
+        $ngaysanxuat = date('Y:m:d', strtotime($request->ngaysanxuat));
+        $cars->ngaysanxuat  = '' . $ngaysanxuat . ' 00:00:00';
+        $cars->url_hinhxe = $url_hinhxe;
+        $fileName = $destinationPath . $url_hinhxe;
+        //dd($file); die();
+        if ($request->hasFile('url_hinhxe')) {
+            if ($file->isValid()) {
+                $file->move($destinationPath, $fileName);
+            }   
+        }
+        $cars->save();
+        return redirect()->route('danhsachxe');
     }
 
     /**
@@ -113,6 +138,8 @@ class CarsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Cars::findOrFail($id);
+        $user->delete();
+        return redirect()->route('danhsachxe');
     }
 }

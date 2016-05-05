@@ -19,6 +19,7 @@
           <th>Màu</th>
           <th>Tài xế</th>
           <th>Ngày sản xuất</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -34,6 +35,14 @@
                     <td>{{ $car->color }}</td>
                     <td>{{ $car->taixe_xe }}</td>
                     <td>{{ $car->ngaysanxuat }}</td>
+                    <td>
+                       <a class="btn btn-default  text-right" data-toggle="tooltip" href="{{ url('cars/edit', $car->xe_id ) }}" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
+                       <div class="pull-right">
+                       {!! Form::open(array('url' => array('cars/destroy', $car->xe_id))) !!}
+                       <button type="submit" class="btn btn-danger add-tooltip"  onclick="return xacnhanxoa('Bạn có muốn xóa không?');" data-toggle="tooltip" href="#" data-original-title="Delete" data-container="body"><i class="fa fa-times"></i></button>
+                       {!! Form::close() !!}
+                       </div>
+                    </td>
                 </tr>
             @endforeach
         @endif
