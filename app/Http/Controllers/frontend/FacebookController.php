@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Socialize;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\MyFunction;
+use Auth;
+use App\User;
 class FacebookController extends Controller
 {
     /**
@@ -19,18 +21,57 @@ class FacebookController extends Controller
         return Socialize::driver('facebook')->redirect();
     }
 
+    
     /**
-     * Obtain the user information from GitHub.
+     * Obtain the user information from Facebook.
      *
      * @return Response
      */
     public function callback()
     {
-        $user = Socialize::driver('facebook')->user();
-        return "<h2>" . $user->getName() . "</h2>";
+        try {
+            $user = Socialize::driver('facebook')->user();
+        } catch (Exception $e) {
+            return redirect('/facebook');
+        }
+        dd($user); die();
+        $authUser = $this->findOrCreateUser($user);
 
-        // $user->token;
+        Auth::login($authUser, true);
+        //Tracker::hit();
+        return redirect()->intended('/');
     }
+
+    /**
+     * Return user if exists; create and return if doesn't
+     *
+     * @param $facebookUser
+     * @return User
+     */
+    private function findOrCreateUser($facebookUser)
+    {
+        $authUser = User::where('social_id', $facebookUser->id)->first();
+
+        if ($authUser) {
+            return $authUser;
+        }
+        $a = new MyFunction;
+        $username = $a->stripUnicode($facebookUser->name);
+        return User::create(
+            [
+                'tendaydu' => $username,
+                //'full_name' => $facebookUser->name,
+                'email' => $facebookUser->email,
+                'social_id' => $facebookUser->id,
+                //'avatar' => $facebookUser->avatar,
+                'remember_token' => $facebookUser->token,
+                'terms' => 1,
+                //'total_post' => 0,
+                //'active'=>1
+            ]
+        );
+    }
+
     public function index()
     {
         //

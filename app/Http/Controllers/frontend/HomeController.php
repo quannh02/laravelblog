@@ -62,12 +62,7 @@ class HomeController extends Controller
         return view('frontend.pages.searchresult')->withDetails($car)->withQuery($q);
         else return view ('frontend.pages.searchresult')->withMessage('No Details found. Try to search again !');
     }
-    public function getTinTuc(){
-        return view('frontend.pages.tintuc');
-    }
-    public function tintucchitiet(){
-        return view('frontend.pages.chitiettintuc');
-    }
+    
     /**
      * Show the form for creating a new resource.
      *
