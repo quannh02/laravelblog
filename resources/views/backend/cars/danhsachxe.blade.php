@@ -12,12 +12,13 @@
       <thead>
         <tr>
           <th>Id</th>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Producer</th>
-          <th>Image</th>
-          <th>Registration_number</th>
-          <th>Đặt xe</th>
+          <th>Hãng xe</th>
+          <th>Tên</th>
+          <th>Hình ảnh</th>
+          <th>Số đăng ký</th>
+          <th>Màu</th>
+          <th>Tài xế</th>
+          <th>Ngày sản xuất</th>
         </tr>
       </thead>
       <tbody>
@@ -26,8 +27,13 @@
                 <tr>
                     <td  scope="row">{{ $car->xe_id }}</td>
                     <td>{{ $car->hang_xe }}</td>
-                    <td>{{ $car->sodangky_xe }}</td>
+                    <td>{{ $car->ten_xe }}</td>
+                    
                     <td><img class="img img-responsive url_hinhxe" src="{{ url('public/user/images', $car->url_hinhxe) }}" alt="{{ $car->url_hinhxe }}"></td>
+                    <td>{{ $car->sodangky_xe }}</td>
+                    <td>{{ $car->color }}</td>
+                    <td>{{ $car->taixe_xe }}</td>
+                    <td>{{ $car->ngaysanxuat }}</td>
                 </tr>
             @endforeach
         @endif

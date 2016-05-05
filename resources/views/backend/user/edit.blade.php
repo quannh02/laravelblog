@@ -18,9 +18,8 @@
                         @if(Session::has('flash_message'))
                             <div class="alert alert-{{ Session::get('flash_level')}}">{{ Session::get('flash_message') }}</div>
                         @endif
-                        <form action="{{ route('user.update', $data->id ) }}" method="POST">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                            <input type="hidden" name="_method" value="PUT">
+                        <form action="{{ url('user/update', $data->nguoidung_id ) }}" method="POST">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" >
                             <input type="hidden" name="id" value="{{ $data->id }}" >
                             <div class="form-group">
                                 <label>Email</label>

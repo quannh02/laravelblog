@@ -56,11 +56,11 @@ class HomeController extends Controller
         return json_encode($arrayForVoting);
     }
     public function search(){
-        $q = Input::get ( 'q' );
+        $q = Input::get('q');
         $car = Cars::where('hang_xe','LIKE','%'.$q.'%')->orWhere('socho_xe','LIKE','%'.$q.'%')->get();
         if(count($car) > 0)
         return view('frontend.pages.searchresult')->withDetails($car)->withQuery($q);
-        else return view ('frontend.pages.searchresult')->withMessage('No Details found. Try to search again !');
+        else return view ('frontend.pages.searchresult')->withMessage('Không tìm thấy kết quả. Bạn thử tìm lại lần nữa !');
     }
     
     /**

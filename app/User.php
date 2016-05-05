@@ -25,7 +25,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $primaryKey = 'nguoidung_id';
-    protected $fillable = ['tendaydu', 'social_id', 'email', 'diachi', 'sodienthoai', 'tencongty', 'masothue', 'giotinh', 'terms'];
+    protected $fillable = ['tendaydu', 'social_id', 'email', 'diachi', 'sodienthoai', 'tencongty', 'masothue', 'gioitinh', 'terms'];
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -36,14 +36,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     // }
     protected $hidden = ['password', 'remember_token'];
     public static $rules = array(
-            'email' => 'required|unique:users',
+            'email' => 'required|unique:tbl_nguoidung',
             'password' => 'required',
-            'name' =>'required'
+            'name' =>'required',
+            'password_confirmation' => 'required|same:password'
         );
     public static $messages = array(
             'email.required' => 'Vui lòng nhập email.',
             'email.unique'   => 'Email đã được đăng ký!',
             'password.required' => 'Vui lòng nhập password.',
-            'name.required' => 'Vui lòng nhập name'
+            'name.required' => 'Vui lòng nhập name',
+            'password_confirmation.same' => 'Password chưa giống nhau'
         );
 }

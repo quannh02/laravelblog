@@ -46,7 +46,7 @@ class AuthController extends Controller
         return redirect()->route('backend.getRegister')->withErrors($validator);
         } else {
             $newUser = new User;
-            $newUser->fullname = Input::get('name');
+            $newUser->tendaydu = Input::get('name');
             $newUser->email    = Input::get('email');
             $newUser->password = Hash::make(Input::get('password'));
             $newUser->remember_token = Input::get('_token');

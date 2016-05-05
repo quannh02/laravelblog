@@ -16,15 +16,33 @@
                                                     <th style="width:4ex">ID</th>
                                                     <th>Name</th>
                                                     <th>Email</th>
+                                                    <th>Địa chỉ</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th>Tên công ty</th>
+                                                    <th>Má số thuế</th>
+                                                    <th>Giới tính</th>
+                                                    <th>Quyền</th>
                                                     <th class="text-right">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach($data as $item)
                                                 <tr class="odd gradeX">
-                                                    <td><a href="#" class="btn-link">NY531</a></td>
+                                                    <td><a href="#" class="btn-link">{{ $item['nguoidung_id']}}</a></td>
                                                     <td>{{ $item['tendaydu'] }}</td>
                                                     <td>{{ $item['email'] }}</td>
+                                                    <td>{{ $item['diachi'] }}</td>
+                                                    <td>{{ $item['sodienthoai'] }}</td>
+                                                    <td>{{ $item['tencongty'] }}</td>
+                                                    <td>{{ $item['masothue'] }}</td>
+
+                                                    <td>{{ $item['gioitinh'] }}</td>
+
+                                                    @if($item['terms'] == 1)
+                                                    <td>{{ 'Admin' }}</td>
+                                                    @else
+                                                    <td>{{ 'Member' }}</td>
+                                                    @endif
                                                     <td>
                                                         <a class="btn btn-default  text-right" data-toggle="tooltip" href="{{ route('user.edit', $item['nguoidung_id'])}}" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
                                                         <div class="pull-right">

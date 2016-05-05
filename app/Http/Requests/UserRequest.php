@@ -27,7 +27,7 @@ class UserRequest extends Request
             'txtUser' => 'required',
             'txtPass' => 'required',
             'txtRePass' => 'required|same:txtPass',
-            'txtEmail' => 'required|unique:users,email'
+            'txtEmail' => 'required|unique:tbl_nguoidung,email'
         ];
     }
     public function messages(){

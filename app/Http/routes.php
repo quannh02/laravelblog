@@ -47,7 +47,7 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::get('user/{id}/edit', ['as' => 'user.edit', 'uses' => 'UserController@edit']);
 		Route::get('user/create', ['as' => 'user.create', 'uses' => 'UserController@create']);
 		Route::post('user/{id}/destroy' , ['as' => 'user.destroy' , 'uses' => 'UserController@destroy']);
-		Route::post('user/update', ['as' => 'user.update',  'uses' => 'UserController@update']);
+		Route::post('user/update/{id}', ['as' => 'user.update',  'uses' => 'UserController@update']);
 		Route::post('user/create', ['as' => 'user.store', 'uses' => 'UserController@store']);
 		Route::get('upload', ['as' => 'upload.get', 'uses' => 'UserController@upload']);
 		Route::post('upload', ['as' => 'upload.post', 'uses' => 'UserController@postupload']);

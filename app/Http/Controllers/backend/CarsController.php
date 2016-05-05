@@ -19,7 +19,7 @@ class CarsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getAllCars(){
-        $allCars = DB::table('tbl_xe')->select('xe_id','hang_xe', 'sodangky_xe', 'url_hinhxe')->orderBy('xe_id', 'asc')->paginate(5);
+        $allCars = DB::table('tbl_xe')->select('xe_id','hang_xe', 'sodangky_xe', 'url_hinhxe', 'ten_xe', 'color', 'ngaysanxuat','taixe_xe')->orderBy('xe_id', 'asc')->paginate(5);
         return view('backend.cars.danhsachxe', compact('allCars'));
     }
     public function index()

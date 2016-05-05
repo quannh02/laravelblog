@@ -75,7 +75,7 @@ class UserController extends Controller
     }
     public function index()
     {
-        $data = User::select('nguoidung_id', 'tendaydu', 'email')->get()->toArray();
+        $data = User::select('nguoidung_id', 'tendaydu', 'email', 'diachi', 'sodienthoai', 'tencongty', 'masothue', 'gioitinh', 'terms')->get()->toArray();
        // $orderCount = Order::count();
         return view('backend.user.list', compact('data'));
     }
@@ -125,7 +125,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $data = User::findOrFail($id);
+        $data = User::where('nguoidung_id', $id)->get()->first();
+        //dd($data); die();
         return view('backend.user.edit', compact('data'));
     }
 
@@ -139,7 +140,7 @@ class UserController extends Controller
     public function update(EditUserRequest $request, $id)
     {
         $user = User::findOrFail($id);
-        $user->fullname = $request->txtUser;
+        $user->tendaydu = $request->txtUser;
         $user->password = $request->txtPass;
         $user->save();
         return redirect()->route('user.index');
