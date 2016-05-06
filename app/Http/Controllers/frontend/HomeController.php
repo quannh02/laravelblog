@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Input;
 use App\Vote;
 use App\Cars;
+use App\Comment;
 
 class HomeController extends Controller
 {
@@ -30,9 +31,10 @@ class HomeController extends Controller
         //dd($a); die();
     }
     public function getChiTiet(){
+        $binhluans = Comment::all();
         $id = 1;
         $vote_id = Vote::select('id')->where('xe_id', $id)->get()->first();
-        return view('frontend.pages.chitiet', compact('vote_id'));
+        return view('frontend.pages.chitiet', compact('vote_id', 'binhluans'));
     }
     public function postVote($id){
         $point = Input::get('point');

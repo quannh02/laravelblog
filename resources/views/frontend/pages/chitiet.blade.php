@@ -47,14 +47,16 @@
 								</span>
 								<?php 
 									endfor;
-									echo '</span></div><p class="votes"><span></span> votos</p>';
+									echo '</span></div><p class="votes"><span></span> votes</p>';
 								?>
 								</div></div>
-								<form class="form-horizontal">
+								@if(isset(Auth::user()->nguoidung_id))
+								<form action="{{ url('binhluan', Auth::user()->nguoidung_id) }}" method="post" class="form-horizontal">
+									{{ csrf_field() }}
   									<div class="form-group">
 						
 								    <div class="col-sm-10">
-								    	<textarea class="form-control" rows="3" placeholder="Bình luận"></textarea>
+								    	<textarea class="form-control" name="txtbinhluan" rows="3" placeholder="Bình luận"></textarea>
 								    </div>
 								  	</div>
 								 	<div class="form-group">
@@ -62,7 +64,19 @@
 								      <button type="submit" class="btn btn-default">Bình luận</button>
 								    </div>
 								  	</div>
+
 								</form>
+								@else
+								<div class="box_search_2_all"><p><a href="{{ url('auth/login') }}">Đăng nhập</a> để bình luận</p></div>
+								@endif
+								<div class="box_search_2_all">
+									<ul>
+										@foreach($binhluans as $binhluan)
+										<li>{{ $binhluan->noidung }}</li>
+										<li>{{ $binhluan->nguoidung_id }}</li>
+										@endforeach
+									</ul>
+								</div>
 								<div class="box_search_2_all">
 								<div class="title_box_support_2">Lịch trình khác</div>
 						    	<div class="row">

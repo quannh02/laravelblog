@@ -69,13 +69,14 @@ Route::group(['namespace' => 'backend'], function(){
 Route::group(['namespace' => 'frontend'], function(){
 	Route::get('trangchu', 'HomeController@index');
 	Route::post('tinh/{id}', 'HomeController@returnDiaDanh');
-	Route::get('chitiet', 'HomeController@getChiTiet');
+	Route::get('chitiet', ['as' => 'chitietsp' , 'uses' => 'HomeController@getChiTiet']);
 	Route::post('votes/{id}', 'HomeController@postVote');
 	Route::any('/search', 'HomeController@search');
 	Route::get('tintuc', 'TinTucController@getTinTuc');
 	Route::get('chitiettintuc/{id}', 'TinTucController@chitiettintuc');
 	Route::get('/facebook', 'FacebookController@facebook');
 	Route::get('/callback', 'FacebookController@callback');
+	Route::post('binhluan/{id}', 'BinhLuanController@binhluan');
 });
 
 
