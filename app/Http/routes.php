@@ -14,15 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-//Route::group(['namespace' => 'Auth'], function()
-//{
-//	Route::group(['prefix'=> 'admin'], function(){
-//	    Route::get('login', 	['as' 	=> 'admin.getLogin', 'uses' 	=> 'AuthController@getLogin']);
-//	    Route::post('login', 	['as' 	=> 'admin.postLogin' , 'uses'	=> 'AuthController@postLogin']);
-//
-//	    Route::get('logout',  	['as' 	=>  'admin.logout',  'uses' 	=> 'AuthController@getLogout']);
-//	});
-//});
+
 
 Route::group(['namespace' => 'backend'], function(){
 	Route::group(['prefix' => 'auth'], function () {
@@ -42,7 +34,7 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::get('danhsachxe', ['as' => 'danhsachxe', 'uses' => 'CarsController@getAllCars']);
 	});
 	
-	Route::group(['middleware' => ['admin', 'auth']], function(){
+	Route::group(['middleware' => ['auth', 'admin']], function(){
 		Route::get('user/list', ['as' => 'user.index', 'uses' => 'UserController@index']);
 		Route::get('user/{id}/edit', ['as' => 'user.edit', 'uses' => 'UserController@edit']);
 		Route::get('user/create', ['as' => 'user.create', 'uses' => 'UserController@create']);
@@ -67,7 +59,7 @@ Route::group(['namespace' => 'backend'], function(){
 	});
 });
 Route::group(['namespace' => 'frontend'], function(){
-	Route::get('trangchu', 'HomeController@index');
+	Route::get('trangchu', 'CarsController@index');
 	Route::post('tinh/{id}', 'HomeController@returnDiaDanh');
 	Route::get('chitiet', ['as' => 'chitietsp' , 'uses' => 'HomeController@getChiTiet']);
 	Route::post('votes/{id}', 'HomeController@postVote');

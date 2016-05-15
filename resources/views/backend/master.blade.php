@@ -7,7 +7,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Admin</title>
-
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('public/admin/css/bootstrap.min.css') }}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ url('public/admin/css/mystyle.css')}}">
@@ -35,62 +34,29 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav nav-tabs nav-pills">
-              <li class=""><a href=""><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý danh mục<span class="caret"></span></a></li>
+           
               <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-cube fa-fw"></i>Quản lý xe<span class="caret"></span></a></li>
               <li class=""><a href="{{ url('list/car') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe<span class="caret"></span></a></li>
+              @if(Auth::user()->terms == 1)
               <li class=""><a href=""><i class="fa fa-book"></i>Quản lý đặt xe<span class="caret"></span></a></li>
+              <li class=""><a href=""><i class="fa fa-bar-chart-o fa-fw"></i>Quản lý tài xế<span class="caret"></span></a></li>
               <li class="dropdown">
               <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>Thêm<span class="caret"></span></a>
               <ul class="dropdown-menu">
               <li><a href="{{ url('quanlytintuc') }}"><i class="fa fa-newspaper-o">Quản lý tin tức</i><span class="caret"></span></a></li>
               <li class=""><a href="{{ route('user.index') }}"><i class="fa fa-users fa-fw"></i>Quản lý thành viên<span class="caret"></span></a></li>
               </ul>
-              </li>   
+              </li>  
+              @endif 
               <li class="dropdown pull-right">
-              <a href="{{ url('user',  Auth::user()->nguoidung_id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>{{ Auth::user()->tendaydu }}<span class="caret"></span></a>
+              <a href="{{ url('user',  Auth::user()->nguoidung_id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>Tài khoản<span class="caret"></span></a>
               <ul class="dropdown-menu">
-              <li><a href="{{ url('trangchu') }}">Trang chủ</a></li>
+              <li><a href="">{{ Auth::user()->tendaydu }}</a></li>
               <li><a href="{{ url('profile', Auth::user()->nguoidung_id) }}"><i class="fa fa-gear fa-fw"></i>Profile</a></li>
               <li><a href="{!! route('logout')!!}"><i class="fa fa-sign-out fa-fw">Logout</i></a></li>
               </ul>
               </li>        
       </ul>
-      <!-- <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o fa-fw"></i>Quản lý loại xe<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Loại xe</a></li>
-            <li><a href="#">Thêm loại xe</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="{{ url('danhsachxe') }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cube fa-fw"></i>Quản lý xe<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{{ url('danhsachxe') }}">Danh sách xe</a></li>
-            <li><a href="#">Thêm xe</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="{{ url('list/car') }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cube fa-fw">/<i>Quản lý đơn đặt<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{{ url('list/car') }}">Tìm kiếm xe</a></li>
-            <li><a href="{{ url('datxe') }}">Đặt xe</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="{{ route('user.index') }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-fw"></i>Quản lý thành viên<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{{ route('user.index') }}">List User</a></li>
-            <li><a href="{{ route('user.create') }}">Add User</a></li>
-          </ul>
-        </li>
-      </ul> -->
       
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -108,7 +74,16 @@
             </div>
         @endif
     </div>
-    
+    <div class="alert alert-warning">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <ul>
+    @if(isset($carChamdangkiem))
+    @foreach($carChamdangkiem as $key => $value)
+      <li>Xe số {{ $value['xe_id'] }} còn {{ $value['ngayconlai'] }} ngày để đăng kiểm</li>
+    @endforeach
+    @endif
+    </ul>
+    </div>
     <!-- Page Content -->
         @yield('content')
     <!-- /#page-wrapper -->
@@ -129,20 +104,6 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="{{ url('public/admin/js/bootstrap.min.js') }}"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<!-- <script src="{{ url('public/admin/js/metisMenu.min.js') }}"></script> -->
-
-<!-- Custom Theme JavaScript -->
-<!-- <script src="{{ url('public/admin/js/sb-admin-2.js') }}"></script> -->
-
-<!-- DataTables JavaScript -->
-<!-- <script src="{{ url('public/admin/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ url('public/admin/js/dataTables.bootstrap.min.js') }}"></script>
-<script src="{{ url('public/admin/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ url('public/admin/js/responsive.bootstrap.min.js') }}"></script> -->
-<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-<!-- myscript -->
 <script src="{{ url('public/admin/js/myscript.js') }}"></script>
 <script src="{{ url('public/admin/js/bootstrap-datepicker.js') }}"></script>
 </body>

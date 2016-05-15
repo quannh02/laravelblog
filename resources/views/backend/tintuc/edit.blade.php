@@ -1,8 +1,8 @@
 @extends('backend.master')
 @section('content')
-<h1 class="page-header">
-                            <small>Thêm tin tức</small>
-                          </h1>
+<h2 class="page-header">
+                          Thêm tin tức
+                          </h2>
                           </div>
                           <!-- /.col-lg-12 -->
                           <div class="col-sm-8 col-md-8 col-xs-12" style="padding-bottom:120px">

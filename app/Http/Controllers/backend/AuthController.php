@@ -57,7 +57,10 @@ class AuthController extends Controller
         }
     }
     public function getLogin(){
-       return view('backend.auth.login');
+        if(isset(Auth::user()->nguoidung_id)){
+            return redirect()->route('admin.dashboard');
+        }
+        return view('backend.auth.login');
     }
 
     public function postLogin(LoginRequest $request){
@@ -75,6 +78,7 @@ class AuthController extends Controller
     protected $redirectTo = '/dashboard';
 
     public function dashboard(){
+        
         return view('backend.master');
     }
 

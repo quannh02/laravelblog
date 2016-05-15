@@ -26,6 +26,12 @@
                            			<input type="text" class="form-control" name="hang_xe" value="{{ old('hang_xe') }}" placeholder="Nhập hãng xe">
                            		</div>
                            	</div>
+                            <div class="row">
+                              <div class="col-md-2">Tên xe</div>
+                              <div class="form-group col-md-8">
+                                <input type="text" class="form-control" name="ten_xe" value="{{ old('ten_xe') }}" placeholder="Nhập tên xe">
+                              </div>
+                            </div>
                            	<div class="row">
                            		<div class="col-md-2">Giá mua xe</div>
                            		<div class="form-group col-md-8">
@@ -68,6 +74,12 @@
                            			<input name="ngaysanxuat" value="{{ old('ngaysanxuat') }}" class="form-control" data-provide="datepicker" placeholder="Nhập ngày sản xuất">
                            		</div>
                            	</div>
+                            <div class="row">
+                              <div class="col-md-2">Ngày đăng kiểm</div>
+                              <div class="form-group col-md-8">
+                                <input name="ngaydangkiem" value="{{ old('ngaydangkiem') }}" class="form-control" data-provide="datepicker" placeholder="Nhập ngày sản xuất">
+                              </div>
+                            </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
                             <button type="reset" class="btn btn-reset btn-default">Reset</button>
                         <form>

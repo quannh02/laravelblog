@@ -22,13 +22,6 @@
             </form>
         </div>
         <div class="col-md-2 col-sm-2 col-xs-12">
-            <div class="footer-social">
-            <div
-                class="fb-like"
-                data-share="true"
-                data-width="450"
-                data-show-faces="true">
-            </div>
             <a href="" title="Facebook">
                 <img src="{{ url('public/user/images/facebook-icon.png') }}"></a>
             <a href="" title="Youtube">
@@ -39,9 +32,6 @@
         </div>
         <div class="col-md-3 col-sm-3 col-xs-12 linkthanhvien">
             <ul>    
-                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-                </fb:login-button>
-                <div id="status">
                 <li><a href="{{ url('auth/register') }}">Đăng ký</a></li>
                 <li><a href="{{ url('auth/login') }}">Đăng nhập</a></li>
             </ul>

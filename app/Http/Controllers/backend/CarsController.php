@@ -10,6 +10,7 @@ use App\Cars;
 use DB;
 use App\Http\Requests\ThemXeRequest;
 use App\MyFunction;
+use Carbon\Carbon;
 
 class CarsController extends Controller
 {
@@ -19,8 +20,26 @@ class CarsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getAllCars(){
-        $allCars = DB::table('tbl_xe')->select('xe_id','hang_xe', 'sodangky_xe', 'url_hinhxe', 'ten_xe', 'color', 'ngaysanxuat','taixe_xe')->orderBy('xe_id', 'asc')->paginate(5);
-        return view('backend.cars.danhsachxe', compact('allCars'));
+        $now = Carbon::now();
+        $unixtimenow = strtotime($now);
+
+
+
+        $allCars = DB::table('tbl_xe')->select('xe_id','hang_xe', 'sodangky_xe', 'url_hinhxe', 'ten_xe', 'color', 'ngaysanxuat','taixe_xe','ngaydangkiem', 'socho_xe')->orderBy('xe_id', 'asc')->paginate(5);
+        $carChamdangkiem = array();
+        $i = 0;
+        foreach($allCars as $car){
+            $unixNgayPhaiDangKiem = strtotime($car->ngaydangkiem) + (182*60*60*24);
+            $soNgayConLaiDeDangKiem = floor(abs($unixtimenow - $unixNgayPhaiDangKiem)/(60*60*24));
+            if($soNgayConLaiDeDangKiem < 10){
+                $carChamdangkiem[$i] = array(
+                    'xe_id' => $car->xe_id,
+                    'ngayconlai' => $soNgayConLaiDeDangKiem
+                    );
+            }
+        }
+        //dd($carChamdangkiem); die();
+        return view('backend.cars.danhsachxe', compact('allCars', 'carChamdangkiem'));
     }
     public function index()
     {
@@ -47,6 +66,7 @@ class CarsController extends Controller
     {
         $cars = new Cars;
         $cars->hang_xe      = $request->hang_xe;
+        $cars->ten_xe       = $request->ten_xe;
         $cars->giamuaxe     = $request->giamuaxe;
         $cars->sodangky_xe  = $request->sodangky_xe;
         $cars->color        = $request->color;
@@ -60,6 +80,8 @@ class CarsController extends Controller
         $ngaysanxuat = date('Y:m:d', strtotime($request->ngaysanxuat));
         $cars->ngaysanxuat  = '' . $ngaysanxuat . ' 00:00:00';
         $cars->url_hinhxe = $url_hinhxe;
+        $ngaydangkiem = date('Y:m:d', strtotime($request->ngaydangkiem));
+        $cars->ngaydangkiem = '' . $ngaydangkiem . ' 00:00:00';
         $fileName = $destinationPath . $url_hinhxe;
         //dd($file); die();
         if ($request->hasFile('url_hinhxe')) {
