@@ -10,7 +10,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('public/admin/css/bootstrap.min.css') }}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ url('public/admin/css/mystyle.css')}}">
-    <link href="{{ url('public/admin/css/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url('public/admin/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="{{ url('public/admin/css/datepicker.css')}}">
     <link rel="stylesheet" href="{{ url('public/admin/css/bootstrap-responsive.css') }}">
 </head>
@@ -36,8 +36,12 @@
       <ul class="nav nav-tabs nav-pills">
            
               <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-cube fa-fw"></i>Quản lý xe<span class="caret"></span></a></li>
-              <li class=""><a href="{{ url('list/car') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe<span class="caret"></span></a></li>
+              @if(Auth::user()->terms == 0)
+              <li class=""><a href="{{ url('timxe') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe<span class="caret"></span></a></li>
+              <li class=""><a href="{{ url('Đặt xe') }}"><i class="fa fa-cube fa-fw"></i>Đặt xe<span class="caret"></span></a></li>
+              @endif
               @if(Auth::user()->terms == 1)
+              <li class=""><a href="{{ url('list/car') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe<span class="caret"></span></a></li>
               <li class=""><a href=""><i class="fa fa-book"></i>Quản lý đặt xe<span class="caret"></span></a></li>
               <li class=""><a href=""><i class="fa fa-bar-chart-o fa-fw"></i>Quản lý tài xế<span class="caret"></span></a></li>
               <li class="dropdown">

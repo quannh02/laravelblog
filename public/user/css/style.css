@@ -458,3 +458,9 @@ a.a_book_car {
     font-size: 11px;
     text-decoration: underline;
 }
+span.error {
+    color: red;
+    display: inline-block;
+    font-size: 12px;
+    font-style: italic;
+}

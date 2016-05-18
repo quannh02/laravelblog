@@ -8,33 +8,38 @@
                             <ul class="dropdown-menu level2">
                                     <li class="pull-left level2-i"><a class="color-txt" href="frontend/product/pros/10/ccat"></a>
                                     <ul class="level3">
-                                      <li><a href="frontend/product/pros/14/iccat">Sony</a></li>
-                                      <li><a href="frontend/product/pros/15/iccat">LG</a></li>
-                                      <li><a href="frontend/product/pros/34/iccat">Electrolux</a></li>
-                                      <li><a href="frontend/product/pros/35/iccat">Sanyo</a></li>
-                                      <li><a href="frontend/product/pros/36/iccat">Samsung</a></li>
-                                      <li><a href="frontend/product/pros/37/iccat">Shap</a></li>
+                                      <?php 
+                                        $i = 0; 
+                                        for($i = 0; $i<count($brands); $i++){
+                                            if($i % 2 == 0){
+                                            $brand = $brands[$i];
+
+                                        ?>
+                                        
+                                          <li><a href="{!! url('brand', $brand->brand_id) !!}">{{ $brand->brand_name }}</a></li>
+                                      <?php 
+                                            }
+                                        } 
+                                      ?>
                                     </ul>
                                 </li>
                                     <li class="pull-left level2-i"><a class="color-txt" href="frontend/product/pros/11/ccat"></a>
                                     <ul class="level3">
-                                    <li><a href="frontend/product/pros/23/iccat">Sony</a></li>
-                                    <li><a href="frontend/product/pros/24/iccat">LG</a></li>
-                                    <li><a href="frontend/product/pros/25/iccat">Toshiba</a></li>
-                                    <li><a href="frontend/product/pros/26/iccat">Sam sung</a></li>
-                                    <li><a href="frontend/product/pros/27/iccat">Electrolux</a></li>
-                                    <li><a href="frontend/product/pros/33/iccat">Aqua</a></li>
+                                        <?php 
+                                          $i = 0; 
+                                          for($i = 0; $i<count($brands); $i++){
+                                              if($i % 2 == 1){
+                                              $brand = $brands[$i];
+
+                                        ?>
+                                        
+                                          <li><a href="{!! url('brand', $brand->brand_id) !!}">{{ $brand->brand_name }}</a></li>
+                                      <?php 
+                                            }
+                                        } 
+                                      ?>
                                     </ul>
-                                </li>
-                                    <li class="pull-left level2-i"><a class="color-txt" href="frontend/product/pros/12/ccat"></a>
-                                    <ul class="level3">
-                                    <li><a href="frontend/product/pros/28/iccat">LG</a></li>
-                                    <li><a href="frontend/product/pros/29/iccat">Samsung</a></li>
-                                    <li><a href="frontend/product/pros/30/iccat">Mitsubishi</a></li>
-                                    <li><a href="frontend/product/pros/31/iccat">Daikin</a></li>
-                                    <li><a href="frontend/product/pros/32/iccat">Shap</a></li>
-                                    </ul>
-                                </li>                                                                              
+                                                                                                          
                             </ul>
                             </li>
                             <li class="dropdown-submenu">

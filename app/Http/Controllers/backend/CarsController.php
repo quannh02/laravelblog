@@ -11,6 +11,7 @@ use DB;
 use App\Http\Requests\ThemXeRequest;
 use App\MyFunction;
 use Carbon\Carbon;
+use App\Brand;
 
 class CarsController extends Controller
 {
@@ -112,8 +113,11 @@ class CarsController extends Controller
      */
     public function edit($xe_id)
     {
+
         $data = Cars::where('xe_id', $xe_id)->get()->first();
-        return view('backend.cars.suaxe', compact('data'));
+        $brand = Brand::where('brand_id', $data->hang_xe)->get()->first();
+        $brand_not_in = Brand::whereNotIn('brand_id', [$data->hang_xe])->get();
+        return view('backend.cars.suaxe', compact('data', 'brand', 'brand_not_in'));
     }
 
     /**
@@ -128,26 +132,31 @@ class CarsController extends Controller
         $cars = Cars::findOrFail($xe_id);
         //$cars->xe_id = $id;
         $cars->hang_xe      = $request->hang_xe;
+        $cars->ten_xe       = $request->ten_xe;
         $cars->giamuaxe     = $request->giamuaxe;
         $cars->sodangky_xe  = $request->sodangky_xe;
         $cars->color        = $request->color;
         $cars->socho_xe     = $request->socho_xe;
         $cars->taixe_xe     = $request->taixe_xe;
-        $file = $request->file('url_hinhxe');
-        $destinationPath = base_path(). "/public/user/images/";
-
-        $function = new MyFunction;
-        $url_hinhxe = $function->stripUnicode(basename($file->getClientOriginalName()));
+        $ngaydangkiem = date('Y:m:d', strtotime($request->ngaydangkiem));
+        $cars->ngaydangkiem  = '' . $ngaydangkiem . ' 00:00:00';
         $ngaysanxuat = date('Y:m:d', strtotime($request->ngaysanxuat));
         $cars->ngaysanxuat  = '' . $ngaysanxuat . ' 00:00:00';
-        $cars->url_hinhxe = $url_hinhxe;
-        $fileName = $destinationPath . $url_hinhxe;
-        //dd($file); die();
-        if ($request->hasFile('url_hinhxe')) {
-            if ($file->isValid()) {
-                $file->move($destinationPath, $fileName);
-            }   
-        }
+        if($request->hasFile('url_hinhxe')) {
+            $file = $request->file('url_hinhxe');
+            $destinationPath = base_path(). "/public/user/images/";
+
+            $function = new MyFunction;
+            $url_hinhxe = $function->stripUnicode(basename($file->getClientOriginalName()));
+           
+            $cars->url_hinhxe = $url_hinhxe;
+            $fileName = $destinationPath . $url_hinhxe;
+            //dd($file); die();
+                if ($file->isValid()) {
+                    $file->move($destinationPath, $fileName);
+                }   
+            }
+
         $cars->save();
         return redirect()->route('danhsachxe');
     }

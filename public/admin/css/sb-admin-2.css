@@ -356,3 +356,9 @@ table.dataTable thead .sorting:after {
         margin: 20px 0 0 0;
         border-top: 1px solid #000;
 }
+span.error {
+    color: red;
+    display: inline-block;
+    font-size: 12px;
+    font-style: italic;
+}

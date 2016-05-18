@@ -26,7 +26,7 @@ class ThemXeRequest extends Request
         return [
             'hang_xe' => 'required',
             'giamuaxe' => 'required',
-            'url_hinhxe' => 'required|image',
+            'url_hinhxe' => 'image',
             'sodangky_xe' => 'required',
             'socho_xe' => 'required',
             'ngaysanxuat' => 'required'

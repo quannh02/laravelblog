@@ -61,14 +61,15 @@ Route::group(['namespace' => 'backend'], function(){
 Route::group(['namespace' => 'frontend'], function(){
 	Route::get('trangchu', 'CarsController@index');
 	Route::post('tinh/{id}', 'HomeController@returnDiaDanh');
-	Route::get('chitiet', ['as' => 'chitietsp' , 'uses' => 'HomeController@getChiTiet']);
-	Route::post('votes/{id}', 'HomeController@postVote');
-	Route::any('/search', 'HomeController@search');
+	Route::get('chitiet', ['as' => 'chitietsp' , 'uses' => 'CarsController@getChiTiet']);
+	Route::post('votes/{id}', 'CarsController@postVote');
+	Route::any('/search', 'CarsController@search');
 	Route::get('tintuc', 'TinTucController@getTinTuc');
 	Route::get('chitiettintuc/{id}', 'TinTucController@chitiettintuc');
 	Route::get('/facebook', 'FacebookController@facebook');
 	Route::get('/callback', 'FacebookController@callback');
 	Route::post('binhluan/{id}', 'BinhLuanController@binhluan');
+	Route::get('brand/{id}', 'CarsController@brandforitem');
 });
 
 

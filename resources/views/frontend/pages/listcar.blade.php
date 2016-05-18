@@ -1,7 +1,6 @@
 @extends('frontend.master')
 @section('description', 'Đây là trang chủ')
 @section('content')
-	<h4>Kết quả tìm kiếm cho {{ $q }}</h4>
 			<div class="col-xs-12 col-md-9-5">
 				<div class="row_car_hot_group">
 				<div class="title_car_hot"><i class="fa fa-car"></i><a href="" class="title_b_car">Xe du lịch 45 chỗ</a></div>
@@ -29,7 +28,8 @@
                         @endforeach
 						
 			        </div>
-				</div> 
+				</div>
+
 				<!-- end row-car-hot-group -->
 			</div> <!-- end col-xs-7 -->	
 @endsection

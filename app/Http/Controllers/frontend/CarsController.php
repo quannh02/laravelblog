@@ -1,90 +1,75 @@
 <?php
 
 namespace App\Http\Controllers\frontend;
-
+use DB;
 use Illuminate\Http\Request;
 use App\Cars;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Brand;
+use Input;
+use App\Vote;
+use App\Comment;
 
 class CarsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    protected $brands;
+
+    public function __construct(){
+        $this->brands = Brand::all();
+    }
+
     public function index()
     {
-        
+        $brands = $this->brands;
         $car_bonlam = Cars::where('socho_xe', 45)->get();
         $car_balam  = Cars::where('socho_xe', 35)->get();
-        return view('frontend.pages.index', compact('car_bonlam', 'car_balam'));
+        return view('frontend.pages.index', compact('car_bonlam', 'car_balam', 'brands'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+
+    public function brandforitem($id){
+        $brands = $this->brands;
+        $cars = Cars::where('hang_xe', $id)->get();
+        return view('frontend.pages.listcar', compact('cars', 'brands'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function search(){
+        $brands = $this->brands;
+        $q = Input::get('q');
+        $car = Cars::where('hang_xe','LIKE','%'.$q.'%')->orWhere('socho_xe','LIKE','%'.$q.'%')->get();
+        if(count($car) > 0)
+        return view('frontend.pages.searchresult', compact('brands', 'cars', 'q'));
+        else return view ('frontend.pages.searchresult')->withMessage('Không tìm thấy kết quả. Bạn thử tìm lại lần nữa !');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    public function postVote($id){
+        $point = Input::get('point');
+        //dd($point); die();
+        $currentVote = Vote::findOrFail($id);
+        //dd($currentVote); die();
+        $currentVote->sovotes = $currentVote->sovotes + 1;
+        $currentVote->tongdiem = $currentVote->tongdiem +  $point;
+        $currentVote->save();
+        $updateVote = Vote::select('sovotes', 'tongdiem')->where('xe_id', $id)->get()->first();
+        $roundVote = round(($updateVote->tongdiem/$updateVote->sovotes), 1);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $arrayForVoting = array(
+            'votes' => $updateVote->sovotes,
+            'points' => $updateVote->tongdiem,
+            'roundVote'=> $roundVote
+            );
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        //dd($roundVote); die();
+        //dd($updateVote); die();
+        return json_encode($arrayForVoting);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    
+    public function getChiTiet(){
+        $brands = $this->brands;
+        $binhluans = Comment::all();
+        $id = 1;
+        $vote_id = Vote::select('id')->where('xe_id', $id)->get()->first();
+        return view('frontend.pages.chitiet', compact('vote_id', 'binhluans', ' brands'));
     }
 }

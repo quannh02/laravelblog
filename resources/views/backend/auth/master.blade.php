@@ -30,15 +30,7 @@
                             </div>
                         @endif
                     </div>
-                    <div class="row">
-                        @if ($errors->has())
-                        <div class="alert alert-danger">
-                            @foreach ($errors->all() as $error)
-                                {{ $error }}<br>        
-                            @endforeach
-                        </div>
-                        @endif
-                    </div>
+                
         <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
