@@ -31,12 +31,13 @@ class CarsController extends Controller
         $i = 0;
         foreach($allCars as $car){
             $unixNgayPhaiDangKiem = strtotime($car->ngaydangkiem) + (182*60*60*24);
-            $soNgayConLaiDeDangKiem = floor(abs($unixtimenow - $unixNgayPhaiDangKiem)/(60*60*24));
+            $soNgayConLaiDeDangKiem = floor(($unixNgayPhaiDangKiem - $unixtimenow )/(60*60*24));
             if($soNgayConLaiDeDangKiem < 10){
                 $carChamdangkiem[$i] = array(
                     'xe_id' => $car->xe_id,
                     'ngayconlai' => $soNgayConLaiDeDangKiem
                     );
+                $i++;
             }
         }
         //dd($carChamdangkiem); die();

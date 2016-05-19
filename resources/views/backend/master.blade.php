@@ -35,6 +35,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav nav-tabs nav-pills">
            
+              <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-cube fa-fw"></i>Quản lý thương hiệu<span class="caret"></span></a></li>
               <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-cube fa-fw"></i>Quản lý xe<span class="caret"></span></a></li>
               @if(Auth::user()->terms == 0)
               <li class=""><a href="{{ url('timxe') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe<span class="caret"></span></a></li>
@@ -78,16 +79,7 @@
             </div>
         @endif
     </div>
-    <div class="alert alert-warning">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <ul>
-    @if(isset($carChamdangkiem))
-    @foreach($carChamdangkiem as $key => $value)
-      <li>Xe số {{ $value['xe_id'] }} còn {{ $value['ngayconlai'] }} ngày để đăng kiểm</li>
-    @endforeach
-    @endif
-    </ul>
-    </div>
+
     <!-- Page Content -->
         @yield('content')
     <!-- /#page-wrapper -->

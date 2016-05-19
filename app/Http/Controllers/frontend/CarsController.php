@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Cars;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Brand;
 use Input;
 use App\Vote;
 use App\Comment;
@@ -14,14 +13,14 @@ use App\Comment;
 class CarsController extends Controller
 {
     protected $brands;
-
     public function __construct(){
-        $this->brands = Brand::all();
+        $this->brands = Cars::select('hang_xe')->distinct()->get();
     }
 
     public function index()
     {
         $brands = $this->brands;
+        //dd($brands); die();
         $car_bonlam = Cars::where('socho_xe', 45)->get();
         $car_balam  = Cars::where('socho_xe', 35)->get();
         return view('frontend.pages.index', compact('car_bonlam', 'car_balam', 'brands'));
@@ -29,17 +28,15 @@ class CarsController extends Controller
 
 
     public function brandforitem($id){
-        $brands = $this->brands;
         $cars = Cars::where('hang_xe', $id)->get();
-        return view('frontend.pages.listcar', compact('cars', 'brands'));
+        return view('frontend.pages.listcar', compact('cars'));
     }
 
     public function search(){
-        $brands = $this->brands;
         $q = Input::get('q');
         $car = Cars::where('hang_xe','LIKE','%'.$q.'%')->orWhere('socho_xe','LIKE','%'.$q.'%')->get();
         if(count($car) > 0)
-        return view('frontend.pages.searchresult', compact('brands', 'cars', 'q'));
+        return view('frontend.pages.searchresult', compact('cars', 'q'));
         else return view ('frontend.pages.searchresult')->withMessage('Không tìm thấy kết quả. Bạn thử tìm lại lần nữa !');
     }
 
@@ -66,10 +63,9 @@ class CarsController extends Controller
     }
     
     public function getChiTiet(){
-        $brands = $this->brands;
         $binhluans = Comment::all();
         $id = 1;
         $vote_id = Vote::select('id')->where('xe_id', $id)->get()->first();
-        return view('frontend.pages.chitiet', compact('vote_id', 'binhluans', ' brands'));
+        return view('frontend.pages.chitiet', compact('vote_id', 'binhluans'));
     }
 }

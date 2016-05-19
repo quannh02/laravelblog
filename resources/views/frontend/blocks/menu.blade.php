@@ -8,36 +8,18 @@
                             <ul class="dropdown-menu level2">
                                     <li class="pull-left level2-i"><a class="color-txt" href="frontend/product/pros/10/ccat"></a>
                                     <ul class="level3">
-                                      <?php 
-                                        $i = 0; 
-                                        for($i = 0; $i<count($brands); $i++){
-                                            if($i % 2 == 0){
-                                            $brand = $brands[$i];
-
-                                        ?>
-                                        
-                                          <li><a href="{!! url('brand', $brand->brand_id) !!}">{{ $brand->brand_name }}</a></li>
-                                      <?php 
-                                            }
-                                        } 
-                                      ?>
+                                    @foreach($brands as $brand)  
+                                    
+                                          <li><a href="{{ url('list', $brand->hang_xe )}}">{{ $brand->hang_xe }}</a></li>
+                                    @endforeach
                                     </ul>
                                 </li>
                                     <li class="pull-left level2-i"><a class="color-txt" href="frontend/product/pros/11/ccat"></a>
                                     <ul class="level3">
-                                        <?php 
-                                          $i = 0; 
-                                          for($i = 0; $i<count($brands); $i++){
-                                              if($i % 2 == 1){
-                                              $brand = $brands[$i];
-
-                                        ?>
+                                      
                                         
-                                          <li><a href="{!! url('brand', $brand->brand_id) !!}">{{ $brand->brand_name }}</a></li>
-                                      <?php 
-                                            }
-                                        } 
-                                      ?>
+                                          <li><a href=""></a></li>
+                                      
                                     </ul>
                                                                                                           
                             </ul>
