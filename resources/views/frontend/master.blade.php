@@ -20,17 +20,14 @@
    <div class="col-xs-12">
 
         <div class="container">
-            <div class="row">
+
             @include('frontend.blocks.nav')
-            </div>
     <div class="col-xs-12">
         <div class="content clearfix">
-            <div class="row">
                 <div class="col-xs-12 col-md-2-5">
                 @include('frontend.blocks.menu')
                 </div> 
-                @yield('content')
-            </div>      
+                @yield('content')   
         </div> 
     </div>
     @include('frontend.blocks.footer')

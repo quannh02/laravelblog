@@ -9,27 +9,35 @@ use App\Http\Controllers\Controller;
 use Input;
 use App\Vote;
 use App\Comment;
+use App\TinTuc;
 
 class CarsController extends Controller
 {
     protected $brands;
+    protected $sochoxe;
+    protected $tintucs;
     public function __construct(){
         $this->brands = Cars::select('hang_xe')->distinct()->get();
+        $this->sochoxe = Cars::select('socho_xe')->distinct()->get();
+        $this->tintucs = TinTuc::select('id', 'tieude')->orderBy('id', 'desc')->take(5)->get();
     }
 
     public function index()
     {
         $brands = $this->brands;
+        $socho = $this->sochoxe;
         //dd($brands); die();
+        $tintucs = $this->tintucs;
         $car_bonlam = Cars::where('socho_xe', 45)->get();
         $car_balam  = Cars::where('socho_xe', 35)->get();
-        return view('frontend.pages.index', compact('car_bonlam', 'car_balam', 'brands'));
+        return view('frontend.pages.index', compact('car_bonlam', 'car_balam', 'brands', 'socho', 'tintucs'));
     }
 
 
-    public function brandforitem($id){
-        $cars = Cars::where('hang_xe', $id)->get();
-        return view('frontend.pages.listcar', compact('cars'));
+    public function brandforitem($brand){
+        $brands = $this->brands;
+        $cars = Cars::where('hang_xe', $brand)->get();
+        return view('frontend.pages.listcar', compact('cars','brands'));
     }
 
     public function search(){

@@ -18,12 +18,7 @@
                            	
                               <div class="form-group">
                                 <label for="sel1">Hãng xe:</label>
-                                <select class="form-control" name="hang_xe" id="sel1">
-                                  <option value="{{ $brand->brand_id}}">{{ $brand->brand_name }}</option>
-                                  @foreach($brand_not_in as $brand)
-                                  <option value="{{ $brand->brand_id }}">{{ $brand->brand_name }}</option>
-                                  @endforeach
-                                </select>
+                                <input type="text" class="form-control" name="hang_xe" value="{{ $data->hang_xe }}" placeholder="Nhập hãng xe">
                               </div>  
                            	</div>
                             <div class="row">
@@ -93,7 +88,13 @@
                                 @endif
                            		<div class="col-md-2">Tài xế</div>
                            		<div class="form-group col-md-8">
-                           			<input type="text" class="form-control" name="taixe_xe" value="{{ $data->taixe_xe }}" placeholder="Nhập tên tài xế">
+                           		   <select class="form-control" name="taixe_xe">
+                                  
+                                  <option value="{{ $taixehientai->taixe_id }}">{{ $taixehientai->tentaixe }}</option>
+                                  @foreach($taixe as $tai)
+                                  <option value="{{ $tai->taixe_id }}">{{ $tai->tentaixe }}</option>
+                                  @endforeach
+                                 </select>
                            		</div>
                            	</div>
                            	<div class="row">

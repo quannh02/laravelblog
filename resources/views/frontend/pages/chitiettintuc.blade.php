@@ -16,7 +16,9 @@
             	<p>{{ $tintuc->noidung }}</p>	
 			</div>
 					<div class="b_recruitment_more_title">Các tin khác</div>
-					<li class="b_recruitment_more_title"><a href="http://thuexedulich.vn/tin-tuc/Tin-tuc-o-to/Dan-sao-nu-Hollywood-di-sieu-xe-gi-.html">Dàn sao nữ Hollywood đi siêu xe gì?</a></li>
+					@foreach($tintuckhac as $tin)
+					<li class="b_recruitment_more_title"><a href="{{ url('chitiettintuc', $tin->id )}}">{{ $tin->tieude}}</a></li>
+					@endforeach
 			</div>
 		</div>
 @endsection

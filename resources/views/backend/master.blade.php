@@ -35,7 +35,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav nav-tabs nav-pills">
            
-              <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-cube fa-fw"></i>Quản lý thương hiệu<span class="caret"></span></a></li>
+              <li class=""><a href="{{ url('dstaixe') }}"><i class="fa fa-cube fa-fw"></i>Quản lý tài xế<span class="caret"></span></a></li>
               <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-cube fa-fw"></i>Quản lý xe<span class="caret"></span></a></li>
               @if(Auth::user()->terms == 0)
               <li class=""><a href="{{ url('timxe') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe<span class="caret"></span></a></li>
@@ -44,7 +44,7 @@
               @if(Auth::user()->terms == 1)
               <li class=""><a href="{{ url('list/car') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe<span class="caret"></span></a></li>
               <li class=""><a href=""><i class="fa fa-book"></i>Quản lý đặt xe<span class="caret"></span></a></li>
-              <li class=""><a href=""><i class="fa fa-bar-chart-o fa-fw"></i>Quản lý tài xế<span class="caret"></span></a></li>
+          
               <li class="dropdown">
               <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>Thêm<span class="caret"></span></a>
               <ul class="dropdown-menu">

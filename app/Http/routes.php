@@ -55,6 +55,12 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::post('tintuc/update/{id}', 'TinTucController@update');
 		Route::get('quanlytintuc', ['as' => 'quanlytintuc' ,'uses' => 'TinTucController@getAllTinTuc']);
 		Route::post('tintuc/destroy/{id}', 'TinTucController@destroy');
+		Route::get('dstaixe', ['as'=> 'dstaixe', 'uses' => 'TaiXeController@dstaixe']);
+		Route::get('suataixe/{id}', 'TaiXeController@suataixe');
+		Route::post('suataixe/{id}', 'TaiXeController@postTaixe');
+		Route::get('themtaixe', 'TaiXeController@themtaixe');
+		Route::post('themtaixe', 'TaiXeController@postthemtaixe');
+		Route::post('xoataixe/{id}', 'TaiXeController@xoataixe');
 		// Route::resource('user', 'UserController');
 	});
 });
@@ -68,6 +74,7 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::get('chitiettintuc/{id}', 'TinTucController@chitiettintuc');
 	Route::post('binhluan/{id}', 'BinhLuanController@binhluan');
 	Route::get('brand/{id}', 'CarsController@brandforitem');
+
 });
 
 

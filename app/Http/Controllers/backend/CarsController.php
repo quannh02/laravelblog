@@ -11,7 +11,7 @@ use DB;
 use App\Http\Requests\ThemXeRequest;
 use App\MyFunction;
 use Carbon\Carbon;
-use App\Brand;
+use App\TaiXe;
 
 class CarsController extends Controller
 {
@@ -40,19 +40,15 @@ class CarsController extends Controller
                 $i++;
             }
         }
+
+        foreach($allCars as $key => $value){
+            $taixe = TaiXe::where('taixe_id', $value->taixe_xe)->get()->first();
+            $value->taixe_xe = $taixe->tentaixe;
+        }
         //dd($carChamdangkiem); die();
         return view('backend.cars.danhsachxe', compact('allCars', 'carChamdangkiem'));
     }
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
         return view('backend.cars.themxe');
@@ -116,9 +112,9 @@ class CarsController extends Controller
     {
 
         $data = Cars::where('xe_id', $xe_id)->get()->first();
-        $brand = Brand::where('brand_id', $data->hang_xe)->get()->first();
-        $brand_not_in = Brand::whereNotIn('brand_id', [$data->hang_xe])->get();
-        return view('backend.cars.suaxe', compact('data', 'brand', 'brand_not_in'));
+        $taixehientai = TaiXe::findOrFail($data->taixe_xe);
+        $taixe = TaiXe::whereNotIN('taixe_id', [$data->taixe_xe])->get();
+        return view('backend.cars.suaxe', compact('data', 'taixehientai', 'taixe'));
     }
 
     /**

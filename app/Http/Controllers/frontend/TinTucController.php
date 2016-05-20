@@ -6,9 +6,18 @@ use Illuminate\Http\Request;
 use App\TinTuc;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Cars;
 
 class TinTucController extends Controller
 {
+    protected $brands;
+    protected $sochoxe;
+    protected $tintucs;
+    public function __construct(){
+        $this->brands = Cars::select('hang_xe')->distinct()->get();
+        $this->sochoxe = Cars::select('socho_xe')->distinct()->get();
+        $this->tintucs = TinTuc::select('id', 'tieude')->orderBy('id', 'desc')->take(5)->get();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,8 +28,12 @@ class TinTucController extends Controller
         return view('frontend.pages.tintuc', compact('tintucs'));
     }
     public function chitiettintuc($id){
+        $brands = $this->brands;
+        $socho = $this->sochoxe;
+        $tintucs = $this->tintucs;
         $tintuc = TinTuc::where('id', $id)->get()->first();
-        return view('frontend.pages.chitiettintuc', compact('tintuc'));
+        $tintuckhac = TinTuc::whereNotIn('id', [$id])->get();
+        return view('frontend.pages.chitiettintuc', compact('tintuc', 'tintucs', 'socho', 'brands', 'tintuckhac'));
     }
     public function index()
     {
