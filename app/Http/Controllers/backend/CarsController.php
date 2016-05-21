@@ -12,6 +12,7 @@ use App\Http\Requests\ThemXeRequest;
 use App\MyFunction;
 use Carbon\Carbon;
 use App\TaiXe;
+use App\Vote;
 
 class CarsController extends Controller
 {
@@ -24,9 +25,25 @@ class CarsController extends Controller
         $now = Carbon::now();
         $unixtimenow = strtotime($now);
 
-
-
-        $allCars = DB::table('tbl_xe')->select('xe_id','hang_xe', 'sodangky_xe', 'url_hinhxe', 'ten_xe', 'color', 'ngaysanxuat','taixe_xe','ngaydangkiem', 'socho_xe')->orderBy('xe_id', 'asc')->paginate(5);
+        $allCars = DB::table('tbl_xe')
+            ->select(
+                'xe_id',
+                'hang_xe', 
+                'sodangky_xe', 
+                'url_hinhxe', 
+                'ten_xe', 
+                'color', 
+                'ngaysanxuat',
+                'taixe_xe',
+                'ngaydangkiem', 
+                'socho_xe'
+                )
+            ->orderBy(
+                'xe_id', 
+                'asc'
+                )
+            ->paginate(5);
+        //dd($allCars);
         $carChamdangkiem = array();
         $i = 0;
         foreach($allCars as $car){
@@ -42,8 +59,13 @@ class CarsController extends Controller
         }
 
         foreach($allCars as $key => $value){
-            $taixe = TaiXe::where('taixe_id', $value->taixe_xe)->get()->first();
-            $value->taixe_xe = $taixe->tentaixe;
+            if($value->taixe_xe != null){
+                $taixe = TaiXe::where(
+                    'taixe_id', $value->taixe_xe)
+                    ->get()
+                    ->first();
+                $value->taixe_xe = $taixe->tentaixe;
+            }
         }
         //dd($carChamdangkiem); die();
         return view('backend.cars.danhsachxe', compact('allCars', 'carChamdangkiem'));
@@ -51,7 +73,9 @@ class CarsController extends Controller
    
     public function create()
     {
-        return view('backend.cars.themxe');
+        $taixedaxepxe = Cars::select('taixe_xe')->get()->toArray();
+        $taixe = TaiXe::whereNotIN('taixe_id', $taixedaxepxe)->get();
+        return view('backend.cars.add', compact('taixe'));
     }
 
     /**
@@ -88,6 +112,12 @@ class CarsController extends Controller
             }   
         }
         $cars->save();
+
+        $order = new Vote([
+            'sovotes' => 0,
+            'tongdiem' => 0
+            ]);
+        $cars->vote()->save($order);
         return redirect()->route('themxe')->with(['flash_level'=> 'success', 'flash_message' => 'Đã thêm dữ liệu thành công']);
     }
 

@@ -6,50 +6,110 @@
                           </div>
                           <!-- /.col-lg-12 -->
                           <div class="col-sm-8 col-md-8 col-xs-12" style="padding-bottom:120px">
-                          @if(count($errors) > 0)
-                              <div class="alert alert-danger">
-                                  <ul>
-                                      @foreach($errors->all() as $error)
-                                          <li>{!! $error !!}</li>
-                                      @endforeach
-                                  </ul>
-                              </div>
-                          @endif
                           @if(Session::has('flash_message'))
                               <div class="alert alert-{{ Session::get('flash_level')}}">{{ Session::get('flash_message') }}</div>
                           @endif
                         <form action="{{ url('cars/new') }}" method="POST"  enctype="multipart/form-data">
                             {!! csrf_field() !!}
-                           	<div class="row">
-                           		<div class="col-md-2">Tên tài xế</div>
-                           		<div class="form-group col-md-8">
-                           			<input type="text" class="form-control" name="tentaixe" value="{{ old('tentaixe') }}" placeholder="Nhập tên tài xế">
-                           		</div>
-                           	</div>
                             <div class="row">
-                              <div class="col-md-2">Bằng lái xe</div>
+                              @if ($errors->has('hang_xe'))
+                                  <span class="error">{{ $errors->first('hang_xe') }}</span>
+                                @endif
+                            
+                              <div class="form-group">
+                                <label for="sel1">Hãng xe:</label>
+                                <input type="text" class="form-control" name="hang_xe" value="" placeholder="Nhập hãng xe">
+                              </div>  
+                            </div>
+                            <div class="row">
+                              @if ($errors->has('ten_xe'))
+                                  <span class="error">{{ $errors->first('ten_xe') }}</span>
+                                @endif
+                              <div class="col-md-2">Tên xe</div>
                               <div class="form-group col-md-8">
-                                <input type="text" class="form-control" name="banglaixe" value="{{ old('banglaixe') }}" placeholder="Nhập bằng lái xe">
+                                <input type="text" class="form-control" name="ten_xe" value="" placeholder="Nhập tên xe">
                               </div>
                             </div>
-                           	<div class="row">
-                           		<div class="col-md-2">Ngày sinh</div>
-                           		<div class="form-group col-md-8">
-                           			<input type="text" class="form-control" name="ngaysinh" value="{{ old('ngaysinh') }}" placeholder="Nhập ngày sinh">
-                           		</div>
-                           	</div>
-                      
-                           	<div class="row">
-                           		<div class="col-md-2">Sở thích</div>
-                           		<div class="form-group col-md-8">
-                           			<input type="text" class="form-control" value="{{ old('sothich') }}" name="sothich" placeholder="Nhập sở thích">
-                           		</div>
-                           	</div>
-                           	
-                           
-                           	
-                  
-                            <button type="submit" class="btn btn-default">Thêm</button>
+                            <div class="row">
+                               @if ($errors->has('giamuaxe'))
+                                  <span class="error">{{ $errors->first('giamuaxe') }}</span>
+                                @endif
+                              <div class="col-md-2">Giá mua xe</div>
+                              <div class="form-group col-md-8">
+                                <input type="text" class="form-control" name="giamuaxe" value="" placeholder="Nhập giá xe">
+                              </div>
+                            </div>
+                            <div class="row">
+                              @if ($errors->has('url_hinhxe'))
+                                  <span class="error">{{ $errors->first('url_hinhxe') }}</span>
+                                @endif
+                              <div class="col-md-2">Hình xe</div>
+                              <div class="form-group col-md-8">
+                                <input type="file" name="url_hinhxe" id="url_hinhxe">
+                              </div>
+                            </div>
+                            <div class="row">
+                            @if ($errors->has('sodangky_xe'))
+                                  <span class="error">{{ $errors->first('sodangky_xe') }}</span>
+                                @endif
+                              <div class="col-md-2">Số đăng ký xe</div>
+                              <div class="form-group col-md-8">
+                                <input type="text" class="form-control" value="" name="sodangky_xe" placeholder="Nhập số đăng ký">
+                              </div>
+                            </div>
+                            <div class="row">
+                            @if ($errors->has('color'))
+                                  <span class="error">{{ $errors->first('color') }}</span>
+                                @endif
+                              <div class="col-md-2">Màu xe</div>
+                              <div class="form-group col-md-8">
+                                <input type="text" class="form-control" name="color" value="" placeholder="Nhập màu xe">
+                              </div>
+                            </div>
+                            <div class="row">
+                            @if ($errors->has('socho_xe'))
+                                  <span class="error">{{ $errors->first('socho_xe') }}</span>
+                                @endif
+                              <div class="col-md-2">Số chỗ xe</div>
+                              <div class="form-group col-md-8">
+                                <input type="number" class="form-control" name="socho_xe" value="" placeholder="Nhập số chỗ xe">
+                              </div>
+                            </div>
+                            <div class="row">
+                            @if ($errors->has('taixe_xe'))
+                                  <span class="error">{{ $errors->first('taixe_xe') }}</span>
+                                @endif
+                              <div class="col-md-2">Tài xế</div>
+                              <div class="form-group col-md-8">
+                                 <select class="form-control" name="taixe_xe">
+                                  
+                              
+                                  @foreach($taixe as $tai)
+                                  <option value="{{ $tai->taixe_id }}">{{ $tai->tentaixe }}</option>
+                                  @endforeach
+                                 </select>
+                              </div>
+                            </div>
+                            <div class="row">
+                            @if ($errors->has('ngaysanxuat'))
+                                  <span class="error">{{ $errors->first('ngaysanxuat') }}</span>
+                                @endif
+                              <div class="col-md-2">Ngày sản xuất</div>
+                              <div class="form-group col-md-8">
+                                <input name="ngaysanxuat" value="" class="form-control" data-provide="datepicker" placeholder="Nhập ngày sản xuất">
+                              </div>
+                            </div>
+                            <div class="row">
+                            @if ($errors->has('ngaydangkiem'))
+                                  <span class="error">{{ $errors->first('ngaydangkiem') }}</span>
+                                @endif
+                            <div class="col-md-2">Ngày sản xuất</div>
+                            <div class="form-group col-md-8">
+                                <input name="ngaydangkiem" value="" class="form-control" data-provide="datepicker" placeholder="Nhập ngày đăng kiểm">
+                              </div>
+                            </div>
+                            <button type="submit" class="btn btn-default">Sửa</button>
+                            <button type="reset" class="btn btn-reset btn-default">Reset</button>
                         <form>
                     </div>
                 </div>

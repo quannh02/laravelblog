@@ -1,12 +1,12 @@
 $(function(){
-	//var average = $('.ratingAverage').attr('data-average');
+	var average = $('.ratingAverage').attr('data-average');
 	function avaliacao(average){
 		average = (Number(average)*20);
 		$('.bg').css('width', 0);		
 		$('.barra .bg').animate({width:average+'%'}, 500);
 	}
 	
-	//avaliacao(average);
+	avaliacao(average);
 
 	$('.star').on('mouseover', function(){
 		var indexAtual = $('.star').index(this);
@@ -30,6 +30,7 @@ $(function(){
             success: function(data) {
             	var obj = $.parseJSON(data);
             	avaliacao(obj.roundVote);
+            	$('.votes span').empty();
             	$('.votes span').html(obj.votes);
              }
            

@@ -11,6 +11,8 @@ use App\Vote;
 use App\Comment;
 use App\TinTuc;
 use App\TaiXe;
+use App\User;
+
 class CarsController extends Controller
 {
     protected $brands;
@@ -36,8 +38,11 @@ class CarsController extends Controller
 
     public function brandforitem($brand){
         $brands = $this->brands;
+        $socho = $this->sochoxe;
+        //dd($brands); die();
+        $tintucs = $this->tintucs;
         $cars = Cars::where('hang_xe', $brand)->get();
-        return view('frontend.pages.listcar', compact('cars','brands'));
+        return view('frontend.pages.listcar', compact('cars','socho', 'tintucs', 'brands'));
     }
 
     public function search(){
@@ -51,12 +56,14 @@ class CarsController extends Controller
     public function postVote($id){
         $point = Input::get('point');
         //dd($point); die();
-        $currentVote = Vote::findOrFail($id);
+        $vote_id = Vote::select('id')->where('cars_id', $id)->get()->first();
+        $currentVote = Vote::findOrFail($vote_id->id);
         //dd($currentVote); die();
         $currentVote->sovotes = $currentVote->sovotes + 1;
         $currentVote->tongdiem = $currentVote->tongdiem +  $point;
         $currentVote->save();
-        $updateVote = Vote::select('sovotes', 'tongdiem')->where('xe_id', $id)->get()->first();
+        $updateVote = Vote::select('sovotes', 'tongdiem')->where('cars_id', $id)->get()->first();
+
         $roundVote = round(($updateVote->tongdiem/$updateVote->sovotes), 1);
 
         $arrayForVoting = array(
@@ -74,16 +81,31 @@ class CarsController extends Controller
         $brands = $this->brands;
         $socho = $this->sochoxe;
         $tintucs = $this->tintucs;
-        $binhluans = Comment::where('xe_id', $id)->get();
+        $binhluans = Comment::where('xe_id', $id)->paginate(3);
+        
+        foreach($binhluans as $key => $value){
+           if($value->nguoidung_id != NULL) {
+                $user = User::where(
+                    'nguoidung_id', $value->nguoidung_id)
+                    ->get()
+                    ->first();
+                $value->nguoidung_id = $user->tendaydu;
+            }
+        }
 
 
         //dd($binhluans);
         $xe = Cars::where('xe_id', $id)->get()->first();
         $tenlaixe = TaiXe::where('taixe_id', $xe->taixe_xe)->get()->first();
-        $xekhac = Cars::where('socho_xe', $xe->socho_xe)->orWhere('hang_xe', $xe->hang_xe)->whereNotIn('xe_id', [$xe->xe_id])->get();
+        $xekhac = Cars::whereNotIn('xe_id', [$id])->where(function($query) use ($xe){
+                        $query->where('socho_xe', $xe->socho_xe)
+                        ->orWhere('hang_xe', $xe->hang_xe);
+        })->get();
+        //dd($xekhac);
         //dd($xe); die();
-        $vote_id = Vote::select('id')->where('xe_id', $id)->get()->first();
+        $vote_id = Vote::where('cars_id', $id)->get()->first();
+        $roundVote = round(($vote_id->tongdiem/$vote_id->sovotes), 1);
         //dd($vote_id);
-        return view('frontend.pages.chitiet', compact('vote_id', 'binhluans', 'xe', 'socho', 'brands','tintucs','tenlaixe', 'xekhac'));
+        return view('frontend.pages.chitiet', compact('vote_id', 'binhluans', 'xe', 'socho', 'brands','tintucs','tenlaixe', 'xekhac', 'roundVote'));
     }
 }

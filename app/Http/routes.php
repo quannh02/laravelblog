@@ -72,7 +72,7 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::any('/search', 'CarsController@search');
 	Route::get('tintuc', 'TinTucController@getTinTuc');
 	Route::get('chitiettintuc/{id}', 'TinTucController@chitiettintuc');
-	Route::post('binhluan/{id}', 'BinhLuanController@binhluan');
+	Route::post('binhluan/{id}/{xe_id}', 'BinhLuanController@binhluan');
 	Route::get('brand/{id}', 'CarsController@brandforitem');
 
 });

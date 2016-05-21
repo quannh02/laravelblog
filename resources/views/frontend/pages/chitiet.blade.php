@@ -23,7 +23,11 @@
 										<li class="car_detail_text_2"><span>Màu: <span class="b_car_list">{{ $xe->color }}</span></span>
 										<li class="car_detail_text_2"><span>Biển số: <span class="b_car_list">{{ $xe->sodangky_xe }}</span></span>
 										<li class="car_detail_text_2"><span>Năm sản xuất: <span class="b_car_list">{{ $xe->ngaysanxuat }}</span></span>
-										<li class="car_detail_text_2"><span>Lái xe: <span class="b_car_list">{{ $tenlaixe->tentaixe }}</span></span>
+										<li class="car_detail_text_2"><span>Lái xe: <span class="b_car_list">
+										@if(isset($tenlaixe))
+											{{ $tenlaixe->tentaixe }}
+										@endif
+										</span></span>
 									</ul>
 									<div class="div_book_car">
 										<a class="a_book_car" href="">Đặt thuê</a>
@@ -31,8 +35,8 @@
 								</div>
 								</div>
 								<h4><a href="index.php">Đánh giá dịch vụ</a></h>
-								<span class="ratingAverage" data-average=""></span>
-								<span class="article" data-id="<?php echo $vote_id->id; ?>"></span>
+								<span class="ratingAverage" data-average="{{ $roundVote }}"></span>
+								<span class="article" data-id="<?php echo $vote_id->cars_id; ?>"></span>
 
 								<div class="barra">
 									<span class="bg"></span>
@@ -45,11 +49,11 @@
 								</span>
 								<?php 
 									endfor;
-									echo '</span></div><p class="votes"><span></span> votes</p>';
 								?>
+								</span></div><p class="votes"><span>{{ $vote_id->sovotes }}</span> votes</p>
 								</div></div>
 								@if(isset(Auth::user()->nguoidung_id))
-								<form action="{{ url('binhluan', Auth::user()->nguoidung_id) }}" method="post" class="form-horizontal">
+								<form action="{{ url('binhluan', [Auth::user()->nguoidung_id, $xe->xe_id]) }}" method="post" class="form-horizontal">
 									{{ csrf_field() }}
   									<div class="form-group">
 						
@@ -68,19 +72,28 @@
 								<div class="box_search_2_all"><p><a href="{{ url('auth/login') }}">Đăng nhập</a> để bình luận</p></div>
 								@endif
 								<div class="box_search_2_all">
-									<ul>
+									@if(isset($binhluans))
 										@foreach($binhluans as $binhluan)
-										<li>{{ $binhluan->noidung }}</li>
-										<li>{{ $binhluan->nguoidung_id }}</li>
-										@endforeach
-									</ul>
+									<div class="comment">
+										
+										<div class="noidungcm">{{ $binhluan->noidung }}</div>
+										<div class="nguoidungcm">{{ $binhluan->nguoidung_id }}</div>
+										<div class="thoigiancm"><?php echo date('h:m d/m/Y', strtotime($binhluan->created_at)); ?></div>
+										
+
+									</div>
+									@endforeach
+										@endif
+									<div class="comment">
+									{!! $binhluans->render() !!}
+									</div>
 								</div>
 								<div class="box_search_2_all">
-								<div class="title_box_support_2">Lịch trình khác</div>
+								<div class="title_box_support_2"><h3><b>Xe cùng loại</b></h3></div>
 						    	<div class="row">
 						    	@foreach($xekhac as $xe)
 								<div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-			                		<div class="div_name_car_hot"><a href="" class="title_chitiet"></a></div>
+			                		<div class="div_name_car_hot"><a href="{{ url('chitiet', $xe->xe_id ) }}" class="title_chitiet">{{ $xe->hang_xe }} {{ $xe->ten_xe }}</a></div>
 			                	<div class="clearfix">
 			                    <a href=""><img class="img_car_list" src="{{ url('public/user/images', $xe->url_hinhxe) }}"></a><div class="b_car_information">
 			                        <div class="tbold">Hiệu: {{ $xe->hang_xe }}</div>
@@ -94,12 +107,7 @@
 			            		</div>
 			            		@endforeach
 					            
-					           
-					           
-					          
-					           
-					            
-					      
+    
 			        </div>
 				</div>        
 			</div>

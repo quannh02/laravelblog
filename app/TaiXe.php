@@ -8,5 +8,10 @@ class TaiXe extends Model
 {
     protected $table = 'tbl_taixe';
     protected $primaryKey = 'taixe_id';
-    protected $fillable = ['tentaixe', 'banglaixe', 'ngaysinh', 'sothich'];
+    protected $fillable = [
+    	'tentaixe', 
+    	'banglaixe', 
+    	'ngaysinh', 
+    	'sothich'
+    ];
 }

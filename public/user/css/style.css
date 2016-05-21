@@ -143,11 +143,12 @@ a.a_book_car {
 }
 .box_search_2_all {
     background: #fff;
-    border: 1px solid #bdbcbc;
+    /*border: 1px solid #bdbcbc;*/
     border-radius: 5px;
     margin-bottom: 10px;
     padding: 10px;
     position: relative;
+    clear: both;
 }
 .title_box_support {
     color: #254589;
@@ -463,4 +464,25 @@ span.error {
     display: inline-block;
     font-size: 12px;
     font-style: italic;
+}
+.comment {
+    clear: both;
+    margin-bottom: 5px;
+}
+.nguoidungcm {
+    width: 30%;
+    float: left;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+.thoigiancm {
+    width: 70%;
+    float: left;
+    font-size: 12px;
+}
+.noidungcm {
+    width: 100%;
+    float: left;
+    border: 1px solid #bdbcbc;
+    border-radius: 5px;
 }

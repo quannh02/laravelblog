@@ -16,12 +16,13 @@ class BinhLuanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function binhluan(BinhLuanRequest $request, $id){
+    public function binhluan(BinhLuanRequest $request, $id, $xe_id){
         $binhluan = new Comment;
+        $binhluan->xe_id = $xe_id;
         $binhluan->nguoidung_id = $id;
         $binhluan->noidung = $request->txtbinhluan;
         $binhluan->save();
-        return redirect()->route('chitietsp');
+        return redirect()->route('chitietsp', $xe_id);
     }
     public function index()
     {

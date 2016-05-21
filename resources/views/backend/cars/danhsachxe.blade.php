@@ -51,7 +51,11 @@
                     <td><img class="img img-responsive url_hinhxe" src="{{ url('public/user/images', $car->url_hinhxe) }}" alt="{{ $car->url_hinhxe }}"></td>
                     <td>{{ $car->sodangky_xe }}</td>
                     <td>{{ $car->color }}</td>
+                    @if(isset($car->taixe_xe))
                     <td>{{ $car->taixe_xe }}</td>
+                    @else
+                    <td>Chưa có</td>
+                    @endif
                     <td>{{ $car->socho_xe }}</td>
                     <td><?php echo date('d/m/Y', strtotime($car->ngaysanxuat)); ?></td>
                     <td><?php echo date('d/m/Y', strtotime($car->ngaydangkiem)); ?></td>
