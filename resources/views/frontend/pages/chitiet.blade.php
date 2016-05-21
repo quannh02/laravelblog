@@ -6,26 +6,24 @@
             <ol class = "breadcrumb">
 			   <li><a href = "{{ url('trangchu') }}">Thuê xe du lịch</a></li>
 			   <li><a href = "#">Thuê xe du lịch 45 chỗ</a></li>
-			   <li class = "active">Thuê xe du lịch 45 chỗ đi Cửa Ông</li>
+			   <li class = "active">Thuê xe {{ $xe->hang_xe }} </li>
 			</ol>
 			<div class="clear"></div>
 						<div class="row_car_hot_group">
-							<h2 class="title_car_hot title_b_car">Thuê xe du lịch 45 chỗ đi Cửa Ông</h2>
+							<h2 class="title_car_hot title_b_car"></h2>
 							<div class="b_car_list_content">
 								<div class="row">
 									<div class="col-md-5 col-sm-5 col-xs-12 text-center">
-									<img alt="Thuê xe du lịch 45 chỗ đi Cửa Ông" src="">
+									<img src="{{ url('public/user/images', $xe->url_hinhxe)}}">
 									</div>
 								<div class="col-md-7 col-sm-7 col-xs-12">
 									<ul class="ul_detail">
-										<li class="car_detail_text_2"><span>Hiệu: Hyundai</span></li>
-										<li class="car_detail_text_2"><span>Số chỗ: <span class="b_car_list">45</span></span>
-										</li>
-										<li class="car_detail_text_2"><span>Giá xe: </span><span class="span_price"></span></li>
-										<li class="car_detail_text_2"><span>Phí ngoài giờ: </span></li>
-										<li class="car_detail_text_2"><span>Phí quá km: </span></li>
-										<li class="car_detail_text_2"><span>Tuyến đường: Hà Nội - Cửa Ông ( Quảng Ninh) - Hà Nội</span>
-										</li>
+										<li class="car_detail_text_2"><span>Hiệu: {{ $xe->hang_xe }}</span></li>
+										<li class="car_detail_text_2"><span>Số chỗ: <span class="b_car_list">{{ $xe->socho_xe }}</span></span>
+										<li class="car_detail_text_2"><span>Màu: <span class="b_car_list">{{ $xe->color }}</span></span>
+										<li class="car_detail_text_2"><span>Biển số: <span class="b_car_list">{{ $xe->sodangky_xe }}</span></span>
+										<li class="car_detail_text_2"><span>Năm sản xuất: <span class="b_car_list">{{ $xe->ngaysanxuat }}</span></span>
+										<li class="car_detail_text_2"><span>Lái xe: <span class="b_car_list">{{ $tenlaixe->tentaixe }}</span></span>
 									</ul>
 									<div class="div_book_car">
 										<a class="a_book_car" href="">Đặt thuê</a>
@@ -80,240 +78,28 @@
 								<div class="box_search_2_all">
 								<div class="title_box_support_2">Lịch trình khác</div>
 						    	<div class="row">
+						    	@foreach($xekhac as $xe)
 								<div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-			                		<div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
+			                		<div class="div_name_car_hot"><a href="" class="title_chitiet"></a></div>
 			                	<div class="clearfix">
-			                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-			                        <div class="tbold">Hiệu: Hyundai</div>
-			                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-			                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
+			                    <a href=""><img class="img_car_list" src="{{ url('public/user/images', $xe->url_hinhxe) }}"></a><div class="b_car_information">
+			                        <div class="tbold">Hiệu: {{ $xe->hang_xe }}</div>
+			                        <div>Số chỗ: <span class="tbold">{{ $xe->socho_xe }} chỗ</span></div>
+			                        <div>Giá xe: <span class="span_price">Liên hệ</span></div>
 			                        <div class="div_book_car">
 			                            <a href="" class="a_book_car">Đặt thuê</a>
 			                        </div>
 			                    	</div>
 			                	</div>
 			            		</div>
-					            <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					           <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					           <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					           	<div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					           <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					           	<div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					           <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-					                <div class="div_name_car_hot"><a href="" class="title_chitiet">Thuê xe du lịch 45 chỗ đi Nghệ An</a></div>
-					                <div class="clearfix">
-					                    <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Nghệ An" class="img_car_list" src=""></a><div class="b_car_information">
-					                        <div class="tbold">Hiệu: Hyundai</div>
-					                        <div>Số chỗ: <span class="tbold">45 chỗ</span></div>
-					                        <div>Giá xe: <span class="span_price">Liên hệ ETV</span></div>
-					                        <div class="div_book_car">
-					                            <a href="" class="a_book_car">Đặt thuê</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
+			            		@endforeach
+					            
+					           
+					           
+					          
+					           
+					            
+					      
 			        </div>
 				</div>        
 			</div>

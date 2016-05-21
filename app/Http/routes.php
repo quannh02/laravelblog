@@ -67,7 +67,7 @@ Route::group(['namespace' => 'backend'], function(){
 Route::group(['namespace' => 'frontend'], function(){
 	Route::get('trangchu', 'CarsController@index');
 	Route::post('tinh/{id}', 'HomeController@returnDiaDanh');
-	Route::get('chitiet', ['as' => 'chitietsp' , 'uses' => 'CarsController@getChiTiet']);
+	Route::get('chitiet/{id}', ['as' => 'chitietsp' , 'uses' => 'CarsController@getChiTiet']);
 	Route::post('votes/{id}', 'CarsController@postVote');
 	Route::any('/search', 'CarsController@search');
 	Route::get('tintuc', 'TinTucController@getTinTuc');

@@ -53,6 +53,7 @@
               </ul>
               </li>  
               @endif 
+              <li class=""><a href="{{ url('trangchu') }}"><i class="fa fa-cube fa-fw"></i>Trang chủ<span class="caret"></span></a></li>
               <li class="dropdown pull-right">
               <a href="{{ url('user',  Auth::user()->nguoidung_id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>Tài khoản<span class="caret"></span></a>
               <ul class="dropdown-menu">

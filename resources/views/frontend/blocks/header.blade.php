@@ -31,9 +31,13 @@
             </div>
         </div>
         <div class="col-md-3 col-sm-3 col-xs-12 linkthanhvien">
-            <ul>    
+            <ul>
+                @if(isset(Auth::user()->nguoidung_id))
+                     <li><a href="{{ url('dashboard') }}">Xin chào {{ Auth::user()->tendaydu }}</a></li>
+                @else     
                 <li><a href="{{ url('auth/register') }}">Đăng ký</a></li>
                 <li><a href="{{ url('auth/login') }}">Đăng nhập</a></li>
+                @endif
             </ul>
         </div> 
 
