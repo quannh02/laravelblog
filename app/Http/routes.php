@@ -74,7 +74,9 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::get('chitiettintuc/{id}', 'TinTucController@chitiettintuc');
 	Route::post('binhluan/{id}/{xe_id}', 'BinhLuanController@binhluan');
 	Route::get('brand/{id}', 'CarsController@brandforitem');
-
+	Route::post('datxe/{id}', 'CarsController@datxe');
+	Route::get('datxe','CarsController@gioXe');
+	Route::post('huyxe', 'CarsController@deletegioXe');
 });
 
 

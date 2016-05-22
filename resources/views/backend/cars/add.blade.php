@@ -103,7 +103,7 @@
                             @if ($errors->has('ngaydangkiem'))
                                   <span class="error">{{ $errors->first('ngaydangkiem') }}</span>
                                 @endif
-                            <div class="col-md-2">Ngày sản xuất</div>
+                            <div class="col-md-2">Ngày đăng kiểm</div>
                             <div class="form-group col-md-8">
                                 <input name="ngaydangkiem" value="" class="form-control" data-provide="datepicker" placeholder="Nhập ngày đăng kiểm">
                               </div>

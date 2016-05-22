@@ -16,11 +16,7 @@ use App\Vote;
 
 class CarsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function getAllCars(){
         $now = Carbon::now();
         $unixtimenow = strtotime($now);
@@ -73,8 +69,15 @@ class CarsController extends Controller
    
     public function create()
     {
-        $taixedaxepxe = Cars::select('taixe_xe')->get()->toArray();
-        $taixe = TaiXe::whereNotIN('taixe_id', $taixedaxepxe)->get();
+        $taixedaxepxe = Cars::select('taixe_xe')->get();
+        foreach($taixedaxepxe as $key => $taixe){
+            if($taixe->taixe_xe != null){
+                $taixearray[$key] =  $taixe->taixe_xe;
+            }
+        }
+        //dd($taixearray);                
+        $taixe = TaiXe::whereNotIN('taixe_id', $taixearray)->get();
+        //dd($taixe);
         return view('backend.cars.add', compact('taixe'));
     }
 
@@ -142,8 +145,15 @@ class CarsController extends Controller
     {
 
         $data = Cars::where('xe_id', $xe_id)->get()->first();
-        $taixehientai = TaiXe::findOrFail($data->taixe_xe);
-        $taixe = TaiXe::whereNotIN('taixe_id', [$data->taixe_xe])->get();
+        $taixedaxepxe = Cars::select('taixe_xe')->get();
+        foreach($taixedaxepxe as $key => $taixe){
+            if($taixe->taixe_xe != null){
+                $taixearray[$key] =  $taixe->taixe_xe;
+            }
+        }
+        //dd($taixearray);                
+        $taixe = TaiXe::whereNotIN('taixe_id', $taixearray)->get();
+        //dd($taixe);
         return view('backend.cars.suaxe', compact('data', 'taixehientai', 'taixe'));
     }
 
@@ -185,7 +195,7 @@ class CarsController extends Controller
             }
 
         $cars->save();
-        return redirect()->route('danhsachxe');
+        return redirect('danhsachxe');
     }
 
     /**

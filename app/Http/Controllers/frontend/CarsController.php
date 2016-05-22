@@ -12,6 +12,7 @@ use App\Comment;
 use App\TinTuc;
 use App\TaiXe;
 use App\User;
+use Session;
 
 class CarsController extends Controller
 {
@@ -107,5 +108,53 @@ class CarsController extends Controller
         $roundVote = round(($vote_id->tongdiem/$vote_id->sovotes), 1);
         //dd($vote_id);
         return view('frontend.pages.chitiet', compact('vote_id', 'binhluans', 'xe', 'socho', 'brands','tintucs','tenlaixe', 'xekhac', 'roundVote'));
+    }
+
+    public function datxe($id){
+        $xe = Cars::where('xe_id', $id)->get()->first();
+        $index = -1;
+            if(Session::has('datxe')) {
+                foreach(Session::get('datxe') as $key => $value){
+                    //dd($key); die();
+                    if($id == Session::get('datxe')[$key]['id']) {
+                        $index = $key;
+                        break;
+                    }
+                }
+                if($index === -1) {
+                    $item = array(
+                    'id' => $id,
+                    'name' => $xe->hang_xe . ' ' . $xe->ten_xe,
+                    'socho'    => $xe->socho_xe,
+                    'color'      => $xe->color,
+                    'image'     => $xe->url_hinhxe
+                    //'laixe'     => $xe->taixe_xe
+                    );
+                    //dd($item);
+                    Session::push('datxe', $item);
+                }      
+            } else {
+                $item = array(
+                    'id' => $id,
+                    'name' => $xe->hang_xe . ' ' .$xe->ten_xe,
+                    'socho'    => $xe->socho_xe,
+                    'color'      => $xe->color,
+                    'image'     => $xe->url_hinhxe,
+                    //'laixe'     => $xe->taixe_xe
+                    );
+                Session::push('datxe', $item);
+            }   
+
+            return redirect('datxe');
+    }
+    public function gioXe(){
+        $brands = $this->brands;
+        $socho = $this->sochoxe;
+        $tintucs = $this->tintucs;
+        return view('frontend.pages.dsdat', compact('brands', 'socho', 'tintucs'));
+    }
+    public function deletegioXe(){
+        Session::flush('datxe');
+        return redirect('datxe');
     }
 }

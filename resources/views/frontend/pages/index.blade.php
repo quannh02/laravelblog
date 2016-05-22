@@ -35,7 +35,7 @@
                         @foreach($car_balam as $car)
 						<div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
                             <div class="div_name_car_hot">
-                                <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images/Huyndai Universe.jpg') }}"></a>
+                                <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
                                 <div class="a_name_car_hot">
                                     <a href="">Thuê xe du lịch {{ $car->hang_xe }} {{ $car->ten_xe }} 35 chỗ</a>
                                 </div>
