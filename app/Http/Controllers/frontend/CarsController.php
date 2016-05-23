@@ -110,7 +110,7 @@ class CarsController extends Controller
         return view('frontend.pages.chitiet', compact('vote_id', 'binhluans', 'xe', 'socho', 'brands','tintucs','tenlaixe', 'xekhac', 'roundVote'));
     }
 
-    public function datxe($id){
+    public function gioxe($id){
         $xe = Cars::where('xe_id', $id)->get()->first();
         $index = -1;
             if(Session::has('datxe')) {
@@ -127,7 +127,9 @@ class CarsController extends Controller
                     'name' => $xe->hang_xe . ' ' . $xe->ten_xe,
                     'socho'    => $xe->socho_xe,
                     'color'      => $xe->color,
-                    'image'     => $xe->url_hinhxe
+                    'image'     => $xe->url_hinhxe,
+                    'bienso'    => $xe->sodangky_xe,
+                    'ngaysanxuat' => $xe->ngaysanxuat
                     //'laixe'     => $xe->taixe_xe
                     );
                     //dd($item);
@@ -140,14 +142,16 @@ class CarsController extends Controller
                     'socho'    => $xe->socho_xe,
                     'color'      => $xe->color,
                     'image'     => $xe->url_hinhxe,
+                    'bienso'    => $xe->sodangky_xe,
+                    'ngaysanxuat' => $xe->ngaysanxuat
                     //'laixe'     => $xe->taixe_xe
                     );
                 Session::push('datxe', $item);
             }   
 
-            return redirect('datxe');
+            return redirect('gioxe');
     }
-    public function gioXe(){
+    public function getgioxe(){
         $brands = $this->brands;
         $socho = $this->sochoxe;
         $tintucs = $this->tintucs;
@@ -155,6 +159,6 @@ class CarsController extends Controller
     }
     public function deletegioXe(){
         Session::flush('datxe');
-        return redirect('datxe');
+        return redirect('gioxe');
     }
 }

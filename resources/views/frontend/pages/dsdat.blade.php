@@ -9,6 +9,8 @@
         <th>Màu</th>
         <th>Số chỗ</th>
         <th>Image</th>
+        <th>Biển số</th>
+        <th>Năm sản xuất</th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +22,8 @@
         <td>{{ $value['color'] }}</td>
         <td>{{ $value['socho'] }}</td>
         <td>{{ $value['image'] }}</td>
+        <td>{{ $value['bienso'] }}</td>
+        <td>{{ date('Y', strtotime($value['ngaysanxuat']))}}</td>
       </tr>
       	@endforeach
       @endif
@@ -29,5 +33,7 @@
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
    <button class="btn btn-success">Hủy toàn bộ</button>
   </form>
+  
+   <a class="btn btn-success pull-right" href="{{ url('datxe')}}">Đặt xe</a>
   </div>
 @endsection

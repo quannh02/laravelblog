@@ -14,7 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav topLinks">
-        <li class=""><a href="">Trang chủ</a></li>
+        <li class=""><a href="{{ url('trangchu') }}">Trang chủ</a></li>
         <li><a href="#">Thuê xe</a></li>
         <li><a href="#">Tin tức</a></li>
         <li><a href="#">Liên hệ</a></li>   

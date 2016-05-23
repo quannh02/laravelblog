@@ -36,6 +36,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         'gioitinh', 
         'terms'
     ];
+    public function dondat(){
+        return $this->hasMany('App\DonDat');
+    }
     /**
      * The attributes excluded from the model's JSON form.
      *

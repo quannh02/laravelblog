@@ -11,6 +11,11 @@ use App\MyFunction;
 use DB;
 use App\DonDat;
 use App\DonDatCT;
+use App\User;
+use Auth;
+
+use App\Http\Requests\DatXeRequest;
+
 class BookingController extends Controller
 {
     /**
@@ -86,77 +91,23 @@ class BookingController extends Controller
     }
 
     public function getDatXe(){
-        return view('backend.booking.datxe');
+        $user = User::where('nguoidung_id', Auth::user()->nguoidung_id)->get()->first();
+        return view('backend.booking.datxe', compact('user'));
+
     }
     
-    public function index()
-    {
-        //
+    public function postDatXe(DatXeRequest $request){
+        $user = User::findOrFail(Auth::user()->nguoidung_id);
+        $user->tendaydu = $request->tendaydu;
+        $user->email = $request->email;
+        $user->gioitinh = $request->gioitinh;
+        $user->sodienthoai = $request->sodienthoai;
+        $user->tencongty = $request->tencongty;
+        $user->masothue = $request->masothue;
     }
+   
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
+    
+    
 }

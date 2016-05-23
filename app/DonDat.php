@@ -20,4 +20,7 @@ class DonDat extends Model
     {
         return $this->hasMany('App\DonDatCT');
     }
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

@@ -30,7 +30,7 @@
 										</span></span>
 									</ul>
 								
-										<form method="post" action="{{ url('datxe', $xe->xe_id) }}">
+										<form method="post" action="{{ url('gioxe', $xe->xe_id) }}">
 			                        	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			                            <button class="btn btn-success">Đặt thuê</button>
 			                            </form>

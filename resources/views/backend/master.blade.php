@@ -39,7 +39,7 @@
               <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-car" aria-hidden="true"></i>Quản lý xe<span class="caret"></span></a></li>
               @if(Auth::user()->terms == 0)
               <li class=""><a href="{{ url('timxe') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe<span class="caret"></span></a></li>
-              <li class=""><a href="{{ url('Đặt xe') }}"><i class="fa fa-cube fa-fw"></i>Đặt xe<span class="caret"></span></a></li>
+              <li class=""><a href="{{ url('datxe') }}"><i class="fa fa-cube fa-fw"></i>Đặt xe<span class="caret"></span></a></li>
               @endif
               @if(Auth::user()->terms == 1)
               <li class=""><a href="{{ url('list/car') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe<span class="caret"></span></a></li>
