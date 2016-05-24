@@ -46,6 +46,16 @@ class CarsController extends Controller
         return view('frontend.pages.listcar', compact('cars','socho', 'tintucs', 'brands'));
     }
 
+    public function socho($id){
+        $brands = $this->brands;
+        $socho = $this->sochoxe;
+        //dd($brands); die();
+        $tintucs = $this->tintucs;
+        $cars = Cars::where('socho_xe', $id)->get();
+        //dd($cars);
+        return view('frontend.pages.listcar', compact('cars', 'socho', 'tintucs', 'brands'));
+    }
+
     public function search(){
         $q = Input::get('q');
         $car = Cars::where('hang_xe','LIKE','%'.$q.'%')->orWhere('socho_xe','LIKE','%'.$q.'%')->get();
@@ -107,7 +117,17 @@ class CarsController extends Controller
         $vote_id = Vote::where('cars_id', $id)->get()->first();
         $roundVote = round(($vote_id->tongdiem/$vote_id->sovotes), 1);
         //dd($vote_id);
-        return view('frontend.pages.chitiet', compact('vote_id', 'binhluans', 'xe', 'socho', 'brands','tintucs','tenlaixe', 'xekhac', 'roundVote'));
+        return view('frontend.pages.chitiet', compact(
+            'vote_id', 
+            'binhluans', 
+            'xe', 
+            'socho', 
+            'brands',
+            'tintucs',
+            'tenlaixe', 
+            'xekhac', 
+            'roundVote'
+        ));
     }
 
     public function gioxe($id){

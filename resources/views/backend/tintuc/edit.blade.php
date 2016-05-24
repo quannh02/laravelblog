@@ -34,7 +34,6 @@
                            	</div>
                           
                             <button type="submit" class="btn btn-default">Sửa</button>
-                            <button type="reset" class="btn btn-reset btn-default">Reset</button>
                         <form>
                     </div>
                 </div>

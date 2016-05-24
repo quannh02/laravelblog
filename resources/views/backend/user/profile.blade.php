@@ -50,8 +50,7 @@
 		  						<label><input id="khachCT" type="radio" value="1" name="customertype">Khách công ty</label>
 							</div> -->
                             <button type="submit" class="btn btn-default">Profile Update</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
-                        <form>
+                                <form>
                     </div>
                 </div>
                 <!-- /.row -->

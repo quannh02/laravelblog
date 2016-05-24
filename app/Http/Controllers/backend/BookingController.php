@@ -13,7 +13,7 @@ use App\DonDat;
 use App\DonDatCT;
 use App\User;
 use Auth;
-
+use Session;
 use App\Http\Requests\DatXeRequest;
 
 class BookingController extends Controller
@@ -99,13 +99,46 @@ class BookingController extends Controller
     public function postDatXe(DatXeRequest $request){
         $user = User::findOrFail(Auth::user()->nguoidung_id);
         $user->tendaydu = $request->tendaydu;
-        $user->email = $request->email;
-        $user->gioitinh = $request->gioitinh;
+        $user->email = $request->email; 
+        switch ($request->gioitinh) {
+            case 1:
+                $user->gioitinh = 'Nam';
+            break;
+            case 0:
+                $user->gioitinh = 'Nữ';
+                break;
+            default:
+                $user->gioitinh = 'Không xác định';
+        }
         $user->sodienthoai = $request->sodienthoai;
         $user->tencongty = $request->tencongty;
         $user->masothue = $request->masothue;
+        $user->save();
+
+        $datxe = new DonDat([
+            'diemdon' => $request->diemdon,
+            'diemden' => $request->diemden,
+            'yeucau'  => $request->yeucau,
+            'ngaydi'  => $request->ngaydi,
+            'ngayve'  => $request->ngayve
+            ]);
+        $user->dondat()->save($datxe);
+        if(Session::has('datxe'))
+        {
+        foreach(Session::get('datxe') as $key => $value)
+        {
+            $dondatchitiet = new DonDatCT([
+                'xe_id' => $value['id']
+                ]);
+            $datxe->dondatchitiet()->save($dondatchitiet);
+        }
+        }
+        return redirect('quanlydondat');
     }
-   
+    
+    public function quanlydondat(){
+        return view('backend.booking.dondat');
+    }
 
     
     

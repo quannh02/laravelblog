@@ -3,14 +3,14 @@
 @section('content')
 			<div class="col-xs-12 col-md-9-5">
 				<div class="row_car_hot_group">
-				<div class="title_car_hot"><i class="fa fa-car"></i><a href="" class="title_b_car">Xe du lịch 45 chỗ</a></div>
+				<div class="title_car_hot"><i class="fa fa-car"></i><a href="" class="title_b_car">Xe du lịch</a></div>
         			<div class="row">
 						@foreach($cars as $car)
                         <div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
                             <div class="div_name_car_hot">
                                 <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
                                 <div class="a_name_car_hot">
-                                    <a href="">Thuê xe du lịch {{ $car->ten_xe }} 45 chỗ</a>
+                                    <a href="">Thuê xe du lịch {{ $car->ten_xe }} {{ $car->socho_xe }} chỗ</a>
                                 </div>
 			                <div class="clearfix">
 			                  

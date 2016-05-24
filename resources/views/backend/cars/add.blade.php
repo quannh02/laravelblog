@@ -108,8 +108,8 @@
                                 <input name="ngaydangkiem" value="" class="form-control" data-provide="datepicker" placeholder="Nhập ngày đăng kiểm">
                               </div>
                             </div>
-                            <button type="submit" class="btn btn-default">Sửa</button>
-                            <button type="reset" class="btn btn-reset btn-default">Reset</button>
+                            <button type="submit" class="btn btn-default">Thêm</button>
+          
                         <form>
                     </div>
                 </div>

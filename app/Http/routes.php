@@ -36,6 +36,7 @@ Route::group(['namespace' => 'backend'], function(){
 		
 		Route::get('datxe', 'BookingController@getDatXe');
 		Route::post('datxe', 'BookingController@postDatXe');
+		Route::get('quanlydondat', 'BookingController@quanlydondat');
 		Route::get('danhsachxe', ['as' => 'danhsachxe', 'uses' => 'CarsController@getAllCars']);
 	});
 	
@@ -68,6 +69,8 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::post('themtaixe', 'TaiXeController@postthemtaixe');
 		Route::post('xoataixe/{id}', 'TaiXeController@xoataixe');
 		// Route::resource('user', 'UserController');
+
+		//Route::get('quanlydatxe')
 	});
 });
 Route::group(['namespace' => 'frontend'], function(){
@@ -83,7 +86,9 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::get('chitiettintuc/{id}', 'TinTucController@chitiettintuc');
 
 	Route::post('binhluan/{id}/{xe_id}', 'BinhLuanController@binhluan');
+
 	Route::get('brand/{id}', 'CarsController@brandforitem');
+	Route::get('socho/{id}', 'CarsController@socho');
 
 	Route::post('gioxe/{id}', 'CarsController@gioxe');
 	Route::get('gioxe','CarsController@getgioxe');

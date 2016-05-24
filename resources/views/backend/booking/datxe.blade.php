@@ -99,7 +99,7 @@
           @endif
               <div class="col-md-2">Ngày đi</div>
               <div class="form-group col-md-8">
-              <input name="ngaydi" value="" class="form-control" data-provide="datepicker" placeholder="Nhập ngày đi">
+              <input name="ngaydi" value="" class="form-control" data-provide="datepicker">
               </div>
         </div>
         <div class="row">
@@ -108,7 +108,7 @@
           @endif
               <div class="col-md-2">Ngày đi</div>
               <div class="form-group col-md-8">
-              <input name="ngayve" value="" class="form-control" data-provide="datepicker" placeholder="Nhập ngày về">
+              <input name="ngayve" value="" class="form-control" data-provide="datepicker">
               </div>
         </div>
         <div>
@@ -148,7 +148,10 @@
       @endif
     </tbody>
   </table>
-  
+   <form method="post" action="{{ url('huyxe') }}">
+   <input type="hidden" name="_token" value="{{ csrf_token() }}">
+   <button class="btn btn-success">Hủy toàn bộ</button>
+  </form>
   </div>
     </div>
 
