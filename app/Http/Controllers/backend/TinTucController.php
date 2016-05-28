@@ -35,49 +35,8 @@ class TinTucController extends Controller
         return redirect()->route('themtintuc')->with(['flash_level'=> 'success', 'flash_message' => 'Đã thêm dữ liệu thành công']);
 
     }
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
+    
     public function edit($id)
     {
         $data = TinTuc::where('id', $id)->get()->first();
@@ -85,13 +44,7 @@ class TinTucController extends Controller
         return view('backend.tintuc.edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
         $tintuc = TinTuc::findOrFail($id);
@@ -101,12 +54,7 @@ class TinTucController extends Controller
         return redirect()->route('quanlytintuc');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
         $tintuc = TinTuc::findOrFail($id);

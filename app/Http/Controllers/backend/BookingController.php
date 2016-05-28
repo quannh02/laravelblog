@@ -113,14 +113,23 @@ class BookingController extends Controller
         $user->sodienthoai = $request->sodienthoai;
         $user->tencongty = $request->tencongty;
         $user->masothue = $request->masothue;
+
+        $ngaysanxuat = date('Y:m:d', strtotime($request->ngaysanxuat));
+        $cars->ngaysanxuat  = '' . $ngaysanxuat . ' 00:00:00';
+
         $user->save();
 
+        $ngaydi = date('Y:m:d', strtotime($request->ngaydi));
+        $ngaydi = '' . $ngaydi . ' 00:00:00';
+
+        $ngayve = date('Y:m:d', strtotime($request->ngayve));
+        $ngayve = '' . $ngayve . ' 00:00:00';
         $datxe = new DonDat([
             'diemdon' => $request->diemdon,
             'diemden' => $request->diemden,
             'yeucau'  => $request->yeucau,
-            'ngaydi'  => $request->ngaydi,
-            'ngayve'  => $request->ngayve
+            'ngaydi'  => $ngaydi,
+            'ngayve'  => $ngayve
             ]);
         $user->dondat()->save($datxe);
         if(Session::has('datxe'))
@@ -137,7 +146,20 @@ class BookingController extends Controller
     }
     
     public function quanlydondat(){
-        return view('backend.booking.dondat');
+        $dondats = DonDat::where('user_id', '=', Auth::user()->nguoidung_id)->get()->toArray();
+        //dd($dondats); die();
+        foreach($dondats as $key => $dondat){
+            $dondatchitiets = DonDatCT::where('don_dat_id', '=' , $dondat['dondat_id'])
+                ->join('tbl_xe', 'tbl_xe.xe_id' , '=' , 'tbl_dondatchitiet.xe_id')
+                ->join('tbl_taixe' , 'tbl_xe.taixe_xe' , '=' , 'tbl_taixe.taixe_id')
+                ->get()->toArray();
+            //dd($dondatchitiets); die();
+            
+            array_push($dondats[$key], $dondatchitiets);
+
+        }
+        //dd($dondats); die();
+        return view('backend.booking.dondat',compact('dondats'));
     }
 
     

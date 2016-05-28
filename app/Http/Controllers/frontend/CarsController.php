@@ -21,7 +21,7 @@ class CarsController extends Controller
     protected $tintucs;
     public function __construct(){
         $this->brands = Cars::select('hang_xe')->distinct()->get();
-        $this->sochoxe = Cars::select('socho_xe')->distinct()->get();
+        $this->sochoxe = Cars::select('socho_xe')->distinct()->orderBy('socho_xe','asc')->get();
         $this->tintucs = TinTuc::select('id', 'tieude')->orderBy('id', 'desc')->take(5)->get();
     }
 
@@ -29,11 +29,26 @@ class CarsController extends Controller
     {
         $brands = $this->brands;
         $socho = $this->sochoxe;
+
         //dd($brands); die();
         $tintucs = $this->tintucs;
-        $car_bonlam = Cars::where('socho_xe', 45)->get();
-        $car_balam  = Cars::where('socho_xe', 35)->get();
-        return view('frontend.pages.index', compact('car_bonlam', 'car_balam', 'brands', 'socho', 'tintucs'));
+        $car_bonlam     = Cars::where('socho_xe', 45)->orderBy('xe_id', 'desc')->take(6)->get();
+        $car_balam      = Cars::where('socho_xe', 35)->orderBy('xe_id', 'desc')->take(6)->get();
+        $car_haichin    = Cars::where('socho_xe', 29)->orderBy('xe_id', 'desc')->take(6)->get();
+        $car_muoisau    = Cars::where('socho_xe', 16)->orderBy('xe_id', 'desc')->take(6)->get();
+        $car_bay        = Cars::where('socho_xe', 7)->orderBy('xe_id', 'desc')->take(6)->get();
+        $car_bon        = Cars::where('socho_xe', 4)->orderBy('xe_id', 'desc')->take(6)->get();
+        return view('frontend.pages.index', compact(
+            'car_bonlam', 
+            'car_balam', 
+            'car_haichin',
+            'car_muoisau', 
+            'car_bay', 
+            'car_bon', 
+            'brands', 
+            'socho', 
+            'tintucs'
+        ));
     }
 
 

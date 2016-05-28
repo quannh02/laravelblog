@@ -29,7 +29,28 @@
 										@endif
 										</span></span>
 									</ul>
-								
+								<div>
+									<table class="table table-bordered">
+								    <thead>
+								      <tr>
+								        <th>Nội thành (100Km/8h)</th>
+								        <th>Đường dài trên (200km/ngày)</th>
+								        <th>Sân bay (80km/3h)</th>
+								        <th>Thuê tháng (2600km)</th>
+								        <th>Ngoài giờ</th>
+								      </tr>
+								    </thead>
+								    <tbody>
+								      <tr>
+								        <td>{{ number_format($xe->onehundred_eighthour, 0)}}</td>
+								        <td>{{ number_format($xe->twohundred_oneday, 0)}}</td>
+								        <td>{{ number_format($xe->airport_threehour, 0)}}</td>
+								        <td>{{ number_format($xe->thuethang, 0)}}</td>
+								        <td>{{ number_format($xe->ngoaigio, 0)}}</td>
+								      </tr>
+								    </tbody>
+								  </table>
+								</div>
 										<form method="post" action="{{ url('gioxe', $xe->xe_id) }}">
 			                        	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			                            <button class="btn btn-success">Đặt thuê</button>
@@ -98,7 +119,7 @@
 								<div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
 			                		<div class="div_name_car_hot"><a href="{{ url('chitiet', $xe->xe_id ) }}" class="title_chitiet">{{ $xe->hang_xe }} {{ $xe->ten_xe }}</a></div>
 			                	<div class="clearfix">
-			                    <a href=""><img class="img_car_list" src="{{ url('public/user/images', $xe->url_hinhxe) }}"></a><div class="b_car_information">
+			                    <a href="{{ url('chitiet', $xe->xe_id ) }}"><img class="img_car_list" src="{{ url('public/user/images', $xe->url_hinhxe) }}"></a><div class="b_car_information">
 			                        <div class="tbold">Hiệu: {{ $xe->hang_xe }}</div>
 			                        <div>Số chỗ: <span class="tbold">{{ $xe->socho_xe }} chỗ</span></div>
 			                        <div>Giá xe: <span class="span_price">Liên hệ</span></div>

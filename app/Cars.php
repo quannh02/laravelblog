@@ -17,7 +17,12 @@ class Cars extends Model
     		'color',
     		'ngaysanxuat', 
     		'socho_xe', 
-    		'taixe_xe'
+    		'taixe_xe',
+            'onehundred_eighthour',
+            'twohundred_oneday',
+            'airport_threehour',
+            'thuethang',
+            'ngoaigio'
     ];
     public function vote(){
     	return $this->hasOne('App\Vote');
