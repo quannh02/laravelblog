@@ -42,7 +42,7 @@
               @endif
               @if(Auth::user()->terms == 1)
               <li class=""><a href="{{ url('list/car') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe<span class="caret"></span></a></li>
-              <li class=""><a href=""><i class="fa fa-book"></i>Quản lý đặt xe<span class="caret"></span></a></li>
+              <li class=""><a href="{{ url('quanlydatxe')}}"><i class="fa fa-book"></i>Quản lý đặt xe<span class="caret"></span></a></li>
           
               <li class="dropdown">
               <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-plus" aria-hidden="true"></i>Thêm<span class="caret"></span></a>

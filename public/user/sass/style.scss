@@ -1,0 +1,279 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,500,600,700&amp;subset=latin,cyrillic-ext);
+@import url(bootstrap.min.css);
+@import url(font-awesome.min.css);
+
+@import 'color';
+/* EOF PREDEFINED CLASSES */
+
+html * {
+  outline: none !important;
+}
+
+html,
+body {
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  color: #757575;
+  overflow-x: hidden;
+  background: $white;
+}
+.navbar-nav{
+	.dropdown{
+		&:hover ul{
+			display: block;
+		}
+	}
+}
+.navbar-default{
+	.navbar-brand {
+		padding: 14px 100px;
+		color: #337ab7;
+	}
+}
+
+@media (max-width: 970px){
+	.navbar-brand {
+		padding: 14px;
+	}
+	.columns {
+		padding-left: 10px !important;
+		padding-right: 10px !important;
+	}
+	.columns-container{
+		margin-top: 15px;
+	}
+	.navbar-default {
+		.navbar-brand {
+			padding: 14px 10px !important;
+		}
+	}
+	.block{
+		width: 100% !important;
+		float: none;
+		ul{
+			display: none;
+		}
+		text-align: center;
+	}
+	.contacts-info{
+		width: 100% !important;
+		ul{
+			display: none;
+
+		}
+		float: none;
+		text-align: center;
+	}
+}
+@media (min-width: 545px) and (max-width: 767px){
+	.search-control{
+		position: absolute;
+		top: 9px;
+		left: 119px;
+		position: absolute;
+		width: 50%;
+	}
+	.search-button{
+		position: absolute;
+		top: 9px;
+		right: 23%;
+		position: absolute;
+	}
+}
+@media (min-width: 971px){
+	.container {
+		margin-bottom: 15px !important;
+	}
+	.navbar-right{
+		padding: 0px 88px 0px 0px;
+	}
+	.columns {
+		padding: 20px 0px;
+	}
+	.center-column-wrapper{
+		padding: 20px !important;
+	}
+	
+}
+@media (min-width: 544px){
+	.card-group{
+		//display: table;
+		width: 100%;
+		.card{
+			&:first-child{
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+			//display: table-cell;
+			float: left;
+			vertical-align: top;
+			width: 33%;
+		    .card-img-top{
+		    	width: 100%;
+		    }
+		    .card-title {
+		    	font-weight: 600;
+		    	color: #337ab7;
+		    }
+		    .card-text {
+		    	color: #272727;
+		    }
+		    p{
+		    	color: $black;
+		    }
+		}
+	}
+}
+@media(max-width: 544px){
+	.card{
+		width: 100%;
+		.card-img-top{
+			width: 100%;
+		}
+	}
+	.home-2-block {
+	text-align: left;
+	>h2{
+		color: #00bcd4;
+		font-size: 14px;
+		text-transform: uppercase;
+	}
+}
+}
+.item {
+	.carousel-caption{
+		.tp-caption{
+			top: -173px;
+			left: -180px;
+			width: 401px;
+			height: 69px;
+			position: absolute;
+			z-index: 1;
+		}
+	}
+}
+.center-column-wrapper{
+	padding: 10px;
+	background: #fff;
+	border: 1px solid #ededed;
+	-webkit-border-right: 5px;
+	-moz-border-right: 5px;
+	-ms-border-right: 5px;
+	-o-border-right: 5px;
+	border-right: 5px;	
+	.clearfix{
+		.wrapper{
+			padding: 0 0 35px;
+		}
+	}
+}
+.home-2-block {
+	text-align: center;
+	>h2{
+		color: #337ab7;
+		text-transform: uppercase;
+	}
+}
+
+
+.card {
+    position: relative;
+    display: block;
+    margin-bottom: .75rem;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: .25rem;
+    
+}
+
+.multi-item-carousel{
+  .carousel-inner{
+    > .item{
+      transition: 500ms ease-in-out left;
+    }
+    .active{
+      &.left{
+        left:-33%;
+      }
+      &.right{
+        left:33%;
+      }
+    }
+    .next{
+      left: 33%;
+    }
+    .prev{
+      left: -33%;
+    }
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      > .item{
+        // use your favourite prefixer here
+        transition: 500ms ease-in-out all;
+        backface-visibility: visible;
+        transform: none!important;
+      }
+    }
+  }
+  .carouse-control{
+    &.left, &.right{
+      background-image: none;
+    }
+  }
+}
+
+// non-related styling:
+body{
+  background: #333;
+  color: #ddd;
+}
+h1{
+  color: white;
+  font-size: 2.25em;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  text-shadow: 0px 2px 0px $linen;
+}
+.footer-container{
+	background: #232323;
+	.about-us{
+		a{
+			font-size: 20px;
+			margin: 20px 0;
+			display: block;
+		}
+	}
+	.footer-block{
+		.block_content {
+			ul{
+				list-style: none;
+				li{
+					float: left;
+					a{
+						display: block;
+						span{
+							font-size: 20px;
+						}
+						padding: 0 10px;
+
+					}
+					&:first-child a{
+							padding: 0 10px 0 0 !important;
+					}
+				}
+			}
+		}
+	}
+	.block{
+		float: left;
+		width: 21%;
+
+	}
+	.contacts-info{
+		float: left; 
+		width: 36%;
+	}
+}

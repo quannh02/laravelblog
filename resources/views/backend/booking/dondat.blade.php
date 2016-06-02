@@ -11,7 +11,7 @@
 	        <th>Yêu cầu</th>
 	        <th>Ngày đi</th>
 	        <th>Ngày về</th>
-	        <th>Đã duyệt</th>
+	        <th>Duyệt</th>
 	        <th>Chi tiết</th>
 	      </tr>
 	    </thead>
@@ -24,7 +24,20 @@
 	        <td>{{ $dondat['yeucau']}}</td>
 	        <td>{{ date('h:m d/m/Y' , strtotime($dondat['ngaydi']))}}</td>
 	        <td>{{ date('h:m d/m/Y' , strtotime($dondat['ngayve']))}}</td>
-	        <td>{{ $dondat['active']}}</td>
+	        @if($dondat['active'] == 1)
+	        <td>{{ 'Đã duyệt' }}</td>
+	        @elseif(Auth::user()->terms == 1)
+	        <td>
+	        	<form action="{{ url('duyetdondat', $dondat['dondat_id'] )}}" method='post'>
+	        		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+	        		<button type="submit" class="btn btn-default">Duyệt</button>
+	        	</form>
+	        </td>
+	        @else 
+	        <td>
+	      		{{ 'Chưa duyệt' }}
+	        </td>
+	        @endif
 	        <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal{{ $dondat['dondat_id'] }}">Xem</button>
 
 				<!-- Modal -->

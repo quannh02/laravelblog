@@ -70,7 +70,8 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::post('xoataixe/{id}', 'TaiXeController@xoataixe');
 		// Route::resource('user', 'UserController');
 
-		//Route::get('quanlydatxe')
+		Route::get('quanlydatxe', 'BookingController@admindondat');
+		Route::post('duyetdondat/{id}', 'BookingController@duyetdondat');
 	});
 });
 Route::group(['namespace' => 'frontend'], function(){

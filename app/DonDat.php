@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class DonDat extends Model
 {
     protected $table = 'tbl_dondat';
-    protected $fillable = [
-    	'dondat_id', 
+    protected $primaryKey = 'dondat_id';
+    protected $fillable = [ 
     	'nguoidung_id', 
     	'diemdon', 
     	'diemden', 

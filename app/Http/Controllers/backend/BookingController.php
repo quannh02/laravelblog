@@ -114,9 +114,6 @@ class BookingController extends Controller
         $user->tencongty = $request->tencongty;
         $user->masothue = $request->masothue;
 
-        $ngaysanxuat = date('Y:m:d', strtotime($request->ngaysanxuat));
-        $cars->ngaysanxuat  = '' . $ngaysanxuat . ' 00:00:00';
-
         $user->save();
 
         $ngaydi = date('Y:m:d', strtotime($request->ngaydi));
@@ -145,7 +142,7 @@ class BookingController extends Controller
         return redirect('quanlydondat');
     }
     
-    public function quanlydondat(){
+    public function quanlydondat(){ // quan ly danh sach dat xe cua nguoi dung
         $dondats = DonDat::where('user_id', '=', Auth::user()->nguoidung_id)->get()->toArray();
         //dd($dondats); die();
         foreach($dondats as $key => $dondat){
@@ -162,7 +159,27 @@ class BookingController extends Controller
         return view('backend.booking.dondat',compact('dondats'));
     }
 
-    
+    public function admindondat(){ // quan ly danh sach dat xe cua admin
+        $dondats = DonDat::orderBy('dondat_id', 'desc')->get()->toArray();
+        foreach($dondats as $key => $dondat){
+            $dondatchitiets = DonDatCT::where('don_dat_id', '=' , $dondat['dondat_id'])
+                ->join('tbl_xe', 'tbl_xe.xe_id' , '=' , 'tbl_dondatchitiet.xe_id')
+                ->join('tbl_taixe' , 'tbl_xe.taixe_xe' , '=' , 'tbl_taixe.taixe_id')
+                ->get()->toArray();
+            //dd($dondatchitiets); die();
+            
+            array_push($dondats[$key], $dondatchitiets);
+
+        }
+        return view('backend.booking.dondat', compact('dondats'));
+    }
+
+    public function duyetdondat($id){
+        $dondat = DonDat::findOrFail($id);
+        $dondat->active = 1;
+        $dondat->save();
+        return redirect('quanlydatxe');
+    }
     
     
 }
