@@ -22,7 +22,7 @@ class CarsController extends Controller
     public function __construct(){
         $this->brands = Cars::select('hang_xe')->distinct()->get();
         $this->sochoxe = Cars::select('socho_xe')->distinct()->orderBy('socho_xe','asc')->get();
-        $this->tintucs = TinTuc::select('id', 'tieude')->orderBy('id', 'desc')->take(5)->get();
+        $this->tintucs = TinTuc::select('id', 'tieude', 'noidung')->orderBy('id', 'desc')->take(5)->get();
     }
 
     public function index()
@@ -73,8 +73,8 @@ class CarsController extends Controller
 
     public function search(){
         $q = Input::get('q');
-        $car = Cars::where('hang_xe','LIKE','%'.$q.'%')->orWhere('socho_xe','LIKE','%'.$q.'%')->get();
-        if(count($car) > 0)
+        $cars = Cars::where('hang_xe','LIKE','%'.$q.'%')->orWhere('socho_xe','LIKE','%'.$q.'%')->get();
+        if(count($cars) > 0)
         return view('frontend.pages.searchresult', compact('cars', 'q'));
         else return view ('frontend.pages.searchresult')->withMessage('Không tìm thấy kết quả. Bạn thử tìm lại lần nữa !');
     }
@@ -130,7 +130,11 @@ class CarsController extends Controller
         //dd($xekhac);
         //dd($xe); die();
         $vote_id = Vote::where('cars_id', $id)->get()->first();
-        $roundVote = round(($vote_id->tongdiem/$vote_id->sovotes), 1);
+        if($vote_id->sovotes != 0){
+            $roundVote = round(($vote_id->tongdiem/$vote_id->sovotes), 1);
+        } else {
+            $roundVote = 0;
+        }
         //dd($vote_id);
         return view('frontend.pages.chitiet', compact(
             'vote_id', 

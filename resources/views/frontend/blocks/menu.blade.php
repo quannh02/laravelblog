@@ -45,16 +45,18 @@
                 </div>
             </div><!--end menu-page-menu-->                        
 
-<div class="tintuc">
+            <div class="tintuc">
                     <h3>Tin tức mới</h3>
                     <div class="tintucmoinhat">
-                            
+                             @foreach($tintucs as $tin)
                             <div class="otintuc">
-                              @foreach($tintucs as $tin)
+                             
                                 <h4><a href="{{ url('chitiettintuc', $tin->id )}}" class="askhoe">{{ $tin->tieude }}</a></h4>
-                              @endforeach
+                                <p>{{ substr( $tin->noidung,  0, 50) }}</p>
+                                <a class="doctiep" href="{{ url('chitiettintuc', $tin->id )}}">Đọc tiếp</a>
+                              
                             </div>
-                        
+                             @endforeach
                             
                     </div>
                     

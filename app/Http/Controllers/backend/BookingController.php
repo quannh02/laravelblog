@@ -18,11 +18,8 @@ use App\Http\Requests\DatXeRequest;
 
 class BookingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+
     public function getListCar(){
         return view('backend.booking.booking');
     }
@@ -42,14 +39,14 @@ class BookingController extends Controller
         $thoigianVe = '' . $thoigianVe . ' 00:' . $hourVe . ':' . $minuteVe . '';
         //dd($thoigianVe); die();
         $cars_not_in_inner = DB::table('tbl_dondat')
-                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id', '=', 'tbl_dondatchitiet.dondat_id')
+                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id', '=', 'tbl_dondatchitiet.don_dat_id')
                 ->select('tbl_dondatchitiet.xe_id')
                 ->where('tbl_dondat.ngaydi', '<=', $thoigianDi)
                 ->where('tbl_dondat.ngayve' , '>=', $thoigianVe)
                 ->get();
 
         $cars_not_in_lower = DB::table('tbl_dondat')
-                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id' , '=', 'tbl_dondatchitiet.dondat_id')
+                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id' , '=', 'tbl_dondatchitiet.don_dat_id')
                 ->select('tbl_dondatchitiet.xe_id')
                 ->where('tbl_dondat.ngaydi', '>=', $thoigianDi)
                 ->where('tbl_dondat.ngaydi' , '<=', $thoigianVe)
@@ -57,7 +54,7 @@ class BookingController extends Controller
                 ->get();
 
         $cars_not_in_higher = DB::table('tbl_dondat')
-                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id' , '=', 'tbl_dondatchitiet.dondat_id')
+                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id' , '=', 'tbl_dondatchitiet.don_dat_id')
                 ->select('tbl_dondatchitiet.xe_id')
                 ->where('tbl_dondat.ngaydi', '<=', $thoigianDi)
                 ->where('tbl_dondat.ngayve' , '<=', $thoigianVe)
@@ -65,7 +62,7 @@ class BookingController extends Controller
                 ->get();      
 
         $cars_not_in_outer = DB::table('tbl_dondat')
-                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id' , '=', 'tbl_dondatchitiet.dondat_id')
+                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id' , '=', 'tbl_dondatchitiet.don_dat_id')
                 ->select('tbl_dondatchitiet.xe_id')
                 ->where('tbl_dondat.ngaydi', '>=', $thoigianDi)
                 ->where('tbl_dondat.ngayve' , '<=', $thoigianVe)

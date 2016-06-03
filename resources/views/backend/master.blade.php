@@ -34,27 +34,53 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav nav-tabs nav-pills">
            
-              <li class=""><a href="{{ url('dstaixe') }}"><i class="fa fa-male" aria-hidden="true"></i></i>Quản lý tài xế<span class="caret"></span></a></li>
-              <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-car" aria-hidden="true"></i>Quản lý xe<span class="caret"></span></a></li>
+              <li class=""><a href="{{ url('dstaixe') }}"><i class="fa fa-male" aria-hidden="true"></i></i>Quản lý tài xế</a></li>
+              <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-car" aria-hidden="true"></i>Quản lý xe</a></li>
               @if(Auth::user()->terms == 0)
-              <li class=""><a href="{{ url('timxe') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe<span class="caret"></span></a></li>
-              <li class=""><a href="{{ url('datxe') }}"><i class="fa fa-cube fa-fw"></i>Đặt xe<span class="caret"></span></a></li>
+              <li class=""><a href="{{ url('timxe') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe</a></li>
+              <li class=""><a href="{{ url('datxe') }}"><i class="fa fa-cube fa-fw"></i>Đặt xe</a></li>
               @endif
               @if(Auth::user()->terms == 1)
-              <li class=""><a href="{{ url('list/car') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe<span class="caret"></span></a></li>
-              <li class=""><a href="{{ url('quanlydatxe')}}"><i class="fa fa-book"></i>Quản lý đặt xe<span class="caret"></span></a></li>
-          
+    
+              <li class=""><a href="{{ url('quanlydatxe')}}"><i class="fa fa-book"></i>Quản lý đặt xe</a></li>
               <li class="dropdown">
-              <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-plus" aria-hidden="true"></i>Thêm<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-              <li><a href="{{ url('quanlytintuc') }}"><i class="fa fa-newspaper-o">Quản lý tin tức</i><span class="caret"></span></a></li>
-              <li class=""><a href="{{ route('user.index') }}"><i class="fa fa-users fa-fw"></i>Quản lý thành viên<span class="caret"></span></a></li>
-              </ul>
+                <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-plus" aria-hidden="true"></i>Tìm xe</a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="{{ url('list/car') }}">
+                        <i class="fa fa-newspaper-o">Tìm xe theo thời gian</i>
+                      
+                      </a>
+                    </li>
+                    <li class="">
+                      <a href="{{ url('searchcar') }}">
+                        <i class="fa fa-users fa-fw"></i>Tìm xe theo tên
+                        
+                      </a>
+                    </li>
+                  </ul>
+              </li>  
+              <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-plus" aria-hidden="true"></i>Thêm</a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="{{ url('quanlytintuc') }}">
+                        <i class="fa fa-newspaper-o">Quản lý tin tức</i>
+                      
+                      </a>
+                    </li>
+                    <li class="">
+                      <a href="{{ route('user.index') }}">
+                        <i class="fa fa-users fa-fw"></i>Quản lý thành viên
+                        
+                      </a>
+                    </li>
+                  </ul>
               </li>  
               @endif 
-              <li class=""><a href="{{ url('trangchu') }}"><i class="fa fa-undo" aria-hidden="true"></i>Trang chủ<span class="caret"></span></a></li>
+              <li class=""><a href="{{ url('trangchu') }}"><i class="fa fa-undo" aria-hidden="true"></i>Trang chủ</a></li>
               <li class="dropdown pull-right">
-              <a href="{{ url('user',  Auth::user()->nguoidung_id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>Tài khoản<span class="caret"></span></a>
+              <a href="{{ url('user',  Auth::user()->nguoidung_id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>Tài khoản</a>
               <ul class="dropdown-menu">
               <li><a href="">{{ Auth::user()->tendaydu }}</a></li>
               <li><a href="{{ url('profile', Auth::user()->nguoidung_id) }}"><i class="fa fa-gear fa-fw"></i>Profile</a></li>

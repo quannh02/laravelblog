@@ -44,3 +44,24 @@
 	font-size: 12px;
 	font-style:italic;
 }
+.thongbao{
+	border-radius: 5px;
+	background: #0000cc;
+	width: 50%;
+}
+.close{
+	color: white;
+}
+.thongbao p{
+	width: 100%;
+	color: white;
+	padding: 5px 20px;
+}
+@media (max-width: 767px){
+	.thongbao{
+		width: 100%;
+	}
+}
+.dropdown a:hover ul{
+	display: block;
+}

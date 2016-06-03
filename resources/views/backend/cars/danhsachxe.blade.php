@@ -1,18 +1,17 @@
 @extends('backend.master')
 @section('content')
-<div class="alert alert-warning">
+<div class="thongbao">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <ul>
+
     @if(isset($carChamdangkiem))
     @foreach($carChamdangkiem as $key => $value)
       @if($value['ngayconlai'] > 0)
-      <li>Xe số {{ $value['xe_id'] }} còn {{ $value['ngayconlai'] }} ngày để đăng kiểm</li>
+      <p>Xe số {{ $value['xe_id'] }} còn {{ $value['ngayconlai'] }} ngày để đăng kiểm</p>
       @else 
-      <li>Xe số {{ $value['xe_id']}} quá hạn đăng kiểm {{ abs($value['ngayconlai']) }} ngày</li>
+      <p>Xe số {{ $value['xe_id']}} quá hạn đăng kiểm {{ abs($value['ngayconlai']) }} ngày</p>
       @endif
     @endforeach
     @endif
-    </ul>
   </div>
 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
         @if(Auth::user()->terms == 1)

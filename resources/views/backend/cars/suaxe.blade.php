@@ -89,6 +89,7 @@
                            		<div class="col-md-2">Tài xế</div>
                            		<div class="form-group col-md-8">
                            		   <select class="form-control" name="taixe_xe">
+                                  <option value="{{ $taixehientai->taixe_id}}">{{ $taixehientai->tentaixe }}</option>
                                   @foreach($taixe as $tai)
                                   <option value="{{ $tai->taixe_id }}">{{ $tai->tentaixe }}</option>
                                   @endforeach
@@ -108,7 +109,7 @@
                             @if ($errors->has('ngaydangkiem'))
                                   <span class="error">{{ $errors->first('ngaydangkiem') }}</span>
                                 @endif
-                            <div class="col-md-2">Ngày sản xuất</div>
+                            <div class="col-md-2">Ngày đăng kiểm</div>
                             <div class="form-group col-md-8">
                                 <input name="ngaydangkiem" value="{{ $data->ngaydangkiem }}" class="form-control" data-provide="datepicker" placeholder="Nhập ngày đăng kiểm">
                               </div>

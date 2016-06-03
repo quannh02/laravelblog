@@ -20,31 +20,16 @@ class CarsController extends Controller
     public function getAllCars(){
         $now = Carbon::now();
         $unixtimenow = strtotime($now);
-
-        $allCars = DB::table('tbl_xe')
-            ->select(
-                'xe_id',
-                'hang_xe', 
-                'sodangky_xe', 
-                'url_hinhxe', 
-                'ten_xe', 
-                'color', 
-                'ngaysanxuat',
-                'taixe_xe',
-                'ngaydangkiem', 
-                'socho_xe'
-                )
-            ->orderBy(
-                'xe_id', 
-                'asc'
-                )
-            ->paginate(5);
+        //dd($unixtimenow); die();
+        $allCars = Cars::paginate(5);
         //dd($allCars);
         $carChamdangkiem = array();
         $i = 0;
-        foreach($allCars as $car){
+        $allCarsnotpaginate = Cars::all();
+        foreach($allCarsnotpaginate as $car){
             $unixNgayPhaiDangKiem = strtotime($car->ngaydangkiem) + (182*60*60*24);
             $soNgayConLaiDeDangKiem = floor(($unixNgayPhaiDangKiem - $unixtimenow )/(60*60*24));
+            //echo $soNgayConLaiDeDangKiem . ' ';
             if($soNgayConLaiDeDangKiem < 10){
                 $carChamdangkiem[$i] = array(
                     'xe_id' => $car->xe_id,
@@ -151,6 +136,7 @@ class CarsController extends Controller
                 $taixearray[$key] =  $taixe->taixe_xe;
             }
         }
+        $taixehientai = TaiXe::where('taixe_id', $data->taixe_xe)->get()->first();
         //dd($taixearray);                
         $taixe = TaiXe::whereNotIN('taixe_id', $taixearray)->get();
         //dd($taixe);

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2016 at 07:59 PM
+-- Generation Time: Jun 03, 2016 at 10:12 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `tbl_comment` (
   `nguoidung_id` int(10) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tbl_comment`
@@ -70,7 +70,10 @@ INSERT INTO `tbl_comment` (`id`, `xe_id`, `noidung`, `nguoidung_id`, `created_at
 (3, 1, 'Tôi thấy phục vụ của quý khách quá tốt. :v', 2, '2016-05-21 02:10:53', '2016-05-21 02:10:53'),
 (4, 1, 'Xe phục vụ cực kỳ tốt, thái độ với khách hàng thân thiện, niềm nở', 2, '2016-05-21 10:43:55', '2016-05-21 10:43:55'),
 (5, 1, 'Thái độ phục vụ nhiệt tinh, chu đáo, an toàn cao', 2, '2016-05-21 10:48:30', '2016-05-21 10:48:30'),
-(6, 1, 'Xe phục vụ chán, không vui vẻ hòa đồng với khách, hút thuốc quá nhiều', 2, '2016-05-21 11:51:28', '2016-05-21 11:51:28');
+(6, 1, 'Xe phục vụ chán, không vui vẻ hòa đồng với khách, hút thuốc quá nhiều', 2, '2016-05-21 11:51:28', '2016-05-21 11:51:28'),
+(7, 9, 'xe phục vụ chán thế mà còn tiếp tục kinh doanh à', 2, '2016-06-03 01:06:08', '2016-06-03 01:06:08'),
+(8, 9, 'kinh doanh thế mà được à lừa đảo', 2, '2016-06-03 01:06:45', '2016-06-03 01:06:45'),
+(9, 11, 'xe này phục vụ quá tốt', 2, '2016-06-03 10:24:32', '2016-06-03 10:24:32');
 
 -- --------------------------------------------------------
 
@@ -154,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `tbl_nguoidung` (
 --
 
 INSERT INTO `tbl_nguoidung` (`nguoidung_id`, `tendaydu`, `email`, `gioitinh`, `diachi`, `sodienthoai`, `tencongty`, `masothue`, `password`, `terms`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Nguyễn Hồng Quân', 'quannh02@wru.vn', 'Nam', '175 Tây Sơn', '01677665526', 'QuanBus', '2126478', '$2y$10$fZqIGerdjwvduFy0Ulomm.znMbxFEjOMxTmyvJmx.DO0FIdDpciUu', 1, 'H3vPRk2dOWEqGJ87SFvlfsTmVtHZiTapdEVBl49bQxfLFuDZearQnDt3GIw2', '2016-05-19 10:52:00', '2016-06-02 10:46:06'),
+(2, 'Nguyễn Hồng Quân', 'quannh02@wru.vn', 'Nam', '175 Tây Sơn', '01677665526', 'QuanBus', '2126478', '$2y$10$fZqIGerdjwvduFy0Ulomm.znMbxFEjOMxTmyvJmx.DO0FIdDpciUu', 1, 'OVeAOQYx2f5Mq1mLPn16ruxJPF6vpQyyOiMMxoFJBsEpZB8ahPXTcMesDJLg', '2016-05-19 10:52:00', '2016-06-03 01:08:53'),
 (3, 'Nguyễn Văn Bằng', 'bangbang@gmail.com', 'Nam', '175 Tây sơn- Đống Đa - Hà Nội', '0912445346', 'TNHH Công nghệ dệt may Hải Hà', '235245346', '$2y$10$XlqMKlGaoIURBNG9gFg2AuexEG3dEsDpfg5e.3vkoTprQYZu6lb.O', 0, '1oc8Jad2nMGerCC8IBUF6FDylsMU9CrFM8N3OlkBATDwhwyyBXSOTmY2WvR6', '2016-05-23 00:52:03', '2016-06-02 10:45:29');
 
 -- --------------------------------------------------------
@@ -171,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `tbl_taixe` (
   `sothich` text COLLATE utf8_unicode_ci NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tbl_taixe`
@@ -185,7 +188,8 @@ INSERT INTO `tbl_taixe` (`taixe_id`, `tentaixe`, `banglaixe`, `ngaysinh`, `sothi
 (5, 'Lê Xuân Quỳnh', 'E', '1965-09-14 00:00:00', 'Uống rượu, hút thuốc', '2016-05-20 05:28:47', '0000-00-00 00:00:00'),
 (6, 'Lê Trí Vàng', 'F', '1972-08-20 00:00:00', 'Hút thuốc', '2016-05-20 05:28:25', '0000-00-00 00:00:00'),
 (7, 'Bùi Đức Đăng', 'E', '0000-00-00 00:00:00', 'Chém gió', '2016-05-21 22:41:32', '2016-05-21 22:41:32'),
-(9, 'Lê Hồng Phong', 'E', '0000-00-00 00:00:00', 'Lên sàn', '2016-05-21 22:42:10', '2016-05-21 22:42:10');
+(9, 'Lê Hồng Phong', 'E', '0000-00-00 00:00:00', 'Lên sàn', '2016-05-21 22:42:10', '2016-05-21 22:42:10'),
+(10, 'Phạm Văn B', 'E', '0000-00-00 00:00:00', 'nhảy đầm', '2016-06-03 10:34:35', '2016-06-03 10:34:35');
 
 -- --------------------------------------------------------
 
@@ -236,13 +240,13 @@ INSERT INTO `tbl_vote` (`id`, `cars_id`, `sovotes`, `tongdiem`, `created_at`, `u
 (2, 2, 5, 22, '2016-05-21 05:00:00', '2016-05-21 09:52:10'),
 (3, 3, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (6, 6, 2, 9, '0000-00-00 00:00:00', '2016-05-21 10:35:11'),
-(7, 11, 14, 64, '2016-05-21 09:10:33', '2016-05-21 10:42:51'),
+(7, 11, 20, 78, '2016-05-21 09:10:33', '2016-06-03 10:23:34'),
 (8, 6, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (9, 7, 4, 19, '0000-00-00 00:00:00', '2016-05-21 10:36:19'),
 (10, 8, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (11, 9, 6, 27, '0000-00-00 00:00:00', '2016-05-21 10:32:21'),
 (12, 10, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(13, 12, 0, 0, '2016-05-21 21:52:20', '2016-05-21 21:52:20'),
+(13, 12, 2, 8, '2016-05-21 21:52:20', '2016-06-03 10:33:28'),
 (14, 13, 0, 0, '2016-05-23 07:15:24', '2016-05-23 07:15:24'),
 (15, 14, 0, 0, '2016-05-23 07:16:58', '2016-05-23 07:16:58'),
 (16, 15, 0, 0, '2016-05-23 07:18:11', '2016-05-23 07:18:11'),
@@ -281,8 +285,8 @@ CREATE TABLE IF NOT EXISTS `tbl_xe` (
 --
 
 INSERT INTO `tbl_xe` (`xe_id`, `hang_xe`, `ten_xe`, `giamuaxe`, `url_hinhxe`, `sodangky_xe`, `color`, `socho_xe`, `taixe_xe`, `ngaysanxuat`, `ngaydangkiem`, `created_at`, `updated_at`) VALUES
-(1, 'Huyndai', 'Universe', '330000000', 'Huyndai Universe.jpg', '30A-243245', 'Vàng', 45, '6', '2016-05-21 17:00:00', '2016-02-09 17:00:00', '2016-04-13 17:00:00', '2016-05-21 21:56:39'),
-(2, 'Huyndai', 'Universe', '2000000000', 'Huyndai Universe.jpg', '30A-243244', 'Vàng', 45, '5', '2014-12-16 17:00:00', '2016-03-13 17:00:00', '2016-04-12 01:00:00', '2016-04-13 01:00:00'),
+(1, 'Huyndai', 'Universe', '330000000', 'Huyndai Universe.jpg', '30A-243245', 'Vàng', 45, '10', '2016-05-21 17:00:00', '2015-10-11 17:00:00', '2016-04-13 17:00:00', '2016-06-03 11:51:09'),
+(2, 'Huyndai', 'Universe', '2000000000', 'Huyndai Universe.jpg', '30A-243244', 'Vàng', 45, '5', '2014-12-16 17:00:00', '2015-12-13 17:00:00', '2016-04-12 01:00:00', '2016-06-03 11:52:22'),
 (6, 'Huyndai', 'Aero High Class', '300000', 'Xe Hyundai  High Class -300x200.png', '30A-23328', 'Vàng', 35, '3', '2013-06-16 17:00:00', '2016-05-14 17:00:00', '2016-05-02 02:52:55', '2016-05-19 21:16:47'),
 (7, 'Huyndai', 'Aero High Class', '6999878', 'hyundai-high class 45-xanh-trang.jpg', '30A-32527', 'Xanh Đỏ Trắng', 45, '4', '2016-05-08 17:00:00', '2016-02-13 17:00:00', '2016-05-02 04:04:27', '2016-05-19 21:01:17'),
 (8, 'Huyndai', 'Aero High Class', '5000000', 'hyundai-high class 45-xanh-trang.jpg', '30A-32784', 'Xanh la cay', 45, '2', '2014-09-15 17:00:00', '2016-01-10 17:00:00', '2016-05-03 05:28:37', '2016-05-19 21:02:00'),
@@ -361,7 +365,7 @@ ALTER TABLE `tbl_xe`
 -- AUTO_INCREMENT for table `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `tbl_dondat`
 --
@@ -381,7 +385,7 @@ ALTER TABLE `tbl_nguoidung`
 -- AUTO_INCREMENT for table `tbl_taixe`
 --
 ALTER TABLE `tbl_taixe`
-  MODIFY `taixe_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `taixe_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `tbl_tintuc`
 --

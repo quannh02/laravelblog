@@ -486,3 +486,24 @@ span.error {
     border: 1px solid #bdbcbc;
     border-radius: 5px;
 }
+.otintuc {
+    text-align: center;
+    border-radius: 3px;
+}
+.otintuc p {
+    float: left;
+}
+.doctiep{
+    float: right;
+    display: block;
+    font-size: 12px;
+}
+.askhoe{
+    font-size: 14px;
+    display: block;
+}
+@media (min-width: 481px) and (max-width: 767px){
+    .box_car_hot{
+        width: 50% !important;
+    }
+}
