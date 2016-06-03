@@ -1,4 +1,4 @@
- <div class="box_car_hot">
+      <div class="box_car_hot">
                             <div class="div_name_car_hot div_tintuc_moi">
           
                                 <div class="a_name_car_hot">

@@ -40,12 +40,6 @@ class UserController extends Controller
     }
 
     
-    public function show($id)
-    {
-        //
-    }
-
-    
     public function edit($id)
     {
         $data = User::where('nguoidung_id', $id)->get()->first();
