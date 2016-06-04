@@ -21,7 +21,7 @@
         <td>{{ $value['name'] }}</td>
         <td>{{ $value['color'] }}</td>
         <td>{{ $value['socho'] }}</td>
-        <td>{{ $value['image'] }}</td>
+        <td><img class="img img-responsive img_car_list" src="{{ url('public/user/images', $value['image']) }}"></td>
         <td>{{ $value['bienso'] }}</td>
         <td>{{ date('Y', strtotime($value['ngaysanxuat']))}}</td>
       </tr>

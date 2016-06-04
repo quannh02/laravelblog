@@ -34,7 +34,7 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::get('list/car', ['as' => 'listCarforRent', 'uses' => 'BookingController@getListCar']);
 		Route::post('list/car', 'BookingController@postListCar');
 		
-		Route::get('datxe', 'BookingController@getDatXe');
+		Route::get('datxe', ['as'=>'getdatxe', 'uses'=> 'BookingController@getDatXe']);
 		Route::post('datxe', 'BookingController@postDatXe');
 		Route::get('quanlydondat', 'BookingController@quanlydondat');
 		Route::get('danhsachxe', ['as' => 'danhsachxe', 'uses' => 'CarsController@getAllCars']);

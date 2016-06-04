@@ -69,7 +69,10 @@ class AuthController extends Controller
               'password' => $request->password
            );
         if(Auth::attempt($auth)){
-           return redirect()->route('admin.dashboard');
+                if(Session::has('datxe')){
+                    return redirect()->route('getdatxe');
+            } else { 
+                return redirect()->route('admin.dashboard');}
         } else {
            return redirect()->back()->with(['flash_level'=> 'danger', 'flash_message' => 'Email hoặc password chưa đúng, vui lòng nhập lại!']);;
         }

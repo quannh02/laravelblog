@@ -65,3 +65,17 @@
 .dropdown a:hover ul{
 	display: block;
 }
+.h1datxe h1{
+	text-align: center;
+	color: orange;
+	border-right: 1px solid #dedede;
+}
+.khungdatxe {
+	width: 80%;
+}
+.hoverdropdown a{
+	display: block;
+}
+.hoverdropdown:hover ul{
+	display: block;
+}

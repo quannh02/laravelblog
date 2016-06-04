@@ -43,8 +43,9 @@
               @if(Auth::user()->terms == 1)
     
               <li class=""><a href="{{ url('quanlydatxe')}}"><i class="fa fa-book"></i>Quản lý đặt xe</a></li>
-              <li class="dropdown">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-plus" aria-hidden="true"></i>Tìm xe</a>
+              <li class="dropdown hoverdropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search" aria-hidden="true"></i>
+Tìm xe</a>
                   <ul class="dropdown-menu">
                     <li>
                       <a href="{{ url('list/car') }}">
@@ -60,7 +61,7 @@
                     </li>
                   </ul>
               </li>  
-              <li class="dropdown">
+              <li class="dropdown hoverdropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-plus" aria-hidden="true"></i>Thêm</a>
                   <ul class="dropdown-menu">
                     <li>
@@ -79,7 +80,7 @@
               </li>  
               @endif 
               <li class=""><a href="{{ url('trangchu') }}"><i class="fa fa-undo" aria-hidden="true"></i>Trang chủ</a></li>
-              <li class="dropdown pull-right">
+              <li class="dropdown pull-right hoverdropdown">
               <a href="{{ url('user',  Auth::user()->nguoidung_id) }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>Tài khoản</a>
               <ul class="dropdown-menu">
               <li><a href="">{{ Auth::user()->tendaydu }}</a></li>

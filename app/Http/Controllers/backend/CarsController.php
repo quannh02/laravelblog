@@ -24,18 +24,16 @@ class CarsController extends Controller
         $allCars = Cars::paginate(5);
         //dd($allCars);
         $carChamdangkiem = array();
-        $i = 0;
         $allCarsnotpaginate = Cars::all();
         foreach($allCarsnotpaginate as $car){
             $unixNgayPhaiDangKiem = strtotime($car->ngaydangkiem) + (182*60*60*24);
             $soNgayConLaiDeDangKiem = floor(($unixNgayPhaiDangKiem - $unixtimenow )/(60*60*24));
             //echo $soNgayConLaiDeDangKiem . ' ';
             if($soNgayConLaiDeDangKiem < 10){
-                $carChamdangkiem[$i] = array(
+                array_push($carChamdangkiem, array(
                     'xe_id' => $car->xe_id,
                     'ngayconlai' => $soNgayConLaiDeDangKiem
-                    );
-                $i++;
+                    ));
             }
         }
 
