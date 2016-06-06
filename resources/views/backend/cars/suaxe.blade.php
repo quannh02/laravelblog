@@ -89,10 +89,14 @@
                            		<div class="col-md-2">Tài xế</div>
                            		<div class="form-group col-md-8">
                            		   <select class="form-control" name="taixe_xe">
+                                 @if(isset($taixehientai))
                                   <option value="{{ $taixehientai->taixe_id}}">{{ $taixehientai->tentaixe }}</option>
+                                  @endif
+                                  @if(isset($taixe))
                                   @foreach($taixe as $tai)
                                   <option value="{{ $tai->taixe_id }}">{{ $tai->tentaixe }}</option>
                                   @endforeach
+                                  @endif
                                  </select>
                            		</div>
                            	</div>

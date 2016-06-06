@@ -36,4 +36,17 @@ class MyFunction extends Model
         }
         return $str;
     }
+    function laixe($banglaixe){
+        $matrix = array(
+            'B2' => array(4,7),
+            'C' => array(4,7),
+            'D' => array(4,7,16,29),
+            'E' =>  array(4,7,16,29,35,45),
+            'FB2' => array(4,7),
+            'FC' => array(4,7),
+            'FD' => array(4,7,16,29),
+            'FE' =>  array(4,7,16,29,35,45)
+            );
+        return $matrix[$banglaixe];
+    }
 }

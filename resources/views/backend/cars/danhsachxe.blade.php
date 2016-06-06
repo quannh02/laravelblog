@@ -50,8 +50,8 @@
                     <td><img class="img img-responsive url_hinhxe" src="{{ url('public/user/images', $car->url_hinhxe) }}" alt="{{ $car->url_hinhxe }}"></td>
                     <td>{{ $car->sodangky_xe }}</td>
                     <td>{{ $car->color }}</td>
-                    @if(isset($car->taixe_xe))
-                    <td>{{ $car->taixe_xe }}</td>
+                    @if(isset($car->tai_xe_id))
+                    <td>{{ $car->tai_xe_id }}</td>
                     @else
                     <td>Chưa có</td>
                     @endif

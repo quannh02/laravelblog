@@ -107,7 +107,7 @@ class CarsController extends Controller
         $brands = $this->brands;
         $socho = $this->sochoxe;
         $tintucs = $this->tintucs;
-        $binhluans = Comment::where('xe_id', $id)->paginate(3);
+        $binhluans = Comment::where('xe_id', $id)->orderBy('id', 'desc')->paginate(3);
         
         foreach($binhluans as $key => $value){
            if($value->nguoidung_id != NULL) {

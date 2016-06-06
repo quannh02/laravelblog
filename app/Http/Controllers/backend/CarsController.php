@@ -37,28 +37,22 @@ class CarsController extends Controller
             }
         }
 
-        foreach($allCars as $key => $value){
-            if($value->taixe_xe != null){
-                $taixe = TaiXe::where(
-                    'taixe_id', $value->taixe_xe)
-                    ->get()
-                    ->first();
-                $value->taixe_xe = $taixe->tentaixe;
-            }
-        }
+        //dd($allCars);
         //dd($carChamdangkiem); die();
         return view('backend.cars.danhsachxe', compact('allCars', 'carChamdangkiem'));
     }
    
     public function create()
     {
-        $taixedaxepxe = Cars::select('taixe_xe')->get();
+        $taixedaxepxe = Cars::select('tai_xe_id')->get();
+        //dd($taixedaxepxe);
         foreach($taixedaxepxe as $key => $taixe){
-            if($taixe->taixe_xe != null){
-                $taixearray[$key] =  $taixe->taixe_xe;
+            if($taixe->tai_xe_id != null){
+                $taixearray[$key] =  $taixe->tai_xe_id;
             }
         }
-        //dd($taixearray);                
+        //dd($taixearray);
+
         $taixe = TaiXe::whereNotIN('taixe_id', $taixearray)->get();
         //dd($taixe);
         return view('backend.cars.add', compact('taixe'));
@@ -79,7 +73,7 @@ class CarsController extends Controller
         $cars->sodangky_xe  = $request->sodangky_xe;
         $cars->color        = $request->color;
         $cars->socho_xe     = $request->socho_xe;
-        $cars->taixe_xe     = $request->taixe_xe;
+        $cars->tai_xe_id     = $request->tai_xe_id;
         $file = $request->file('url_hinhxe');
         $destinationPath = base_path(). "/public/user/images/";
 
@@ -128,13 +122,13 @@ class CarsController extends Controller
     {
 
         $data = Cars::where('xe_id', $xe_id)->get()->first();
-        $taixedaxepxe = Cars::select('taixe_xe')->get();
+        $taixedaxepxe = Cars::select('tai_xe_id')->get();
         foreach($taixedaxepxe as $key => $taixe){
-            if($taixe->taixe_xe != null){
-                $taixearray[$key] =  $taixe->taixe_xe;
+            if($taixe->tai_xe_id != null){
+                $taixearray[$key] =  $taixe->tai_xe_id;
             }
         }
-        $taixehientai = TaiXe::where('taixe_id', $data->taixe_xe)->get()->first();
+        $taixehientai = TaiXe::where('taixe_id', $data->tai_xe_id)->get()->first();
         //dd($taixearray);                
         $taixe = TaiXe::whereNotIN('taixe_id', $taixearray)->get();
         //dd($taixe);
@@ -158,7 +152,7 @@ class CarsController extends Controller
         $cars->sodangky_xe  = $request->sodangky_xe;
         $cars->color        = $request->color;
         $cars->socho_xe     = $request->socho_xe;
-        $cars->taixe_xe     = $request->taixe_xe;
+        $cars->tai_xe_id     = $request->taixe_xe;
         $ngaydangkiem = date('Y:m:d', strtotime($request->ngaydangkiem));
         $cars->ngaydangkiem  = '' . $ngaydangkiem . ' 00:00:00';
         $ngaysanxuat = date('Y:m:d', strtotime($request->ngaysanxuat));

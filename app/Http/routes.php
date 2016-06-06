@@ -72,6 +72,7 @@ Route::group(['namespace' => 'backend'], function(){
 
 		Route::get('quanlydatxe', 'BookingController@admindondat');
 		Route::post('duyetdondat/{id}', 'BookingController@duyetdondat');
+		Route::get('chitietnguoidung/{id}', 'BookingController@chitietnguoidung');
 	});
 });
 Route::group(['namespace' => 'frontend'], function(){

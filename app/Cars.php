@@ -27,4 +27,7 @@ class Cars extends Model
     public function vote(){
     	return $this->hasOne('App\Vote');
     }
+    public function taixe(){
+        return $this->belongsTo('App\TaiXe');
+    }
 }

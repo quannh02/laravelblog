@@ -14,4 +14,7 @@ class TaiXe extends Model
     	'ngaysinh', 
     	'sothich'
     ];
+    public function xe(){
+    	 return $this->hasOne('App\Cars');
+    }
 }

@@ -6,6 +6,7 @@
     	<thead>
 	      <tr>
 	        <th>Id</th>
+	        <th>Người dùng</th>
 	        <th>Điểm đón</th>
 	        <th>Điểm đến</th>
 	        <th>Yêu cầu</th>
@@ -13,12 +14,14 @@
 	        <th>Ngày về</th>
 	        <th>Duyệt</th>
 	        <th>Chi tiết</th>
+	        
 	      </tr>
 	    </thead>
 	    <tbody>
 	      @foreach($dondats as $key => $dondat)
 	      <tr>
 	        <td>{{ $dondat['dondat_id']}}</td>
+	        <td><a href="{{ url('chitietnguoidung', $dondat['user_id'])}}" class="btn btn-success">Chi tiết</a></td>
 	        <td>{{ $dondat['diemdon']}}</td>
 	        <td>{{ $dondat['diemden']}}</td>
 	        <td>{{ $dondat['yeucau']}}</td>
@@ -85,6 +88,7 @@
 
 				  </div>
 				</div></td>
+				
 	      </tr>
 	      @endforeach
 	    </tbody>

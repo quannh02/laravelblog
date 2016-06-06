@@ -17,9 +17,6 @@
                                <div class="b_car_information">
 			                        <div class="tbold">Hiệu: {{ $car->hang_xe }}</div>
 			                        <div>Số chỗ: <span class="tbold">{{ $car->socho_xe }} chỗ</span></div>
-			                        <div class="div_book_car">
-			                            <a href="" class="a_book_car">Đặt thuê</a>
-			                        </div>
 			                    </div>
 			                </div>
                             </div>
@@ -43,9 +40,7 @@
                                <div class="b_car_information">
                                     <div class="tbold">Hiệu: {{ $car->hang_xe }}</div>
                                     <div>Số chỗ: <span class="tbold">{{ $car->socho_xe }} chỗ</span></div>
-                                    <div class="div_book_car">
-                                        <a href="" class="a_book_car">Đặt thuê</a>
-                                    </div>
+
                                 </div>
                             </div>
                             </div>
@@ -70,9 +65,6 @@
                                <div class="b_car_information">
                                     <div class="tbold">Hiệu: {{ $car->hang_xe }}</div>
                                     <div>Số chỗ: <span class="tbold">{{ $car->socho_xe }} chỗ</span></div>
-                                    <div class="div_book_car">
-                                        <a href="" class="a_book_car">Đặt thuê</a>
-                                    </div>
                                 </div>
                             </div>
                             </div>
@@ -97,9 +89,7 @@
                                <div class="b_car_information">
                                     <div class="tbold">Hiệu: {{ $car->hang_xe }}</div>
                                     <div>Số chỗ: <span class="tbold">{{ $car->socho_xe }} chỗ</span></div>
-                                    <div class="div_book_car">
-                                        <a href="" class="a_book_car">Đặt thuê</a>
-                                    </div>
+
                                 </div>
                             </div>
                             </div>
@@ -124,9 +114,6 @@
                                <div class="b_car_information">
                                     <div class="tbold">Hiệu: {{ $car->hang_xe }}</div>
                                     <div>Số chỗ: <span class="tbold">{{ $car->socho_xe }} chỗ</span></div>
-                                    <div class="div_book_car">
-                                        <a href="" class="a_book_car">Đặt thuê</a>
-                                    </div>
                                 </div>
                             </div>
                             </div>
@@ -151,9 +138,6 @@
                                <div class="b_car_information">
                                     <div class="tbold">Hiệu: {{ $car->hang_xe }}</div>
                                     <div>Số chỗ: <span class="tbold">{{ $car->socho_xe }} chỗ</span></div>
-                                    <div class="div_book_car">
-                                        <a href="" class="a_book_car">Đặt thuê</a>
-                                    </div>
                                 </div>
                             </div>
                             </div>

@@ -70,15 +70,14 @@ class BookingController extends Controller
         
         $cars_not_in = array_merge($cars_not_in_inner, $cars_not_in_outer, $cars_not_in_higher, $cars_not_in_lower);
         // đổi array object cars thành array cars
-        $cars_length = count($cars_not_in);
+        
         $array_car_not_in = array();
-        for($i = 0; $i< $cars_length; $i++){
-            $array_car_not_in[$i] = $cars_not_in[$i]->xe_id;
+        foreach($cars_not_in as $key => $value){
+            array_push($array_car_not_in, $value->xe_id);
         }
         // đổi xong
         //dd($cars_not_in); die();
         //dd($cars_not_in[0]); die();
-        // $cars_not_final = array_unique($cars_not_in);
         $data = DB::table('tbl_xe')
                 ->select('tbl_xe.hang_xe', 'tbl_xe.sodangky_xe')
                 ->whereNotIn('tbl_xe.xe_id', $array_car_not_in)->orderBy('xe_id', 'asc')
@@ -145,12 +144,11 @@ class BookingController extends Controller
         foreach($dondats as $key => $dondat){
             $dondatchitiets = DonDatCT::where('don_dat_id', '=' , $dondat['dondat_id'])
                 ->join('tbl_xe', 'tbl_xe.xe_id' , '=' , 'tbl_dondatchitiet.xe_id')
-                ->join('tbl_taixe' , 'tbl_xe.taixe_xe' , '=' , 'tbl_taixe.taixe_id')
+                ->join('tbl_taixe' , 'tbl_xe.tai_xe_id' , '=' , 'tbl_taixe.taixe_id')
                 ->get()->toArray();
             //dd($dondatchitiets); die();
             
             array_push($dondats[$key], $dondatchitiets);
-
         }
         //dd($dondats); die();
         return view('backend.booking.dondat',compact('dondats'));
@@ -161,12 +159,11 @@ class BookingController extends Controller
         foreach($dondats as $key => $dondat){
             $dondatchitiets = DonDatCT::where('don_dat_id', '=' , $dondat['dondat_id'])
                 ->join('tbl_xe', 'tbl_xe.xe_id' , '=' , 'tbl_dondatchitiet.xe_id')
-                ->join('tbl_taixe' , 'tbl_xe.taixe_xe' , '=' , 'tbl_taixe.taixe_id')
+                ->join('tbl_taixe' , 'tbl_xe.tai_xe_id' , '=' , 'tbl_taixe.taixe_id')
                 ->get()->toArray();
             //dd($dondatchitiets); die();
             
             array_push($dondats[$key], $dondatchitiets);
-
         }
         return view('backend.booking.dondat', compact('dondats'));
     }
@@ -176,6 +173,11 @@ class BookingController extends Controller
         $dondat->active = 1;
         $dondat->save();
         return redirect('quanlydatxe');
+    }
+    public function chitietnguoidung($id){
+        $nguoidung = User::findOrFail($id);
+        //dd($nguoidung);
+        return view('backend.booking.chitietnguoidung', compact('nguoidung'));
     }
     
     
