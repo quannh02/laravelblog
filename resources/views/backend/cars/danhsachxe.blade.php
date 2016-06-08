@@ -44,7 +44,7 @@
             @foreach($allCars as $car)
                 <tr>
                     <td  scope="row">{{ $car->xe_id }}</td>
-                    <td>{{ $car->hang_xe }}</td>
+                    <td>{{ App\Brand::find($car->hang_id)->hang_name }}</td>
                     <td>{{ $car->ten_xe }}</td>
                     
                     <td><img class="img img-responsive url_hinhxe" src="{{ url('public/user/images', $car->url_hinhxe) }}" alt="{{ $car->url_hinhxe }}"></td>

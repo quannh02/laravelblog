@@ -38,7 +38,7 @@ class MyFunction extends Model
     }
     function changedatetimeformat($datetime){
         list($day, $month, $year, $hour, $minute, $dayType) = preg_split("/[\/\s:]/", $datetime);
-        return $strdatetime = $year . ':' . $month . ':' . $day . ' ' . ($dayType == "PM" ? $hour + 12 : $hour) . ":" . $minute . ":00";
+        return $strdatetime = $year . ':' . $day . ':' . $month . ' ' . ($dayType == "PM" ? $hour + 12 : $hour) . ":" . $minute . ":00";
     }
     function laixe($banglaixe){
         $matrix = array(

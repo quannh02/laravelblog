@@ -1,5 +1,13 @@
 @extends('backend.master')
 @section('content')
+<script type="text/javascript">
+            $(function () {
+                $('#ngaysanxuat2').datetimepicker();
+            });
+            $(function(){
+                $('#ngaydangkiem2').datetimepicker();
+            });
+        </script>
 <h1 class="page-header">
                             <small>Thêm xe</small>
                           </h1>
@@ -17,16 +25,24 @@
                                 @endif
                            	
                               <div class="form-group">
-                                <label for="sel1">Hãng xe:</label>
-                                <input type="text" class="form-control" name="hang_xe" value="{{ $data->hang_xe }}" placeholder="Nhập hãng xe">
-                              </div>  
+                                <div class="col-md-2" for="sel1">Hãng xe:</div>
+                                <div class="form-group col-md-5">
+                                  <input type="hidden" name="hang_name" value="{{ $data->hang_id }}">
+                                   <input type="text" name="lname" class="form-control" value="{{ App\Brand::find($data->hang_id)->hang_name }}" disabled>
+                                  <!-- <select class="form-control" name="hang_name">
+                                    @foreach($brands as $brand)
+                                  <option value="{{ $brand->hang_id }}">{{ $brand->hang_name }}</option>
+                                    @endforeach
+                                 </select> -->
+                                </div>
+                                </div>  
                            	</div>
                             <div class="row">
                               @if ($errors->has('ten_xe'))
                                   <span class="error">{{ $errors->first('ten_xe') }}</span>
                                 @endif
                               <div class="col-md-2">Tên xe</div>
-                              <div class="form-group col-md-8">
+                              <div class="form-group col-md-4">
                                 <input type="text" class="form-control" name="ten_xe" value="{{ $data->ten_xe }}" placeholder="Nhập tên xe">
                               </div>
                             </div>
@@ -35,7 +51,7 @@
                                   <span class="error">{{ $errors->first('giamuaxe') }}</span>
                                 @endif
                            		<div class="col-md-2">Giá mua xe</div>
-                           		<div class="form-group col-md-8">
+                           		<div class="form-group col-md-4">
                            			<input type="text" class="form-control" name="giamuaxe" value="{{ $data->giamuaxe }}" placeholder="Nhập giá xe">
                            		</div>
                            	</div>
@@ -43,7 +59,7 @@
                               <div class="col-md-2">Hình xe cũ</div>
                               <div  class="form-group col-md-8">
 
-                                  <img src="{!! url('public/user/images', $data->url_hinhxe)!!}" alt="">
+                                  <img class="img img-responsive" style="width:300px; height:200px;"src="{!! url('public/user/images', $data->url_hinhxe)!!}" alt="">
                               </div>  
                             </div>
                            	<div class="row">
@@ -60,7 +76,7 @@
                                   <span class="error">{{ $errors->first('sodangky_xe') }}</span>
                                 @endif
                            		<div class="col-md-2">Số đăng ký xe</div>
-                           		<div class="form-group col-md-8">
+                           		<div class="form-group col-md-5">
                            			<input type="text" class="form-control" value="{{ $data->sodangky_xe }}" name="sodangky_xe" placeholder="Nhập số đăng ký">
                            		</div>
                            	</div>
@@ -78,7 +94,7 @@
                                   <span class="error">{{ $errors->first('socho_xe') }}</span>
                                 @endif
                            		<div class="col-md-2">Số chỗ xe</div>
-                           		<div class="form-group col-md-8">
+                           		<div class="form-group col-md-3">
                            			<input type="number" class="form-control" name="socho_xe" value="{{ $data->socho_xe }}" placeholder="Nhập số chỗ xe">
                            		</div>
                            	</div>
@@ -87,7 +103,7 @@
                                   <span class="error">{{ $errors->first('taixe_xe') }}</span>
                                 @endif
                            		<div class="col-md-2">Tài xế</div>
-                           		<div class="form-group col-md-8">
+                           		<div class="form-group col-md-6">
                            		   <select class="form-control" name="taixe_xe">
                                  @if(isset($taixehientai))
                                   <option value="{{ $taixehientai->taixe_id}}">{{ $taixehientai->tentaixe }}</option>
@@ -104,19 +120,51 @@
                             @if ($errors->has('ngaysanxuat'))
                                   <span class="error">{{ $errors->first('ngaysanxuat') }}</span>
                                 @endif
-                           		<div class="col-md-2">Ngày sản xuất</div>
-                           		<div class="form-group col-md-8">
-                           			<input name="ngaysanxuat" value="{{ $data->ngaysanxuat }}" class="form-control" data-provide="datepicker" placeholder="Nhập ngày sản xuất">
-                           		</div>
-                           	</div>
+                                <p>Ngày sản xuất cũ: {{ date('d/m/Y', strtotime($data->ngaysanxuat)) }}</p>
+                              <div class="col-md-2">Ngày sản xuất</div>
+                             <div class='input-group form-group date col-md-6' id='ngaysanxuat2'>
+                                      <input name="ngaysanxuat" value="{{ $data->ngaysanxuat }}" type='text' class="form-control" />
+                                      <span class="input-group-addon">
+                                          <span class="glyphicon glyphicon-calendar"></span>
+                                      </span>
+                              </div>
+                            </div>
                             <div class="row">
                             @if ($errors->has('ngaydangkiem'))
                                   <span class="error">{{ $errors->first('ngaydangkiem') }}</span>
                                 @endif
+                                <p>Ngày đăng kiểm cũ: {{ date('d/m/Y', strtotime($data->ngaydangkiem)) }}</p>
                             <div class="col-md-2">Ngày đăng kiểm</div>
-                            <div class="form-group col-md-8">
-                                <input name="ngaydangkiem" value="{{ $data->ngaydangkiem }}" class="form-control" data-provide="datepicker" placeholder="Nhập ngày đăng kiểm">
-                              </div>
+                           <div class='input-group form-group date col-md-6' id='ngaydangkiem2'>
+                                      <input name="ngaydangkiem" value="" type='text' class="form-control" />
+                                      <span class="input-group-addon">
+                                          <span class="glyphicon glyphicon-calendar"></span>
+                                      </span>
+                            </div>
+                            </div>
+                            <div class="row">
+                              <h1><strong>Giá tham khảo</strong></h1>
+                            
+                            <div class="col-md-2">Nội thành (100km/8h):</div>
+                            <div class="form-group col-md-4">
+                              <input type="number" name="gianoithanh" value="{{ $data->gianoithanh }}" class="form-control">
+                            </div>
+                            <div class="col-md-2">Đường dài (200km):</div>
+                            <div class="form-group col-md-4">
+                              <input type="number" name="giaduongdai" value="{{ $data->giaduongdai }}" class="form-control">
+                            </div>
+                            <div class="col-md-2">Sân bay (80km/3h):</div>
+                            <div class="form-group col-md-4">
+                              <input type="number" name="giasanbay" value="{{ $data->giasanbay }}" class="form-control">
+                            </div>
+                            <div class="col-md-2">Thuê tháng 2600km:</div>
+                            <div class="form-group col-md-4">
+                              <input type="number" name="giathuethang" value="{{ $data->giathuethang }}" class="form-control">
+                            </div>
+                            <div class="col-md-2">Ngoài giờ:</div>
+                            <div class="form-group col-md-4">
+                              <input type="number" name="giangoaigio" value="{{ $data->giangoaigio }}" class="form-control">
+                            </div>
                             </div>
                             <button type="submit" class="btn btn-default">Sửa</button>
       

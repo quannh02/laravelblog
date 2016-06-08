@@ -1,6 +1,14 @@
 @extends('backend.master')
 @section('content')
 <h1 class="page-header">
+        <script type="text/javascript">
+            $(function () {
+                $('#ngaysanxuat').datetimepicker();
+            });
+            $(function(){
+                $('#ngaydangkiem').datetimepicker();
+            });
+        </script>
                             <small>Thêm xe</small>
                           </h1>
                           </div>
@@ -15,10 +23,16 @@
                               @if ($errors->has('hang_xe'))
                                   <span class="error">{{ $errors->first('hang_xe') }}</span>
                                 @endif
-                            
-                              <div class="form-group">
-                                <label for="sel1">Hãng xe:</label>
-                                <input type="text" class="form-control" name="hang_xe" value="" placeholder="Nhập hãng xe">
+                             <div class="col-md-2">Danh mục:</div>
+                               
+                               <div class="form-group col-md-5">
+                                
+
+                                <select class="form-control" id="sel1" name="hang_name">
+                                  @foreach($brands as $brand)
+                                  <option value="{{ $brand->hang_id }}">{{ $brand->hang_name }}</option>
+                                  @endforeach
+                                </select>
                               </div>  
                             </div>
                             <div class="row">
@@ -95,8 +109,11 @@
                                   <span class="error">{{ $errors->first('ngaysanxuat') }}</span>
                                 @endif
                               <div class="col-md-2">Ngày sản xuất</div>
-                              <div class="form-group col-md-8">
-                                <input name="ngaysanxuat" value="" class="form-control" data-provide="datepicker" placeholder="Nhập ngày sản xuất">
+                             <div class='input-group form-group date col-md-6' id='ngaysanxuat'>
+                                      <input name="ngaysanxuat" value="{{ old('ngaysanxuat')}}" type='text' class="form-control" />
+                                      <span class="input-group-addon">
+                                          <span class="glyphicon glyphicon-calendar"></span>
+                                      </span>
                               </div>
                             </div>
                             <div class="row">
@@ -104,9 +121,12 @@
                                   <span class="error">{{ $errors->first('ngaydangkiem') }}</span>
                                 @endif
                             <div class="col-md-2">Ngày đăng kiểm</div>
-                            <div class="form-group col-md-8">
-                                <input name="ngaydangkiem" value="" class="form-control" data-provide="datepicker" placeholder="Nhập ngày đăng kiểm">
-                              </div>
+                           <div class='input-group form-group date col-md-6' id='ngaydangkiem'>
+                                      <input name="ngaydangkiem" value="{{ old('ngaydangkiem')}}" type='text' class="form-control" />
+                                      <span class="input-group-addon">
+                                          <span class="glyphicon glyphicon-calendar"></span>
+                                      </span>
+                            </div>
                             </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
           

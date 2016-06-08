@@ -1,5 +1,4 @@
 @extends('frontend.master')
-@section('description', 'Đây là trang chủ')
 @section('content')
 		<div class="col-xs-12 col-md-9-5">
 			<ol class = "breadcrumb">

@@ -73,6 +73,13 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::get('quanlydatxe', 'BookingController@admindondat');
 		Route::post('duyetdondat/{id}', 'BookingController@duyetdondat');
 		Route::get('chitietnguoidung/{id}', 'BookingController@chitietnguoidung');
+
+		Route::get('danhmuc', 'DanhMucController@danhmuc');
+		Route::get('suadanhmuc/{id}', 'DanhMucController@getsuadanhmuc');
+		Route::post('suadanhmuc/{id}', 'DanhMucController@postsuadanhmuc');
+		Route::get('themdanhmuc', 'DanhMucController@getthemdanhmuc');
+		Route::post('themdanhmuc', 'DanhMucController@postthemdanhmuc');
+		Route::post('xoadanhmuc/{id}', 'DanhMucController@xoadanhmuc');
 	});
 });
 Route::group(['namespace' => 'frontend'], function(){
@@ -95,6 +102,8 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::post('gioxe/{id}', 'CarsController@gioxe');
 	Route::get('gioxe','CarsController@getgioxe');
 	Route::post('huyxe', 'CarsController@deletegioXe');
+
+	Route::get('banggia', 'CarsController@bangGia');
 });
 
 

@@ -10,7 +10,7 @@
                                     @if(isset($brands))
                                     @foreach($brands as $brand)  
                                     
-                                          <li><a href="{{ url('brand', $brand->hang_xe )}}">{{ $brand->hang_xe }}</a></li>
+                                          <li><a href="{{ url('brand', $brand->hang_id )}}">{{ $brand->hang_name }}</a></li>
                                     @endforeach
                                     @endif
                                     </ul>

@@ -17,7 +17,8 @@
         <li class=""><a href="{{ url('trangchu') }}">Trang chủ</a></li>
         <li><a href="#">Thuê xe</a></li>
         <li><a href="{{ url('tintuc') }}">Tin tức</a></li>
-        <li><a href="#">Liên hệ</a></li>   
+        <li><a href="#">Liên hệ</a></li>  
+        <li><a href="{{ url('banggia') }}">Bảng giá</a></li> 
       </ul>
      
       

@@ -9,10 +9,12 @@ use App\Http\Controllers\Controller;
 use App\Cars;
 use DB;
 use App\Http\Requests\ThemXeRequest;
+use App\Http\Requests\EditXeRequest;
 use App\MyFunction;
 use Carbon\Carbon;
 use App\TaiXe;
 use App\Vote;
+use App\Brand;
 
 class CarsController extends Controller
 {
@@ -53,9 +55,10 @@ class CarsController extends Controller
         }
         //dd($taixearray);
 
+        $brands = Brand::all();
         $taixe = TaiXe::whereNotIN('taixe_id', $taixearray)->get();
         //dd($taixe);
-        return view('backend.cars.add', compact('taixe'));
+        return view('backend.cars.add', compact('taixe', 'brands'));
     }
 
     /**
@@ -66,24 +69,23 @@ class CarsController extends Controller
      */
     public function store(ThemXeRequest $request)
     {
-        $cars = new Cars;
-        $cars->hang_xe      = $request->hang_xe;
-        $cars->ten_xe       = $request->ten_xe;
-        $cars->giamuaxe     = $request->giamuaxe;
-        $cars->sodangky_xe  = $request->sodangky_xe;
-        $cars->color        = $request->color;
-        $cars->socho_xe     = $request->socho_xe;
-        $cars->tai_xe_id     = $request->tai_xe_id;
+        $car = new Cars;
+        $car->hang_id      = $request->hang_name;
+        $car->ten_xe       = $request->ten_xe;
+        $car->giamuaxe     = $request->giamuaxe;
+        $car->sodangky_xe  = $request->sodangky_xe;
+        $car->color        = $request->color;
+        $car->socho_xe     = $request->socho_xe;
+        $car->tai_xe_id     = $request->tai_xe_id;
         $file = $request->file('url_hinhxe');
         $destinationPath = base_path(). "/public/user/images/";
 
         $function = new MyFunction;
         $url_hinhxe = $function->stripUnicode(basename($file->getClientOriginalName()));
-        $ngaysanxuat = date('Y:m:d', strtotime($request->ngaysanxuat));
-        $cars->ngaysanxuat  = '' . $ngaysanxuat . ' 00:00:00';
-        $cars->url_hinhxe = $url_hinhxe;
-        $ngaydangkiem = date('Y:m:d', strtotime($request->ngaydangkiem));
-        $cars->ngaydangkiem = '' . $ngaydangkiem . ' 00:00:00';
+        
+        //dd($car->ngaysanxuat); die();
+        $car->url_hinhxe = $url_hinhxe;
+       
         $fileName = $destinationPath . $url_hinhxe;
         //dd($file); die();
         if ($request->hasFile('url_hinhxe')) {
@@ -91,13 +93,15 @@ class CarsController extends Controller
                 $file->move($destinationPath, $fileName);
             }   
         }
-        $cars->save();
+        $car->ngaysanxuat = $function->changedatetimeformat($request->ngaysanxuat);
+        $car->ngaydangkiem = $function->changedatetimeformat($request->ngaydangkiem);
+        $car->save();
 
         $order = new Vote([
             'sovotes' => 0,
             'tongdiem' => 0
             ]);
-        $cars->vote()->save($order);
+        $car->vote()->save($order);
         return redirect()->route('themxe')->with(['flash_level'=> 'success', 'flash_message' => 'Đã thêm dữ liệu thành công']);
     }
 
@@ -121,7 +125,11 @@ class CarsController extends Controller
     public function edit($xe_id)
     {
 
+
         $data = Cars::where('xe_id', $xe_id)->get()->first();
+        
+        $brands = Brand::all();
+
         $taixedaxepxe = Cars::select('tai_xe_id')->get();
         foreach($taixedaxepxe as $key => $taixe){
             if($taixe->tai_xe_id != null){
@@ -132,7 +140,7 @@ class CarsController extends Controller
         //dd($taixearray);                
         $taixe = TaiXe::whereNotIN('taixe_id', $taixearray)->get();
         //dd($taixe);
-        return view('backend.cars.suaxe', compact('data', 'taixehientai', 'taixe'));
+        return view('backend.cars.suaxe', compact('data', 'taixehientai', 'taixe', 'brands'));
     }
 
     /**
@@ -142,38 +150,45 @@ class CarsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ThemXeRequest $request, $xe_id)
+    public function update(EditXeRequest $request, $xe_id)
     {
-        $cars = Cars::findOrFail($xe_id);
+        $car = Cars::findOrFail($xe_id);
         //$cars->xe_id = $id;
-        $cars->hang_xe      = $request->hang_xe;
-        $cars->ten_xe       = $request->ten_xe;
-        $cars->giamuaxe     = $request->giamuaxe;
-        $cars->sodangky_xe  = $request->sodangky_xe;
-        $cars->color        = $request->color;
-        $cars->socho_xe     = $request->socho_xe;
-        $cars->tai_xe_id     = $request->taixe_xe;
-        $ngaydangkiem = date('Y:m:d', strtotime($request->ngaydangkiem));
-        $cars->ngaydangkiem  = '' . $ngaydangkiem . ' 00:00:00';
-        $ngaysanxuat = date('Y:m:d', strtotime($request->ngaysanxuat));
-        $cars->ngaysanxuat  = '' . $ngaysanxuat . ' 00:00:00';
+        $car->hang_id      = $request->hang_name;
+        $car->ten_xe       = $request->ten_xe;
+        $car->giamuaxe     = $request->giamuaxe;
+        $car->sodangky_xe  = $request->sodangky_xe;
+        $car->color        = $request->color;
+        $car->socho_xe     = $request->socho_xe;
+        $car->tai_xe_id     = $request->taixe_xe;
+        $function = new MyFunction;
+        
         if($request->hasFile('url_hinhxe')) {
             $file = $request->file('url_hinhxe');
             $destinationPath = base_path(). "/public/user/images/";
-
-            $function = new MyFunction;
             $url_hinhxe = $function->stripUnicode(basename($file->getClientOriginalName()));
            
-            $cars->url_hinhxe = $url_hinhxe;
+            $car->url_hinhxe = $url_hinhxe;
             $fileName = $destinationPath . $url_hinhxe;
             //dd($file); die();
                 if ($file->isValid()) {
                     $file->move($destinationPath, $fileName);
                 }   
             }
-
-        $cars->save();
-        return redirect('danhsachxe');
+        if($request->ngaydangkiem != null){
+        $car->ngaydangkiem = $function->changedatetimeformat($request->ngaydangkiem);
+        //dd($cars->ngaydangkiem); 
+        }   
+        if($request->ngaysanxuat != null){
+            $car->ngaysanxuat  = $function->changedatetimeformat($request->ngaysanxuat);
+        }
+        $car->gianoithanh = $request->gianoithanh;
+        $car->giaduongdai = $request->giaduongdai;
+        $car->giasanbay = $request->giasanbay;
+        $car->giathuethang = $request->giathuethang;
+        $car->giangoaigio = $request->giangoaigio;
+        $car->save();
+        return redirect('danhsachxe')->with('flash_message', 'Xe '.$xe_id.' đã được sửa.');
     }
 
     /**
@@ -182,10 +197,10 @@ class CarsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        $user = Cars::findOrFail($id);
-        $user->delete();
+        $car = Cars::findOrFail($id);
+        $car->delete();
         return redirect()->route('danhsachxe');
     }
 }

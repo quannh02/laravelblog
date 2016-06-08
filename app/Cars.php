@@ -30,4 +30,7 @@ class Cars extends Model
     public function taixe(){
         return $this->belongsTo('App\TaiXe');
     }
+    public function brand(){
+        return $this->belongsTo('App\Brand');
+    }
 }

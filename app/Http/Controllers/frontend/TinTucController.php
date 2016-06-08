@@ -7,6 +7,7 @@ use App\TinTuc;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Cars;
+use App\Brand;
 
 class TinTucController extends Controller
 {
@@ -14,7 +15,7 @@ class TinTucController extends Controller
     protected $sochoxe;
     protected $tintucs;
     public function __construct(){
-        $this->brands = Cars::select('hang_xe')->distinct()->get();
+        $this->brands = Brand::all();
         $this->sochoxe = Cars::select('socho_xe')->distinct()->get();
         $this->tintucs = TinTuc::select('id', 'tieude', 'noidung')->orderBy('id', 'desc')->take(5)->get();
     }

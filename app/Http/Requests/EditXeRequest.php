@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ThemXeRequest extends Request
+class EditXeRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,14 +29,14 @@ class ThemXeRequest extends Request
             'url_hinhxe' => 'image',
             'sodangky_xe' => 'required',
             'socho_xe' => 'required',
-            'ngaysanxuat' => 'required'
         ]; 
     }
 
     public function messages(){
         return [
             'hang_name.required' => 'Vui lòng nhập hãng xe.',
-            'giamuaxe.required' => 'Vui lòng nhập giá mua xe.'
+            'giamuaxe.required' => 'Vui lòng nhập giá mua xe.',
+            'url_hinhxe.image' => 'Hình ảnh không đúng định dạng jpg, png'
         ];
     }
 }

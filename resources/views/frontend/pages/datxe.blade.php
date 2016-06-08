@@ -1,5 +1,5 @@
 @extends('frontend.master')
-@section('description', 'Đây là trang chủ')
+@section('description', 'Đặt xe')
 @section('content')
 	<div class="row">
 		<div class="col-md-6">

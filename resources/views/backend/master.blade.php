@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="@yield('description')">
     <meta name="author" content="">
     <title>Admin</title>
     <!-- Bootstrap Core CSS -->
@@ -49,6 +49,7 @@
               <li class=""><a href="{{ url('datxe') }}"><i class="fa fa-cube fa-fw"></i>Đặt xe</a></li>
               @endif
               @if(Auth::user()->terms == 1)
+              <li class=""><a href="{{ url('danhmuc') }}"><i class="fa fa-car" aria-hidden="true"></i>Quản lý danh mục</a></li>
               <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-car" aria-hidden="true"></i>Quản lý xe</a></li>
               <li class=""><a href="{{ url('quanlydatxe')}}"><i class="fa fa-book"></i>Quản lý đặt xe</a></li>
               <li class=""><a href="{{ url('dstaixe') }}"><i class="fa fa-male" aria-hidden="true"></i></i>Quản lý tài xế</a></li>
@@ -102,12 +103,6 @@ Tìm xe</a>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-    
-    <!-- Page Content -->
-    <div class="col-xs-12">
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <div class="row">
     <div class="col-lg-12">
         @if(Session::has('flash_message'))
             <div class="alert alert-{!! Session::get('flash_level') !!}">
@@ -115,6 +110,12 @@ Tìm xe</a>
             </div>
         @endif
     </div>
+    <!-- Page Content -->
+    <div class="col-xs-12">
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+    
 
     <!-- Page Content -->
         @yield('content')
@@ -137,6 +138,6 @@ Tìm xe</a>
 <!-- Bootstrap Core JavaScript -->
 
 
-<!-- <script src="{{ url('public/admin/js/bootstrap-datepicker.js') }}"></script> -->
+<script src="{{ url('public/admin/js/bootstrap-datepicker.js') }}"></script>
 </body>
 </html>
