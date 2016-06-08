@@ -23,4 +23,3 @@ function xacnhanxoa($msg){
     }
     return false
 }
-

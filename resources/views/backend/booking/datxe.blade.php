@@ -1,5 +1,22 @@
 @extends('backend.master')
 @section('content')
+<script type="text/javascript">
+            
+            $(function () {
+                var yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                $('#datetimepicker3').datetimepicker({
+                  minDate: yesterday
+                });
+            });
+            $(function(){
+                var yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                $('#datetimepicker4').datetimepicker({
+                  minDate: yesterday
+                });
+            });
+        </script>
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-4 h1datxe">
@@ -18,7 +35,7 @@
         @if ($errors->has('email'))
         <span class="error">{{ $errors->first('email') }}</span>
     @endif
-        <div class="form-group">Email (*)
+        <div class="form-group">Email
             <input type="email"  class="form-control" name="email" value="{{ $user->email }}">
         </div>
         @if ($errors->has('giotinh'))
@@ -80,16 +97,26 @@
           @if ($errors->has('ngaydi'))
              <span class="error">{{ $errors->first('ngaydi') }}</span>
           @endif
-              <div>Ngày đi</div>
+              <div>Ngày đi (*)</div>
               <div class="form-group">
-              <input name="ngaydi" value="" class="form-control" data-provide="datepicker">
+              <div class='input-group date' id='datetimepicker3'>
+                <input name="ngaydi" type='text' class="form-control" />
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+              </div>
               </div>
           @if ($errors->has('ngayve'))
              <span class="error">{{ $errors->first('ngayve') }}</span>
           @endif
-              <div>Ngày về</div>
+              <div>Ngày về (*)</div>
               <div class="form-group">
-              <input name="ngayve" value="" class="form-control" data-provide="datepicker">
+                <div class='input-group date' id='datetimepicker4'>
+                    <input name="ngayve" type='text' class="form-control" />
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
               </div>
         <div>
             <button type="submit" class="btn btn-success">Gửi đơn đặt</button>

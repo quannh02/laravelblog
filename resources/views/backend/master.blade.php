@@ -8,11 +8,19 @@
     <meta name="author" content="">
     <title>Admin</title>
     <!-- Bootstrap Core CSS -->
-    <link href="{{ url('public/admin/css/bootstrap.min.css') }}" rel="stylesheet"/>
+    <link href="{{ url('public/user/css/bootstrap.min.css') }}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ url('public/admin/css/mystyle.css')}}">
     <link href="{{ url('public/admin/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="{{ url('public/admin/css/datepicker.css')}}">
     <link rel="stylesheet" href="{{ url('public/admin/css/bootstrap-responsive.css') }}">
+    <link rel="stylesheet" href="{{ url('public/user/css/font-awesome.min.css') }}">
+    <script src="{{ url('public/user/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url('public/user/js/moment.js') }}"></script>
+    <script type="text/javascript" src="{{ url('public/user/js/transition.js') }}"></script>
+    <script type="text/javascript" src="{{ url('public/user/js/collapse.js') }}"></script>
+    <script src="{{ url('public/user/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('public/user/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{ url('public/admin/js/myscript.js') }}"></script>
 </head>
 <body>
 <div class="container">
@@ -34,15 +42,16 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav nav-tabs nav-pills">
            
-              <li class=""><a href="{{ url('dstaixe') }}"><i class="fa fa-male" aria-hidden="true"></i></i>Quản lý tài xế</a></li>
-              <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-car" aria-hidden="true"></i>Quản lý xe</a></li>
+              
+              
               @if(Auth::user()->terms == 0)
               <li class=""><a href="{{ url('timxe') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe</a></li>
               <li class=""><a href="{{ url('datxe') }}"><i class="fa fa-cube fa-fw"></i>Đặt xe</a></li>
               @endif
               @if(Auth::user()->terms == 1)
-    
+              <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-car" aria-hidden="true"></i>Quản lý xe</a></li>
               <li class=""><a href="{{ url('quanlydatxe')}}"><i class="fa fa-book"></i>Quản lý đặt xe</a></li>
+              <li class=""><a href="{{ url('dstaixe') }}"><i class="fa fa-male" aria-hidden="true"></i></i>Quản lý tài xế</a></li>
               <li class="dropdown hoverdropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search" aria-hidden="true"></i>
 Tìm xe</a>
@@ -123,11 +132,11 @@ Tìm xe</a>
 <!-- /#wrapper -->
 </div>  <!-- end container -->
 <!-- jQuery -->
-<script src="{{ url('public/admin/js/jquery.min.js') }}"></script>
+
 
 <!-- Bootstrap Core JavaScript -->
-<script src="{{ url('public/admin/js/bootstrap.min.js') }}"></script>
-<script src="{{ url('public/admin/js/myscript.js') }}"></script>
-<script src="{{ url('public/admin/js/bootstrap-datepicker.js') }}"></script>
+
+
+<!-- <script src="{{ url('public/admin/js/bootstrap-datepicker.js') }}"></script> -->
 </body>
 </html>

@@ -25,13 +25,11 @@ class DatXeRequest extends Request
     {
         return [
             'tendaydu'  => 'required',
-            'email'     => 'required',
             'gioitinh'  => 'required',
             'sodienthoai'   => 'required',
             'diachi'    => 'required',
             'diemdon'   => 'required',
             'diemden'   => 'required',
-            'yeucau'   => 'required',
             'ngaydi'   => 'required',
             'ngayve'   => 'required',
         ];
@@ -45,7 +43,6 @@ class DatXeRequest extends Request
             'diachi.required' => 'Vui lòng nhập địa chỉ',
             'diemdon.required' => 'Vui lòng nhập điểm đón',
             'diemden.required' => 'Vui lòng nhập điểm đến',
-            'yeucau.required' => 'Vui lòng nhập yêu cầu',
             'ngaydi.required' => 'Vui lòng nhập ngày đi',
             'ngayve.required' => 'Vui lòng nhập ngày về'
         ];

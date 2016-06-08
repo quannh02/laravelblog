@@ -8,9 +8,9 @@
 						@foreach($car_bonlam as $car)
                         <div class="box_car_hot col-md-4 col-xs-12 col-sm-6">
                             <div class="div_name_car_hot">
-                                <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
+                                <a href="{{ url('chitiet', $car->xe_id ) }}"><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
                                 <div class="a_name_car_hot">
-                                    <a href="{{ url('chitiet', $car->xe_id ) }}">Thuê xe du lịch {{ $car->ten_xe }} {{ $car->socho_Xe }} chỗ</a>
+                                    <a href="{{ url('chitiet', $car->xe_id ) }}">Thuê xe du lịch {{ $car->ten_xe }}</a>
                                 </div>
 			                <div class="clearfix">
 			                  
@@ -31,9 +31,9 @@
                         @foreach($car_balam as $car)
 						<div class="box_car_hot col-md-4 col-xs-12 col-sm-6">
                             <div class="div_name_car_hot">
-                                <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
+                                <a href="{{ url('chitiet', $car->xe_id ) }}"><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
                                 <div class="a_name_car_hot">
-                                    <a href="">Thuê xe du lịch {{ $car->hang_xe }} {{ $car->ten_xe }} {{ $car->socho_xe }} chỗ</a>
+                                    <a href="{{ url('chitiet', $car->xe_id ) }}">Thuê xe du lịch {{ $car->hang_xe }} {{ $car->ten_xe }}</a>
                                 </div>
                             <div class="clearfix">
                               
@@ -56,9 +56,9 @@
                         @foreach($car_haichin as $car)
                         <div class="box_car_hot col-md-4 col-xs-12 col-sm-6">
                             <div class="div_name_car_hot">
-                                <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
+                                <a href="{{ url('chitiet', $car->xe_id ) }}"><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
                                 <div class="a_name_car_hot">
-                                    <a href="{{ url('chitiet', $car->xe_id ) }}">Thuê xe du lịch {{ $car->ten_xe }} {{ $car->socho_Xe }} chỗ</a>
+                                    <a href="{{ url('chitiet', $car->xe_id ) }}">Thuê xe du lịch {{ $car->ten_xe }}</a>
                                 </div>
                             <div class="clearfix">
                               
@@ -80,9 +80,9 @@
                         @foreach($car_muoisau as $car)
                         <div class="box_car_hot col-md-4 col-sm-4 col-sm-6 col-xs-12">
                             <div class="div_name_car_hot">
-                                <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
+                                <a href="{{ url('chitiet', $car->xe_id ) }}"><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
                                 <div class="a_name_car_hot">
-                                    <a href="{{ url('chitiet', $car->xe_id ) }}">Thuê xe du lịch {{ $car->ten_xe }} {{ $car->socho_Xe }} chỗ</a>
+                                    <a href="{{ url('chitiet', $car->xe_id ) }}">Thuê xe du lịch {{ $car->ten_xe }}</a>
                                 </div>
                             <div class="clearfix">
                               
@@ -105,9 +105,9 @@
                         @foreach($car_bay as $car)
                         <div class="box_car_hot col-md-4 col-sm-6 col-xs-12">
                             <div class="div_name_car_hot">
-                                <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
+                                <a href="{{ url('chitiet', $car->xe_id ) }}"><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
                                 <div class="a_name_car_hot">
-                                    <a href="{{ url('chitiet', $car->xe_id ) }}">Thuê xe du lịch {{ $car->ten_xe }} {{ $car->socho_Xe }} chỗ</a>
+                                    <a href="{{ url('chitiet', $car->xe_id ) }}">Thuê xe du lịch {{ $car->ten_xe }}</a>
                                 </div>
                             <div class="clearfix">
                               
@@ -129,9 +129,9 @@
                         @foreach($car_bon as $car)
                         <div class="box_car_hot col-md-4 col-sm-6 col-xs-12">
                             <div class="div_name_car_hot">
-                                <a href=""><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
+                                <a href="{{ url('chitiet', $car->xe_id ) }}"><img alt="Thuê xe du lịch 45 chỗ đi Đền Hùng ( Phú Thọ)" class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
                                 <div class="a_name_car_hot">
-                                    <a href="{{ url('chitiet', $car->xe_id ) }}">Thuê xe du lịch {{ $car->ten_xe }} {{ $car->socho_Xe }} chỗ</a>
+                                    <a href="{{ url('chitiet', $car->xe_id ) }}">Thuê xe du lịch {{ $car->ten_xe }}</a>
                                 </div>
                             <div class="clearfix">
                               

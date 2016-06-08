@@ -26,17 +26,13 @@ class BookingController extends Controller
     
     public function postListCar(){
         $datepickerDi = Input::get('datepickerDi');
+        //dd($datepickerDi); die();
         // đổi sang dạng YYYY:mm:dd H:i:s
-        $thoigianDi = date('Y:m:d', strtotime($datepickerDi));
-        $hourDi = Input::get('hourDi');
-        $minuteDi = Input::get('minuteDi');
-        $thoigianDi = '' . $thoigianDi . ' 00:' . $hourDi . ':' . $minuteDi . '';
+        $MyFunction = new MyFunction;
+        $thoigianDi = $MyFunction->changedatetimeformat($datepickerDi);
         //dd($thoigianDi);
         $datepickerVe = Input::get('datepickerVe');
-        $thoigianVe = date('Y:m:d', strtotime($datepickerVe));
-        $hourVe = Input::get('hourVe');
-        $minuteVe = Input::get('minuteVe');
-        $thoigianVe = '' . $thoigianVe . ' 00:' . $hourVe . ':' . $minuteVe . '';
+        $thoigianVe = $MyFunction->changedatetimeformat($datepickerVe);
         //dd($thoigianVe); die();
         $cars_not_in_inner = DB::table('tbl_dondat')
                 ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id', '=', 'tbl_dondatchitiet.don_dat_id')
@@ -82,7 +78,7 @@ class BookingController extends Controller
                 ->select('tbl_xe.hang_xe', 'tbl_xe.sodangky_xe')
                 ->whereNotIn('tbl_xe.xe_id', $array_car_not_in)->orderBy('xe_id', 'asc')
                 ->get();
-        return view('backend.booking.booking', compact('data'));
+        return view('backend.booking.booking', compact('data', 'datepickerDi', 'datepickerVe'));
         // dd($thoigianVe); die();
     }
 
@@ -111,12 +107,9 @@ class BookingController extends Controller
         $user->masothue = $request->masothue;
 
         $user->save();
-
-        $ngaydi = date('Y:m:d', strtotime($request->ngaydi));
-        $ngaydi = '' . $ngaydi . ' 00:00:00';
-
-        $ngayve = date('Y:m:d', strtotime($request->ngayve));
-        $ngayve = '' . $ngayve . ' 00:00:00';
+        $MyFunction = new MyFunction;
+        $ngaydi = $MyFunction->changedatetimeformat($request->ngaydi);
+        $ngayve = $MyFunction->changedatetimeformat($request->ngayve);
         $datxe = new DonDat([
             'diemdon' => $request->diemdon,
             'diemden' => $request->diemden,
@@ -125,16 +118,15 @@ class BookingController extends Controller
             'ngayve'  => $ngayve
             ]);
         $user->dondat()->save($datxe);
-        if(Session::has('datxe'))
-        {
-        foreach(Session::get('datxe') as $key => $value)
-        {
-            $dondatchitiet = new DonDatCT([
-                'xe_id' => $value['id']
-                ]);
-            $datxe->dondatchitiet()->save($dondatchitiet);
+        if(Session::has('datxe')){
+            foreach(Session::get('datxe') as $key => $value){
+                    $dondatchitiet = new DonDatCT([
+                        'xe_id' => $value['id']
+                        ]);
+                    $datxe->dondatchitiet()->save($dondatchitiet);
+                }
         }
-        }
+        Session::forget('datxe');
         return redirect('quanlydondat');
     }
     

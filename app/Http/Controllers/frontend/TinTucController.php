@@ -20,8 +20,10 @@ class TinTucController extends Controller
     }
     
     public function getTinTuc(){
+        $brands = $this->brands;
+        $socho = $this->sochoxe;
         $tintucs  = TinTuc::all();
-        return view('frontend.pages.tintuc', compact('tintucs'));
+        return view('frontend.pages.tintuc', compact('tintucs', 'socho', 'brands'));
     }
     public function chitiettintuc($id){
         $brands = $this->brands;

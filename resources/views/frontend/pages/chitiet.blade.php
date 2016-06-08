@@ -123,12 +123,6 @@
 			                        <div class="tbold">Hiệu: {{ $xe->hang_xe }}</div>
 			                        <div>Số chỗ: <span class="tbold">{{ $xe->socho_xe }} chỗ</span></div>
 			                        <div>Giá xe: <span class="span_price">Liên hệ</span></div>
-			                 		<div>
-			                        	<form method="post" action="{{ url('datxe', $xe->xe_id) }}">
-			                        	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-			                            <button class="btn btn-success a_book_car">Đặt thuê</button>
-			                            </form>
-			             			</div>
 			                    	</div>
 			                	</div>
 			            		</div>

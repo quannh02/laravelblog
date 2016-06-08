@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav topLinks">
         <li class=""><a href="{{ url('trangchu') }}">Trang chủ</a></li>
         <li><a href="#">Thuê xe</a></li>
-        <li><a href="#">Tin tức</a></li>
+        <li><a href="{{ url('tintuc') }}">Tin tức</a></li>
         <li><a href="#">Liên hệ</a></li>   
       </ul>
      

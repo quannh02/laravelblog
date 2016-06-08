@@ -122,7 +122,7 @@ class CarsController extends Controller
 
         //dd($binhluans);
         $xe = Cars::where('xe_id', $id)->get()->first();
-        $tenlaixe = TaiXe::where('taixe_id', $xe->taixe_xe)->get()->first();
+        $tenlaixe = TaiXe::where('taixe_id', $xe->tai_xe_id)->get()->first();
         $xekhac = Cars::whereNotIn('xe_id', [$id])->where(function($query) use ($xe){
                         $query->where('socho_xe', $xe->socho_xe)
                         ->orWhere('hang_xe', $xe->hang_xe);
@@ -197,7 +197,7 @@ class CarsController extends Controller
         return view('frontend.pages.dsdat', compact('brands', 'socho', 'tintucs'));
     }
     public function deletegioXe(){
-        Session::flush('datxe');
+        Session::forget('datxe');
         return redirect('gioxe');
     }
 }
