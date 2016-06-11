@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2016 at 11:06 PM
+-- Generation Time: Jun 11, 2016 at 11:59 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `tbl_nguoidung` (
 --
 
 INSERT INTO `tbl_nguoidung` (`nguoidung_id`, `tendaydu`, `email`, `gioitinh`, `diachi`, `sodienthoai`, `tencongty`, `masothue`, `password`, `terms`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Nguyễn Hồng Quân', 'quannh02@wru.vn', 'Nam', '175 Tây Sơn', '01677665526', 'QuanBus', '2126478', '$2y$10$fZqIGerdjwvduFy0Ulomm.znMbxFEjOMxTmyvJmx.DO0FIdDpciUu', 1, 'K5EXI9Kcn7PhNKb3AXO6hiREFA0d0vzXwQzPVxbexR6liODyt8UTsPjahkJT', '2016-05-19 10:52:00', '2016-06-07 12:36:39'),
+(2, 'Nguyễn Hồng Quân', 'quannh02@wru.vn', 'Nam', '175 Tây Sơn', '01677665526', 'QuanBus', '2126478', '$2y$10$fZqIGerdjwvduFy0Ulomm.znMbxFEjOMxTmyvJmx.DO0FIdDpciUu', 1, 'B0oj85xUrRGCWgXkUnCfSUytwmEXpHL7xqGucVEZaXcOLTz587LrqfF6WbQh', '2016-05-19 10:52:00', '2016-06-10 13:44:10'),
 (3, 'Nguyễn Văn Bằng', 'bangbang@gmail.com', 'Nam', '175 Tây sơn- Đống Đa - Hà Nội', '0912445346', 'TNHH Công nghệ dệt may Hải Hà', '235245346', '$2y$10$XlqMKlGaoIURBNG9gFg2AuexEG3dEsDpfg5e.3vkoTprQYZu6lb.O', 0, 'RRn8t4LwQJqqd2TPzswcfJ5l45NFeK5X5jLxURevw310uhHg4VhNVGFqA4Aq', '2016-05-23 00:52:03', '2016-06-07 12:04:17');
 
 -- --------------------------------------------------------
@@ -234,7 +234,7 @@ CREATE TABLE IF NOT EXISTS `tbl_vote` (
   `tongdiem` int(10) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tbl_vote`
@@ -252,7 +252,7 @@ INSERT INTO `tbl_vote` (`id`, `cars_id`, `sovotes`, `tongdiem`, `created_at`, `u
 (11, 9, 6, 27, '0000-00-00 00:00:00', '2016-05-21 10:32:21'),
 (12, 10, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (13, 12, 3, 13, '2016-05-21 21:52:20', '2016-06-04 11:07:01'),
-(14, 13, 0, 0, '2016-05-23 07:15:24', '2016-05-23 07:15:24'),
+(14, 13, 1, 4, '2016-05-23 07:15:24', '2016-06-10 12:51:18'),
 (15, 14, 0, 0, '2016-05-23 07:16:58', '2016-05-23 07:16:58'),
 (16, 15, 0, 0, '2016-05-23 07:18:11', '2016-05-23 07:18:11'),
 (17, 16, 0, 0, '2016-05-23 07:19:18', '2016-05-23 07:19:18'),
@@ -264,7 +264,8 @@ INSERT INTO `tbl_vote` (`id`, `cars_id`, `sovotes`, `tongdiem`, `created_at`, `u
 (23, 22, 0, 0, '2016-05-23 08:16:14', '2016-05-23 08:16:14'),
 (24, 23, 0, 0, '2016-06-08 00:10:03', '2016-06-08 00:10:03'),
 (25, 24, 0, 0, '2016-06-08 00:20:00', '2016-06-08 00:20:00'),
-(26, 25, 0, 0, '2016-06-08 00:22:06', '2016-06-08 00:22:06');
+(26, 25, 0, 0, '2016-06-08 00:22:06', '2016-06-08 00:22:06'),
+(27, 23, 0, 0, '2016-06-10 15:00:15', '2016-06-10 15:00:15');
 
 -- --------------------------------------------------------
 
@@ -419,7 +420,7 @@ ALTER TABLE `tbl_tintuc`
 -- AUTO_INCREMENT for table `tbl_vote`
 --
 ALTER TABLE `tbl_vote`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `tbl_xe`
 --

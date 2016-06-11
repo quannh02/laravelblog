@@ -6,7 +6,7 @@
 				<div class="title_car_hot"><i class="fa fa-car"></i><a href="" class="title_b_car">Xe du lịch 45 chỗ</a></div>
         			<div class="row">
 						@foreach($car_bonlam as $car)
-                        <div class="box_car_hot col-md-4 col-xs-12 col-sm-6">
+                        <div class="box_car_hot col-md-4 col-xs-12 col-sm-6 clearfix">
                             <div class="div_name_car_hot">
                                 <a href="{{ url('chitiet', $car->xe_id ) }}"><img class="img_car_list img img-responsive" src="{{ url('public/user/images', $car->url_hinhxe) }}"></a>
                                 <div class="a_name_car_hot">
@@ -19,6 +19,9 @@
 			                        <div>Số chỗ: <span class="tbold">{{ $car->socho_xe }} chỗ</span></div>
 			                    </div>
 			                </div>
+                            <div class="div_book_car pull-right">
+                                        <a href="{{ url('chitiet', $car->xe_id) }}" class="a_book_car">Xem chi tiết</a>
+                            </div>
                             </div>
 						</div>
                         @endforeach	
@@ -43,6 +46,9 @@
 
                                 </div>
                             </div>
+                            <div class="div_book_car pull-right">
+                                        <a href="{{ url('chitiet', $car->xe_id) }}" class="a_book_car">Xem chi tiết</a>
+                            </div>
                             </div>
                         </div>
                         @endforeach
@@ -66,6 +72,9 @@
                                     <div class="tbold">Hiệu: {{ App\Brand::find($car->hang_id)->hang_name }}</div>
                                     <div>Số chỗ: <span class="tbold">{{ $car->socho_xe }} chỗ</span></div>
                                 </div>
+                            </div>
+                            <div class="div_book_car pull-right">
+                                        <a href="{{ url('chitiet', $car->xe_id) }}" class="a_book_car">Xem chi tiết</a>
                             </div>
                             </div>
                         </div>
@@ -92,6 +101,9 @@
 
                                 </div>
                             </div>
+                            <div class="div_book_car pull-right">
+                                        <a href="{{ url('chitiet', $car->xe_id) }}" class="a_book_car">Xem chi tiết</a>
+                            </div>
                             </div>
                         </div>
                         @endforeach
@@ -116,6 +128,9 @@
                                     <div>Số chỗ: <span class="tbold">{{ $car->socho_xe }} chỗ</span></div>
                                 </div>
                             </div>
+                            <div class="div_book_car pull-right">
+                                        <a href="{{ url('chitiet', $car->xe_id) }}" class="a_book_car">Xem chi tiết</a>
+                            </div>
                             </div>
                         </div>
                         @endforeach
@@ -139,6 +154,9 @@
                                     <div class="tbold">Hiệu: {{ App\Brand::find($car->hang_id)->hang_name }}</div>
                                     <div>Số chỗ: <span class="tbold">{{ $car->socho_xe }} chỗ</span></div>
                                 </div>
+                            </div>
+                            <div class="div_book_car pull-right">
+                                        <a href="{{ url('chitiet', $car->xe_id) }}" class="a_book_car">Xem chi tiết</a>
                             </div>
                             </div>
                         </div>

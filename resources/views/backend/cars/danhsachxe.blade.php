@@ -21,8 +21,20 @@
         </a>
         @endif
 </div>
+<div class="col-md-3">
+  <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" name="q" id="searchdsxeInput" placeholder="Tìm xe" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" id="searchdsxe" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+</div>
 <div class="col-xs-12">
-<div class="table-responsive">
+<div class="table-responsive tabledsxe">
     <table class="table">
       <thead>
         <tr>
@@ -74,6 +86,8 @@
       </tbody>
     </table>
  </div>
+    <div class="paginationdsxe">
     {!! $allCars->render() !!}
+    </div>
 </div>
 @endsection

@@ -1,9 +1,6 @@
 @extends('backend.auth.master')
 @section('title', 'Trang login')
 @section('content')
-@if(Session::has('message'))
-<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
-@endif
                     <form method="POST" action="{{ url('/auth/login') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                         <fieldset>

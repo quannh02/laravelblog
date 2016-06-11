@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('description')">
     <meta name="author" content="">
+    <meta name="_token" content="{{ csrf_token() }}">
     <title>Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('public/user/css/bootstrap.min.css') }}" rel="stylesheet"/>
@@ -21,8 +22,19 @@
     <script src="{{ url('public/user/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ url('public/user/js/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{ url('public/admin/js/myscript.js') }}"></script>
+    <script type="text/javascript" src="{{ url('public/user/js/search.js') }}"></script>
+    
 </head>
 <body>
+<script>
+  $(function() {
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+    }
+  });
+});
+</script>
 <div class="container">
 <div id="wrapper">
     <div class="row">

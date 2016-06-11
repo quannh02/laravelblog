@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Nguyễn Hồng Quân">
-
+    <meta name="_token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
 
     <!-- Bootstrap Core CSS -->
@@ -24,17 +24,18 @@
 
 <div class="container">
         <div class="col-lg-12">
-                        @if(Session::has('flash_message'))
-                            <div class="alert alert-{!! Session::get('flash_level') !!}">
-                                {!! Session::get('flash_message') !!}
-                            </div>
-                        @endif
+                       
                     </div>
                 
         <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
                 <div class="panel-heading">
+                 @if(Session::has('flash_message'))
+                            <div class="alert alert-{!! Session::get('flash_level') !!}">
+                                {!! Session::get('flash_message') !!}
+                            </div>
+                        @endif
                     <h3 class="panel-title">@yield('title')</h3>
                 </div>
                     <div class="panel-body">

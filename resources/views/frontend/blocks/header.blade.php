@@ -38,7 +38,7 @@
                 <li><a href="{{ url('auth/login') }}">Đăng nhập</a></li>
                 @endif
             </ul>
-        </div> 
 
+        </div> 
     </div>
     

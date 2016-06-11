@@ -15,6 +15,7 @@ use Carbon\Carbon;
 use App\TaiXe;
 use App\Vote;
 use App\Brand;
+use Input;
 
 class CarsController extends Controller
 {
@@ -202,5 +203,19 @@ class CarsController extends Controller
         $car = Cars::findOrFail($id);
         $car->delete();
         return redirect()->route('danhsachxe');
+    }
+    public function searchdsxe(){
+        $q = Input::get('q');
+        $cars = Cars::where('ten_xe', 'LIKE','%'.$q.'%')->orWhere('socho_xe','LIKE','%'.$q.'%')->orWhere(
+                function($query) use ($q){
+                    $brands = Brand::where('hang_name', 'LIKE', '%'. $q.'%')->get()->toArray();
+                    //dd($brand);
+                    $hang_id = array();
+                    foreach($brands as $key => $value){
+                        array_push($hang_id, $value['hang_id']);
+                    }
+                    $query->whereIn('hang_id', $hang_id);
+                })->get()->toArray();
+        return json_encode($cars);
     }
 }

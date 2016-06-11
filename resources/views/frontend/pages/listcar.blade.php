@@ -19,7 +19,7 @@
 			                        <div>Số chỗ: <span class="tbold">{{ $car->socho_xe }} chỗ</span></div>
 			                        <div>Giá xe: <span class="span_price"></span></div>
 			                        <div class="div_book_car">
-			                            <a href="" class="a_book_car">Đặt thuê</a>
+			                            <a href="{{ url('chitiet', $car->xe_id) }}" class="a_book_car">Xem chi tiết</a>
 			                        </div>
 			                    </div>
 			                </div>

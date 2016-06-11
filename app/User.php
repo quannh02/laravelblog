@@ -55,7 +55,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             'password_confirmation' => 'required|same:password'
         );
     public static $messages = array(
-            'email.required' => 'Vui lòng nhập email.',
             'email.unique'   => 'Email đã được đăng ký!',
             'password.required' => 'Vui lòng nhập password.',
             'password_confirmation.required' => 'Vui lòng nhập lại mật khẩu',

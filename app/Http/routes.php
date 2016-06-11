@@ -69,6 +69,7 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::post('themtaixe', 'TaiXeController@postthemtaixe');
 		Route::post('xoataixe/{id}', 'TaiXeController@xoataixe');
 		// Route::resource('user', 'UserController');
+		Route::get('searchdsxe', 'CarsController@searchdsxe');
 
 		Route::get('quanlydatxe', 'BookingController@admindondat');
 		Route::post('duyetdondat/{id}', 'BookingController@duyetdondat');
@@ -104,6 +105,11 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::post('huyxe', 'CarsController@deletegioXe');
 
 	Route::get('banggia', 'CarsController@bangGia');
+	Route::get('welcome/{locale}', function ($locale) {
+        App::setLocale($locale);
+    	return redirect('trangchu');
+	});
+	Route::get('cacbuocthuexe', 'CarsController@cacbuocthuexe');
 });
 
 

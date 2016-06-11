@@ -222,4 +222,10 @@ class CarsController extends Controller
         $tintucs = $this->tintucs;
         return view('frontend.pages.banggia', compact('brands', 'socho', 'tintucs'));
     }
+    public function cacbuocthuexe(){
+        $brands = $this->brands;
+        $socho = $this->sochoxe;
+        $tintucs = $this->tintucs;
+        return view('frontend.pages.thuexe', compact('brands', 'socho', 'tintucs'));
+    }
 }

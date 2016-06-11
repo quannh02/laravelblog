@@ -8,12 +8,18 @@
                 $('#datetimepicker3').datetimepicker({
                   minDate: yesterday
                 });
-            });
-            $(function(){
-                var yesterday = new Date();
-                yesterday.setDate(yesterday.getDate() - 1);
                 $('#datetimepicker4').datetimepicker({
                   minDate: yesterday
+                });
+                //Important!
+                $('#datetimepicker4').datetimepicker({
+                  useCurrent: false
+                });
+                $('#datetimepicker3').on('dp.change', function(e){
+                  $('#datetimepicker4').data("DateTimePicker").minDate(e.date);
+                });
+                $('#datetimepicker4').on('dp.change', function(e){
+                  $('#datetimepicker3').data("DateTimePicker").maxDate(e.date);
                 });
             });
         </script>
