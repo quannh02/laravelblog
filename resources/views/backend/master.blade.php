@@ -57,8 +57,9 @@
               
               
               @if(Auth::user()->terms == 0)
-              <li class=""><a href="{{ url('timxe') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe</a></li>
+              <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-cube fa-fw"></i>Tìm xe</a></li>
               <li class=""><a href="{{ url('datxe') }}"><i class="fa fa-cube fa-fw"></i>Đặt xe</a></li>
+              <li class=""><a href="{{ url('quanlydondat') }}"><i class="fa fa-cube fa-fw"></i>Quản lý đặt xe</a></li>
               @endif
               @if(Auth::user()->terms == 1)
               <li class=""><a href="{{ url('danhmuc') }}"><i class="fa fa-car" aria-hidden="true"></i>Quản lý danh mục</a></li>

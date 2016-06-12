@@ -21,7 +21,8 @@
         </a>
         @endif
 </div>
-<div class="col-md-3">
+@if(Auth::user()->terms == 0)
+<div class="col-xs-12 col-md-3">
   <div id="custom-search-input">
                 <div class="input-group col-md-12">
                     <input type="text" class="form-control input-lg" name="q" id="searchdsxeInput" placeholder="Tìm xe" />
@@ -33,16 +34,20 @@
                 </div>
             </div>
 </div>
+<div class="col-xs-12 col-md-4">
+  <p>Bạn có thể tìm theo tên hãng, tên xe, số chỗ, tên tài xế</p>
+</div>
+@endif
 <div class="col-xs-12">
 <div class="table-responsive tabledsxe">
     <table class="table">
       <thead>
         <tr>
-          <th>Id</th>
+          <th>Số đăng ký</th>
           <th>Hãng xe</th>
           <th>Tên xe</th>
           <th>Hình ảnh</th>
-          <th>Số đăng ký</th>
+          
           <th>Màu</th>
           <th>Tài xế</th>
           <th>Số chỗ</th>
@@ -55,21 +60,24 @@
       	@if(isset($allCars))
             @foreach($allCars as $car)
                 <tr>
-                    <td  scope="row">{{ $car->xe_id }}</td>
+                    <td>{{ $car->sodangky_xe }}</td>
                     <td>{{ App\Brand::find($car->hang_id)->hang_name }}</td>
                     <td>{{ $car->ten_xe }}</td>
-                    
                     <td><img class="img img-responsive url_hinhxe" src="{{ url('public/user/images', $car->url_hinhxe) }}" alt="{{ $car->url_hinhxe }}"></td>
-                    <td>{{ $car->sodangky_xe }}</td>
                     <td>{{ $car->color }}</td>
                     @if(isset($car->tai_xe_id))
-                    <td>{{ $car->tai_xe_id }}</td>
+                    <td><a href="{{ url('showtaixe', $car->tai_xe_id )}}">Chi tiết</a></td>
                     @else
                     <td>Chưa có</td>
                     @endif
                     <td>{{ $car->socho_xe }}</td>
                     <td><?php echo date('d/m/Y', strtotime($car->ngaysanxuat)); ?></td>
                     <td><?php echo date('d/m/Y', strtotime($car->ngaydangkiem)); ?></td>
+                    <td>
+                    @if(Auth::user()->terms == 0)
+                      <a href="{{ url('gioxe', $car->xe_id)}}" class="btn btn-success">Đặt thuê</a>
+                    @endif
+                    </td>
                     @if(Auth::user()->terms == 1)
                     <td>
                        <a class="btn btn-default text-right" data-toggle="tooltip" href="{{ url('cars/edit', $car->xe_id ) }}" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>

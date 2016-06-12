@@ -58,7 +58,8 @@
 				       		<table class="table table-bordered">
 							    <thead>
 							      <tr>
-							        <th>Id</th>
+							        <th>Đơn đặt chi tiết Id</th>
+							        <th>Xe id</th>
 							        <th>Xe</th>
 							        <th>Số chỗ</th>
 							        <th>Số biển</th>
@@ -70,6 +71,7 @@
 							    @foreach($dondat[0] as $key => $chitiet)
 							      <tr>
 							        <td>{{ $chitiet['ddct_id']}}</td>
+							        <td>{{ $chitiet['xe_id']}}</td>
 							        <td>{{ $chitiet['hang_id'] }} {{ $chitiet['ten_xe']}}</td>
 							        <td>{{ $chitiet['socho_xe'] }}</td>
 							        <td>{{ $chitiet['sodangky_xe'] }}</td>

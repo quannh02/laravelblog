@@ -50,6 +50,10 @@ class TaiXeController extends Controller
     }
 
    
+    public function showTaixe($id){
+        $tai = TaiXe::findOrFail($id);
+        return view('backend.taixe.show', compact('tai'));
+    }
     public function suataixe($id)
     {
         $tai = TaiXe::where('taixe_id', $id)->get()->first();

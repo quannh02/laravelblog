@@ -17,7 +17,7 @@ class Cars extends Model
     		'color',
     		'ngaysanxuat', 
     		'socho_xe', 
-    		'taixe_xe',
+    		'tai_xe_id',
             'onehundred_eighthour',
             'twohundred_oneday',
             'airport_threehour',

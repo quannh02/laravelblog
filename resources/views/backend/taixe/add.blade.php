@@ -28,14 +28,14 @@
                            	</div>
                             <div class="row">
                               <div class="col-md-2">Bằng lái xe</div>
-                              <div class="form-group col-md-8">
+                              <div class="form-group col-md-4">
                                 <input type="text" class="form-control" name="banglaixe" value="{{ old('banglaixe') }}" placeholder="Nhập bằng lái xe">
                               </div>
                             </div>
                            	<div class="row">
                            		<div class="col-md-2">Sở thích</div>
                            		<div class="form-group col-md-8">
-                           			<input type="text" class="form-control" name="sothich" value="{{ old('sothich') }}" placeholder="Nhập sở thích">
+                           			<textarea class="form-control" name="sothich" placeholder="Nhập sở thích">{{ old('sothich') }}</textarea>
                            		</div>
                            	</div>
 

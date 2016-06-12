@@ -34,10 +34,13 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::get('list/car', ['as' => 'listCarforRent', 'uses' => 'BookingController@getListCar']);
 		Route::post('list/car', 'BookingController@postListCar');
 		
+		Route::get('searchdsxe', 'CarsController@searchdsxe');
+
 		Route::get('datxe', ['as'=>'getdatxe', 'uses'=> 'BookingController@getDatXe']);
 		Route::post('datxe', 'BookingController@postDatXe');
 		Route::get('quanlydondat', 'BookingController@quanlydondat');
 		Route::get('danhsachxe', ['as' => 'danhsachxe', 'uses' => 'CarsController@getAllCars']);
+		Route::get('showtaixe/{id}', 'TaiXeController@showTaixe');
 	});
 	
 	Route::group(['middleware' => ['auth', 'admin']], function(){
@@ -69,7 +72,7 @@ Route::group(['namespace' => 'backend'], function(){
 		Route::post('themtaixe', 'TaiXeController@postthemtaixe');
 		Route::post('xoataixe/{id}', 'TaiXeController@xoataixe');
 		// Route::resource('user', 'UserController');
-		Route::get('searchdsxe', 'CarsController@searchdsxe');
+		
 
 		Route::get('quanlydatxe', 'BookingController@admindondat');
 		Route::post('duyetdondat/{id}', 'BookingController@duyetdondat');
@@ -100,7 +103,7 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::get('brand/{id}', 'CarsController@brandforitem');
 	Route::get('socho/{id}', 'CarsController@socho');
 
-	Route::post('gioxe/{id}', 'CarsController@gioxe');
+	Route::get('gioxe/{id}', 'CarsController@themgioxe');
 	Route::get('gioxe','CarsController@getgioxe');
 	Route::post('huyxe', 'CarsController@deletegioXe');
 

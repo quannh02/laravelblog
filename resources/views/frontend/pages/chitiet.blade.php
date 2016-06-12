@@ -50,11 +50,8 @@
 								    </tbody>
 								  </table>
 								</div>
-										<form method="post" action="{{ url('gioxe', $xe->xe_id) }}">
-			                        	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-			                            <button class="btn btn-success">Đặt thuê</button>
-			                            </form>
-								
+										
+			                            <a href="{{ url('gioxe', $xe->xe_id)}}" class="btn btn-success">Đặt thuê</a>							
 								</div>
 								</div>
 								<h4><a href="index.php">Đánh giá dịch vụ</a></h>

@@ -208,14 +208,13 @@ class CarsController extends Controller
         $q = Input::get('q');
         $cars = Cars::where('ten_xe', 'LIKE','%'.$q.'%')->orWhere('socho_xe','LIKE','%'.$q.'%')->orWhere(
                 function($query) use ($q){
-                    $brands = Brand::where('hang_name', 'LIKE', '%'. $q.'%')->get()->toArray();
-                    //dd($brand);
-                    $hang_id = array();
-                    foreach($brands as $key => $value){
-                        array_push($hang_id, $value['hang_id']);
-                    }
+                    $hang_id = Brand::select('hang_id')->where('hang_name', 'LIKE', '%'. $q.'%')->get()->toArray();
                     $query->whereIn('hang_id', $hang_id);
-                })->get()->toArray();
+                })->orWhere(
+                    function($query) use ($q){
+                        $taixeid = TaiXe::select('taixe_id')->where('tentaixe', 'LIKE' , '%'. $q .'%')->get()->toArray();
+                        $query->whereIn('tai_xe_id', $taixeid);
+                    })->get()->toArray();
         return json_encode($cars);
     }
 }

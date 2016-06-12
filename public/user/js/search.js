@@ -21,13 +21,11 @@ $(function(){
                 output += '<td><img class="img img-responsive url_hinhxe" src="http://localhost:8000/thuexeweb/public/user/images/' + val.url_hinhxe+ '"></td>';
                 output +=  '<td>' + val.sodangky_xe + '</td>';
      			output +=  '<td>' + val.color + '</td>';
-                output += '<td>'  + val.tai_xe_id +'</td>';
+                output += '<td><a href="'+ url + '/showtaixe/' + val.tai_xe_id + '">Chi tiết</a></td>';
                 output += '<td>' + val.socho_xe + '</td>';
                 output += '<td>' + val.ngaysanxuat + '</td>';
                 output += '<td>' + val.ngaydangkiem + '</td>';
-
-                output +=  '<td><a class="btn btn-default text-right" data-toggle="tooltip" href="'+ url + '/cars/edit/' + val.xe_id + '" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>';
-                output +=  '<div class="pull-right"><form accept-charset="UTF-8" action="' + url + '/cars/destroy/' + val.xe_id+ '" method="POST"><button data-container="body" data-original-title="Delete" href="#" data-toggle="tooltip" class="btn btn-danger add-tooltip" type="submit"><i class="fa fa-times"></i></button></form></div></td>';
+                output += '<td><a href="'+ url + '/gioxe/' + val.xe_id + '" class="btn btn-success">Đặt thuê</a></td>';
                 output += '</tr>';
             });
             

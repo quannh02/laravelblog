@@ -27,55 +27,46 @@ class BookingController extends Controller
     public function postListCar(){
         $datepickerDi = Input::get('datepickerDi');
         //dd($datepickerDi); die();
-        // đổi sang dạng YYYY:mm:dd H:i:s
+        
         $MyFunction = new MyFunction;
         $thoigianDi = $MyFunction->changedatetimeformat($datepickerDi);
         //dd($thoigianDi);
         $datepickerVe = Input::get('datepickerVe');
         $thoigianVe = $MyFunction->changedatetimeformat($datepickerVe);
         //dd($thoigianVe); die();
-        $cars_not_in_inner = DB::table('tbl_dondat')
+        $cars_not_in = DB::table('tbl_dondat')
                 ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id', '=', 'tbl_dondatchitiet.don_dat_id')
                 ->select('tbl_dondatchitiet.xe_id')
-                ->where('tbl_dondat.ngaydi', '<=', $thoigianDi)
-                ->where('tbl_dondat.ngayve' , '>=', $thoigianVe)
+                ->where(function($query) use($thoigianDi, $thoigianVe){
+                    $query->where('tbl_dondat.ngaydi', '<=', $thoigianDi)
+                        ->where('tbl_dondat.ngayve' , '>=', $thoigianVe);
+                })
+                ->orWhere(function($query) use($thoigianDi, $thoigianVe){
+                    $query->where('tbl_dondat.ngaydi', '>=', $thoigianDi)
+                        ->where('tbl_dondat.ngaydi' , '<=', $thoigianVe)
+                        ->where('tbl_dondat.ngayve', '>=' , $thoigianVe);
+                })
+                ->orWhere(function($query) use($thoigianDi, $thoigianVe){
+                    $query->where('tbl_dondat.ngaydi', '<=', $thoigianDi)
+                        ->where('tbl_dondat.ngayve' , '<=', $thoigianVe)
+                        ->where('tbl_dondat.ngayve', '>=' , $thoigianDi);
+                })
+                ->orWhere(function($query) use($thoigianDi, $thoigianVe){
+                    $query->where('tbl_dondat.ngaydi', '>=', $thoigianDi)
+                        ->where('tbl_dondat.ngayve' , '<=', $thoigianVe);
+                })
                 ->get();
-
-        $cars_not_in_lower = DB::table('tbl_dondat')
-                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id' , '=', 'tbl_dondatchitiet.don_dat_id')
-                ->select('tbl_dondatchitiet.xe_id')
-                ->where('tbl_dondat.ngaydi', '>=', $thoigianDi)
-                ->where('tbl_dondat.ngaydi' , '<=', $thoigianVe)
-                ->where('tbl_dondat.ngayve', '>=' , $thoigianVe)
-                ->get();
-
-        $cars_not_in_higher = DB::table('tbl_dondat')
-                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id' , '=', 'tbl_dondatchitiet.don_dat_id')
-                ->select('tbl_dondatchitiet.xe_id')
-                ->where('tbl_dondat.ngaydi', '<=', $thoigianDi)
-                ->where('tbl_dondat.ngayve' , '<=', $thoigianVe)
-                ->where('tbl_dondat.ngayve', '>=' , $thoigianDi)
-                ->get();      
-
-        $cars_not_in_outer = DB::table('tbl_dondat')
-                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id' , '=', 'tbl_dondatchitiet.don_dat_id')
-                ->select('tbl_dondatchitiet.xe_id')
-                ->where('tbl_dondat.ngaydi', '>=', $thoigianDi)
-                ->where('tbl_dondat.ngayve' , '<=', $thoigianVe)
-                ->get();
-        
-        $cars_not_in = array_merge($cars_not_in_inner, $cars_not_in_outer, $cars_not_in_higher, $cars_not_in_lower);
-        // đổi array object cars thành array cars
-        
+        //dd($cars_not_in); die();
         $array_car_not_in = array();
         foreach($cars_not_in as $key => $value){
             array_push($array_car_not_in, $value->xe_id);
         }
         // đổi xong
-        //dd($cars_not_in); die();
+        dd($array_car_not_in); die();
         //dd($cars_not_in[0]); die();
         $data = DB::table('tbl_xe')
-                ->select('tbl_xe.hang_xe', 'tbl_xe.sodangky_xe')
+                ->join('tbl_hang','tbl_xe.hang_id', '=' , 'tbl_hang.hang_id')
+                ->select('tbl_hang.hang_name','tbl_xe.xe_id', 'tbl_xe.sodangky_xe', 'tbl_xe.ten_xe', 'tbl_xe.url_hinhxe')
                 ->whereNotIn('tbl_xe.xe_id', $array_car_not_in)->orderBy('xe_id', 'asc')
                 ->get();
         return view('backend.booking.booking', compact('data', 'datepickerDi', 'datepickerVe'));

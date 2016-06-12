@@ -165,7 +165,7 @@ class CarsController extends Controller
         ));
     }
 
-    public function gioxe($id){
+    public function themgioxe($id){
         $xe = Cars::where('xe_id', $id)->get()->first();
         $index = -1;
             if(Session::has('datxe')) {
