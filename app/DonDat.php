@@ -16,6 +16,9 @@ class DonDat extends Model
     	'ngaydi', 
     	'ngayve'
     ];
+    public function xe(){
+        return $this->hasOne('App\Cars');
+    }
     public function dondatchitiet()
     {
         return $this->hasMany('App\DonDatCT');

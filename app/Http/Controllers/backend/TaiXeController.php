@@ -10,6 +10,7 @@ use App\TaiXe;
 use Input;
 use App\MyFunction;
 use App\Cars;
+use App\Http\Requests\TaiXeRequest;
 
 class TaiXeController extends Controller
 {
@@ -37,13 +38,14 @@ class TaiXeController extends Controller
         return view('backend.taixe.add');
     }
 
-    public function postthemtaixe()
+    public function postthemtaixe(TaiXeRequest $request)
     {
         $taixe = new TaiXe;
-        $taixe->tentaixe = Input::get('tentaixe');
-        $taixe->ngaysinh = Input::get('ngaysinh');
-        $taixe->banglaixe = Input::get('banglaixe');
-        $taixe->sothich = Input::get('sothich');
+        $taixe->tentaixe = $request->tentaixe;
+        $taixe->ngaysinh = $request->ngaysinh;
+        $taixe->banglaixe = $request->banglaixe;
+        $taixe->sothich = $request->sothich;
+        $taixe->sodienthoai = $request->sodienthoai;
         $taixe->save();
         return redirect()->route('dstaixe');
 

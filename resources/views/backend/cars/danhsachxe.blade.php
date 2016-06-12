@@ -53,7 +53,7 @@
           <th>Số chỗ</th>
           <th>Ngày sản xuất</th>
           <th>Ngày đăng kiểm</th>
-          <th>Actions</th>
+          <th>{{ (Auth::user()->terms == 1) ? 'Sửa, xóa' : 'Đặt thuê'}}</th>
         </tr>
       </thead>
       <tbody>
@@ -73,11 +73,13 @@
                     <td>{{ $car->socho_xe }}</td>
                     <td><?php echo date('d/m/Y', strtotime($car->ngaysanxuat)); ?></td>
                     <td><?php echo date('d/m/Y', strtotime($car->ngaydangkiem)); ?></td>
-                    <td>
+                    
                     @if(Auth::user()->terms == 0)
+                    <td>
                       <a href="{{ url('gioxe', $car->xe_id)}}" class="btn btn-success">Đặt thuê</a>
-                    @endif
                     </td>
+                    @endif
+                    
                     @if(Auth::user()->terms == 1)
                     <td>
                        <a class="btn btn-default text-right" data-toggle="tooltip" href="{{ url('cars/edit', $car->xe_id ) }}" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>

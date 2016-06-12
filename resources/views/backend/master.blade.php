@@ -62,7 +62,7 @@
               <li class=""><a href="{{ url('quanlydondat') }}"><i class="fa fa-cube fa-fw"></i>Quản lý đặt xe</a></li>
               @endif
               @if(Auth::user()->terms == 1)
-              <li class=""><a href="{{ url('danhmuc') }}"><i class="fa fa-car" aria-hidden="true"></i>Quản lý danh mục</a></li>
+              <li class=""><a href="{{ url('danhmuc') }}"><i class="fa fa-car" aria-hidden="true"></i>Quản lý hãng</a></li>
               <li class=""><a href="{{ url('danhsachxe') }}"><i class="fa fa-car" aria-hidden="true"></i>Quản lý xe</a></li>
               <li class=""><a href="{{ url('quanlydatxe')}}"><i class="fa fa-book"></i>Quản lý đặt xe</a></li>
               <li class=""><a href="{{ url('dstaixe') }}"><i class="fa fa-male" aria-hidden="true"></i></i>Quản lý tài xế</a></li>

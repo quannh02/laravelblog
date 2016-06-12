@@ -15,10 +15,22 @@ use App\User;
 use Auth;
 use Session;
 use App\Http\Requests\DatXeRequest;
+use App\Brand;
+use App\Cars;
+use App\TinTuc;
 
 class BookingController extends Controller
 {
     
+
+    protected $brands;
+    protected $sochoxe;
+    protected $tintucs;
+    public function __construct(){
+        $this->brands = Brand::all();
+        $this->sochoxe = Cars::select('socho_xe')->distinct()->orderBy('socho_xe','asc')->get();
+        $this->tintucs = TinTuc::select('id', 'tieude', 'noidung')->orderBy('id', 'desc')->take(5)->get();
+    }
 
     public function getListCar(){
         return view('backend.booking.booking');
@@ -74,8 +86,15 @@ class BookingController extends Controller
     }
 
     public function getDatXe(){
+        if(Session::has('datxe')){
         $user = User::where('nguoidung_id', Auth::user()->nguoidung_id)->get()->first();
         return view('backend.booking.datxe', compact('user'));
+        } else {
+            $brands = $this->brands;
+            $socho = $this->sochoxe;
+            $tintucs = $this->tintucs;
+            return view('frontend.pages.dsdat', compact('brands','socho', 'tintucs'))->with('flash_message', 'Bạn chưa đặt xe nào!');
+        }
 
     }
     
@@ -109,13 +128,12 @@ class BookingController extends Controller
             'ngayve'  => $ngayve
             ]);
         $user->dondat()->save($datxe);
-        if(Session::has('datxe')){
-            foreach(Session::get('datxe') as $key => $value){
-                    $dondatchitiet = new DonDatCT([
-                        'xe_id' => $value['id']
-                        ]);
-                    $datxe->dondatchitiet()->save($dondatchitiet);
-                }
+        
+        foreach(Session::get('datxe') as $key => $value){
+            $dondatchitiet = new DonDatCT([
+                    'xe_id' => $value['id']
+                ]);
+            $datxe->dondatchitiet()->save($dondatchitiet);
         }
         Session::forget('datxe');
         return redirect('quanlydondat');
@@ -128,26 +146,21 @@ class BookingController extends Controller
             $dondatchitiets = DonDatCT::where('don_dat_id', '=' , $dondat['dondat_id'])
                 ->join('tbl_xe', 'tbl_xe.xe_id' , '=' , 'tbl_dondatchitiet.xe_id')
                 ->join('tbl_taixe' , 'tbl_xe.tai_xe_id' , '=' , 'tbl_taixe.taixe_id')
+                ->join('tbl_hang', 'tbl_hang.hang_id', '=' , 'tbl_xe.hang_id')
                 ->get()->toArray();
             //dd($dondatchitiets); die();
             
             array_push($dondats[$key], $dondatchitiets);
         }
         //dd($dondats); die();
-        return view('backend.booking.dondat',compact('dondats'));
+        return view('backend.booking.dondatmember',compact('dondats'));
     }
 
     public function admindondat(){ // quan ly danh sach dat xe cua admin
-        $dondats = DonDat::orderBy('dondat_id', 'desc')->get()->toArray();
-        foreach($dondats as $key => $dondat){
-            $dondatchitiets = DonDatCT::where('don_dat_id', '=' , $dondat['dondat_id'])
-                ->join('tbl_xe', 'tbl_xe.xe_id' , '=' , 'tbl_dondatchitiet.xe_id')
-                ->join('tbl_taixe' , 'tbl_xe.tai_xe_id' , '=' , 'tbl_taixe.taixe_id')
-                ->get()->toArray();
-            //dd($dondatchitiets); die();
-            
-            array_push($dondats[$key], $dondatchitiets);
-        }
+        $dondats = DB::table('tbl_dondat')
+            ->join('tbl_nguoidung', 'tbl_dondat.user_id', '=', 'tbl_nguoidung.nguoidung_id')
+            ->orderBy('tbl_dondat.dondat_id', 'asc')
+            ->get();
         return view('backend.booking.dondat', compact('dondats'));
     }
 
@@ -162,6 +175,13 @@ class BookingController extends Controller
         //dd($nguoidung);
         return view('backend.booking.chitietnguoidung', compact('nguoidung'));
     }
-    
+    public function chitietdondat($id){
+        $chitiets = DB::table('tbl_dondatchitiet')
+            ->join('tbl_xe', 'tbl_dondatchitiet.xe_id', '=', 'tbl_xe.xe_id')
+            ->join('tbl_hang', 'tbl_hang.hang_id', '=' , 'tbl_xe.hang_id')
+            ->join('tbl_taixe', 'tbl_xe.tai_xe_id', '=', 'tbl_taixe.taixe_id')
+            ->get();
+            return view('backend.booking.chitietdondat', compact('chitiets'));
+    }
     
 }

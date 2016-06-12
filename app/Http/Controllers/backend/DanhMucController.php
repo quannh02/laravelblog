@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\HangXeRequest;
 use App\Brand;
 use Input;
 class DanhMucController extends Controller
@@ -18,9 +19,9 @@ class DanhMucController extends Controller
     public function getthemdanhmuc(){
         return view('backend.brand.them');
     }
-    public function postthemdanhmuc(){
+    public function postthemdanhmuc(HangXeRequest $request){
         $brand = new Brand;
-        $brand->hang_name = Input::get('hang_name');
+        $brand->hang_name = $request->hang_name;
         $brand->save();
         return redirect('danhmuc');
     }
@@ -28,9 +29,9 @@ class DanhMucController extends Controller
         $brand = Brand::findOrFail($id);
         return view('backend.brand.sua', compact('brand'));
     }
-    public function postsuadanhmuc($id){
+    public function postsuadanhmuc($id, HangXeRequest $request){
         $brand = Brand::findOrFail($id);
-        $brand->hang_name = Input::get('hang_name');
+        $brand->hang_name = $request->hang_name;
         $brand->save();
         return redirect('danhmuc');
     }

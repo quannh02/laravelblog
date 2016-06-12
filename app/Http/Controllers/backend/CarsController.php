@@ -206,15 +206,23 @@ class CarsController extends Controller
     }
     public function searchdsxe(){
         $q = Input::get('q');
-        $cars = Cars::where('ten_xe', 'LIKE','%'.$q.'%')->orWhere('socho_xe','LIKE','%'.$q.'%')->orWhere(
-                function($query) use ($q){
-                    $hang_id = Brand::select('hang_id')->where('hang_name', 'LIKE', '%'. $q.'%')->get()->toArray();
-                    $query->whereIn('hang_id', $hang_id);
-                })->orWhere(
-                    function($query) use ($q){
-                        $taixeid = TaiXe::select('taixe_id')->where('tentaixe', 'LIKE' , '%'. $q .'%')->get()->toArray();
-                        $query->whereIn('tai_xe_id', $taixeid);
-                    })->get()->toArray();
+        DB::connection()->setFetchMode(\PDO::FETCH_ASSOC);
+        $cars = DB::table('tbl_xe')
+            ->join('tbl_hang', 'tbl_hang.hang_id', '=', 'tbl_xe.hang_id')
+            ->join('tbl_taixe', 'tbl_taixe.taixe_id', '=', 'tbl_xe.tai_xe_id')
+            ->where('tbl_hang.hang_name', 'LIKE', '%'.$q.'%')
+            ->orWhere('tbl_xe.ten_xe', 'LIKE', '%'.$q.'%')
+            ->orWhere('tbl_taixe.tentaixe', 'LIKE', '%'.$q.'%')
+            ->get();
+        // $cars = Cars::with('taixe','brand')->where('ten_xe', 'LIKE','%'.$q.'%')->orWhere('socho_xe','LIKE','%'.$q.'%')->orWhere(
+        //         function($query) use ($q){
+        //             $hang_id = Brand::select('hang_id')->where('hang_name', 'LIKE', '%'. $q.'%')->get()->toArray();
+        //             $query->whereIn('hang_id', $hang_id);
+        //         })->orWhere(
+        //             function($query) use ($q){
+        //                 $taixeid = TaiXe::select('taixe_id')->where('tentaixe', 'LIKE' , '%'. $q .'%')->get()->toArray();
+        //                 $query->whereIn('tai_xe_id', $taixeid);
+        //             })->get()->toArray();
         return json_encode($cars);
     }
 }

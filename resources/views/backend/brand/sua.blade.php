@@ -10,6 +10,9 @@
                             {{ csrf_field()}}
                             <div class="form-group">
                                 <label>Tên danh mục</label>
+                                 @if ($errors->has('hang_name'))
+                                    <span class="error">{{ $errors->first('hang_name') }}</span>
+                                @endif
                                 <input class="form-control" name="hang_name" value="{{ $brand->hang_name }}" placeholder="Nhập danh mục" />
                             </div>
                             

@@ -7,6 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\ProfileRequest;
 use Auth;
 use Input;
 use Hash;
@@ -39,22 +41,16 @@ class AuthController extends Controller
     public function getRegister(){
         return view('backend.auth.register');
     }
-    public function postRegister(){
-        $validator = Validator::make(Input::all(), User::$rules, User::$messages);
-        if($validator->fails()){
-        $messages = $validator->messages();
-        return redirect()->route('backend.getRegister')->withErrors($validator);
-        } else {
+    public function postRegister(RegisterRequest $request){
             $newUser = new User;
-            $newUser->tendaydu = Input::get('name');
-            $newUser->email    = Input::get('email');
-            $newUser->password = Hash::make(Input::get('password'));
-            $newUser->remember_token = Input::get('_token');
+            $newUser->tendaydu = $request->name;
+            $newUser->email    = $request->email;
+            $newUser->password = Hash::make($request->password);
+            $newUser->remember_token = $request->_token;
             $newUser->save();
             Session::flash('message', 'Đăng ký thành công!'); 
             Session::flash('alert-class', 'alert-success'); 
             return redirect()->route('backend.getLogin');
-        }
     }
     public function getLogin(){
         if(isset(Auth::user()->nguoidung_id)){
@@ -102,14 +98,14 @@ class AuthController extends Controller
         $data = User::findOrFail($id);
         return view('backend.user.profile', compact('data'));
     }
-    public function postProfile($id){
+    public function postProfile($id, ProfileRequest $request){
         $data = User::findOrFail($id);
-        $data->tendaydu = Input::get('txtName');
-        $data->sodienthoai = Input::get('txtSoDienThoai');
-        $data->tencongty = Input::get('txtTenCongTy');
-        $data->masothue = Input::get('txtMaSoThue');
+        $data->tendaydu = $request->txtName;
+        $data->sodienthoai = $request->txtSoDienThoai;
+        $data->tencongty = $request->txtTenCongTy;
+        $data->masothue = $request->txtMaSoThue;
         //$data->customer_type = Input::get('customertype');
-        $data->diachi = Input::get('txtAddress');
+        $data->diachi = $request->txtAddress;
         // $address = new CustomerAddress([
         //         'address' => Input::get('txtAddress')
         //     ]);

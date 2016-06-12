@@ -5,42 +5,35 @@
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
-                    <div class="col-lg-7" style="padding-bottom:120px">
-                        @if(count($errors) > 0)
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                        <li>{!! $error !!}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                        @if(Session::has('flash_message'))
-                            <div class="alert alert-{{ Session::get('flash_level')}}">{{ Session::get('flash_message') }}</div>
-                        @endif
+                    <div class="col-md-12" style="padding-bottom:120px">
+                        
                         <form action="{{ url('profile', $data->nguoidung_id) }}" method="POST">
                             {!! csrf_field() !!}
                             <div class="form-group">
-                                <div class="col-xs-5">
+                                <div class="col-md-4">
                                     <label>Tên đầy đủ</label>
                                     <input type="text" class="form-control" name="txtName" value="{{ $data->tendaydu }}" placeholder="Nhập họ tên" />
                                 </div>
-                                <div class="col-xs-3">
+                                <div class="col-md-4">
+
                                     <label>Số điện thoại</label>
+                                    @if ($errors->has('txtSoDienThoai'))
+                                  <span class="error">{{ $errors->first('txtSoDienThoai') }}</span>
+                                    @endif
                                     <input type="text" class="form-control" name="txtSoDienThoai" value="{{ $data->sodienthoai }}" placeholder="Nhập số điện thoại" />
                                 </div>
-                                <div class="col-xs-4">
+                                <div class="col-md-4">
                                     <label>Mã số thuế công ty</label>
                                     <input type="text" class="form-control" name="txtMaSoThue" value="{{ $data->masothue }}" placeholder="Nhập mã số thuế" />
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-12">
                                 <label>Address</label>
-                                <input type="text" class="form-control" name="txtAddress" value="{{ $data->diachi }}" placeholder="Nhập địa chỉ" />
+                                <textarea type="text" class="form-control" name="txtAddress" placeholder="Nhập địa chỉ" >{{ $data->diachi }}</textarea> 
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-12">
                                 <label>Tên công ty:</label>
-                                <input type="text" class="form-control" name="txtTenCongTy" value="{{ $data->tencongty }}" placeholder="Nhập tên công ty" />
+                                <textarea type="text" class="form-control" name="txtTenCongTy" placeholder="Nhập tên công ty" >{{ $data->tencongty }}</textarea>
                             </div>
                            <!--  <input type="hidden" id="radioValueForCheck" value="{{ $data->customer_type }}">
                             <div class="radio">
@@ -49,7 +42,7 @@
 								<div class="radio">
 		  						<label><input id="khachCT" type="radio" value="1" name="customertype">Khách công ty</label>
 							</div> -->
-                            <button type="submit" class="btn btn-default">Profile Update</button>
+                            <button type="submit" class="btn btn-success">Profile Update</button>
                                 <form>
                     </div>
                 </div>

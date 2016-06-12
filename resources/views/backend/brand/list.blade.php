@@ -10,7 +10,6 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
-                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Sửa/Xóa</th>
                             </tr>
@@ -18,7 +17,6 @@
                         <tbody>
                         @foreach($brands as $brand)
                             <tr class="odd gradeX" align="center">
-                                <td>{{ $brand->hang_id }}</td>
                                 <td>{{ $brand->hang_name }}</td>
                                 @if(Auth::user()->terms == 1)
                                 <td>
