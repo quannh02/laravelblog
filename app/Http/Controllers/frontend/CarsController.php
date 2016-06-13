@@ -93,6 +93,20 @@ class CarsController extends Controller
     }
 
     public function postVote($id){
+        if(Session::has('votexe')){
+            $updateVote = Vote::select('sovotes', 'tongdiem')->where('cars_id', $id)->get()->first();
+            $roundVote = round(($updateVote->tongdiem/$updateVote->sovotes), 1);
+            $arrayForVoting = array(
+            'votes' => $updateVote->sovotes,
+            'points' => $updateVote->tongdiem,
+            'roundVote'=> $roundVote
+            );
+
+        //dd($roundVote); die();
+        //dd($updateVote); die();
+            return json_encode($arrayForVoting);
+        } else {
+        Session::push('votexe', 'Bạn đã vote');
         $point = Input::get('point');
         //dd($point); die();
         $vote_id = Vote::select('id')->where('cars_id', $id)->get()->first();
@@ -114,6 +128,7 @@ class CarsController extends Controller
         //dd($roundVote); die();
         //dd($updateVote); die();
         return json_encode($arrayForVoting);
+        }
     }
     
     public function getChiTiet($id){

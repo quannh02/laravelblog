@@ -1,4 +1,19 @@
 $(document).ready(function(){
+	$(window).scroll(function(){
+		if($(this).scrollTop()> 50){
+			$('#back-to-top').fadeIn();
+		} else {
+			$('#back-to-top').fadeOut();
+		}
+	});
+	$('#back-to-top').click(function(){
+		$('#back-to-top').tooltip('hide');
+		$('body, html').animate({
+			scrollTop: 0
+		}, 500);
+		return false;
+	});
+	$('#back-to-top').tooltip('show');
 // 	var url = "/thuexeweb";
 // 	$(".select_b_search_tinh").change(function() {
 //    		var tid = $(this).find("option:selected").val();

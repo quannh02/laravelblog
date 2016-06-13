@@ -61,6 +61,7 @@
 								<div class="barra">
 									<span class="bg"></span>
 									<span class="stars">
+								
 								<?php for($i=1; $i<=5; $i++):?>
 
 
@@ -70,6 +71,7 @@
 								<?php 
 									endfor;
 								?>
+							
 								</span></div><p class="votes"><span>{{ $vote_id->sovotes }}</span> votes</p>
 								</div></div>
 								@if(isset(Auth::user()->nguoidung_id))
