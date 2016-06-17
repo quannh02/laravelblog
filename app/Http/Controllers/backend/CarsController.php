@@ -34,7 +34,7 @@ class CarsController extends Controller
             //echo $soNgayConLaiDeDangKiem . ' ';
             if($soNgayConLaiDeDangKiem < 10){
                 array_push($carChamdangkiem, array(
-                    'xe_id' => $car->xe_id,
+                    'sodangky_xe' => $car->sodangky_xe,
                     'ngayconlai' => $soNgayConLaiDeDangKiem
                     ));
             }
@@ -73,7 +73,8 @@ class CarsController extends Controller
         $car = new Cars;
         $car->hang_id      = $request->hang_name;
         $car->ten_xe       = $request->ten_xe;
-        $car->giamuaxe     = $request->giamuaxe;
+        $car->giamuaxe     = str_replace('.', '', $request->giamuaxe);
+        //dd($car->giamuaxe); die();
         $car->sodangky_xe  = $request->sodangky_xe;
         $car->color        = $request->color;
         $car->socho_xe     = $request->socho_xe;

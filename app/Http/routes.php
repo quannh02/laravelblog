@@ -101,12 +101,12 @@ Route::group(['namespace' => 'frontend'], function(){
 
 	Route::post('binhluan/{id}/{xe_id}', 'BinhLuanController@binhluan');
 
-	Route::get('brand/{id}', 'CarsController@brandforitem');
+	Route::get('brand/{id}', 'CarsController@getCarHang');
 	Route::get('socho/{id}', 'CarsController@socho');
 
 	Route::get('gioxe/{id}', 'CarsController@themgioxe');
 	Route::get('gioxe','CarsController@getgioxe');
-	Route::post('huyxe', 'CarsController@deletegioXe');
+	Route::post('huyxe', 'CarsController@delete');
 
 	Route::get('banggia', 'CarsController@bangGia');
 	Route::get('welcome/{locale}', function ($locale) {

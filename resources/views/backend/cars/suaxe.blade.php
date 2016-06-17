@@ -52,7 +52,7 @@
                                 @endif
                            		<div class="col-md-2">Giá mua xe</div>
                            		<div class="form-group col-md-4">
-                           			<input type="text" class="form-control" name="giamuaxe" value="{{ $data->giamuaxe }}" placeholder="Nhập giá xe">
+                           			<input type="number" class="form-control" name="giamuaxe" value="{{ $data->giamuaxe }}" placeholder="Nhập giá xe">
                            		</div>
                            	</div>
                             <div class="row imagesize">

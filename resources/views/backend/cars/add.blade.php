@@ -55,7 +55,7 @@
                               @if ($errors->has('giamuaxe'))
                                   <span class="error">{{ $errors->first('giamuaxe') }}</span>
                                 @endif
-                                <input type="text" class="form-control" name="giamuaxe" value="" placeholder="Nhập giá xe">
+                                <input type="text" id="giamuaxe" class="form-control" name="giamuaxe" value="" placeholder="Nhập giá xe">
                               </div>
                             </div>
                             <div class="row">

@@ -54,7 +54,7 @@ class CarsController extends Controller
     }
 
 
-    public function brandforitem($id){
+    public function getCarHang($id){
         $brands = $this->brands;
         $socho = $this->sochoxe;
         //dd($brands); die();
@@ -227,7 +227,7 @@ class CarsController extends Controller
         $tintucs = $this->tintucs;
         return view('frontend.pages.dsdat', compact('brands', 'socho', 'tintucs'));
     }
-    public function deletegioXe(){
+    public function delete(){
         Session::forget('datxe');
         return redirect('gioxe');
     }

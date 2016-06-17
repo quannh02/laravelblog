@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2016 at 10:07 PM
+-- Generation Time: Jun 17, 2016 at 05:09 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `tbl_hang` (
   `hang_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tbl_hang`
@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `tbl_nguoidung` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `gioitinh` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `diachi` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `sodienthoai` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sodienthoai` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `tencongty` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `masothue` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
@@ -179,8 +179,8 @@ CREATE TABLE IF NOT EXISTS `tbl_nguoidung` (
 --
 
 INSERT INTO `tbl_nguoidung` (`nguoidung_id`, `tendaydu`, `email`, `gioitinh`, `diachi`, `sodienthoai`, `tencongty`, `masothue`, `password`, `terms`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Nguyễn Hồng Quân', 'quannh02@wru.vn', 'Nam', '175 Tây Sơn', '01677665526', 'QuanBus', '2126478', '$2y$10$fZqIGerdjwvduFy0Ulomm.znMbxFEjOMxTmyvJmx.DO0FIdDpciUu', 1, 'b5UHGM902x67Uw74Gdn8uXP4lkzK3zCX3XG5B4RBg6oS2R41Opwvr2GjtzTG', '2016-05-19 10:52:00', '2016-06-12 11:43:47'),
-(3, 'Nguyễn Văn Bằng', 'bangbang@gmail.com', 'Nam', '175 Tây sơn- Đống Đa - Hà Nội', '0912445346', 'TNHH Công nghệ dệt may Hải Hà', '235245346', '$2y$10$XlqMKlGaoIURBNG9gFg2AuexEG3dEsDpfg5e.3vkoTprQYZu6lb.O', 0, 'UNwQrNFYxJAOf9cIBOqWPdFLfuU9KpRU2Y9aqvPoEKVn3YAY80TV12JYH8lQ', '2016-05-23 00:52:03', '2016-06-12 09:41:46');
+(2, 'Nguyễn Hồng Quân', 'quannh02@wru.vn', 'Nam', '175 Tây Sơn', '01677665526', 'QuanBus', '2126478', '$2y$10$fZqIGerdjwvduFy0Ulomm.znMbxFEjOMxTmyvJmx.DO0FIdDpciUu', 1, 'CLhNJd56StTvHQ5W2Ea65pX7qUvlDeDNT43E14GWJZQtUq1RfIcFpN6dtxWx', '2016-05-19 10:52:00', '2016-06-16 08:16:29'),
+(3, 'Nguyễn Văn Bằng', 'bangbang@gmail.com', 'Nam', '175 Tây sơn- Đống Đa - Hà Nội', '0912445346', 'TNHH Công nghệ dệt may Hải Hà', '235245346', '$2y$10$XlqMKlGaoIURBNG9gFg2AuexEG3dEsDpfg5e.3vkoTprQYZu6lb.O', 0, 'BelId1zbbQOpiGhqKrVuKEO3vTlGWRMU6WtCCR3H9Z6vHxoD2T7BtnoxnPN6', '2016-05-23 00:52:03', '2016-06-15 04:26:23');
 
 -- --------------------------------------------------------
 
@@ -193,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `tbl_taixe` (
   `tentaixe` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `banglaixe` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `ngaysinh` datetime NOT NULL,
-  `sothich` text COLLATE utf8_unicode_ci NOT NULL,
+  `sothich` text COLLATE utf8_unicode_ci,
   `sodienthoai` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
@@ -252,7 +252,7 @@ CREATE TABLE IF NOT EXISTS `tbl_vote` (
   `tongdiem` int(10) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tbl_vote`
@@ -263,7 +263,7 @@ INSERT INTO `tbl_vote` (`id`, `cars_id`, `sovotes`, `tongdiem`, `created_at`, `u
 (2, 2, 5, 22, '2016-05-21 05:00:00', '2016-05-21 09:52:10'),
 (3, 3, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (6, 6, 2, 9, '0000-00-00 00:00:00', '2016-05-21 10:35:11'),
-(7, 11, 20, 78, '2016-05-21 09:10:33', '2016-06-03 10:23:34'),
+(7, 11, 26, 108, '2016-05-21 09:10:33', '2016-06-15 04:45:12'),
 (8, 6, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (9, 7, 4, 19, '0000-00-00 00:00:00', '2016-05-21 10:36:19'),
 (10, 8, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -284,7 +284,8 @@ INSERT INTO `tbl_vote` (`id`, `cars_id`, `sovotes`, `tongdiem`, `created_at`, `u
 (25, 24, 0, 0, '2016-06-08 00:20:00', '2016-06-08 00:20:00'),
 (26, 25, 0, 0, '2016-06-08 00:22:06', '2016-06-08 00:22:06'),
 (27, 23, 0, 0, '2016-06-10 15:00:15', '2016-06-10 15:00:15'),
-(28, 23, 0, 0, '2016-06-11 13:23:35', '2016-06-11 13:23:35');
+(28, 23, 0, 0, '2016-06-11 13:23:35', '2016-06-11 13:23:35'),
+(29, 24, 0, 0, '2016-06-16 16:25:18', '2016-06-16 16:25:18');
 
 -- --------------------------------------------------------
 
@@ -296,12 +297,12 @@ CREATE TABLE IF NOT EXISTS `tbl_xe` (
   `xe_id` int(10) unsigned NOT NULL,
   `hang_id` int(11) NOT NULL,
   `ten_xe` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `giamuaxe` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `giamuaxe` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `url_hinhxe` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sodangky_xe` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `color` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `socho_xe` int(10) unsigned NOT NULL,
-  `tai_xe_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tai_xe_id` int(11) unsigned DEFAULT NULL,
   `ngaysanxuat` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `ngaydangkiem` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `gianoithanh` int(11) NOT NULL,
@@ -318,16 +319,16 @@ CREATE TABLE IF NOT EXISTS `tbl_xe` (
 --
 
 INSERT INTO `tbl_xe` (`xe_id`, `hang_id`, `ten_xe`, `giamuaxe`, `url_hinhxe`, `sodangky_xe`, `color`, `socho_xe`, `tai_xe_id`, `ngaysanxuat`, `ngaydangkiem`, `gianoithanh`, `giaduongdai`, `giasanbay`, `giathuethang`, `giangoaigio`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Universe', '330000000', 'Huyndai Universe.jpg', '30A-243245', 'Vàng', 45, '10', '2015-05-14 05:00:00', '2016-05-17 05:00:00', 2000000, 15000, 1500000, 30000000, 120000, '2016-04-13 17:00:00', '2016-06-08 06:34:34'),
-(2, 1, 'Universe', '2000000000', 'Huyndai Universe.jpg', '30A-243244', 'Vàng', 45, '5', '2014-12-16 17:00:00', '2015-12-13 17:00:00', 2000000, 14000, 1600000, 31000000, 120000, '2016-04-12 01:00:00', '2016-06-08 06:41:10'),
-(6, 1, 'Aero High Class', '300000', 'Xe Hyundai  High Class -300x200.png', '30A-23328', 'Vàng', 35, '3', '2013-06-16 17:00:00', '2016-05-14 17:00:00', 2100000, 15000, 1500000, 31000000, 120000, '2016-05-02 02:52:55', '2016-06-08 06:41:39'),
-(7, 1, 'Aero High Class', '6999878', 'hyundai-high class 45-xanh-trang.jpg', '30A-32527', 'Xanh Đỏ Trắng', 45, '4', '2016-05-08 17:00:00', '2016-02-13 17:00:00', 2100000, 14000, 1400000, 30000000, 110000, '2016-05-02 04:04:27', '2016-06-08 06:42:26'),
-(8, 1, 'Aero High Class', '5000000', 'hyundai-high class 45-xanh-trang.jpg', '30A-32784', 'Xanh la cay', 45, '2', '2014-09-15 17:00:00', '2016-01-10 17:00:00', 1900000, 13000, 1400000, 29000000, 100000, '2016-05-03 05:28:37', '2016-06-08 06:44:03'),
-(9, 1, 'Aero High Class', '1600000000', 'hyundai-high class 45-xanh-trang.jpg', '30A-3333', 'trắng ', 45, '1', '2014-08-11 17:00:00', '2016-02-21 17:00:00', 2100000, 15000, 1400000, 29000000, 110000, '2016-05-20 02:41:22', '2016-06-08 06:45:07'),
-(11, 1, 'Universe', '300000000', 'autowp.ru_hyundai_universe_xpress_noble_1.jpg', '30A-3333', 'trang', 45, '7', '2014-07-16 17:00:00', '2015-12-17 17:00:00', 2000000, 14000, 1400000, 29000000, 120000, '2016-05-21 09:10:33', '2016-06-08 06:48:20'),
-(12, 1, 'Aero Town', '150000000', 'xe-huyndai-aero-town-35-cho-04_01.jpg', '30A-7878', 'trắng', 35, '9', '2015-06-15 17:00:00', '2016-02-14 17:00:00', 1900000, 13000, 1400000, 29000000, 110000, '2016-05-21 21:52:20', '2016-06-08 06:49:28'),
-(13, 3, 'Vios', '110000000', 'xe-toyota-vios1.jpg', '30A-3888', 'Xám', 4, '6', '2014-08-11 17:00:00', '2016-04-10 17:00:00', 900000, 5000, 500000, 20000000, 40000, '2016-05-23 07:15:24', '2016-06-08 06:55:47'),
-(14, 4, 'Sunny', '120000000', 'nissan-sunny.jpg', '30B-1111', 'Xám', 4, '11', '2014-05-13 17:00:00', '2016-03-07 17:00:00', 900000, 6000, 500000, 21000000, 50000, '2016-05-23 07:16:58', '2016-06-08 06:58:49'),
+(1, 1, 'Universe', '330000000', 'Huyndai Universe.jpg', '30A-243245', 'Vàng', 45, 10, '2015-05-14 05:00:00', '2016-05-17 05:00:00', 2000000, 15000, 1500000, 30000000, 120000, '2016-04-13 17:00:00', '2016-06-08 06:34:34'),
+(2, 1, 'Universe', '2000000000', 'Huyndai Universe.jpg', '30A-243244', 'Vàng', 45, 5, '2014-12-16 17:00:00', '2015-12-13 17:00:00', 2000000, 14000, 1600000, 31000000, 120000, '2016-04-12 01:00:00', '2016-06-08 06:41:10'),
+(6, 1, 'Aero High Class', '300000', 'Xe Hyundai  High Class -300x200.png', '30A-23328', 'Vàng', 35, 3, '2013-06-16 17:00:00', '2016-05-14 17:00:00', 2100000, 15000, 1500000, 31000000, 120000, '2016-05-02 02:52:55', '2016-06-08 06:41:39'),
+(7, 1, 'Aero High Class', '6999878', 'hyundai-high class 45-xanh-trang.jpg', '30A-32527', 'Xanh Đỏ Trắng', 45, 4, '2016-05-08 17:00:00', '2016-02-13 17:00:00', 2100000, 14000, 1400000, 30000000, 110000, '2016-05-02 04:04:27', '2016-06-08 06:42:26'),
+(8, 1, 'Aero High Class', '5000000', 'hyundai-high class 45-xanh-trang.jpg', '30A-32784', 'Xanh la cay', 45, 2, '2014-09-15 17:00:00', '2016-01-10 17:00:00', 1900000, 13000, 1400000, 29000000, 100000, '2016-05-03 05:28:37', '2016-06-08 06:44:03'),
+(9, 1, 'Aero High Class', '1600000000', 'hyundai-high class 45-xanh-trang.jpg', '30A-3333', 'trắng ', 45, 1, '2014-08-11 17:00:00', '2016-02-21 17:00:00', 2100000, 15000, 1400000, 29000000, 110000, '2016-05-20 02:41:22', '2016-06-08 06:45:07'),
+(11, 1, 'Universe', '300000000', 'autowp.ru_hyundai_universe_xpress_noble_1.jpg', '30A-3333', 'trang', 45, 7, '2014-07-16 17:00:00', '2015-12-17 17:00:00', 2000000, 14000, 1400000, 29000000, 120000, '2016-05-21 09:10:33', '2016-06-08 06:48:20'),
+(12, 1, 'Aero Town', '150000000', 'xe-huyndai-aero-town-35-cho-04_01.jpg', '30A-7878', 'trắng', 35, 9, '2015-06-15 17:00:00', '2016-02-14 17:00:00', 1900000, 13000, 1400000, 29000000, 110000, '2016-05-21 21:52:20', '2016-06-08 06:49:28'),
+(13, 3, 'Vios', '110000000', 'xe-toyota-vios1.jpg', '30A-3888', 'Xám', 4, 6, '2014-08-11 17:00:00', '2016-04-10 17:00:00', 900000, 5000, 500000, 20000000, 40000, '2016-05-23 07:15:24', '2016-06-08 06:55:47'),
+(14, 4, 'Sunny', '120000000', 'nissan-sunny.jpg', '30B-1111', 'Xám', 4, 11, '2014-05-13 17:00:00', '2016-03-07 17:00:00', 900000, 6000, 500000, 21000000, 50000, '2016-05-23 07:16:58', '2016-06-08 06:58:49'),
 (15, 3, 'Altis', '100000000', 'Toyota-altis.png', '30C-1223', 'Trắng', 4, NULL, '2013-08-18 17:00:00', '2016-02-15 17:00:00', 1000000, 6000, 550000, 21000000, 50000, '2016-05-23 07:18:11', '2016-06-08 07:01:41'),
 (16, 6, 'Civic', '100000000', 'USC60HOC021A121001.jpg', '30A-3223', 'xám', 4, NULL, '2015-06-16 17:00:00', '2016-02-22 17:00:00', 1100000, 6000, 600000, 2200000, 50000, '2016-05-23 07:19:18', '2016-06-08 07:05:59'),
 (17, 2, 'Everest', '120000000', 'ford-everest-thailand-launch-2015-(1).jpg', '30G-8789', 'Xám ', 7, NULL, '2014-08-18 17:00:00', '2016-04-12 17:00:00', 0, 0, 0, 0, 0, '2016-05-23 08:02:16', '2016-05-23 08:02:16'),
@@ -420,7 +421,7 @@ ALTER TABLE `tbl_dondatchitiet`
 -- AUTO_INCREMENT for table `tbl_hang`
 --
 ALTER TABLE `tbl_hang`
-  MODIFY `hang_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `hang_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tbl_nguoidung`
 --
@@ -440,7 +441,7 @@ ALTER TABLE `tbl_tintuc`
 -- AUTO_INCREMENT for table `tbl_vote`
 --
 ALTER TABLE `tbl_vote`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `tbl_xe`
 --

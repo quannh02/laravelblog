@@ -6,9 +6,11 @@
     @if(isset($carChamdangkiem))
     @foreach($carChamdangkiem as $key => $value)
       @if($value['ngayconlai'] > 0)
-      <p>Xe số {{ $value['xe_id'] }} còn {{ $value['ngayconlai'] }} ngày để đăng kiểm</p>
+      <p>Xe số {{ $value['sodangky_xe'] }} còn {{ $value['ngayconlai'] }} ngày để đăng kiểm</p>
+      @elseif($value['ngayconlai'] == 0) 
+      <p>Xe số {{ $value['sodangky_xe']}} phải đăng kiểm ngày hôm nay.</p>
       @else 
-      <p>Xe số {{ $value['xe_id']}} quá hạn đăng kiểm {{ abs($value['ngayconlai']) }} ngày</p>
+        <p>Xe số {{ $value['sodangky_xe']}} quá hạn đăng kiểm {{ abs($value['ngayconlai']) }} ngày.</p>
       @endif
     @endforeach
     @endif
