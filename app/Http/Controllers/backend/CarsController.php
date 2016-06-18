@@ -210,10 +210,8 @@ class CarsController extends Controller
         DB::connection()->setFetchMode(\PDO::FETCH_ASSOC);
         $cars = DB::table('tbl_xe')
             ->join('tbl_hang', 'tbl_hang.hang_id', '=', 'tbl_xe.hang_id')
-            ->join('tbl_taixe', 'tbl_taixe.taixe_id', '=', 'tbl_xe.tai_xe_id')
-            ->where('tbl_hang.hang_name', 'LIKE', '%'.$q.'%')
-            ->orWhere('tbl_xe.ten_xe', 'LIKE', '%'.$q.'%')
-            ->orWhere('tbl_taixe.tentaixe', 'LIKE', '%'.$q.'%')
+            ->where('tbl_xe.socho_xe', '>', $q)
+            ->where('tbl_xe.socho_xe', '<=', 45)
             ->get();
         // $cars = Cars::with('taixe','brand')->where('ten_xe', 'LIKE','%'.$q.'%')->orWhere('socho_xe','LIKE','%'.$q.'%')->orWhere(
         //         function($query) use ($q){

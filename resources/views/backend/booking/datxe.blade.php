@@ -133,18 +133,24 @@
         </div>
     </div>
     <div class="col-md-6 h1datxe">
+    @if(isset($array_car_in))
+      @foreach($array_car_in as $car)
+      <p class="errornothavecar">Xe có mã {{ $car }} đã có người đặt, quý khách vui lòng đặt xe khác.</p>
+      @endforeach
+    @endif
       <h1><strong>Danh sách xe đặt</strong></h1>
         <div class="table-responsive">          
   <table class="table">
     <thead>
       <tr>
-        <th>Id</th>
+        <th>Mã</th>
         <th>Name</th>
         <th>Màu</th>
         <th>Số chỗ</th>
         <th>Image</th>
         <th>Biển số</th>
         <th>Năm sản xuất</th>
+        <th>Xóa</th>
       </tr>
     </thead>
     <tbody>
@@ -158,6 +164,7 @@
         <td><img class="img img-responsive img_car_list" src="{{ url('public/user/images', $value['image']) }}"></td>
         <td>{{ $value['bienso'] }}</td>
         <td>{{ date('Y', strtotime($value['ngaysanxuat']))}}</td>
+        <td><a href="{{ url('xoatungxe', $value['id'])}}" class="btn btn-success">Xóa</a></td>
       </tr>
         @endforeach
       @endif

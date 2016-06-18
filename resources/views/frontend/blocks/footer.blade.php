@@ -20,7 +20,6 @@
 		<div class="nd_foot">
 			<ul>
 				<li><a href="">Thuê xe du lịch</a></li>
-				<li><a href="">Thuê xe cưới</a></li>
 				<li><a href="">Thuê xe đón sân bay</a></li>
 				<li><a href="">Tin tức</a></li>
 				<li><a href="">Hợp Tác Kinh Doanh</a></li>

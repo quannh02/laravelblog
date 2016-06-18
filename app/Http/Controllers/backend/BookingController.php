@@ -74,11 +74,11 @@ class BookingController extends Controller
             array_push($array_car_not_in, $value->xe_id);
         }
         // đổi xong
-        dd($array_car_not_in); die();
+        // dd($array_car_not_in); die();
         //dd($cars_not_in[0]); die();
         $data = DB::table('tbl_xe')
                 ->join('tbl_hang','tbl_xe.hang_id', '=' , 'tbl_hang.hang_id')
-                ->select('tbl_hang.hang_name','tbl_xe.xe_id', 'tbl_xe.sodangky_xe', 'tbl_xe.ten_xe', 'tbl_xe.url_hinhxe')
+                ->select('tbl_hang.hang_name','tbl_xe.xe_id', 'tbl_xe.sodangky_xe', 'tbl_xe.ten_xe', 'tbl_xe.url_hinhxe', 'tbl_xe.ngaysanxuat')
                 ->whereNotIn('tbl_xe.xe_id', $array_car_not_in)->orderBy('xe_id', 'asc')
                 ->get();
         return view('backend.booking.booking', compact('data', 'datepickerDi', 'datepickerVe'));
@@ -95,48 +95,91 @@ class BookingController extends Controller
             $tintucs = $this->tintucs;
             return view('frontend.pages.dsdat', compact('brands','socho', 'tintucs'))->with('flash_message', 'Bạn chưa đặt xe nào!');
         }
-
     }
     
     public function postDatXe(DatXeRequest $request){
-        $user = User::findOrFail(Auth::user()->nguoidung_id);
-        $user->tendaydu = $request->tendaydu;
-        $user->email = $request->email; 
-        switch ($request->gioitinh) {
-            case 1:
-                $user->gioitinh = 'Nam';
-            break;
-            case 0:
-                $user->gioitinh = 'Nữ';
-                break;
-            default:
-                $user->gioitinh = 'Không xác định';
-        }
-        $user->sodienthoai = $request->sodienthoai;
-        $user->tencongty = $request->tencongty;
-        $user->masothue = $request->masothue;
-
-        $user->save();
         $MyFunction = new MyFunction;
         $ngaydi = $MyFunction->changedatetimeformat($request->ngaydi);
         $ngayve = $MyFunction->changedatetimeformat($request->ngayve);
-        $datxe = new DonDat([
-            'diemdon' => $request->diemdon,
-            'diemden' => $request->diemden,
-            'yeucau'  => $request->yeucau,
-            'ngaydi'  => $ngaydi,
-            'ngayve'  => $ngayve
-            ]);
-        $user->dondat()->save($datxe);
-        
+        $array_cars = [];
         foreach(Session::get('datxe') as $key => $value){
-            $dondatchitiet = new DonDatCT([
-                    'xe_id' => $value['id']
-                ]);
-            $datxe->dondatchitiet()->save($dondatchitiet);
+            array_push($array_cars, $value['id']);
         }
-        Session::forget('datxe');
-        return redirect('quanlydondat');
+        
+        $cars_not_in = DB::table('tbl_dondat')
+                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id', '=', 'tbl_dondatchitiet.don_dat_id')
+                ->select('tbl_dondatchitiet.xe_id')
+                ->where('tbl_dondat.active', '=',  1)
+                ->where(function($query) use($ngaydi, $ngayve){
+                    $query->where('tbl_dondat.ngaydi', '<=', $ngaydi)
+                        ->where('tbl_dondat.ngayve' , '>=', $ngayve);
+                })
+                ->orWhere(function($query) use($ngaydi, $ngayve){
+                    $query->where('tbl_dondat.ngaydi', '>=', $ngaydi)
+                        ->where('tbl_dondat.ngaydi' , '<=', $ngayve)
+                        ->where('tbl_dondat.ngayve', '>=' , $ngayve);
+                })
+                ->orWhere(function($query) use($ngaydi, $ngayve){
+                    $query->where('tbl_dondat.ngaydi', '<=', $ngaydi)
+                        ->where('tbl_dondat.ngayve' , '<=', $ngayve)
+                        ->where('tbl_dondat.ngayve', '>=' , $ngaydi);
+                })
+                ->orWhere(function($query) use($ngaydi, $ngayve){
+                    $query->where('tbl_dondat.ngaydi', '>=', $ngaydi)
+                        ->where('tbl_dondat.ngayve' , '<=', $ngayve);
+                })
+                ->distinct()->get(); 
+        //dd($cars_not_in); die();
+        $array_car_in = [];
+        foreach($array_cars as $car){
+            foreach($cars_not_in as $xe => $value){
+                if($value->xe_id == $car){
+                    array_push($array_car_in, $value->xe_id);
+                }
+            }
+        }
+        if(count($array_car_in) > 0){
+            $user = User::where('nguoidung_id', Auth::user()->nguoidung_id)->get()->first();
+            return view('backend.booking.datxe', compact('user', 'array_car_in'));
+        } else {
+        //dd($array_car_in); die();
+        //dd($array_cars); die();
+            $user = User::findOrFail(Auth::user()->nguoidung_id);
+            $user->tendaydu = $request->tendaydu;
+            $user->email = $request->email; 
+            switch ($request->gioitinh) {
+                case 1:
+                    $user->gioitinh = 'Nam';
+                break;
+                case 0:
+                    $user->gioitinh = 'Nữ';
+                    break;
+                default:
+                    $user->gioitinh = 'Không xác định';
+            }
+            $user->sodienthoai = $request->sodienthoai;
+            $user->tencongty = $request->tencongty;
+            $user->masothue = $request->masothue;
+
+            $user->save();
+            $datxe = new DonDat([
+                'diemdon' => $request->diemdon,
+                'diemden' => $request->diemden,
+                'yeucau'  => $request->yeucau,
+                'ngaydi'  => $ngaydi,
+                'ngayve'  => $ngayve
+                ]);
+            $user->dondat()->save($datxe);
+            
+            foreach(Session::get('datxe') as $key => $value){
+                $dondatchitiet = new DonDatCT([
+                        'xe_id' => $value['id']
+                    ]);
+                $datxe->dondatchitiet()->save($dondatchitiet);
+            }
+            Session::forget('datxe');
+            return redirect('quanlydondat');
+        }
     }
     
     public function quanlydondat(){ // quan ly danh sach dat xe cua nguoi dung
@@ -180,6 +223,7 @@ class BookingController extends Controller
             ->join('tbl_xe', 'tbl_dondatchitiet.xe_id', '=', 'tbl_xe.xe_id')
             ->join('tbl_hang', 'tbl_hang.hang_id', '=' , 'tbl_xe.hang_id')
             ->join('tbl_taixe', 'tbl_xe.tai_xe_id', '=', 'tbl_taixe.taixe_id')
+            ->where('tbl_dondatchitiet.don_dat_id' , '=', $id)
             ->get();
             return view('backend.booking.chitietdondat', compact('chitiets'));
     }

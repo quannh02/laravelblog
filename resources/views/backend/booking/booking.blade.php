@@ -69,7 +69,7 @@
                       <thead>
                       <!-- select('car_types.name', 'car_types.type','car_types.producer', 'cars.id', 'cars.image', 'cars.registration_number') -->
                         <tr>
-                          <th>Id</th>
+                          <th>Biển số</th>
                           <th>Hãng id</th>
                           <th>Tên xe</th>
                           <th>Hình</th>
@@ -82,10 +82,11 @@
                         @if(isset($data))
                         @foreach($data as $item)
                         <tr>
-                          <td>{{ $item->xe_id }}</td>
+                          <td>{{ $item->sodangky_xe }}</td>
                           <td>{{ $item->hang_name }}</td>
                           <td>{{ $item->ten_xe }}</td>
                           <td>{{ $item->url_hinhxe }}</td>
+                          <td>{{ $item->ngaysanxuat }}</td>
                         </tr>
                         @endforeach
                         @endif

@@ -105,6 +105,7 @@ Route::group(['namespace' => 'frontend'], function(){
 	Route::get('socho/{id}', 'CarsController@socho');
 
 	Route::get('gioxe/{id}', 'CarsController@themgioxe');
+	Route::get('xoatungxe/{id}', 	'CarsController@xoatungxe');
 	Route::get('gioxe','CarsController@getgioxe');
 	Route::post('huyxe', 'CarsController@delete');
 

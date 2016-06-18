@@ -7,13 +7,14 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Id</th>
+        <th>Mã</th>
         <th>Name</th>
         <th>Màu</th>
         <th>Số chỗ</th>
         <th>Image</th>
         <th>Biển số</th>
         <th>Năm sản xuất</th>
+        <th>Xóa</th>
       </tr>
     </thead>
     <tbody>
@@ -27,6 +28,7 @@
         <td><img class="img img-responsive img_car_list" src="{{ url('public/user/images', $value['image']) }}"></td>
         <td>{{ $value['bienso'] }}</td>
         <td>{{ date('Y', strtotime($value['ngaysanxuat']))}}</td>
+        <td><a href="{{ url('xoatungxe', $value['id'])}}" class="btn btn-success">Xóa</a></td>
       </tr>
       	@endforeach
       @endif

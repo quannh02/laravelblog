@@ -227,6 +227,17 @@ class CarsController extends Controller
         $tintucs = $this->tintucs;
         return view('frontend.pages.dsdat', compact('brands', 'socho', 'tintucs'));
     }
+    public function xoatungxe($id){
+        foreach(Session::get('datxe') as $key => $value){
+                    //dd($key); die();
+                    if($id == $value['id']) {
+                        $index = $key;
+                        break;
+                    }
+                }
+            Session::forget('datxe.'. $index);
+            return redirect('gioxe');
+    }
     public function delete(){
         Session::forget('datxe');
         return redirect('gioxe');
