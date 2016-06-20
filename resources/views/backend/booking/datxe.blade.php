@@ -84,7 +84,7 @@
         <span class="error">{{ $errors->first('diemdon') }}</span>
     @endif
         <div class="form-group">Điểm đón (*)
-            <input type="text" class="form-control" name="diemdon"> 
+            <input type="text" class="form-control" value="{{ old('diemdon')}}" name="diemdon"> 
         </div>
         @if ($errors->has('diemden'))
         <span class="error">{{ $errors->first('diemden') }}</span>
@@ -133,9 +133,11 @@
         </div>
     </div>
     <div class="col-md-6 h1datxe">
-    @if(isset($array_car_in))
-      @foreach($array_car_in as $car)
-      <p class="errornothavecar">Xe có mã {{ $car }} đã có người đặt, quý khách vui lòng đặt xe khác.</p>
+    @if(isset($dondat_car_in))
+      @foreach($dondat_car_in as $key => $value)
+        @foreach($value as $key => $value)
+      <p class="errornothavecar">Xe có mã {{ $value->xe_id }} đã có người đặt từ <?php echo date('h:m d/m/Y', strtotime($value->ngaydi)); ?> đến <?php echo date('h:m d/m/Y', strtotime($value->ngayve)); ?>.</p>
+        @endforeach
       @endforeach
     @endif
       <h1><strong>Danh sách xe đặt</strong></h1>

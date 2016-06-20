@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2016 at 03:05 PM
+-- Generation Time: Jun 20, 2016 at 08:58 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -93,15 +93,15 @@ CREATE TABLE IF NOT EXISTS `tbl_dondat` (
   `active` tinyint(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tbl_dondat`
 --
 
 INSERT INTO `tbl_dondat` (`dondat_id`, `user_id`, `diemdon`, `diemden`, `yeucau`, `ngaydi`, `ngayve`, `active`, `created_at`, `updated_at`) VALUES
-(7, 3, 'dgsdga', 'gasdga', '', '2016-06-18 05:00:00', '2016-06-20 05:00:00', 1, '2016-06-18 01:26:41', '2016-06-18 01:26:41'),
-(8, 3, 'Hà Nội', 'Thái Nguyên', '', '2016-06-18 05:00:00', '2016-06-20 05:00:00', 0, '2016-06-18 02:01:44', '2016-06-18 02:01:44');
+(11, 3, 'gsdg', 'gdsagd', '', '2016-06-19 05:00:00', '2016-06-21 05:00:00', 1, '2016-06-18 10:02:29', '2016-06-18 10:02:29'),
+(12, 3, 'gsg', 'gsdga', '', '2016-06-23 05:00:00', '2016-06-25 05:00:00', 1, '2016-06-18 10:03:15', '2016-06-18 10:03:15');
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `tbl_dondatchitiet` (
   `gia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tbl_dondatchitiet`
@@ -124,7 +124,10 @@ CREATE TABLE IF NOT EXISTS `tbl_dondatchitiet` (
 
 INSERT INTO `tbl_dondatchitiet` (`ddct_id`, `don_dat_id`, `xe_id`, `gia`, `created_at`, `updated_at`) VALUES
 (8, 7, 11, '', '2016-06-18 01:26:41', '2016-06-18 01:26:41'),
-(9, 8, 9, '', '2016-06-18 02:01:44', '2016-06-18 02:01:44');
+(9, 8, 9, '', '2016-06-18 02:01:44', '2016-06-18 02:01:44'),
+(10, 10, 11, '', '2016-06-18 10:00:52', '2016-06-18 10:00:52'),
+(11, 11, 11, '', '2016-06-18 10:02:29', '2016-06-18 10:02:29'),
+(12, 12, 11, '', '2016-06-18 10:03:15', '2016-06-18 10:03:15');
 
 -- --------------------------------------------------------
 
@@ -178,8 +181,8 @@ CREATE TABLE IF NOT EXISTS `tbl_nguoidung` (
 --
 
 INSERT INTO `tbl_nguoidung` (`nguoidung_id`, `tendaydu`, `email`, `gioitinh`, `diachi`, `sodienthoai`, `tencongty`, `masothue`, `password`, `terms`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Nguyễn Hồng Quân', 'quannh02@wru.vn', 'Nam', '175 Tây Sơn', '01677665526', 'QuanBus', '2126478', '$2y$10$fZqIGerdjwvduFy0Ulomm.znMbxFEjOMxTmyvJmx.DO0FIdDpciUu', 1, '1fwjNJalPYYazAvRgw0lOoQ3fDDlyKSfShfy8nPpdal5DsvVDEwI0fhtf2yG', '2016-05-19 10:52:00', '2016-06-18 05:41:51'),
-(3, 'Nguyễn Văn Bằng', 'bangbang@gmail.com', 'Nam', '175 Tây sơn- Đống Đa - Hà Nội', '0912445346', 'TNHH Công nghệ dệt may Hải Hà', '235245346', '$2y$10$XlqMKlGaoIURBNG9gFg2AuexEG3dEsDpfg5e.3vkoTprQYZu6lb.O', 0, 'rquAGWDJ1xbdVYpOc6CRxtdfZRiul3Ld7hNFvsUU8HqFvw5aUENuV3OGNFtI', '2016-05-23 00:52:03', '2016-06-17 21:49:06');
+(2, 'Nguyễn Hồng Quân', 'quannh02@wru.vn', 'Nam', '175 Tây Sơn', '01677665526', 'QuanBus', '2126478', '$2y$10$fZqIGerdjwvduFy0Ulomm.znMbxFEjOMxTmyvJmx.DO0FIdDpciUu', 1, 'nlKiIzE9a9fPu6ixUhw04FEhgWRdIEdw1GFqmiVYauZJXUwAel6rVLJ4yNpU', '2016-05-19 10:52:00', '2016-06-19 23:35:34'),
+(3, 'Nguyễn Văn Bằng', 'bangbang@gmail.com', 'Nam', '175 Tây sơn- Đống Đa - Hà Nội', '0912445346', 'TNHH Công nghệ dệt may Hải Hà', '235245346', '$2y$10$XlqMKlGaoIURBNG9gFg2AuexEG3dEsDpfg5e.3vkoTprQYZu6lb.O', 0, 'c8NY1CXJj7yMwrHvZL098HeJuFRyCpoUsTdeEhHm14Nwr3gXh2u8TXtCtEc0', '2016-05-23 00:52:03', '2016-06-18 09:59:20');
 
 -- --------------------------------------------------------
 
@@ -410,12 +413,12 @@ ALTER TABLE `tbl_comment`
 -- AUTO_INCREMENT for table `tbl_dondat`
 --
 ALTER TABLE `tbl_dondat`
-  MODIFY `dondat_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `dondat_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `tbl_dondatchitiet`
 --
 ALTER TABLE `tbl_dondatchitiet`
-  MODIFY `ddct_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `ddct_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `tbl_hang`
 --

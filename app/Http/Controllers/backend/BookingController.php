@@ -18,6 +18,7 @@ use App\Http\Requests\DatXeRequest;
 use App\Brand;
 use App\Cars;
 use App\TinTuc;
+use Carbon\Carbon;
 
 class BookingController extends Controller
 {
@@ -138,9 +139,24 @@ class BookingController extends Controller
                 }
             }
         }
+
+        $dondat_car_in = [];
+        foreach($array_car_in as $car){
+            $now = Carbon::now();
+            $unixtimenow = strtotime($now);
+            $dondat = DB::table('tbl_dondat')
+                ->join('tbl_dondatchitiet', 'tbl_dondat.dondat_id', '=', 'tbl_dondatchitiet.don_dat_id')
+                ->where('tbl_dondatchitiet.xe_id', '=', $car)
+                ->where('tbl_dondat.ngayve', '>',  $now)
+                ->where('tbl_dondat.ngaydi' ,'<', $ngayve)
+                ->get();
+                array_push($dondat_car_in, $dondat);
+            //dd($dondat); die();
+        }
+        //dd($dondat_car_in); die();
         if(count($array_car_in) > 0){
             $user = User::where('nguoidung_id', Auth::user()->nguoidung_id)->get()->first();
-            return view('backend.booking.datxe', compact('user', 'array_car_in'));
+            return view('backend.booking.datxe', compact('user', 'dondat_car_in'));
         } else {
         //dd($array_car_in); die();
         //dd($array_cars); die();
