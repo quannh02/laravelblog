@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,6 +14,6 @@ class Vote extends Model
     	'tongdiem'
     ];
     public function car(){
-    	return $this->belongsTo('App\Cars');
+    	return $this->belongsTo('App\Models\Cars');
     }
 }

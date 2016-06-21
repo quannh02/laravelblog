@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +15,6 @@ class TaiXe extends Model
     	'sothich'
     ];
     public function xe(){
-    	 return $this->hasOne('App\Cars');
+    	 return $this->hasOne('App\Models\Cars');
     }
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2016 at 08:58 AM
+-- Generation Time: Jun 21, 2016 at 10:41 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `tbl_dondat` (
   `active` tinyint(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tbl_dondat`
@@ -101,7 +101,9 @@ CREATE TABLE IF NOT EXISTS `tbl_dondat` (
 
 INSERT INTO `tbl_dondat` (`dondat_id`, `user_id`, `diemdon`, `diemden`, `yeucau`, `ngaydi`, `ngayve`, `active`, `created_at`, `updated_at`) VALUES
 (11, 3, 'gsdg', 'gdsagd', '', '2016-06-19 05:00:00', '2016-06-21 05:00:00', 1, '2016-06-18 10:02:29', '2016-06-18 10:02:29'),
-(12, 3, 'gsg', 'gsdga', '', '2016-06-23 05:00:00', '2016-06-25 05:00:00', 1, '2016-06-18 10:03:15', '2016-06-18 10:03:15');
+(12, 3, 'gsg', 'gsdga', '', '2016-06-23 05:00:00', '2016-06-25 05:00:00', 1, '2016-06-18 10:03:15', '2016-06-18 10:03:15'),
+(13, 3, 'Hà Nội', 'Thái Bình', '', '2016-06-20 05:00:00', '2016-06-22 05:00:00', 1, '2016-06-20 02:32:02', '2016-06-20 02:32:44'),
+(14, 3, 'Hà Nội', 'Thai Binh', '', '2016-06-29 05:00:00', '2016-06-30 05:00:00', 0, '2016-06-20 04:17:12', '2016-06-20 04:17:12');
 
 -- --------------------------------------------------------
 
@@ -116,18 +118,17 @@ CREATE TABLE IF NOT EXISTS `tbl_dondatchitiet` (
   `gia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tbl_dondatchitiet`
 --
 
 INSERT INTO `tbl_dondatchitiet` (`ddct_id`, `don_dat_id`, `xe_id`, `gia`, `created_at`, `updated_at`) VALUES
-(8, 7, 11, '', '2016-06-18 01:26:41', '2016-06-18 01:26:41'),
-(9, 8, 9, '', '2016-06-18 02:01:44', '2016-06-18 02:01:44'),
-(10, 10, 11, '', '2016-06-18 10:00:52', '2016-06-18 10:00:52'),
 (11, 11, 11, '', '2016-06-18 10:02:29', '2016-06-18 10:02:29'),
-(12, 12, 11, '', '2016-06-18 10:03:15', '2016-06-18 10:03:15');
+(12, 12, 11, '', '2016-06-18 10:03:15', '2016-06-18 10:03:15'),
+(13, 13, 1, '', '2016-06-20 02:32:02', '2016-06-20 02:32:02'),
+(14, 14, 11, '', '2016-06-20 04:17:12', '2016-06-20 04:17:12');
 
 -- --------------------------------------------------------
 
@@ -181,8 +182,8 @@ CREATE TABLE IF NOT EXISTS `tbl_nguoidung` (
 --
 
 INSERT INTO `tbl_nguoidung` (`nguoidung_id`, `tendaydu`, `email`, `gioitinh`, `diachi`, `sodienthoai`, `tencongty`, `masothue`, `password`, `terms`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Nguyễn Hồng Quân', 'quannh02@wru.vn', 'Nam', '175 Tây Sơn', '01677665526', 'QuanBus', '2126478', '$2y$10$fZqIGerdjwvduFy0Ulomm.znMbxFEjOMxTmyvJmx.DO0FIdDpciUu', 1, 'nlKiIzE9a9fPu6ixUhw04FEhgWRdIEdw1GFqmiVYauZJXUwAel6rVLJ4yNpU', '2016-05-19 10:52:00', '2016-06-19 23:35:34'),
-(3, 'Nguyễn Văn Bằng', 'bangbang@gmail.com', 'Nam', '175 Tây sơn- Đống Đa - Hà Nội', '0912445346', 'TNHH Công nghệ dệt may Hải Hà', '235245346', '$2y$10$XlqMKlGaoIURBNG9gFg2AuexEG3dEsDpfg5e.3vkoTprQYZu6lb.O', 0, 'c8NY1CXJj7yMwrHvZL098HeJuFRyCpoUsTdeEhHm14Nwr3gXh2u8TXtCtEc0', '2016-05-23 00:52:03', '2016-06-18 09:59:20');
+(2, 'Nguyễn Hồng Quân', 'quannh02@wru.vn', 'Nam', '175 Tây Sơn', '01677665526', 'QuanBus', '2126478', '$2y$10$fZqIGerdjwvduFy0Ulomm.znMbxFEjOMxTmyvJmx.DO0FIdDpciUu', 1, 'iljg9OVg78LKDVPaXUiFdIxEGQOTrBWPba6b7hRPGo9ePsz3MNLAxr9y3XFs', '2016-05-19 10:52:00', '2016-06-20 04:06:08'),
+(3, 'Nguyễn Văn Bằng', 'bangbang@gmail.com', 'Nam', '175 Tây sơn- Đống Đa - Hà Nội', '0912445346', 'TNHH Công nghệ dệt may Hải Hà', '235245346', '$2y$10$XlqMKlGaoIURBNG9gFg2AuexEG3dEsDpfg5e.3vkoTprQYZu6lb.O', 0, 'yHXDKzhWTCRGDTUHwQDMQpo3T4Jbvbq5gys7urucEzlsQ6CkCjFQHHhwggrI', '2016-05-23 00:52:03', '2016-06-20 04:17:42');
 
 -- --------------------------------------------------------
 
@@ -206,8 +207,8 @@ CREATE TABLE IF NOT EXISTS `tbl_taixe` (
 --
 
 INSERT INTO `tbl_taixe` (`taixe_id`, `tentaixe`, `banglaixe`, `ngaysinh`, `sothich`, `sodienthoai`, `updated_at`, `created_at`) VALUES
-(1, 'Nguyễn Hữu Cảnh ', 'E', '1972-11-20 00:00:00', 'Uống bia, hát, hút thuốc', '', '2016-05-20 10:42:47', '0000-00-00 00:00:00'),
-(2, 'Lê Đức Thịnh', 'E', '2081-05-16 00:00:00', 'Hút thuốc', '', '2016-05-20 10:42:47', '0000-00-00 00:00:00'),
+(1, 'Nguyễn Hữu Cảnh ', 'E', '1972-11-20 00:00:00', 'Uống bia, hát, hút thuốc', '', '2016-06-21 10:54:06', '0000-00-00 00:00:00'),
+(2, 'Lê Đức Thịnh', 'E', '2081-05-16 00:00:00', 'Hút thuốc', '', '2016-06-21 19:36:15', '0000-00-00 00:00:00'),
 (3, 'Phạm Văn Đức', 'E', '1982-11-07 00:00:00', 'Chơi Bia, uống rượu. ', '', '2016-05-20 10:42:47', '0000-00-00 00:00:00'),
 (4, 'Nguyễn Văn Quân', 'E', '1985-11-20 00:00:00', 'Ăn bún bò huế, lẩu vịt', '', '2016-05-20 10:42:47', '0000-00-00 00:00:00'),
 (5, 'Lê Xuân Quỳnh', 'E', '1965-09-14 00:00:00', 'Uống rượu, hút thuốc', '', '2016-05-20 05:28:47', '0000-00-00 00:00:00'),
@@ -265,7 +266,7 @@ INSERT INTO `tbl_vote` (`id`, `cars_id`, `sovotes`, `tongdiem`, `created_at`, `u
 (2, 2, 5, 22, '2016-05-21 05:00:00', '2016-05-21 09:52:10'),
 (3, 3, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (6, 6, 2, 9, '0000-00-00 00:00:00', '2016-05-21 10:35:11'),
-(7, 11, 26, 108, '2016-05-21 09:10:33', '2016-06-15 04:45:12'),
+(7, 11, 28, 118, '2016-05-21 09:10:33', '2016-06-21 12:16:44'),
 (8, 6, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (9, 7, 4, 19, '0000-00-00 00:00:00', '2016-05-21 10:36:19'),
 (10, 8, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -281,7 +282,7 @@ INSERT INTO `tbl_vote` (`id`, `cars_id`, `sovotes`, `tongdiem`, `created_at`, `u
 (20, 19, 0, 0, '2016-05-23 08:06:37', '2016-05-23 08:06:37'),
 (21, 20, 0, 0, '2016-05-23 08:08:05', '2016-05-23 08:08:05'),
 (22, 21, 0, 0, '2016-05-23 08:14:33', '2016-05-23 08:14:33'),
-(23, 22, 0, 0, '2016-05-23 08:16:14', '2016-05-23 08:16:14'),
+(23, 22, 1, 5, '2016-05-23 08:16:14', '2016-06-20 03:13:02'),
 (24, 23, 0, 0, '2016-06-08 00:10:03', '2016-06-08 00:10:03'),
 (25, 24, 0, 0, '2016-06-08 00:20:00', '2016-06-08 00:20:00'),
 (26, 25, 0, 0, '2016-06-08 00:22:06', '2016-06-08 00:22:06'),
@@ -413,12 +414,12 @@ ALTER TABLE `tbl_comment`
 -- AUTO_INCREMENT for table `tbl_dondat`
 --
 ALTER TABLE `tbl_dondat`
-  MODIFY `dondat_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `dondat_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `tbl_dondatchitiet`
 --
 ALTER TABLE `tbl_dondatchitiet`
-  MODIFY `ddct_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `ddct_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `tbl_hang`
 --

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,12 +25,12 @@ class Cars extends Model
             'ngoaigio'
     ];
     public function vote(){
-    	return $this->hasOne('App\Vote');
+    	return $this->hasOne('App\Models\Vote');
     }
     public function taixe(){
-        return $this->belongsTo('App\TaiXe');
+        return $this->belongsTo('App\Models\TaiXe');
     }
     public function brand(){
-        return $this->belongsTo('App\Brand');
+        return $this->belongsTo('App\Models\Brand');
     }
 }

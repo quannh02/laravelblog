@@ -15,7 +15,7 @@
           <th>Tieu de</th>
           <th>Noi dung</th>
           <th>Tac gia</th>
-          <th>Actions</th>
+          <th>Sửa/Xóa</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +26,7 @@
                     <td>{{ $value->tieude }}</td>
                     <td>{{ $value->noidung }}</td>
                     <td>{{ $value->tacgia }}</td>
-                    <td>
+                    <td  style="width: 80px;">
                        <a class="btn btn-default  text-right" data-toggle="tooltip" href="{{ url('tintuc/edit', $value->id ) }}" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
                        <div class="pull-right">
                        {!! Form::open(array('url' => array('tintuc/destroy', $value->id))) !!}

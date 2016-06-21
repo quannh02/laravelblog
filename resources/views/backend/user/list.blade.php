@@ -22,7 +22,7 @@
                                                     <th>Má số thuế</th>
                                                     <th>Giới tính</th>
                                                     <th>Quyền</th>
-                                                    <th class="text-right">Actions</th>
+                                                    <th class="text-right">Sửa\Xóa</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

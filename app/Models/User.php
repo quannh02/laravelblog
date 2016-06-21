@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -37,7 +37,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         'terms'
     ];
     public function dondat(){
-        return $this->hasMany('App\DonDat');
+        return $this->hasMany('App\Models\DonDat');
     }
     /**
      * The attributes excluded from the model's JSON form.

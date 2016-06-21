@@ -20,7 +20,7 @@
           <th>Sở thích</th>
           <th>Xe có thể lái</th>
           <th>Xe đang lái</th>
-          <th>Actions</th>
+          <th>Sửa/Xóa</th>
           
         </tr>
       </thead>

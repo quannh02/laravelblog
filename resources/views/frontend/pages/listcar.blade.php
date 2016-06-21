@@ -15,7 +15,7 @@
 			                <div class="clearfix">
 			                  
                                <div class="b_car_information">
-			                        <div class="tbold">Hiệu: {{ App\Brand::find($car->hang_id)->hang_name }}</div>
+			                        <div class="tbold">Hiệu: {{ App\Models\Brand::find($car->hang_id)->hang_name }}</div>
 			                        <div>Số chỗ: <span class="tbold">{{ $car->socho_xe }} chỗ</span></div>
 			                        <div>Giá xe: <span class="span_price"></span></div>
 			                        <div class="div_book_car">

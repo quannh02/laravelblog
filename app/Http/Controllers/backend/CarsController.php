@@ -6,16 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Cars;
+use App\Models\Cars;
 use DB;
 use App\Http\Requests\ThemXeRequest;
 use App\Http\Requests\EditXeRequest;
-use App\MyFunction;
+use App\Models\MyFunction;
 use Carbon\Carbon;
-use App\TaiXe;
-use App\Vote;
-use App\Brand;
+use App\Models\TaiXe;
+use App\Models\Vote;
+use App\Models\Brand;
 use Input;
+use App\Models\DonDatCT;
 
 class CarsController extends Controller
 {
@@ -24,7 +25,7 @@ class CarsController extends Controller
         $now = Carbon::now();
         $unixtimenow = strtotime($now);
         //dd($unixtimenow); die();
-        $allCars = Cars::paginate(5);
+        $allCars = Cars::paginate(10);
         //dd($allCars);
         $carChamdangkiem = array();
         $allCarsnotpaginate = Cars::all();
@@ -202,6 +203,8 @@ class CarsController extends Controller
     public function delete($id)
     {
         $car = Cars::findOrFail($id);
+        $car_in_don_dat = DonDatCT::where('xe_id', $id)->count();
+        dd($car_in_don_dat); die();
         $car->delete();
         return redirect()->route('danhsachxe');
     }
@@ -216,6 +219,7 @@ class CarsController extends Controller
             ->orWhere('tbl_taixe.tentaixe', 'LIKE', '%'. $q .'%')
             ->orWhere('tbl_xe.socho_xe', '=', $q)
             ->get();
+            
         // $cars = Cars::with('taixe','brand')->where('ten_xe', 'LIKE','%'.$q.'%')->orWhere('socho_xe','LIKE','%'.$q.'%')->orWhere(
         //         function($query) use ($q){
         //             $hang_id = Brand::select('hang_id')->where('hang_name', 'LIKE', '%'. $q.'%')->get()->toArray();

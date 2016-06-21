@@ -19,9 +19,7 @@
 		</div>
 		<div class="nd_foot">
 			<ul>
-				<li><a href="">Thuê xe du lịch</a></li>
-				<li><a href="">Thuê xe đón sân bay</a></li>
-				<li><a href="">Tin tức</a></li>
+				<li><a href="{{ url('tintuc') }}">Tin tức</a></li>
 				<li><a href="">Hợp Tác Kinh Doanh</a></li>
 			</ul>
 			<!--
@@ -38,8 +36,7 @@
 		</div>
 		<div class="nd_foot">
 			<ul>
-				<li><a href="">Hướng dẫn thuê PTVT</a></li>
-				<li><a href="">Phương thức thanh toán</a></li>
+				<li><a href="{{ url('cacbuocthuexe')}}">Hướng dẫn thuê PTVT</a></li>
 			</ul>
 		</div>
 	</div>

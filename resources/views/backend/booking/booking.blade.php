@@ -74,8 +74,6 @@
                           <th>Tên xe</th>
                           <th>Hình</th>
                           <th>Ngày sản xuất</th>
-                          <th></th>
-                          <th>Đặt xe</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -85,7 +83,7 @@
                           <td>{{ $item->sodangky_xe }}</td>
                           <td>{{ $item->hang_name }}</td>
                           <td>{{ $item->ten_xe }}</td>
-                          <td>{{ $item->url_hinhxe }}</td>
+                          <td><img style="width:250px; height:160px;" src="{{ url('public/user/images', $item->url_hinhxe) }}" alt=""></td>
                           <td>{{ $item->ngaysanxuat }}</td>
                         </tr>
                         @endforeach

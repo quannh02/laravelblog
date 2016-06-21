@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,13 +17,13 @@ class DonDat extends Model
     	'ngayve'
     ];
     public function xe(){
-        return $this->hasOne('App\Cars');
+        return $this->hasOne('App\Models\Cars');
     }
     public function dondatchitiet()
     {
-        return $this->hasMany('App\DonDatCT');
+        return $this->hasMany('App\Models\DonDatCT');
     }
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 }

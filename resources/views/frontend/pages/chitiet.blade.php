@@ -17,7 +17,7 @@
 									</div>
 								<div class="col-md-7 col-sm-7 col-xs-12">
 									<ul class="ul_detail">
-										<li class="car_detail_text_2"><span>Hiệu: {{ App\Brand::find($xe->hang_id)->hang_name }}</span></li>
+										<li class="car_detail_text_2"><span>Hiệu: {{ App\Models\Brand::find($xe->hang_id)->hang_name }}</span></li>
 										<li class="car_detail_text_2"><span>Số chỗ: <span class="b_car_list">{{ $xe->socho_xe }}</span></span>
 										<li class="car_detail_text_2"><span>Màu: <span class="b_car_list">{{ $xe->color }}</span></span>
 										<li class="car_detail_text_2"><span>Biển số: <span class="b_car_list">{{ $xe->sodangky_xe }}</span></span>
@@ -115,10 +115,10 @@
 						    	<div class="row">
 						    	@foreach($xekhac as $xe)
 								<div class="box_car_hot col-md-4 col-sm-4 col-xs-12">
-			                		<div class="div_name_car_hot"><a href="{{ url('chitiet', $xe->xe_id ) }}" class="title_chitiet">{{ App\Brand::find($xe->hang_id)->hang_name }} {{ $xe->ten_xe }}</a></div>
+			                		<div class="div_name_car_hot"><a href="{{ url('chitiet', $xe->xe_id ) }}" class="title_chitiet">{{ App\Models\Brand::find($xe->hang_id)->hang_name }} {{ $xe->ten_xe }}</a></div>
 			                	<div class="clearfix">
 			                    <a href="{{ url('chitiet', $xe->xe_id ) }}"><img class="img_car_list" src="{{ url('public/user/images', $xe->url_hinhxe) }}"></a><div class="b_car_information">
-			                        <div class="tbold">Hiệu: {{ App\Brand::find($xe->hang_id)->hang_name }}</div>
+			                        <div class="tbold">Hiệu: {{ App\Models\Brand::find($xe->hang_id)->hang_name }}</div>
 			                        <div>Số chỗ: <span class="tbold">{{ $xe->socho_xe }} chỗ</span></div>
 			                        <div>Giá xe: <span class="span_price">Liên hệ</span></div>
 			                    	</div>

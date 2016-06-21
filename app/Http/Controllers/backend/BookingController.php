@@ -7,17 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Input;
-use App\MyFunction;
+use App\Models\MyFunction;
 use DB;
-use App\DonDat;
-use App\DonDatCT;
-use App\User;
+use App\Models\DonDat;
+use App\Models\DonDatCT;
+use App\Models\User;
 use Auth;
 use Session;
 use App\Http\Requests\DatXeRequest;
-use App\Brand;
-use App\Cars;
-use App\TinTuc;
+use App\Models\Brand;
+use App\Models\Cars;
+use App\Models\TinTuc;
 use Carbon\Carbon;
 
 class BookingController extends Controller

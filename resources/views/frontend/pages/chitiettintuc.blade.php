@@ -10,7 +10,7 @@
 			<h2 class="none_tag title_car_hot title_b_car">{{ $tintuc->tieude }}</h2>
 			<div class="b_about_us">
         	<div class="clearfix">
-			<img alt="Dàn sao nữ Hollywood đi siêu xe gì?" class="img_news_detail" src="/thuexetructuyen-images/news/img1/1458295972-1458282151-7.jpg">		Có thể nói, người đẹp và siêu xe là cặp từ luôn đi kèm với nhau, không tách rời. Cùng đếm ngược top 12 siêu xe đắt nhất mà dàn sao nữ Hollywood sở hữu.<br>        </div>
+			</div>
 			<div class="visa_detail">
             	<p>{{ $tintuc->noidung }}</p>	
 			</div>

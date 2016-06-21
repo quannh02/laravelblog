@@ -63,7 +63,7 @@
             @foreach($allCars as $car)
                 <tr>
                     <td>{{ $car->sodangky_xe }}</td>
-                    <td>{{ App\Brand::find($car->hang_id)->hang_name }}</td>
+                    <td>{{ App\Models\Brand::find($car->hang_id)->hang_name }}</td>
                     <td>{{ $car->ten_xe }}</td>
                     <td><img class="img img-responsive url_hinhxe" src="{{ url('public/user/images', $car->url_hinhxe) }}" alt="{{ $car->url_hinhxe }}"></td>
                     <td>{{ $car->color }}</td>

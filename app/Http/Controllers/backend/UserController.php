@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use Hash;
-use App\User;
+use App\Models\User;
 use Input;
 //use App\Order;
 //use Carbon\Carbon;

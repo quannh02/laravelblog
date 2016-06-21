@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\frontend;
 
 use Illuminate\Http\Request;
-use App\TinTuc;
+use App\Models\TinTuc;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Cars;
-use App\Brand;
+use App\Models\Cars;
+use App\Models\Brand;
 
 class TinTucController extends Controller
 {

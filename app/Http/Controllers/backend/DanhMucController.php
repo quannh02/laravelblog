@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\HangXeRequest;
-use App\Brand;
+use App\Models\Brand;
 use Input;
 class DanhMucController extends Controller
 {

@@ -28,7 +28,7 @@
                                 <div class="col-md-2" for="sel1">Hãng xe:</div>
                                 <div class="form-group col-md-5">
                                   <input type="hidden" name="hang_name" value="{{ $data->hang_id }}">
-                                   <input type="text" name="lname" class="form-control" value="{{ App\Brand::find($data->hang_id)->hang_name }}" disabled>
+                                   <input type="text" name="lname" class="form-control" value="{{ App\Models\Brand::find($data->hang_id)->hang_name }}" disabled>
                                   <!-- <select class="form-control" name="hang_name">
                                     @foreach($brands as $brand)
                                   <option value="{{ $brand->hang_id }}">{{ $brand->hang_name }}</option>

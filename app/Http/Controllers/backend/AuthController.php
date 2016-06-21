@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\User;
+use App\Models\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -13,7 +13,7 @@ use Auth;
 use Input;
 use Hash;
 use Session;
-use App\CustomerAddress;
+use App\Models\CustomerAddress;
 class AuthController extends Controller
 {
     /*

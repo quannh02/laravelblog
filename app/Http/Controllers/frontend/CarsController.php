@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\frontend;
 use DB;
 use Illuminate\Http\Request;
-use App\Cars;
+use App\Models\Cars;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Input;
-use App\Vote;
-use App\Comment;
-use App\TinTuc;
-use App\TaiXe;
-use App\User;
+use App\Models\Vote;
+use App\Models\Comment;
+use App\Models\TinTuc;
+use App\Models\TaiXe;
+use App\Models\User;
 use Session;
-use App\Brand;
+use App\Models\Brand;
 
 class CarsController extends Controller
 {

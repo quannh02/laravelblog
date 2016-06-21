@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +12,6 @@ class Brand extends Model
     		'hang_name',
     ];
     public function xe(){
-    	return $this->hasMany('App\Cars');
+    	return $this->hasMany('App\Models\Cars');
     }
 }

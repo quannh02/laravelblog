@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\TaiXe;
+use App\Models\TaiXe;
 use Input;
-use App\MyFunction;
-use App\Cars;
+use App\Models\MyFunction;
+use App\Models\Cars;
 use App\Http\Requests\TaiXeRequest;
 
 class TaiXeController extends Controller

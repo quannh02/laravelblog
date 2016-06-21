@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\User;
-use App\TinTuc;
+use App\Models\User;
+use App\Models\TinTuc;
 use Input;
 
 class TinTucController extends Controller
